@@ -13,6 +13,8 @@
         import org.osmf.events.TimeEvent;
         import services.Card;
         import services.TransitionCards;
+
+        import util.ParamsUrl;
         import util.RestService;
 
         private var bm:IBrowserManager;
@@ -21,16 +23,21 @@
         private var showCartBox:Boolean = false;
         private var JsonData:Object;
         private var transitionCards:TransitionCards;
+        private var params:ArrayCollection;
 
         private function init():void {
+            var id:String;
             RestService.SetConfigServer('http://45.55.249.97/api/v1/');
             var service:RestService = new RestService('videos');
-            service.Get('55412794e8cb740300b20826', function (e:Event) {
+            ParamsUrl.ReadParamsFromUrl();
+            id=ParamsUrl.get('id');
+            service.Get(id, function (e:Event) {
                 var loader:URLLoader = URLLoader(e.target);
                 JsonData = JSON.parse(loader.data);
                 InitDataForVideo();
             });
         }
+
 
         private function InitDataForVideo():void {
             var cards:ArrayCollection;
