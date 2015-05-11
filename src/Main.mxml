@@ -3,117 +3,71 @@
 <s:Application name="Spark_VideoPlayer_skinClass_scrubBar_test"
                xmlns:fx="http://ns.adobe.com/mxml/2009"
                xmlns:s="library://ns.adobe.com/flex/spark" creationComplete="init()"
-               xmlns:mx="library://ns.adobe.com/flex/mx">
+               xmlns:mx="library://ns.adobe.com/flex/mx"
+                xmlns:custom="components.*">
 
-    <fx:Style>
-        Button {
-        fillAlphas: 1.0;
-        fillColors: black;
-        }
-    </fx:Style>
     <fx:Script><![CDATA[
-        import  mx.controls.Alert;
-        import mx.managers.BrowserManager;
+        import models.CardComponent;
+        import mx.collections.ArrayCollection;
         import mx.managers.IBrowserManager;
-        import mx.utils.URLUtil;
         import org.osmf.events.TimeEvent;
+        import services.Card;
+        import services.TransitionCards;
+        import util.RestService;
 
         private var bm:IBrowserManager;
         [Bindable]
         private var param1:String;
-        var showCartBox:Boolean = false;
-        var showCard:Boolean=false;
-        var indexAction:int = 0;
-        var JsonData:Object;
-        var currentCard:Object;
-        private function init():void{
-            var loader:URLLoader = new URLLoader();
-            var request:URLRequest = new URLRequest();
-            trace('Init');
-            //request.url = "https://video-checkout-dev.herokuapp.com/api/v1/videos/55412794e8cb740300b20826";
-            request.url ="http://45.55.249.97/data";
-            loader.addEventListener(Event.COMPLETE, onLoaderComplete);
-            loader.load(request);
+        private var showCartBox:Boolean = false;
+        private var JsonData:Object;
+        private var transitionCards:TransitionCards;
 
-            //bm = BrowserManager.getInstance();
-            //bm.init("", "Welcome!");
-            //var o:Object = URLUtil.stringToObject(bm.fragment, "&");
-            //param1 = o.param1;
-            //Alert.show(param1.toString());
-            //videoPlayer.source = 'http://s3.amazonaws.com/total-apps-video-checkout/uploads/5085edd0-eea0-11e4-8058-0b51b5423d44.mp4';
+        private function init():void {
+            RestService.SetConfigServer('http://45.55.249.97/api/v1/');
+            var service:RestService = new RestService('videos');
+            service.Get('55412794e8cb740300b20826', function (e:Event) {
+                var loader:URLLoader = URLLoader(e.target);
+                JsonData = JSON.parse(loader.data);
+                InitDataForVideo();
+            });
         }
 
-        private function onLoaderComplete(e:Event):void{
-            var loader:URLLoader = URLLoader(e.target);
-            JsonData = JSON.parse(loader.data);
-            InitDataForVideo();
-        }
-
-        private function InitDataForVideo():void{
-            currentCard=getCurrentCard();
+        private function InitDataForVideo():void {
+            var cards:ArrayCollection;
             videoPlayer.source = JsonData.urls.originalUrl;
-        }
-        private function getCurrentCard():Object{
-            return JsonData.actions[indexAction];
-        }
-        private  function getNextCard():Object{
-            indexAction++;
-            return JsonData.actions[indexAction];
-        }
-
-        protected function currentTimeChangeHandler(event:TimeEvent):void
-        {
-            if(event.time>=currentCard.startTime && event.time<=currentCard.endTime){
-                if (!showCard){
-                    showCard=true;
-                    fadeCardShow.play();
-                    SetInfoCard();
-                }
-
-
-            }else{
-                if (showCard){
-                    showCard=false;
-                    fadeCardHide.play();
-                }
-
-                if(event.time>currentCard.endTime){
-                    currentCard=getNextCard();
-                }
-            }
+            cards=services.Card.ConvertToCards(JsonData.actions);
+            transitionCards = new TransitionCards(cards,new CardComponent(card));
 
         }
 
-        private function SetInfoCard(){
-            cardTitleLabel.text = currentCard.product.name;
-            cardImage.source = currentCard.product.image.url;
-            cardPriceLabel.text = '$'+currentCard.product.price;
-            cardButton.label = currentCard.name;
+        private function currentTimeChangeHandler(event:TimeEvent):void {
+            transitionCards.EvalCardsInTime(event.time);
+        }
+        private function vpCompleteHandler(event:TimeEvent):void {
+            transitionCards.ResetTransitions();
         }
 
-        private function MoveCartBox():void{
-            showCartBox = ! showCartBox;
-            if(showCartBox){
+
+
+        private function MoveCartBox():void {
+            showCartBox = !showCartBox;
+            if (showCartBox) {
                 moveCartBoxRight.play();
-            }else{
+            } else {
                 moveCartBoxLeft.play();
             }
         }
-
-
         ]]></fx:Script>
     <fx:Declarations>
         <s:Move id="moveCartBoxRight" target="{CartBox}" xBy="278" duration="500"/>
         <s:Move id="moveCartBoxLeft" target="{CartBox}" xBy="-278" duration="500"/>
-
-        <s:Fade id="fadeCardHide" alphaFrom="1.0"  alphaTo="0.0" duration="500" target="{card}"/>
-        <s:Fade id="fadeCardShow" alphaFrom="0.0"  alphaTo="1.0" duration="500" target="{card}"/>
     </fx:Declarations>
     <!--s:layout>
         <s:HorizontalLayout paddingLeft="10" paddingRight="10" paddingTop="10" paddingBottom="10"/>
     </s:layout-->
     <s:VideoPlayer id="videoPlayer"
                     currentTimeChange="currentTimeChangeHandler(event)"
+                   complete="vpCompleteHandler(event);"
                    skinClass="skins.CustomVideoSkin"
                    width="100%"
                    height="100%" />
@@ -141,20 +95,12 @@
 
     </mx:Box>
 
-    <mx:Box id="card"
-            bottom="50"
-            left="20"
-            width="170"
-            height="231"
-
-            textAlign="center"
-            visible="false">
-        <s:Image id="cardImage" width="120"  height="120" scaleMode="stretch">
-
-        </s:Image>
-        <s:Label  id="cardTitleLabel" text="" fontSize="18" color="white"></s:Label>
-        <s:Label  id="cardPriceLabel" text="" fontSize="18" color="white"></s:Label>
-        <s:Button id="cardButton" label="Add"></s:Button>
-    </mx:Box>
+    <custom:Card id="card"
+                 bottom="50"
+                 left="20"
+                 width="170"
+                 height="231"
+                 textAlign="center"
+                 visible="false"/>
 
 </s:Application>
