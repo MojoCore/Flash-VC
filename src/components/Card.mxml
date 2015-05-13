@@ -19,6 +19,8 @@
   <s:Button id="button"
             label="Add"
             color="red"
+            useHandCursor="true"
+            buttonMode="true"
             skinClass="skins.SkinSolidButton">
 
   </s:Button>

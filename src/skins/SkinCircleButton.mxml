@@ -19,19 +19,20 @@
   </s:states>
 
   <!-- background -->
-  <s:Rect left="0" right="0" top="0" bottom="0" height="50" width="50"  radiusX="25" radiusY="25">
+  <s:Rect left="0" right="0" top="0" bottom="0" height="50" width="50"  radiusX="28" radiusY="28">
     <s:stroke>
-      <s:SolidColorStroke color="0x000">
+      <s:SolidColorStroke color="0x000" color.over="0xFF0000" weight="2" weight.over="2">
       </s:SolidColorStroke>
     </s:stroke>
+
     <s:fill>
       <s:SolidColor color="0x000000" />
     </s:fill>
   </s:Rect>
   <s:BitmapImage source="@Embed('../assets/cart__default.png')"
-                 source.over="@Embed('../assets/cart__over.png')"
+                 source.over="@Embed('../assets/cart__default.png')"
                  source.down="@Embed('../assets/cart__default.png')"
-                 left="0" right="0" top="0" bottom="0" scaleMode="stretch" />
+                 left="4" right="4" top="4" bottom="4" scaleMode="stretch" />
   <s:Label id="labelDisplay"
            horizontalCenter="0" verticalCenter="1"
            left="10" right="10" top="2" bottom="2">

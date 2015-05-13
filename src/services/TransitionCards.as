@@ -31,6 +31,7 @@ public class TransitionCards {
     private var _cart:models.Cart;
     private var _cartBox:components.Cart;
     private var _numberItemsLabel:Button;
+    private var _count:int=0;
     public function TransitionCards(cards:ArrayCollection,cardCmp:CardComponent,cartBox:components.Cart,numberItems:Button) {
         _cards = cards;
         _cardComponent = cardCmp;
@@ -75,15 +76,44 @@ public class TransitionCards {
     }
 
     public function AddToCart(e:Event):void{
-        var cardItem:models.CartItem=new models.CartItem(this.currentCard,1);
-        _cart.Add(cardItem);
+        var index:int=this.FindCardInCart(this.currentCard);
+        var cartItem:models.CartItem;
+        if (index != -1) {
+            cartItem = models.CartItem(_cart.items.getItemAt(index));
+            cartItem.amount = cartItem.amount + 1;
+        } else {
+            cartItem = new models.CartItem(this.currentCard, 1);
+            _cart.Add(cartItem);
+            _cardComponent.component.button.label="In Cart";
+        }
         _cartBox.dataCart = _cart.items;
-        _numberItemsLabel.label = cart.items.length.toString();
+        (_cartBox.items.dataProvider as ArrayCollection).refresh();
+        _numberItemsLabel.label = getTotalAmount().toString();
         _numberItemsLabel.visible=true;
     }
 
+    private function getTotalAmount():int{
+        var amount:int=0;
+        var total:int = _cart.items.length;
+        for(var i:int=0;i<total;i++){
+            amount+=_cart.items.getItemAt(i).amount
+        }
+        return amount;
+    }
+
+    private function FindCardInCart(card:models.Card):int{
+        var total:int = _cart.items.length;
+        var index:int=-1;
+        for(var i:int=0;i<total;i++){
+            if(_cart.items.getItemAt(i).card.id==card.id){
+                index = i;
+            }
+        }
+        return index;
+    }
+
     public function EvalCardsInTime(time:int):void{
-        if(_currentCardIndex<_cards.length-1){
+        if(_currentCardIndex<=_cards.length-1){
             if (time >= _currentCard.startTime && time <= _currentCard.endTime) {
                 if (!_visibleCard) {
                     _visibleCard = true;

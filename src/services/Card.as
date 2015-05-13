@@ -16,6 +16,7 @@ public class Card {
         var list_cards:ArrayCollection = new ArrayCollection();
         for(var i:int=0;i<cardsJson.length;i++){
             var card:models.Card=new models.Card();
+            card.id = cardsJson[i]._id;
             card.title = cardsJson[i].product.name;
             card.image = cardsJson[i].product.image.url;
             card.price = '$' + cardsJson[i].product.price;

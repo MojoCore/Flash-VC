@@ -50,7 +50,7 @@
             <s:Label  id="titleLabel" text="{data.card.title}" fontSize="14"/>
         </mx:Box>
         <mx:Box direction="horizontal" width="100%" paddingLeft="60">
-            <s:NumericStepper id="amount" width="55" value="{data.amount}" snapInterval="1"/>
+            <s:NumericStepper id="amount" width="55" value="{data.amount}" stepSize="1" maximum="1000"/>
             <s:Label color="{color1}" text="@ " fontSize="14"></s:Label>
             <s:Label color="{color1}" text="{data.card.price}" fontSize="14"></s:Label>
         </mx:Box>

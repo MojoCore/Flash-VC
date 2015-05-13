@@ -2,134 +2,36 @@
 
 <s:Application name="Spark_VideoPlayer_skinClass_scrubBar_test"
                xmlns:fx="http://ns.adobe.com/mxml/2009"
-               xmlns:s="library://ns.adobe.com/flex/spark" creationComplete="init()"
-               xmlns:mx="library://ns.adobe.com/flex/mx"
+               xmlns:s="library://ns.adobe.com/flex/spark" creationComplete="InitApp()"
                xmlns:custom="components.*">
 
     <fx:Script><![CDATA[
-        import models.CardComponent;
-        import mx.collections.ArrayCollection;
-        import mx.controls.Alert;
-        import mx.states.Transition;
-
-        import org.osmf.events.TimeEvent;
-        import services.Card;
-        import services.TransitionCards;
-        import util.ParamsUrl;
-        import util.RestService;
-
-        private var showCartBox:Boolean = false;
-        private var JsonData:Object;
-        private var transitionCards:TransitionCards;
-        private var params:ArrayCollection;
-
-        private function init():void {
-            //initCart()
-            //Alert.show(Number("1.2%").toString());
-            var id:String;
-            RestService.SetConfigServer('http://45.55.249.97/api/v1/');
-            var service:RestService = new RestService('videos');
-            ParamsUrl.ReadParamsFromUrl();
-
-            id=ParamsUrl.get('id');
-            service.Get(id, function (e:Event) {
-                var loader:URLLoader = URLLoader(e.target);
-                JsonData = JSON.parse(loader.data);
-                InitDataForVideo();
-            });
+        private var app=new App();
+        private function InitApp():void{
+            app.InitializeComponents(videoPlayer,cartButton,countButton,card,CartBox);
+            app.Init();
         }
 
+    ]]></fx:Script>
 
-        private function InitDataForVideo():void {
-            var cards:ArrayCollection;
-            videoPlayer.source = JsonData.urls.originalUrl;
-            cards=services.Card.ConvertToCards(JsonData.actions);
-            transitionCards = new TransitionCards(cards,new CardComponent(card),CartBox,numberItemsLabel);
-
-        }
-
-        private function currentTimeChangeHandler(event:TimeEvent):void {
-            transitionCards.EvalCardsInTime(event.time);
-        }
-        private function vpCompleteHandler(event:TimeEvent):void {
-            transitionCards.ResetTransitions();
-        }
-
-
-
-        private function MoveCartBox():void {
-            showCartBox = !showCartBox;
-            if (showCartBox) {
-                moveCartBoxRight.play();
-            } else {
-                moveCartBoxLeft.play();
-            }
-        }
-        [Bindable]
-        private var dataCart:ArrayCollection=new ArrayCollection();
-        private function initCart():void {
-            var card1:models.Card = new models.Card();
-            card1.title = "Test 1";
-            var card2:models.Card = new models.Card();
-            card2.title = "Test 2";
-            var cartItem1:models.CartItem = new models.CartItem(card1,3);
-            var cartItem2:models.CartItem = new models.CartItem(card2,2);
-            dataCart.addItem(cartItem1);
-            dataCart.addItem(cartItem2);
-            CartBox.dataCart=dataCart;
-
-
-        }
-
-        private function AddToCart():void{
-
-        }
-        ]]></fx:Script>
-    <fx:Declarations>
-        <s:Move id="moveCartBoxRight" target="{CartBox}" xBy="278" duration="500"/>
-        <s:Move id="moveCartBoxLeft" target="{CartBox}" xBy="-278" duration="500"/>
-
-        <mx:ArrayCollection id="mydata">
-            <fx:String>Flash</fx:String>
-            <fx:String>Director</fx:String>
-            <fx:String>Dreamweaver</fx:String>
-            <fx:String>ColdFusion</fx:String>
-        </mx:ArrayCollection>
-
-    </fx:Declarations>
-    <!--s:layout>
-        <s:HorizontalLayout paddingLeft="10" paddingRight="10" paddingTop="10" paddingBottom="10"/>
-    </s:layout-->
     <s:VideoPlayer id="videoPlayer"
-                    currentTimeChange="currentTimeChangeHandler(event)"
-                   complete="vpCompleteHandler(event);"
                    skinClass="skins.SkinVideo"
                    width="100%"
                    height="100%" />
-    <s:Button
-            id="funButton" label=""
-            top="20"
-            right="20"
-            skinClass="skins.SkinCircleButton"
-            click="MoveCartBox()"
-            />
-    <s:Button id="numberItemsLabel"
+    <s:Button id="cartButton"
+              top="20"
+              right="20"
+              skinClass="skins.SkinCircleButton"
+              useHandCursor="true"
+              buttonMode="true"  />
+
+    <s:Button id="countButton"
               skinClass="skins.SkinCircleButtonText"
               top="10"
               right="11"
               color="white"
               visible="false"/>
-    <!--<mx:Box id="CartBox"
-            direction="vertical" top="0"  width="278" height="100%"
-            borderStyle="solid"
-            backgroundColor="0xFFFFFF"
-            paddingTop="0"
-            paddingBottom="0"
-            paddingLeft="0"
-            paddingRight="0"
-            x="-278">
 
-    </mx:Box>-->
     <custom:Card id="card"
                  bottom="50"
                  left="20"
@@ -142,6 +44,7 @@
                  direction="vertical" top="0"  width="278" height="100%"
                  borderStyle="solid"
                  backgroundColor="0xFFFFFF"
+                 backgroundAlpha=".9"
                  paddingTop="0"
                  paddingBottom="0"
                  paddingLeft="0"

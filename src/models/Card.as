@@ -6,6 +6,7 @@ package models {
 public class Card{
     private var _y:int;
     private var _x:int;
+    private var _id:String;
     private var _title:String='';
     private var _image:String='';
     private var _price:String='';
@@ -74,6 +75,14 @@ public class Card{
 
     public function set buttonColor(value:String):void {
         _buttonColor = value;
+    }
+
+    public function get id():String {
+        return _id;
+    }
+
+    public function set id(value:String):void {
+        _id = value;
     }
 }
 }
