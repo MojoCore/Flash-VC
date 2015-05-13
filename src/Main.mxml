@@ -41,7 +41,10 @@
                  visible="false"/>
 
     <custom:Cart id="CartBox"
-                 direction="vertical" top="0"  width="278" height="100%"
+                 direction="vertical"
+                 top="0"
+                 width="278"
+                 height="100%"
                  borderStyle="solid"
                  backgroundColor="0xFFFFFF"
                  backgroundAlpha=".9"
