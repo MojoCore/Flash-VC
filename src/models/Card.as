@@ -10,6 +10,7 @@ public class Card{
     private var _image:String='';
     private var _price:String='';
     private var _buttonText:String='Add to Card';
+    private var _buttonColor:String="";
     private var _startTime:int;
     private var _endTime:int;
 
@@ -65,6 +66,14 @@ public class Card{
 
     public function set startTime(value:int):void {
         _startTime = value;
+    }
+
+    public function get buttonColor():String {
+        return _buttonColor;
+    }
+
+    public function set buttonColor(value:String):void {
+        _buttonColor = value;
     }
 }
 }

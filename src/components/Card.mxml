@@ -3,11 +3,26 @@
   Created by nodejs01 on 5/11/15.
 -->
 <mx:Box xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:mx="library://ns.adobe.com/flex/mx"
-        xmlns:s="library://ns.adobe.com/flex/mx">
+        xmlns:s="library://ns.adobe.com/flex/spark" creationComplete="init()">
+    <fx:Script><![CDATA[
+        private function init():void{
+            button.setStyle('padding',10);
+        }
+
+
+        ]]></fx:Script>
   <s:Image id="image" width="120"  height="120" >
 
   </s:Image>
   <s:Label  id="titleLabel" text="" fontSize="18" color="white"></s:Label>
   <s:Label  id="pricelLabel" text="" fontSize="18" color="white"></s:Label>
-  <s:Button id="button" label="Add"></s:Button>
+  <s:Button id="button"
+            label="Add"
+            color="red"
+            skinClass="skins.SkinSolidButton">
+
+  </s:Button>
+  <fx:Script><![CDATA[
+    import mx.controls.Alert;
+    ]]></fx:Script>
 </mx:Box>

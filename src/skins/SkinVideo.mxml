@@ -21,7 +21,9 @@
  @productversion Flex 4
 -->
 
-<s:SparkSkin xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark"
+<s:SparkSkin xmlns:mx="library://ns.adobe.com/flex/mx"
+             xmlns:custom="components.*"
+             xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark"
              xmlns:fb="http://ns.adobe.com/flashbuilder/2009" alpha.disabledStates="0.5"
              chromeColor.fullScreenStates="0xCCCCCC">
   <!-- A chrome color of 0xCCCCCC in the fullScreenStates means we ignore the chromeColor property
@@ -41,7 +43,7 @@
     /*static private const exclusions:Array = ["videoDisplay", "playPauseButton", "scrubBar",
       "currentTimeDisplay", "timeDivider", "durationDisplay",
       "volumeBar", "fullScreenButton"];*/
-    static private const  exclusions:Array  = [];
+    static private const  exclusions:Array  = ["fullScreenButton"];
 
     /**
      * @private
@@ -68,6 +70,31 @@
       dropShadow.visible = getStyle("dropShadowVisible");
 
       super.updateDisplayList(unscaledWidth, unscaledHeight);
+    }
+
+    protected function fullScreenButton_clickHandler( event:MouseEvent ):void
+    {
+        if( stage.displayState == StageDisplayState.NORMAL )
+        {
+            try
+            {
+                stage.displayState = StageDisplayState.FULL_SCREEN;
+
+                //fullScreenButton.selected = true;
+            }
+            catch( e:SecurityError )
+            {
+                //fullScreenButton.enabled = false;
+
+                trace( "Fullscreen not allowed" );
+            }
+        }
+        else
+        {
+            stage.displayState = StageDisplayState.NORMAL;
+
+            //fullScreenButton.selected = false;
+        }
     }
     ]]>
 
@@ -221,10 +248,10 @@
                        focusIn="event.target.depth=1" focusOut="event.target.depth=0" />
 
           <!--- @copy spark.components.VideoPlayer#fullScreenButton -->
-                            <s:Button id="fullScreenButton" right="0" bottom="0" label="" width="35"
+                            <s:Button id="fullScreenButton2" right="0" bottom="0" label="" width="35"
                                       skinClass="spark.skins.spark.mediaClasses.fullScreen.FullScreenButtonSkin"
                                       skinClass.fullScreenStates="spark.skins.spark.mediaClasses.fullScreen.FullScreenButtonSkin"
-                                      focusIn="event.target.depth=1" focusOut="event.target.depth=0" />
+                                      focusIn="event.target.depth=1" focusOut="event.target.depth=0" click="fullScreenButton_clickHandler(event)" />
 
 
         </s:Group>
@@ -244,4 +271,5 @@
 
     </s:Group>
   </s:Group>
+
 </s:SparkSkin>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- http://blog.flexexamples.com/2010/04/15/creating-an-item-renderer-with-a-corner-radius-on-a-spark-list-control-in-flex-4/ -->
+<s:ItemRenderer name="CustomCornerRadiusItemRenderer"
+                xmlns:fx="http://ns.adobe.com/mxml/2009"
+                xmlns:s="library://ns.adobe.com/flex/spark"
+                xmlns:mx="library://ns.adobe.com/flex/mx"
+                autoDrawBackground="false" width="100%" creationComplete="init()">
+  <!-- states -->
+  <s:states>
+    <s:State name="normal" />
+    <s:State name="hovered" />
+    <s:State name="selected" />
+  </s:states>
+
+  <fx:Script>
+        <![CDATA[
+
+      private var color1:uint=0x6ABDC0;
+      private function init():void{
+          button.setStyle('padding',5);
+      }
+
+    ]]>
+    </fx:Script>
+
+  <s:Rect id="bgFill"
+          radiusX="0"
+          includeIn="hovered,selected"
+          left="0" right="0" top="0" bottom="0" width="100%">
+    <s:fill>
+      <s:SolidColor color="haloSilver"
+                    color.selected="haloBlue"
+                    alpha="0.6" />
+    </s:fill>
+  </s:Rect>
+
+    <s:Button id="button"
+              label="x"
+              width="20"
+              height="20"
+              color="{color1}"
+              skinClass="skins.SkinSolidButton"
+              click="Alert.show('Hello world!')"
+              top="0"
+              right="0"
+            />
+    <mx:Box direction="vertical" width="100%" paddingTop="20">
+        <mx:Box direction="horizontal" width="100%">
+            <s:Image id="image" width="60"  height="60" source="{data.card.image}" />
+            <s:Label  id="titleLabel" text="{data.card.title}" fontSize="14"/>
+        </mx:Box>
+        <mx:Box direction="horizontal" width="100%" paddingLeft="60">
+            <s:NumericStepper id="amount" width="55" value="{data.amount}" snapInterval="1"/>
+            <s:Label color="{color1}" text="@ " fontSize="14"></s:Label>
+            <s:Label color="{color1}" text="{data.card.price}" fontSize="14"></s:Label>
+        </mx:Box>
+    </mx:Box>
+    <fx:Script><![CDATA[
+      import mx.controls.Alert;
+      ]]></fx:Script>
+
+
+
+</s:ItemRenderer>

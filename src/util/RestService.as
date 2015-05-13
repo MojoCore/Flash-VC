@@ -5,6 +5,9 @@ package util {
 import flash.events.Event;
 import flash.net.URLLoader;
 import flash.net.URLRequest;
+import flash.net.URLRequestHeader;
+import flash.net.URLRequestMethod;
+import flash.net.URLVariables;
 
 public class RestService {
     private static var Server:String='';
@@ -20,11 +23,50 @@ public class RestService {
         this.urlService=url;
     }
 
-    public function Get(id:String,fn:Function):void{
+    public function Get(id:String,response:Function):void{
         var loader:URLLoader = new URLLoader();
         var request:URLRequest = new URLRequest();
         request.url = RestService.GetConfigServer()+this.urlService+'/'+id;
-        loader.addEventListener(Event.COMPLETE, fn);
+        loader.addEventListener(Event.COMPLETE, response);
+        loader.load(request);
+    }
+    public function All(params:URLVariables,response:Function):void{
+        var loader:URLLoader = new URLLoader();
+        var request:URLRequest = new URLRequest();
+        request.method = URLRequestMethod.GET;
+        request.data = params;
+        request.url = RestService.GetConfigServer()+this.urlService;
+
+        loader.addEventListener(Event.COMPLETE, response);
+        loader.load(request);
+    }
+    public function Post(params:URLVariables,response:Function):void{
+        var loader:URLLoader = new URLLoader();
+        var request:URLRequest = new URLRequest();
+        request.method = URLRequestMethod.POST;
+        request.data = params;
+        request.url = RestService.GetConfigServer()+this.urlService;
+
+        loader.addEventListener(Event.COMPLETE, response);
+        loader.load(request);
+    }
+    public function Put(params:URLVariables,response:Function):void{
+        var loader:URLLoader = new URLLoader();
+        var request:URLRequest = new URLRequest();
+        request.method = URLRequestMethod.PUT;
+        request.data = params;
+        request.url = RestService.GetConfigServer()+this.urlService;
+        request.requestHeaders = [new URLRequestHeader("X-HTTP-Method-Override","PUT")];
+        loader.addEventListener(Event.COMPLETE, response);
+        loader.load(request);
+    }
+    public function Delete(id:String,response:Function):void{
+        var loader:URLLoader = new URLLoader();
+        var request:URLRequest = new URLRequest();
+        request.method = URLRequestMethod.DELETE;
+        request.url = RestService.GetConfigServer()+this.urlService+'/'+id;
+        request.requestHeaders = [new URLRequestHeader("X-HTTP-Method-Override","DELETE")];
+        loader.addEventListener(Event.COMPLETE, response);
         loader.load(request);
     }
 }

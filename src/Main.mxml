@@ -4,32 +4,33 @@
                xmlns:fx="http://ns.adobe.com/mxml/2009"
                xmlns:s="library://ns.adobe.com/flex/spark" creationComplete="init()"
                xmlns:mx="library://ns.adobe.com/flex/mx"
-                xmlns:custom="components.*">
+               xmlns:custom="components.*">
 
     <fx:Script><![CDATA[
         import models.CardComponent;
         import mx.collections.ArrayCollection;
-        import mx.managers.IBrowserManager;
+        import mx.controls.Alert;
+        import mx.states.Transition;
+
         import org.osmf.events.TimeEvent;
         import services.Card;
         import services.TransitionCards;
-
         import util.ParamsUrl;
         import util.RestService;
 
-        private var bm:IBrowserManager;
-        [Bindable]
-        private var param1:String;
         private var showCartBox:Boolean = false;
         private var JsonData:Object;
         private var transitionCards:TransitionCards;
         private var params:ArrayCollection;
 
         private function init():void {
+            //initCart()
+            //Alert.show(Number("1.2%").toString());
             var id:String;
             RestService.SetConfigServer('http://45.55.249.97/api/v1/');
             var service:RestService = new RestService('videos');
             ParamsUrl.ReadParamsFromUrl();
+
             id=ParamsUrl.get('id');
             service.Get(id, function (e:Event) {
                 var loader:URLLoader = URLLoader(e.target);
@@ -43,7 +44,7 @@
             var cards:ArrayCollection;
             videoPlayer.source = JsonData.urls.originalUrl;
             cards=services.Card.ConvertToCards(JsonData.actions);
-            transitionCards = new TransitionCards(cards,new CardComponent(card));
+            transitionCards = new TransitionCards(cards,new CardComponent(card),CartBox,numberItemsLabel);
 
         }
 
@@ -64,10 +65,37 @@
                 moveCartBoxLeft.play();
             }
         }
+        [Bindable]
+        private var dataCart:ArrayCollection=new ArrayCollection();
+        private function initCart():void {
+            var card1:models.Card = new models.Card();
+            card1.title = "Test 1";
+            var card2:models.Card = new models.Card();
+            card2.title = "Test 2";
+            var cartItem1:models.CartItem = new models.CartItem(card1,3);
+            var cartItem2:models.CartItem = new models.CartItem(card2,2);
+            dataCart.addItem(cartItem1);
+            dataCart.addItem(cartItem2);
+            CartBox.dataCart=dataCart;
+
+
+        }
+
+        private function AddToCart():void{
+
+        }
         ]]></fx:Script>
     <fx:Declarations>
         <s:Move id="moveCartBoxRight" target="{CartBox}" xBy="278" duration="500"/>
         <s:Move id="moveCartBoxLeft" target="{CartBox}" xBy="-278" duration="500"/>
+
+        <mx:ArrayCollection id="mydata">
+            <fx:String>Flash</fx:String>
+            <fx:String>Director</fx:String>
+            <fx:String>Dreamweaver</fx:String>
+            <fx:String>ColdFusion</fx:String>
+        </mx:ArrayCollection>
+
     </fx:Declarations>
     <!--s:layout>
         <s:HorizontalLayout paddingLeft="10" paddingRight="10" paddingTop="10" paddingBottom="10"/>
@@ -75,22 +103,23 @@
     <s:VideoPlayer id="videoPlayer"
                     currentTimeChange="currentTimeChangeHandler(event)"
                    complete="vpCompleteHandler(event);"
-                   skinClass="skins.CustomVideoSkin"
+                   skinClass="skins.SkinVideo"
                    width="100%"
                    height="100%" />
     <s:Button
-            icon="@Embed('assets/cart.png')"
-            cornerRadius="{funButton.height/2}"
             id="funButton" label=""
-            top="10"
-            right="10"
-            width="50"
-            height="50"
-            skinClass="skins.SkinButton"
+            top="20"
+            right="20"
+            skinClass="skins.SkinCircleButton"
             click="MoveCartBox()"
             />
-
-    <mx:Box id="CartBox"
+    <s:Button id="numberItemsLabel"
+              skinClass="skins.SkinCircleButtonText"
+              top="10"
+              right="11"
+              color="white"
+              visible="false"/>
+    <!--<mx:Box id="CartBox"
             direction="vertical" top="0"  width="278" height="100%"
             borderStyle="solid"
             backgroundColor="0xFFFFFF"
@@ -100,14 +129,27 @@
             paddingRight="0"
             x="-278">
 
-    </mx:Box>
-
+    </mx:Box>-->
     <custom:Card id="card"
                  bottom="50"
                  left="20"
-                 width="170"
+                 width="200"
                  height="231"
                  textAlign="center"
                  visible="false"/>
+
+    <custom:Cart id="CartBox"
+                 direction="vertical" top="0"  width="278" height="100%"
+                 borderStyle="solid"
+                 backgroundColor="0xFFFFFF"
+                 paddingTop="0"
+                 paddingBottom="0"
+                 paddingLeft="0"
+                 paddingRight="0"
+                 x="-278">
+
+    </custom:Cart>
+
+
 
 </s:Application>

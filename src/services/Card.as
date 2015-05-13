@@ -6,6 +6,7 @@ import models.Card;
 import models.Card;
 
 import mx.collections.ArrayCollection;
+import mx.controls.Alert;
 
 public class Card {
     private var _cards:ArrayCollection;
@@ -21,9 +22,15 @@ public class Card {
             card.buttonText = cardsJson[i].name;
             card.startTime = cardsJson[i].startTime;
             card.endTime = cardsJson[i].endTime;
+            card.buttonColor = Card.ConvertColor(cardsJson[i].buttonBgColor);
             list_cards.addItem(card);
         }
         return list_cards;
+    }
+
+    public static function ConvertColor(c:String):String{
+        var color:String = "0x" + c.substr(1);
+        return color;
     }
 }
 }
