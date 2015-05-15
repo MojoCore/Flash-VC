@@ -14,10 +14,18 @@
 
   <fx:Script>
         <![CDATA[
-
+      import spark.components.List;
       private var color1:uint=0x6ABDC0;
       private function init():void{
           button.setStyle('padding',5);
+      }
+
+
+      public function deleteItem():void
+      {
+          var parentList:List = owner as List;
+          parentList.dataProvider.removeItemAt(parentList.dataProvider.getItemIndex(data))
+
       }
 
     ]]>
@@ -26,23 +34,29 @@
   <s:Rect id="bgFill"
           radiusX="0"
           includeIn="hovered,selected"
-          left="0" right="0" top="0" bottom="0" width="100%">
+          left="0" right="0" top="0" bottom="0" width="100%" >
     <s:fill>
-      <s:SolidColor color="haloSilver"
-                    color.selected="haloBlue"
-                    alpha="0.6" />
+      <s:SolidColor color="0xffffff"
+                    alpha="0" />
     </s:fill>
+
   </s:Rect>
 
+
     <s:Button id="button"
-              label="x"
+              label="&#xea0f;"
               width="20"
               height="20"
-              color="{color1}"
+              color="0x6ABDC0"
+              fontSize="10"
               skinClass="skins.SkinSolidButton"
-              click="Alert.show('Hello world!')"
+              fontFamily="CustomIcons"
+              click="deleteItem()"
               top="0"
-              right="0"
+              right="10"
+              useHandCursor="true"
+              buttonMode="true"
+
             />
     <mx:Box direction="vertical" width="100%" paddingTop="20">
         <mx:Box direction="horizontal" width="100%">
@@ -51,10 +65,12 @@
         </mx:Box>
         <mx:Box direction="horizontal" width="100%" paddingLeft="60">
             <s:NumericStepper id="amount" width="55" value="{data.amount}" stepSize="1" maximum="1000"/>
-            <s:Label color="{color1}" text="@ " fontSize="14"></s:Label>
-            <s:Label color="{color1}" text="{data.card.price}" fontSize="14"></s:Label>
+            <s:Label color="{color1}" text="@ " fontSize="18" paddingTop="5"></s:Label>
+            <s:Label color="{color1}" text="{data.card.price}" fontSize="18" paddingTop="5"></s:Label>
         </mx:Box>
+
     </mx:Box>
+
     <fx:Script><![CDATA[
       import mx.controls.Alert;
       ]]></fx:Script>

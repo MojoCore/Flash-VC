@@ -3,6 +3,7 @@
  */
 package util {
 import flash.events.Event;
+import flash.events.HTTPStatusEvent;
 import flash.net.URLLoader;
 import flash.net.URLRequest;
 import flash.net.URLRequestHeader;
@@ -46,7 +47,7 @@ public class RestService {
         request.method = URLRequestMethod.POST;
         request.data = params;
         request.url = RestService.GetConfigServer()+this.urlService;
-
+        loader.addEventListener(HTTPStatusEvent.HTTP_STATUS,httpStatusHandler );
         loader.addEventListener(Event.COMPLETE, response);
         loader.load(request);
     }
@@ -69,5 +70,10 @@ public class RestService {
         loader.addEventListener(Event.COMPLETE, response);
         loader.load(request);
     }
+
+    public function httpStatusHandler(event:HTTPStatusEvent):void{
+        trace("httpStatusHandler"+event);
+    }
+
 }
 }

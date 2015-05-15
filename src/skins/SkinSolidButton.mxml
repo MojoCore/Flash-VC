@@ -26,6 +26,16 @@
     }
 
     ]]></fx:Script>
+    <fx:Style>
+        @font-face {
+            src: url("../assets/icomoon.ttf");
+            fontFamily: 'CustomIcons';
+            embedAsCFF: true;
+            fontStyle: normal;
+
+        }
+
+    </fx:Style>
   <!-- Specify one state for each SkinState metadata in the host component's class -->
   <s:states>
     <s:State name="up"/>

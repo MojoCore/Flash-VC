@@ -2,6 +2,10 @@
  * Created by nodejs01 on 5/11/15.
  */
 package services {
+import components.Card;
+
+import flash.events.MouseEvent;
+
 import models.Card;
 import models.Card;
 
@@ -32,6 +36,15 @@ public class Card {
     public static function ConvertColor(c:String):String{
         var color:String = "0x" + c.substr(1);
         return color;
+    }
+
+    public static function RenderCard(component:components.Card ,card:models.Card):void{
+        component.titleLabel.text = card.title;
+        component.image.source = card.image;
+        component.pricelLabel.text = card.price;
+        component.button.label = card.buttonText;
+        component.button.setStyle('color',card.buttonColor);
+
     }
 }
 }

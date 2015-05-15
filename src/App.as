@@ -9,7 +9,7 @@ import flash.events.Event;
 import flash.events.MouseEvent;
 import flash.net.URLLoader;
 
-import models.CardComponent;
+import models.Card;
 
 import mx.collections.ArrayCollection;
 import org.osmf.events.TimeEvent;
@@ -33,35 +33,36 @@ public class App{
     private var _buttonCart:Button;
     private var _buttonCount:Button;
     private var _cartBox:Cart;
-    private var _card:Card;
+    private var _card:components.Card;
     private var _moveCartBoxRight:Move;
     private var _moveCartBoxLeft:Move;
 
     function App(){
         RestService.SetConfigServer( 'http://45.55.249.97/api/v1/');
     }
-    public function InitializeComponents(video:VideoPlayer,btnCart:Button,btnCount:Button,card:Card,cartBox:Cart):void{
+    public function InitializeComponents(video:VideoPlayer,btnCart:Button,btnCount:Button,card:components.Card,cartBox:Cart):void{
         _videoPlayer = video;
         _buttonCart = btnCart
         _buttonCount = btnCount;
         _card = card;
         _cartBox = cartBox;
     }
-    public  function Init(){
+    public  function Init():void{
         InitAnimationCart();
         AddEventsToComponents();
-        LoadVideoJson();
+        //LoadVideoJson();
+        LoadVideoLocal();
     }
 
     public function InitAnimationCart():void{
         _moveCartBoxRight=new Move();
         _moveCartBoxRight.target=_cartBox;
         _moveCartBoxRight.xBy=278;
-        _moveCartBoxRight.duration=500;
+        _moveCartBoxRight.duration=200;
         _moveCartBoxLeft=new Move();
         _moveCartBoxLeft.target=_cartBox;
         _moveCartBoxLeft.xBy=-278;
-        _moveCartBoxLeft.duration=500;
+        _moveCartBoxLeft.duration=200;
     }
 
     private function AddEventsToComponents():void{
@@ -70,23 +71,41 @@ public class App{
         _buttonCart.addEventListener(MouseEvent.CLICK,ButtonCartCartHandler)
     }
 
-
+    private function LoadVideoLocal():void{
+        var id:String;
+        var mycard:models.Card;
+        id="5515e136be130e0300c83d17";
+        var cards:ArrayCollection=new ArrayCollection();
+        for(var i:int=0;i<5;i++){
+            mycard=new models.Card();
+            mycard.id = i.toString();
+            mycard.title = "Producto "+i.toString();
+            mycard.image = "http://res.cloudinary.com/hpsqkcuar/image/upload/v1421710067/oge7mve8wvi8cg8rwnuu.png";
+            mycard.price = '$' + "100";
+            mycard.buttonText = "Add to cart";
+            mycard.startTime = 5*(i+1);
+            mycard.endTime = 10*(i+1);
+            mycard.buttonColor = '0xFF0000';
+            cards.addItem(mycard);
+        }
+        _videoPlayer.source = "http://s3.amazonaws.com/total-apps-video-checkout/uploads/5bd7b500-a018-11e4-8bb3-eb8f66e87af8.mp4";
+        transitionCards = new TransitionCards(cards,_card,_cartBox,_buttonCount);
+    }
     private function LoadVideoJson():void{
         var id:String;
         var service:RestService = new RestService('videos');
         ParamsUrl.ReadParamsFromUrl();
         id=ParamsUrl.get('id');
-        service.Get(id, function (e:Event) {
+        service.Get(id, function (e:Event):void {
             var loader:URLLoader = URLLoader(e.target);
             JsonData = JSON.parse(loader.data);
             InitDataForVideo();
         });
     }
     private function InitDataForVideo():void {
-        var cards:ArrayCollection;
-        videoPlayer.source = JsonData.urls.originalUrl;
-        cards=services.Card.ConvertToCards(JsonData.actions);
-        transitionCards = new TransitionCards(cards,new CardComponent(card),_cartBox,_buttonCount);
+        var cards:ArrayCollection= services.Card.ConvertToCards(JsonData.actions);
+        _videoPlayer.source = JsonData.urls.originalUrl;
+        transitionCards = new TransitionCards(cards,_card,_cartBox,_buttonCount);
 
     }
 
@@ -139,11 +158,11 @@ public class App{
         _buttonCount = value;
     }
 
-    public function get card():Card {
+    public function get card():components.Card {
         return _card;
     }
 
-    public function set card(value:Card):void {
+    public function set card(value:components.Card):void {
         _card = value;
     }
 }
