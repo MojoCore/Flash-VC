@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!--
+  Created by nodejs01 on 5/11/15.
+-->
+<mx:Box  xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:mx="library://ns.adobe.com/flex/mx"
+        xmlns:s="library://ns.adobe.com/flex/spark" creationComplete="init()"
+        width="100%" backgroundColor="0x000"
+         backgroundAlpha=".8"
+         paddingRight="10"
+         paddingBottom="10"
+        paddingLeft="10"
+        paddingTop="10">
+    <fx:Script><![CDATA[
+        private function init():void{
+            button.setStyle('padding',10);
+        }
+
+
+        ]]></fx:Script>
+    <s:Group width="100%">
+    <s:HGroup width="100%">
+  <s:Image id="image" width="32"  height="32" left="0">
+
+  </s:Image>
+    <mx:Box direction="vertical" left="40">
+        <s:Label  id="titleLabel" text="" fontSize="18" color="white"></s:Label>
+        <s:Label  id="pricelLabel" text="" fontSize="18" color="white"></s:Label>
+    </mx:Box>
+</s:HGroup>
+    <s:Button id="button"
+              label="Add"
+              color="red"
+              useHandCursor="true"
+              buttonMode="true"
+              skinClass="skins.SkinSolidButton"
+              textAlignLast="right"
+              right="0">
+    </s:Button>
+
+
+  <fx:Script><![CDATA[
+    import mx.controls.Alert;
+    ]]></fx:Script>
+    </s:Group>
+</mx:Box>

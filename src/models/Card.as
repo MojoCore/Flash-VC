@@ -9,7 +9,7 @@ public class Card{
     private var _id:String;
     private var _title:String='';
     private var _image:String='';
-    private var _price:String='';
+    private var _price:Number=0;
     private var _buttonText:String='Add to Card';
     private var _buttonColor:String="";
     private var _startTime:int;
@@ -29,11 +29,11 @@ public class Card{
 
     }
 
-    public function get price():String {
+    public function get price():Number {
         return _price;
     }
 
-    public function set price(value:String):void {
+    public function set price(value:Number):void {
         _price = value;
     }
 

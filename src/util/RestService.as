@@ -2,9 +2,12 @@
  * Created by nodejs01 on 5/11/15.
  */
 package util {
+import com.adobe.serialization.json.JSON;
+
 import flash.events.Event;
 import flash.events.HTTPStatusEvent;
 import flash.net.URLLoader;
+import flash.net.URLLoaderDataFormat;
 import flash.net.URLRequest;
 import flash.net.URLRequestHeader;
 import flash.net.URLRequestMethod;
@@ -41,12 +44,14 @@ public class RestService {
         loader.addEventListener(Event.COMPLETE, response);
         loader.load(request);
     }
-    public function Post(params:URLVariables,response:Function):void{
+    public function Post(params:Object,response:Function):void{
         var loader:URLLoader = new URLLoader();
         var request:URLRequest = new URLRequest();
         request.method = URLRequestMethod.POST;
-        request.data = params;
+        request.data = com.adobe.serialization.json.JSON.encode(params);
+        request.contentType='application/json';
         request.url = RestService.GetConfigServer()+this.urlService;
+
         loader.addEventListener(HTTPStatusEvent.HTTP_STATUS,httpStatusHandler );
         loader.addEventListener(Event.COMPLETE, response);
         loader.load(request);

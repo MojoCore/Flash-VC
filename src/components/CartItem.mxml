@@ -15,6 +15,7 @@
   <fx:Script>
         <![CDATA[
       import spark.components.List;
+      [Bindable]
       private var color1:uint=0x6ABDC0;
       private function init():void{
           button.setStyle('padding',5);

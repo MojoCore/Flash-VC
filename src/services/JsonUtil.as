@@ -2,19 +2,20 @@
  * Created by nodejs01 on 5/11/15.
  */
 package services {
-import components.Card;
+import components.CardDefault;
 
 import flash.events.MouseEvent;
 
 import models.Card;
 import models.Card;
+import models.Video;
 
 import mx.collections.ArrayCollection;
 import mx.controls.Alert;
 
-public class Card {
+public class JsonUtil {
     private var _cards:ArrayCollection;
-    public function Card() {
+    public function JsonUtil() {
     }
     public static function ConvertToCards(cardsJson:Object):ArrayCollection{
         var list_cards:ArrayCollection = new ArrayCollection();
@@ -23,11 +24,11 @@ public class Card {
             card.id = cardsJson[i]._id;
             card.title = cardsJson[i].product.name;
             card.image = cardsJson[i].product.image.url;
-            card.price = '$' + cardsJson[i].product.price;
+            card.price = cardsJson[i].product.price;
             card.buttonText = cardsJson[i].name;
             card.startTime = cardsJson[i].startTime;
             card.endTime = cardsJson[i].endTime;
-            card.buttonColor = Card.ConvertColor(cardsJson[i].buttonBgColor);
+            card.buttonColor = JsonUtil.ConvertColor(cardsJson[i].buttonBgColor);
             list_cards.addItem(card);
         }
         return list_cards;
@@ -38,12 +39,11 @@ public class Card {
         return color;
     }
 
-    public static function RenderCard(component:components.Card ,card:models.Card):void{
-        component.titleLabel.text = card.title;
-        component.image.source = card.image;
-        component.pricelLabel.text = card.price;
-        component.button.label = card.buttonText;
-        component.button.setStyle('color',card.buttonColor);
+    public static function ConvertToVideo(json:Object):Video{
+        var video:Video=new Video();
+        video.id = json._id;
+        video.user = json.user;
+        return video;
 
     }
 }

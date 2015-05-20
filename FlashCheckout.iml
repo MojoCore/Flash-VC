@@ -4,6 +4,11 @@
     <configurations>
       <configuration name="FlashCheckout" main-class="Main" output-file="Main.swf" output-folder="$MODULE_DIR$/out/production/FlashCheckout" use-html-wrapper="true" wrapper-template-path="$MODULE_DIR$/html-template">
         <dependencies target-player="11.1">
+          <entries>
+            <entry library-id="212defe4-1df5-48e7-a814-eb0326d049e1">
+              <dependency linkage="Merged" />
+            </entry>
+          </entries>
           <sdk name="flex_sdk_4.6" />
         </dependencies>
         <compiler-options />
@@ -20,7 +25,17 @@
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/test" isTestSource="true" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="flex_sdk_4.6" jdkType="Flex SDK Type (new)" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="212defe4-1df5-48e7-a814-eb0326d049e1" />
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/libs/as3corelib.swc!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>

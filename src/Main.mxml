@@ -6,13 +6,29 @@
                xmlns:custom="components.*">
 
     <fx:Script><![CDATA[
-        private var app:App=new App();
-        private function InitApp():void{
-            app.InitializeComponents(videoPlayer,cartButton,countButton,card,CartBox);
+        import mx.binding.utils.ChangeWatcher;
+        import mx.controls.Alert;
+        var widthWatch:ChangeWatcher;
+        private var app:App = new App();
+        private function InitApp():void {
+
+            app.InitializeComponents(this,systemManager.stage.stageWidth);
             app.Init();
+
+
+            widthWatch = ChangeWatcher.watch(this,'width',onSizeChange);
         }
 
-    ]]></fx:Script>
+        private function onSizeChange(event:Event):void {
+            //Alert.show(stage.stageWidth.toString());
+            if(stage.stageWidth<640){
+                app.ChangeResponsive();
+            }else{
+                app.ChangeDefault();
+            }
+        }
+
+        ]]></fx:Script>
 
     <s:VideoPlayer id="videoPlayer"
                    skinClass="skins.SkinVideo"
@@ -36,13 +52,21 @@
               color="white"
               visible="false"/>
 
-    <custom:Card id="card"
+    <custom:CardDefault id="card"
                  bottom="50"
                  left="20"
                  width="200"
                  height="231"
                  textAlign="center"
                  visible="false"/>
+
+    <custom:CardResponsive id="cardR"
+                        bottom="25"
+                        left="0"
+                        width="100%"
+                        height="65"
+                        textAlign="center"
+                        visible="false"/>
 
     <custom:Cart id="CartBox"
                  direction="vertical"
