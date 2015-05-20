@@ -29,6 +29,8 @@ public class JsonUtil {
             card.startTime = cardsJson[i].startTime;
             card.endTime = cardsJson[i].endTime;
             card.buttonColor = JsonUtil.ConvertColor(cardsJson[i].buttonBgColor);
+            card.product.id = cardsJson[i].product._id;
+            card.product.name = cardsJson[i].product.name;
             list_cards.addItem(card);
         }
         return list_cards;

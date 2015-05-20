@@ -6,7 +6,7 @@ public interface iEvent {
 
     function WatchEvent(...args):void;
     function VerifyEvent():Boolean;
-    function RegisterEvent():Boolean;
+    function RegisterEvent(...args):Boolean;
 
 }
 

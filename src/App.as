@@ -101,60 +101,19 @@ public class App extends Sprite{
         _videoPlayer.addEventListener(TimeEvent.COMPLETE, VideoCompleteHandler);
         _videoPlayer.addEventListener(TimeEvent.DURATION_CHANGE, VideoDurationChangeHandler);
         _buttonCart.addEventListener(MouseEvent.CLICK,ButtonCartCartHandler);
-        //_widthWatch = ChangeWatcher.watch(_app.parentApplication,'width',onSizeChange);
-        //_heightWatch = ChangeWatcher.watch(_app.parentApplication,'height',onSizeChange);
-        //Alert.show("ok")
 
     }
 
     private function VideoDurationChangeHandler(event:TimeEvent):void {
         _eventTime=new EventViewVideo(25,_videoPlayer.duration);
-        //Alert.show(_videoPlayer.duration.toString());
-    }
-    private function onSizeChange(event:Event):void {
-        /*if(!_resizeExecuting)
-            callLater(handleResize);
-        _resizeExecuting = true;*/
-        var text:String = ""
-        text = stage.stageWidth + " - " + stage.stageHeight;
-        Alert.show(text);
     }
 
-    private function handleResize():void {
-        //do expensive work here
-
-    }
-
-    private function stopWatching() {
-        //invoke this to stop watching the properties and prevent the handleResize method from executing
-        _widthWatch.unwatch();
-        _heightWatch.unwatch();
-    }
-
-
-    private function resizeHandler(event:Event):void {
-        var text:String = ""
-        text = stage.stageWidth + " - " + stage.stageHeight;
-        Alert.show(text);
-    }
 
     private function LoadVideoLocal():void{
         var id:String;
         var mycard:models.Card;
         id="5515e136be130e0300c83d17";
         var cards:ArrayCollection=new ArrayCollection();
-        /*for(var i:int=0;i<5;i++){
-            mycard=new models.Card();
-            mycard.id = i.toString();
-            mycard.title = "Producto "+i.toString();
-            mycard.image = "http://res.cloudinary.com/hpsqkcuar/image/upload/v1421710067/oge7mve8wvi8cg8rwnuu.png";
-            mycard.price = 100;
-            mycard.buttonText = "Add to cart";
-            mycard.startTime = 5*(i+1);
-            mycard.endTime = 10*(i+1);
-            mycard.buttonColor = '0xFF0000';
-            cards.addItem(mycard);
-        }*/
 
         mycard=new models.Card();
         mycard.id = "54bd946d0bbcf90300067cc6";
@@ -220,11 +179,6 @@ public class App extends Sprite{
         }
     }
 
-    public function StageRezizeHandler(e:Event):void{
-        //trace("The application window changed size!");
-        //Alert.show("New width:  " + stage.stageWidth);
-        //trace("New height: " + _stage.height);
-    }
 
     /* public attributes*/
     public function get videoPlayer():VideoPlayer {

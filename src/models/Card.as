@@ -14,9 +14,10 @@ public class Card{
     private var _buttonColor:String="";
     private var _startTime:int;
     private var _endTime:int;
+    private var _product:Product;
 
     public function Card(){
-
+        _product=new Product();
     }
 
     public function get title():String {
@@ -83,6 +84,14 @@ public class Card{
 
     public function set id(value:String):void {
         _id = value;
+    }
+
+    public function get product():Product {
+        return _product;
+    }
+
+    public function set product(value:Product):void {
+        _product = value;
     }
 }
 }

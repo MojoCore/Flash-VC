@@ -9,11 +9,6 @@ import flash.net.URLVariables;
 import iComponents.iEvent;
 
 import mx.controls.Alert;
-import mx.logging.LogLogger;
-
-import org.osmf.logging.Log;
-
-import org.osmf.logging.Logger;
 
 import util.RestService;
 
@@ -52,8 +47,7 @@ public class EventViewVideo implements iEvent{
         return false;
     }
 
-    public function RegisterEvent():Boolean {
-
+    public function RegisterEvent(...args):Boolean {
         _isRegisterEvent=true;
         var service:RestService=new RestService('analyticsevents');
         var jsonEncodeParams:String='';

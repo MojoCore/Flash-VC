@@ -22,9 +22,6 @@ public class CardResponsive implements iCard{
         InitFade();
     }
 
-    public function CardDefault(cardCmp:components.CardDefault) {
-
-    }
     private function InitFade():void{
         _fadeShow = new Fade();
         _fadeHide = new Fade();
