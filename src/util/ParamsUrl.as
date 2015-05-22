@@ -14,13 +14,22 @@ public class ParamsUrl {
 
     public static function ReadParamsFromUrl():void {
         _params = new ArrayCollection();
+        var obj:Object;
         var pageURL:String = ExternalInterface.call("window.location.href.toString");
-        var paramPairs:Array = pageURL.split("?")[1].split("&");
-        for each (var pair:String in paramPairs) {
-            var param:Array = pair.split("=");
-            var obj:Object = new Object();
-            obj.key = param[0];
-            obj.value = param[1];
+        var params:Array = pageURL.split("?");
+        if(params.length>1){
+            var paramPairs:Array = pageURL.split("?")[1].split("&");
+            for each (var pair:String in paramPairs) {
+                var param:Array = pair.split("=");
+                obj = new Object();
+                obj.key = param[0];
+                obj.value = param[1];
+                _params.addItem(obj);
+            }
+        }else{
+            obj = new Object();
+            obj.key = 'id';
+            obj.value = 0;
             _params.addItem(obj);
         }
 

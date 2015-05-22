@@ -14,22 +14,29 @@
 
   <fx:Script>
         <![CDATA[
+      import Interfaces.iEvent;
+
+      import models.Video;
+
       import spark.components.List;
+
       [Bindable]
-      private var color1:uint=0x6ABDC0;
-      private function init():void{
-          button.setStyle('padding',5);
+      private var color1:uint = 0x6ABDC0;
+      private var _eventRemoveFromCart:iEvent;
+      public var video:models.Video;
+
+      private function init():void {
+          button.setStyle('padding', 5);
+          //_eventRemoveFromCart =
       }
 
 
-      public function deleteItem():void
-      {
+      public function deleteItem():void {
           var parentList:List = owner as List;
           parentList.dataProvider.removeItemAt(parentList.dataProvider.getItemIndex(data))
 
       }
-
-    ]]>
+      ]]>
     </fx:Script>
 
   <s:Rect id="bgFill"

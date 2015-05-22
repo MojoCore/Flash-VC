@@ -3,20 +3,31 @@
 <s:Application name="Spark_VideoPlayer_skinClass_scrubBar_test"
                xmlns:fx="http://ns.adobe.com/mxml/2009"
                xmlns:s="library://ns.adobe.com/flex/spark" creationComplete="InitApp()"
-               xmlns:custom="components.*">
+               xmlns:custom="components.*" xmlns:mx="library://ns.adobe.com/flex/mx">
 
     <fx:Script><![CDATA[
         import mx.binding.utils.ChangeWatcher;
-        import mx.controls.Alert;
-        var widthWatch:ChangeWatcher;
-        private var app:App = new App();
-        private function InitApp():void {
 
+        import org.osmf.events.MediaPlayerStateChangeEvent;
+
+        import util.swfSelfResize;
+
+        private var widthWatch:ChangeWatcher;
+        private var app:App = new App();
+        private var resize:swfSelfResize;
+        private function InitApp():void {
             app.InitializeComponents(this,systemManager.stage.stageWidth);
             app.Init();
-
-
             widthWatch = ChangeWatcher.watch(this,'width',onSizeChange);
+
+        }
+
+        private function expand():void{
+            trace("expand...");
+            //myBox.visible=false;
+            resize=new swfSelfResize();
+            resize.addHeight( -150 );
+
         }
 
         private function onSizeChange(event:Event):void {
@@ -28,29 +39,17 @@
             }
         }
 
+
+
         ]]></fx:Script>
+
+
 
     <s:VideoPlayer id="videoPlayer"
                    skinClass="skins.SkinVideo"
                    width="100%"
                    height="100%" />
-    <s:Button id="cartButton"
-              label="&#xe600;"
-              fontSize="30"
-              color="white"
-              top="20"
-              right="20"
 
-              skinClass="skins.SkinCircleButton"
-              useHandCursor="true"
-              buttonMode="true"  />
-
-    <s:Button id="countButton"
-              skinClass="skins.SkinCircleButtonText"
-              top="10"
-              right="11"
-              color="white"
-              visible="false"/>
 
     <custom:CardDefault id="card"
                  bottom="50"
@@ -67,22 +66,58 @@
                         height="65"
                         textAlign="center"
                         visible="false"/>
+        <mx:HDividedBox width="100%" height="100%" top="0" bottom="25" left="0" horizontalGap="0" verticalScrollPolicy="off" horizontalScrollPolicy="off">
+        <custom:Cart id="CartBox"
+                     horizontalScrollPolicy="off"
+                     direction="vertical"
 
-    <custom:Cart id="CartBox"
-                 direction="vertical"
-                 top="0"
-                 width="278"
-                 height="100%"
-                 borderStyle="solid"
-                 backgroundColor="0xFFFFFF"
-                 backgroundAlpha=".9"
-                 paddingTop="0"
-                 paddingBottom="0"
-                 paddingLeft="0"
-                 paddingRight="0"
-                 x="-278">
+                     width="0"
+                     height="100%"
+                     borderStyle="solid"
+                     backgroundColor="0xFFFFFF"
+                     backgroundAlpha=".9"
+                     paddingTop="0"
+                     paddingBottom="0"
+                     paddingLeft="0"
+                     paddingRight="0"
+                     x="0"></custom:Cart>
+        <mx:Box id="panelCard" visible="false"
+                width="100%"
+                height="100%"
+                paddingTop="0"
 
-    </custom:Cart>
+                backgroundColor="0xE4E4E4"
+                backgroundAlpha=".9">
+                <s:Group width="100%" height="100%">
+                    <mx:Box height="254" width="100%" direction="horizontal" paddingRight="50" paddingTop="15">
+                        <s:Label width="100%" fontSize="38" text="In Case You Missed It"></s:Label>
+                        <s:Image source="@Embed('assets/items_your_cart.png')"></s:Image>
+                    </mx:Box>
+
+
+                </s:Group>
+            </mx:Box>
+
+    </mx:HDividedBox>
+
+
+    <s:Button id="cartButton"
+              label="&#xe600;"
+              fontSize="30"
+              color="white"
+              top="20"
+              right="20"
+
+              skinClass="skins.SkinCircleButton"
+              useHandCursor="true"
+              buttonMode="true"  />
+    <s:Button id="countButton"
+              skinClass="skins.SkinCircleButtonText"
+              top="10"
+              right="11"
+              color="white"
+              visible="false" />
+
 
 
 

@@ -4,7 +4,7 @@
 package Implements {
 import components.CardResponsive;
 
-import iComponents.iCard;
+import Interfaces.iCard;
 
 import models.Card;
 
@@ -66,6 +66,7 @@ public class CardResponsive implements iCard{
 
     public function SetVisible(value:Boolean):void {
         _isVisible = value;
+        _cardComponent.button.enabled = _isVisible;
     }
 
 

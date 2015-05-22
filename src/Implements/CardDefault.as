@@ -4,7 +4,7 @@
 package Implements {
 import components.CardDefault;
 
-import iComponents.iCard;
+import Interfaces.iCard;
 
 import models.Card;
 
@@ -64,6 +64,7 @@ public class CardDefault implements iCard{
 
     public function SetVisible(value:Boolean):void {
         _isVisible = value;
+        _cardComponent.button.enabled = _isVisible;
     }
 }
 }

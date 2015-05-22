@@ -10,6 +10,7 @@
     [HostComponent("spark.components.Button")]
   </fx:Metadata>
   <fx:Script><![CDATA[
+    [Bindable]
     private var color1:uint=0x6ABDC0;
     ]]></fx:Script>
   <fx:Style>

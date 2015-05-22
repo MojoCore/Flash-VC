@@ -1,8 +1,10 @@
 /**
  * Created by nodejs01 on 5/20/15.
  */
-package models {
-import iComponents.iEvent;
+package Implements {
+import models.*;
+
+import Interfaces.iEvent;
 
 import mx.controls.Alert;
 
@@ -15,6 +17,7 @@ public class EventAction implements iEvent{
     private var _isRegisterEvent:Boolean;
     public function EventAction(type:String,video:Video) {
         _type = type;
+        _video = video;
     }
 
     public function WatchEvent(...args):void {
@@ -25,9 +28,7 @@ public class EventAction implements iEvent{
     }
 
     public function RegisterEvent(...args):Boolean {
-        _video=args[0];
-        _card=args[1];
-        _type=args[2];
+        _card=args[0];
 
         _isRegisterEvent=true;
         var service:RestService=new RestService('analyticsevents');
@@ -46,9 +47,10 @@ public class EventAction implements iEvent{
         params.cid="c16";
 
 
-        service.Post(params,function(response):void{
+        /*service.Post(params,function(response):void{
             Alert.show(response.toString());
-        });
+        });*/
+        trace("EVENT: "+_type)
         return true;
     }
 }

@@ -1,12 +1,14 @@
 /**
  * Created by nodejs01 on 5/19/15.
  */
-package models {
+package Implements {
+import models.*;
+
 import com.adobe.serialization.json.JSON;
 
 import flash.net.URLVariables;
 
-import iComponents.iEvent;
+import Interfaces.iEvent;
 
 import mx.controls.Alert;
 
@@ -62,9 +64,9 @@ public class EventViewVideo implements iEvent{
         params.cid="c16";
 
 
-        service.Post(params,function(response):void{
+        /*service.Post(params,function(response:Object):void{
             Alert.show(response.toString());
-        });
+        });*/
         return true;
     }
 }

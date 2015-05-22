@@ -21,9 +21,6 @@
         //items.addEventListener(CollectionEvent.COLLECTION_CHANGE, items_collectionChange)
     }
 
-      public function Hola():void{
-          Alert.show("Hola");
-      }
 
 
     ]]></fx:Script>
