@@ -24,12 +24,13 @@ Learn more about Flex at http://flex.org
         <meta property="og:image" content="https://s3.amazonaws.com/total-apps-video-checkout-new/flash-vc/assets/still-test.jpg" />
         <meta property="og:image:width" content="640" />
         <meta property="og:image:height" content="640" />
-        <meta property="og:url" content="https://s3.amazonaws.com/total-apps-video-checkout-new/flash-vc/testfb.html" />
+        <meta property="og:url" content="https://s3.amazonaws.com/total-apps-video-checkout-new/flash-vc/testfb.html?id=54bd66d587e5c10300888785" />
 
-        <meta property="og:video" content="https://s3.amazonaws.com/total-apps-video-checkout-new/flash-vc/Main.swf" />
+        <meta property="og:video" content="https://s3.amazonaws.com/total-apps-video-checkout-new/flash-vc/Main.swf?id=54bd66d587e5c10300888785" />
+        <meta property="og:video:secure_url" content="https://s3.amazonaws.com/total-apps-video-checkout-new/flash-vc/Main.swf?id=54bd66d587e5c10300888785">
         <meta property="og:video:type" content="application/x-shockwave-flash" />
-        <meta property="og:video:width" content="640" />
-        <meta property="og:video:height" content="480" />
+        <meta property="og:video:width" content="470" />
+        <meta property="og:video:height" content="265" />
         <meta property="video:duration" content="205">
         <meta property="video:director" content="http://www.dailymotion.com/buzzfeedvideo">
         <meta property="video:release_date" content="2015-04-23T02:25:29+02:00">
@@ -77,7 +78,7 @@ Learn more about Flex at http://flex.org
         attributes.name = "Main";
         attributes.align = "middle";
         swfobject.embedSWF(
-                "Main.swf", "flashContent",
+                "Main.swf?id=54bd66d587e5c10300888785", "flashContent",
                 "100%", "100%",
                 swfVersionStr, xiSwfUrlStr,
                 flashvars, params, attributes);
@@ -97,20 +98,21 @@ Learn more about Flex at http://flex.org
     </p>
     <script type="text/javascript">
         var pageHost = ((document.location.protocol == "https:") ? "https://" : "http://");
-        document.write("<a href='http://www.adobe.com/go/getflashplayer'><img src='"
-                + pageHost + "www.adobe.com/images/shared/download_buttons/get_flash_player.gif' alt='Get Adobe Flash player' /></a>" );
+        document.write("<a href='http://www.adobe.com/go/getflashplayer'><img src='"+ pageHost + "www.adobe.com/images/shared/download_buttons/get_flash_player.gif' alt='Get Adobe Flash player' /></a>" );
     </script>
 </div>
 
 <noscript>
     <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="100%" height="100%" id="Main">
-        <param name="movie" value="Main.swf" />
+        <param name="movie" value="Main.swf?id=54bd66d587e5c10300888785" />
         <param name="quality" value="high" />
         <param name="bgcolor" value="#ffffff" />
         <param name="allowScriptAccess" value="sameDomain" />
+        <param name="videoid" value="54bd66d587e5c10300888785" />
         <param name="allowFullScreen" value="true" />
+        <param name='flashVars' value='id=Nick&lastname=Danger'/>
         <!--[if !IE]>-->
-        <object type="application/x-shockwave-flash" data="Main.swf" width="100%" height="100%">
+        <object type="application/x-shockwave-flash" data="Main.swf?id=54bd66d587e5c10300888785" width="100%" height="100%">
             <param name="quality" value="high" />
             <param name="bgcolor" value="#ffffff" />
             <param name="allowScriptAccess" value="sameDomain" />

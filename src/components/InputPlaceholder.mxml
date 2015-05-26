@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!--
+  Created by EDINSON on 25/05/2015.
+-->
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:mx="library://ns.adobe.com/flex/mx"
+         xmlns:s="library://ns.adobe.com/flex/spark"
+        width="100%"
+        height="40">
+  <fx:Script><![CDATA[
+    import mx.events.FlexEvent;
+
+    private var sampleText_text:String = "Enter Name";
+
+    protected function sampleText_initializeHandler(event:FlexEvent):void
+
+    {
+
+      //For Place Holder for sampleText
+
+      sampleText.addEventListener(FocusEvent.FOCUS_IN , focusin);
+
+      sampleText.addEventListener(FocusEvent.FOCUS_OUT,focusout);
+
+    }
+
+    //fire when click to edit
+
+    public function focusin( event:Event ) : void
+
+    {
+
+      if(sampleText.text == sampleText_text)
+
+      {
+
+        sampleText.text = "";
+
+      }
+
+    }
+
+    //fire when you clicked out
+
+    public function focusout(event:Event):void
+
+    {
+
+      if(sampleText.text == "")
+
+      {
+
+        sampleText.text = sampleText_text;
+
+      }
+
+    }
+
+    ]]>
+  </fx:Script>
+
+<fx:Style source="styles/app.css"></fx:Style>
+  <s:TextInput id="sampleText" width="100%" prompt="Hola Mundo" initialize="sampleText_initializeHandler(event)" styleName="placeholder" skinClass="skins.SkinTextInput"  left="0" top="0"/>
+
+</s:Group>

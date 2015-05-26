@@ -15,9 +15,12 @@ public class Card{
     private var _startTime:int;
     private var _endTime:int;
     private var _product:Product;
+    private var _clientUUID:String;
+    private var _jsonObject:Object;
 
     public function Card(){
         _product=new Product();
+        _jsonObject=new Object();
     }
 
     public function get title():String {
@@ -92,6 +95,22 @@ public class Card{
 
     public function set product(value:Product):void {
         _product = value;
+    }
+
+    public function get jsonObject():Object {
+        return _jsonObject;
+    }
+
+    public function set jsonObject(value:Object):void {
+        _jsonObject = value;
+    }
+
+    public function get clientUUID():String {
+        return _clientUUID;
+    }
+
+    public function set clientUUID(value:String):void {
+        _clientUUID = value;
     }
 }
 }

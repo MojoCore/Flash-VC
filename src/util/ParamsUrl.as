@@ -5,17 +5,29 @@ package util {
 import flash.external.ExternalInterface;
 
 import mx.collections.ArrayCollection;
+import mx.controls.Alert;
 
 public class ParamsUrl {
     private static var _params:ArrayCollection;
 
     public function ParamsUrl() {
     }
-
-    public static function ReadParamsFromUrl():void {
+    public static function GetHost():String {
+        var obj:Object;
+        var pageURL:String = 'http://localhost';//ExternalInterface.call("window.location.href.toString");
+        var params:Array = pageURL.split("?");
+        if(params.length>0) {
+            return params[0];
+        }else{
+            return 'http://localhost';
+        }
+    }
+    public static function ReadParamsFromUrl(url):void {
         _params = new ArrayCollection();
         var obj:Object;
-        var pageURL:String = ExternalInterface.call("window.location.href.toString");
+        //var pageURL:String = ExternalInterface.call("window.location.href.toString");
+        var pageURL:String = url;
+        Alert.show(pageURL);
         var params:Array = pageURL.split("?");
         if(params.length>1){
             var paramPairs:Array = pageURL.split("?")[1].split("&");
@@ -29,7 +41,7 @@ public class ParamsUrl {
         }else{
             obj = new Object();
             obj.key = 'id';
-            obj.value = 0;
+            obj.value = '54bd66d587e5c10300888785';
             _params.addItem(obj);
         }
 

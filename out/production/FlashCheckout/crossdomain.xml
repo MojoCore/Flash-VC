@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<!-- http://www.foo.com/crossdomain.xml -->
+<cross-domain-policy>
+    <site-control permitted-cross-domain-policies="by-content-type"/>
+    <allow-access-from domain="*"/>
+    <allow-access-from domain="http://video-checkout-staging.herokuapp.com"/>
+</cross-domain-policy>

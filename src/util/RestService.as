@@ -86,14 +86,20 @@ public class RestService {
     private function loaderIOErrorHandler(event:IOErrorEvent):void {
         Alert.show('loaderIOErrorHandler');
     }
-    public function Put(params:URLVariables,response:Function):void{
+
+    public function Put(id:String, params:Object,response:Function):void{
         var loader:URLLoader = new URLLoader();
         var request:URLRequest = new URLRequest();
-        request.method = URLRequestMethod.PUT;
-        request.data = params;
-        request.url = RestService.GetConfigServer()+this.urlService;
-        request.requestHeaders = [new URLRequestHeader("X-HTTP-Method-Override","PUT")];
+        request.contentType='application/json';
+        request.method = URLRequestMethod.POST;
+        request.data = com.adobe.serialization.json.JSON.encode(params);
+        request.url = RestService.GetConfigServer()+this.urlService+'/'+id;
+        request.requestHeaders = [new URLRequestHeader("X-HTTP-Method-Override",URLRequestMethod.PUT)];
         loader.addEventListener(Event.COMPLETE, response);
+        loader.addEventListener(AsyncErrorEvent.ASYNC_ERROR, errorHandlerAsyncErrorEvent);
+        loader.addEventListener(IOErrorEvent.IO_ERROR, errorHandlerIOErrorEvent);
+        loader.addEventListener(SecurityErrorEvent.SECURITY_ERROR, errorHandlerSecurityErrorEvent);
+        loader.addEventListener(Event.INIT, initHandler);
         loader.load(request);
     }
     public function Delete(id:String,response:Function):void{

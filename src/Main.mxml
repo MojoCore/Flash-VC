@@ -3,46 +3,58 @@
 <s:Application name="Spark_VideoPlayer_skinClass_scrubBar_test"
                xmlns:fx="http://ns.adobe.com/mxml/2009"
                xmlns:s="library://ns.adobe.com/flex/spark" creationComplete="InitApp()"
-               xmlns:custom="components.*" xmlns:mx="library://ns.adobe.com/flex/mx">
+               xmlns:custom="components.*" xmlns:mx="library://ns.adobe.com/flex/mx" applicationComplete="init2()">
 
     <fx:Script><![CDATA[
         import mx.binding.utils.ChangeWatcher;
+        import mx.controls.Alert;
+        import mx.controls.Alert;
+        import mx.controls.Alert;
 
         import org.osmf.events.MediaPlayerStateChangeEvent;
+        import mx.core.FlexGlobals;
+
 
         import util.swfSelfResize;
-
+        import mx.utils.MediaQueryParser;
         private var widthWatch:ChangeWatcher;
-        private var app:App = new App();
+        public var app:App = new App();
         private var resize:swfSelfResize;
         private function InitApp():void {
             app.InitializeComponents(this,systemManager.stage.stageWidth);
+
+        }
+        private function init2():void{
+
             app.Init();
             widthWatch = ChangeWatcher.watch(this,'width',onSizeChange);
-
+            //this.loaderInfo.addEventListener(Event.COMPLETE, loaderComplete);
+            //Alert.show(this.loaderInfo.loaderURL)
         }
 
-        private function expand():void{
-            trace("expand...");
-            //myBox.visible=false;
-            resize=new swfSelfResize();
-            resize.addHeight( -150 );
-
+        function loaderComplete(myEvent:Event)
+        {
+            //var myQueryStrings=this.loaderInfo.parameters;
+            //Alert.show(myQueryStrings.id);
         }
+
+
+
+
 
         private function onSizeChange(event:Event):void {
             //Alert.show(stage.stageWidth.toString());
             if(stage.stageWidth<640){
                 app.ChangeResponsive();
             }else{
-                app.ChangeDefault();
+                app.ChangeDefault(stage.stageWidth,stage.stageHeight);
             }
         }
 
 
 
-        ]]></fx:Script>
 
+        ]]></fx:Script>
 
 
     <s:VideoPlayer id="videoPlayer"
@@ -71,7 +83,7 @@
                      horizontalScrollPolicy="off"
                      direction="vertical"
 
-                     width="0"
+                     width="0%"
                      height="100%"
                      borderStyle="solid"
                      backgroundColor="0xFFFFFF"
@@ -88,14 +100,25 @@
 
                 backgroundColor="0xE4E4E4"
                 backgroundAlpha=".9">
-                <s:Group width="100%" height="100%">
-                    <mx:Box height="254" width="100%" direction="horizontal" paddingRight="50" paddingTop="15">
-                        <s:Label width="100%" fontSize="38" text="In Case You Missed It"></s:Label>
-                        <s:Image source="@Embed('assets/items_your_cart.png')"></s:Image>
+                <mx:Box width="100%" height="100%" direction="vertical">
+                    <mx:Box height="75" width="100%" direction="horizontal" paddingRight="90" paddingTop="15">
+                        <s:Label width="100%" fontSize="30" text="In Case You Missed It" paddingLeft="20" paddingTop="20"></s:Label>
+                        <s:Image id="itemsInYourCartImage" source="@Embed('assets/items_your_cart.png')" visible="false"></s:Image>
                     </mx:Box>
 
+                    <s:List id="actionsList" width="100%" height="100%" contentBackgroundAlpha="0" borderAlpha="0"
+                            itemRenderer="components.CardItemDefault"
+                            horizontalCenter="0"
+                            verticalCenter="0">
+                        <s:layout>
+                            <s:TileLayout requestedColumnCount="3" paddingLeft="20" paddingRight="20" paddingTop="20" paddingBottom="20"
+                                          requestedRowCount="2"
+                                          horizontalGap="10"
+                                          verticalGap="10" />
+                        </s:layout>
+                    </s:List>
 
-                </s:Group>
+                </mx:Box>
             </mx:Box>
 
     </mx:HDividedBox>
@@ -117,6 +140,39 @@
               right="11"
               color="white"
               visible="false" />
+
+    <mx:ViewStack id="CheckoutViewStack" borderStyle="solid"  horizontalCenter="0" y="-450" maxWidth="900" width="900" backgroundColor="0x000" backgroundAlpha="0.8" height="450">
+            <s:NavigatorContent id="formCheckoutContent"  width="100%" height="100%" >
+                <custom:CheckoutDefaultBox id="checkoutBox"   visible="true">
+
+                </custom:CheckoutDefaultBox>
+            </s:NavigatorContent>
+        <s:NavigatorContent id="FinishCheckoutContent"  width="100%" height="100%" horizontalCenter="0" includeInLayout="true">
+            <mx:Box direction="vertical" width="100%" paddingLeft="20" paddingRight="20" paddingTop="20">
+            <mx:Box direction="horizontal" width="100%" >
+                <s:Image source="@Embed('assets/smile.png')" width="32" height="32"/>
+                <s:Label width="100%" paddingTop="20" textAlign="left"  fontSize="16" horizontalCenter="0" color="white"
+                         text="Thank You."></s:Label>
+            </mx:Box>
+            <s:Label width="100%" paddingTop="20" paddingBottom="20" textAlign="center"  fontSize="18" horizontalCenter="0" color="white"
+                     text="Your payment has been processed and you will receive a confirmation email shortly."></s:Label>
+            <mx:Box direction="vertical" width="100%" horizontalCenter="0" horizontalAlign="center">
+                <s:Button id="watchVideoButton" horizontalCenter="0" verticalCenter="0"
+                          label="GO BACK TO THE VIDEO"
+                          skinClass="skins.SkinSolidButton"
+                          color="0xfda731"
+                            click="app.HideBoxCheckOut(event);"
+                          fontSize="20"
+                          useHandCursor="true"
+                          buttonMode="true"></s:Button>
+                </mx:Box>
+
+                <s:Label width="100%" paddingTop="20" paddingBottom="20" textAlign="center"  fontSize="18" horizontalCenter="0" color="white"
+                         text="Share this video with friends and family!"></s:Label>
+                <s:Image source="@Embed('assets/twitter.png')" width="100%" height="32"/>
+            </mx:Box>
+        </s:NavigatorContent>
+    </mx:ViewStack>
 
 
 

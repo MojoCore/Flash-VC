@@ -13,8 +13,12 @@ import models.Video;
 import mx.collections.ArrayCollection;
 import mx.controls.Alert;
 
+import mx.collections.Sort;
+import mx.collections.SortField;
+
 public class JsonUtil {
     private var _cards:ArrayCollection;
+
     public function JsonUtil() {
     }
     public static function ConvertToCards(cardsJson:Object):ArrayCollection{
@@ -31,8 +35,11 @@ public class JsonUtil {
             card.buttonColor = JsonUtil.ConvertColor(cardsJson[i].buttonBgColor);
             card.product.id = cardsJson[i].product._id;
             card.product.name = cardsJson[i].product.name;
+            card.clientUUID=cardsJson[i].clientUUID;
+            card.jsonObject= cardsJson[i];
             list_cards.addItem(card);
         }
+        JsonUtil.arrayCollectionSort(list_cards,'startTime',true);
         return list_cards;
     }
 
@@ -47,6 +54,17 @@ public class JsonUtil {
         video.user = json.user;
         return video;
 
+    }
+
+    public static function arrayCollectionSort(ar:ArrayCollection, fieldName:String, isNumeric:Boolean):void
+    {
+        var dataSortField:SortField = new SortField();
+        dataSortField.name = fieldName;
+        dataSortField.numeric = isNumeric;
+        var numericDataSort:Sort = new Sort();
+        numericDataSort.fields = [dataSortField];
+        ar.sort = numericDataSort;
+        ar.refresh();
     }
 }
 }

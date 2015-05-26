@@ -4,9 +4,8 @@
 package {
 import Implements.CardDefault;
 import Implements.CardResponsive;
-
-
-import components.Cart;
+import Implements.EventAction;
+import components.CheckoutDefaultBox;
 
 
 import flash.display.Sprite;
@@ -21,12 +20,18 @@ import Interfaces.iEvent;
 
 import models.Card;
 import Implements.EventViewVideo;
+
+import models.Cart;
+import models.CartItem;
 import models.Video;
 
 import mx.binding.utils.ChangeWatcher;
 
 import mx.collections.ArrayCollection;
+import mx.containers.ViewStack;
 import mx.controls.Alert;
+import mx.controls.TileList;
+import mx.core.FlexGlobals;
 
 import org.osmf.events.MediaPlayerStateChangeEvent;
 
@@ -39,6 +44,7 @@ import services.TransitionCards;
 
 
 import spark.components.Button;
+import spark.components.List;
 
 import spark.components.VideoPlayer;
 import spark.effects.Move;
@@ -51,25 +57,40 @@ import util.RestService;
 public class App extends Sprite{
     private var showCartBox:Boolean = false;
     private var JsonData:Object;
-    private var transitionCards:TransitionCards;
+    private var _transitionCards:TransitionCards;
     private var _videoPlayer:VideoPlayer;
     private var _buttonCart:Button;
     private var _buttonCount:Button;
-    private var _cartBox:Cart;
+    private var _cartBox:components.Cart;
     private var _card:iCard;
     private var _moveCartBoxRight:Resize;
     private var _moveCartBoxLeft:Resize;
 
-    private var _widthWatch:ChangeWatcher;
-    private var _heightWatch:ChangeWatcher;
-    private var _resizeExecuting:Boolean = false;
+    private var _moveCheckoutBottom:Move;
+    private var _moveCheckoutTop:Move;
+    private var _actionsList:List;
+    private var _checkoutBox:CheckoutDefaultBox;
+
+
     private var _app:Object;
-    private var _eventTime:iEvent;
+    private var _eventTime0:iEvent;
+    private var _eventTime25:iEvent;
+    private var _eventTime50:iEvent;
+    private var _eventTime75:iEvent;
+    private var _eventTime100:iEvent;
+
     private var _video:Video;
+    private var _eventCreateSession:EventAction;
+    private var _hostname:String;
+    private var _cart:models.Cart;
 
     function App(){
         trace("start app...");
-        RestService.SetConfigServer( 'http://45.55.249.97/api/v1/');
+
+        RestService.SetConfigServer( 'https://video-checkout-staging.herokuapp.com/api/v1/');
+
+
+
     }
     public function InitializeComponents(app:Object,width:int):void{
         _app=app;
@@ -77,18 +98,25 @@ public class App extends Sprite{
         _buttonCart = _app.cartButton;
         _buttonCount = _app.countButton;
         _cartBox = _app.CartBox;
+        _actionsList = _app.actionsList;
+        _checkoutBox=_app.checkoutBox;
         if(width<=500)
             _card = new Implements.CardResponsive(_app.cardR);
         else
             _card = new Implements.CardDefault(_app.card);
 
+        //
+        _checkoutBox.backButton.setStyle('padding',8);
+        _checkoutBox.CheckOutButton.setStyle('padding',8);
+
 
     }
     public  function Init():void{
+
         InitAnimationCart();
         AddEventsToComponents();
-        //LoadVideoJson();
-        LoadVideoLocal();
+        LoadVideoJson();
+        //LoadVideoLocal();
 
     }
 
@@ -96,11 +124,24 @@ public class App extends Sprite{
         _moveCartBoxRight=new Resize();
         _moveCartBoxRight.target=_cartBox;
         _moveCartBoxRight.widthTo=278;
-        _moveCartBoxRight.duration=200;
+
+
+        _moveCartBoxRight.duration=100;
         _moveCartBoxLeft=new Resize();
         _moveCartBoxLeft.target=_cartBox;
         _moveCartBoxLeft.widthTo=0;
-        _moveCartBoxLeft.duration=200;
+        _moveCartBoxLeft.duration=100;
+
+        _moveCheckoutBottom=new Move();
+        _moveCheckoutBottom.target = _app.CheckoutViewStack;
+        _moveCheckoutBottom.yTo=0;
+        _moveCheckoutBottom.duration=200;
+
+        _moveCheckoutTop=new Move();
+        _moveCheckoutTop.target = _app.CheckoutViewStack;
+        _moveCheckoutTop.yTo=-450;
+        _moveCheckoutTop.duration=200;
+
     }
 
     private function AddEventsToComponents():void{
@@ -109,11 +150,19 @@ public class App extends Sprite{
         _videoPlayer.addEventListener(TimeEvent.DURATION_CHANGE, VideoDurationChangeHandler);
         _videoPlayer.addEventListener(MediaPlayerStateChangeEvent.MEDIA_PLAYER_STATE_CHANGE, VideoMediaPlayerStateChangeHandler);
         _buttonCart.addEventListener(MouseEvent.CLICK,ButtonCartCartHandler);
-
+        _cartBox.CheckOutButton.addEventListener(MouseEvent.CLICK,ShowBoxCheckOut);
+        _checkoutBox.backButton.addEventListener(MouseEvent.CLICK, HideBoxCheckOut);
+        _checkoutBox.CheckOutButton.addEventListener(MouseEvent.CLICK, CheckoutHandler);
     }
 
+
+
     private function VideoDurationChangeHandler(event:TimeEvent):void {
-        _eventTime=new EventViewVideo(25,_videoPlayer.duration);
+        _eventTime0=new EventViewVideo(0,_videoPlayer.duration,'VIDEO_PLAY',_hostname,_video);
+        _eventTime25=new EventViewVideo(25,_videoPlayer.duration,'PROGRESS_VIDEO',_hostname,_video);
+        _eventTime50=new EventViewVideo(50,_videoPlayer.duration,'PROGRESS_VIDEO',_hostname,_video);
+        _eventTime75=new EventViewVideo(75,_videoPlayer.duration,'PROGRESS_VIDEO',_hostname,_video);
+        _eventTime100=new EventViewVideo(100,_videoPlayer.duration,'VIDEO_ENDED',_hostname,_video);
     }
 
 
@@ -150,46 +199,87 @@ public class App extends Sprite{
         cards.addItem(mycard);
 
         _videoPlayer.source = "http://s3.amazonaws.com/total-apps-video-checkout/uploads/5bd7b500-a018-11e4-8bb3-eb8f66e87af8.mp4";
-        transitionCards = new TransitionCards(cards,_card,_cartBox,_buttonCount,_video);
+        _transitionCards = new TransitionCards(_app,_video,_card);
 
     }
     private function LoadVideoJson():void{
         var id:String;
         var service:RestService = new RestService('videos');
-        ParamsUrl.ReadParamsFromUrl();
+        ParamsUrl.ReadParamsFromUrl(_app.loaderInfo.loaderURL);
         id=ParamsUrl.get('id');
+
         service.Get(id, function (e:Event):void {
             var loader:URLLoader = URLLoader(e.target);
             JsonData = JSON.parse(loader.data);
             InitDataForVideo();
         },function(event:IOErrorEvent):void{
-            LoadVideoLocal();
+            //LoadVideoLocal();
+            Alert.show("url incorrect:"+event.text);
         });
     }
     private function InitDataForVideo():void {
-        var cards:ArrayCollection= services.JsonUtil.ConvertToCards(JsonData.actions);
-        _video=services.JsonUtil.ConvertToVideo(JsonData);
-        _videoPlayer.source = JsonData.urls.originalUrl;
-        transitionCards = new TransitionCards(cards,_card,_cartBox,_buttonCount,_video);
-        trace("Hola");
 
+        var cards:ArrayCollection= services.JsonUtil.ConvertToCards(JsonData.actions);
+
+        _actionsList.dataProvider=cards;
+        _video=services.JsonUtil.ConvertToVideo(JsonData);
+        _video.actions=cards;
+        _videoPlayer.source = JsonData.urls.originalUrl;
+        _transitionCards = new TransitionCards(_app,_video,_card);
+        trace("Hola");
+        _eventCreateSession=new EventAction('ANALYTICS_SESSION_CREATE',_video,ParamsUrl.GetHost());
+        _eventCreateSession.RegisterEventCreate(function(response:Object):void{
+            var serviceCart:RestService= new RestService('carts');
+            var params:Object=new Object();
+            params.video=_video.id;
+            serviceCart.Post(params,function(e:Event):void{
+                var loader:URLLoader = URLLoader(e.target);
+                var r = JSON.parse(loader.data);
+                _cart=new models.Cart();
+                _cart.id=r._id;
+                _cart.video=r.video;
+                _cart.user=r.user;
+                _cart.createAt=r.createAt;
+                _cart.updatedAt=r.updatedAt;
+                _cart.accessToken=r.accessToken;
+                _transitionCards.cart=_cart;
+                trace("id"+_cart.id);
+            })
+        });
+
+    }
+    private function getHostName():String {
+        var g_BaseURL = FlexGlobals.topLevelApplication.url;
+        var pattern1:RegExp = new RegExp("http://[^/]*/");
+        if (pattern1.test(g_BaseURL) == true) {
+            var g_HostString = pattern1.exec(g_BaseURL).toString();
+        } else{
+            var g_HostString = "http://localhost/"
+        }
+
+        return g_HostString;
     }
 
     /*Events components*/
     private function VideoCurrentTimeChangeHandler(event:TimeEvent):void {
-        _eventTime.WatchEvent(event.time,_video);
-        transitionCards.EvalCardsInTime(event.time);
+        _eventTime0.WatchEvent(event.time);
+        _eventTime25.WatchEvent(event.time);
+        _eventTime50.WatchEvent(event.time);
+        _eventTime75.WatchEvent(event.time);
+
+        _transitionCards.EvalCardsInTime(event.time);
     }
     private function VideoCompleteHandler(event:TimeEvent):void {
         _app.panelCard.visible=true;
-        transitionCards.ResetTransitions();
+        _transitionCards.ResetTransitions();
+        _eventTime100.RegisterEvent(event.time);
     }
     protected function VideoMediaPlayerStateChangeHandler(event:MediaPlayerStateChangeEvent):void {
         if (event.state == MediaPlayerState.LOADING)
             trace("loading ...");
         if (event.state == MediaPlayerState.PLAYING){
             _app.panelCard.visible=false;
-            transitionCards.ResetTransitions();
+            _transitionCards.ResetTransitions();
             trace("playing ...");
         }
 
@@ -198,6 +288,7 @@ public class App extends Sprite{
         showCartBox = !showCartBox;
         if (showCartBox) {
             _moveCartBoxRight.play();
+
         } else {
             _moveCartBoxLeft.play();
         }
@@ -221,11 +312,11 @@ public class App extends Sprite{
         _buttonCart = value;
     }
 
-    public function get cartBox():Cart {
+    public function get cartBox():components.Cart {
         return _cartBox;
     }
 
-    public function set cartBox(value:Cart):void {
+    public function set cartBox(value:components.Cart):void {
         _cartBox = value;
     }
 
@@ -247,13 +338,100 @@ public class App extends Sprite{
 
     public function ChangeResponsive():void{
         _card=new CardResponsive(_app.cardR);
-        transitionCards.ChangeResponsive(_card);
+        _transitionCards.ChangeResponsive(_card);
         _app.card.visible=false;
+        _cartBox.percentHeight=100;
     }
-    public function ChangeDefault():void{
+    public function ChangeDefault(w:int,h:int):void{
         _card=new CardDefault(_app.card);
-        transitionCards.ChangeDefault(_card);
+        _transitionCards.ChangeDefault(_card);
         _app.cardR.visible=false;
+        _cartBox.percentHeight=100;
+    }
+
+    public function ShowBoxCheckOut(evt:MouseEvent):void{
+        if(showCartBox){
+            _moveCartBoxLeft.play();
+            showCartBox=false;
+        }
+        var vs:ViewStack=_app.CheckoutViewStack;
+        vs.selectedIndex=0;
+        _moveCheckoutBottom.play();
+
+
+    }
+    public function HideBoxCheckOut(event:MouseEvent):void {
+        if(!showCartBox){
+            _moveCartBoxRight.play();
+            showCartBox=true;
+        }
+        _moveCheckoutTop.play();
+    }
+
+    private function CheckoutHandler(event:MouseEvent):void {
+        var service:RestService=new RestService('carts');
+        var cartItems:ArrayCollection=_cartBox.items.dataProvider as ArrayCollection;
+        var params:Object=new Object();
+        params._id=_cart.id;
+        params.createdAt=_cart.createAt;
+        params.updatedAt=(new Date()).toString();
+        params.video= _video.id;
+        params.accessToken = _cart.accessToken;
+        params.user = _cart.user;
+        params.items=new Array();
+        for(var i:int=0;i<cartItems.length;i++){
+            params.items[i]=(cartItems.getItemAt(i) as CartItem).card.jsonObject;
+            params.items[i].quantity=(cartItems.getItemAt(i) as CartItem).amount;
+            params.items[i].product_id=(cartItems.getItemAt(i) as CartItem).card.product.id;
+            params.items[i].action_id=(cartItems.getItemAt(i) as CartItem).card.id;
+            params.items[i].item_id=(cartItems.getItemAt(i) as CartItem).card.clientUUID;
+            params.items[i]._id=params.items[i].product_id;
+            delete  params.items[i]['product'];
+
+        }
+        params.billing_address1=_checkoutBox.addressInput.text;
+        params.billing_city= _checkoutBox.cityInput.text;
+        params.billing_firstName= _checkoutBox.nameInput.text;
+        params.billing_state= _checkoutBox.stateInput.selectedItem;
+        params.billing_zip= _checkoutBox.zipInput.text;
+        params.cc_cvv= _checkoutBox.cvvInput.text;
+        params.cc_expMonth=_checkoutBox.monthInput.selectedItem;
+        params.cc_expYear= _checkoutBox.yearInput.text;
+        params.cc_number= _checkoutBox.cardnumberInput.text;
+        params.createdAt= _cart.createAt;
+        params.email= _checkoutBox.emailInput.text;
+        var vs:ViewStack=_app.CheckoutViewStack;
+        vs.selectedIndex=1;
+        //(_app.watchVideoButton as Button).setStyle('padding',12);
+        service.Put(_cart.id,params,function(response:Event):void{
+            var result:Object;
+            var loader:URLLoader = URLLoader(response.target);
+            result = JSON.parse(loader.data);
+            trace(result);
+            CallOrder();
+        });
+
+
+    }
+
+    public function CallOrder():void{
+        var service:RestService=new RestService('orders');
+        var params:Object=new Object();
+        params.cartId=_cart.id;
+        service.Post(params,function(response:Event):void{
+            var result:Object;
+            var loader:URLLoader = URLLoader(response.target);
+            result = JSON.parse(loader.data);
+            trace(result);
+        });
+    }
+
+    public function get transitionCards():TransitionCards {
+        return _transitionCards;
+    }
+
+    public function set transitionCards(value:TransitionCards):void {
+        _transitionCards = value;
     }
 }
 }

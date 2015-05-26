@@ -5,7 +5,7 @@
 
 <mx:Box xmlns:fx="http://ns.adobe.com/mxml/2009"
         xmlns:mx="library://ns.adobe.com/flex/mx"
-        xmlns:s="library://ns.adobe.com/flex/spark" creationComplete="init()">
+        xmlns:s="library://ns.adobe.com/flex/spark" creationComplete="init()" width="100%" height="100%">
   <fx:Script><![CDATA[
     import models.CartItem;
 
@@ -25,6 +25,7 @@
 
     ]]></fx:Script>
   <mx:Box direction="vertical" width="100%" height="100%" paddingRight="0" paddingLeft="0" paddingBottom="0" paddingTop="0">
+
     <s:Label  id="titleLabel"
               text="Your Cart"
               fontSize="18"
@@ -36,6 +37,11 @@
               width="100%"
               backgroundAlpha=".9"
             backgroundColor="0x333333"></s:Label>
+      <s:Label id="emptyLabel" width="278" paddingTop="20" textAlign="center"
+               fontSize="18"
+               horizontalCenter="0"
+
+               text="Your cart is empty!" includeInLayout="false" ></s:Label>
     <s:List id="items"
             dataProvider="{dataCart}"
             itemRenderer="components.CartItem"
@@ -47,13 +53,14 @@
         <s:VerticalLayout/>
       </s:layout>
     </s:List>
-  <mx:Box backgroundAlpha=".9" height="110" width="100%" direction="vertical"
-          backgroundColor="0x333333" paddingTop="15" paddingLeft="15" paddingRight="15" paddingBottom="15">
-    <mx:Box direction="horizontal" >
+  <mx:Box id="footBox" backgroundAlpha=".9" height="110" width="100%" direction="vertical"
+          backgroundColor="0x333333" paddingTop="15" paddingLeft="15" paddingRight="15" paddingBottom="15" visible="false">
+    <mx:Box direction="horizontal" width="100%">
         <s:Label color="white" text="Total " fontSize="18" width="100"></s:Label>
-        <s:Label id="TotalLabel" color="white" text="$200.00" fontSize="18" textAlign="right" width="100%"></s:Label>
+        <s:Label id="TotalLabel" color="white" text="$0.00" fontSize="18" textAlign="right" width="100%" verticalAlign="middle"></s:Label>
     </mx:Box>
-      <s:Button id="CheckOutButton" horizontalCenter="1" verticalCenter="1"
+      <mx:Box direction="horizontal" width="100%" horizontalAlign="center">
+      <s:Button id="CheckOutButton" horizontalCenter="0" verticalCenter="0"
                 label="CHECKOUT"
                 skinClass="skins.SkinSolidButton"
                 color="0xfda731"
@@ -61,6 +68,7 @@
                 fontSize="20"
                 useHandCursor="true"
                 buttonMode="true"></s:Button>
+          </mx:Box>
   </mx:Box>
   </mx:Box>
 

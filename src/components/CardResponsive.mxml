@@ -7,7 +7,7 @@
         width="100%" backgroundColor="0x000"
          backgroundAlpha=".8"
          paddingRight="10"
-         paddingBottom="10"
+         paddingBottom="5"
         paddingLeft="10"
         paddingTop="10">
     <fx:Script><![CDATA[
@@ -23,8 +23,8 @@
 
   </s:Image>
     <mx:Box direction="vertical" left="40">
-        <s:Label  id="titleLabel" text="" fontSize="18" color="white"></s:Label>
-        <s:Label  id="pricelLabel" text="" fontSize="18" color="white"></s:Label>
+        <s:Label  id="titleLabel" text="" fontSize="14" color="white"></s:Label>
+        <s:Label  id="pricelLabel" text="" fontSize="12" color="white"></s:Label>
     </mx:Box>
 </s:HGroup>
     <s:Button id="button"

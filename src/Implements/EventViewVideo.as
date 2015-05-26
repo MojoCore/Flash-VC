@@ -20,17 +20,21 @@ public class EventViewVideo implements iEvent{
     private var _totalTimeVideo:int;
     private var _currentTime:int;
     private var _video:Video;
-    public function EventViewVideo(percentage:int,totalTimeVideo:int) {
+    private var _type:String;
+    private var _hostname:String;
+    public function EventViewVideo(percentage:int,totalTimeVideo:int,type:String,hostname:String,video:Video) {
         _percentage = percentage;
         _totalTimeVideo = totalTimeVideo;
         _isRegisterEvent=false;
+        _type=type;
+        _hostname=hostname;
+        _video=video;
     }
 
     public function WatchEvent(...args):void {
         _currentTime= args[0];
-        _video=args[1];
         if (VerifyEvent()){
-            RegisterEvent();
+            RegisterEvent(args);
         }
     }
 
@@ -50,24 +54,32 @@ public class EventViewVideo implements iEvent{
     }
 
     public function RegisterEvent(...args):Boolean {
+
         _isRegisterEvent=true;
         var service:RestService=new RestService('analyticsevents');
-        var jsonEncodeParams:String='';
         var params:Object=new Object();
         params.video=_video.id;
         params.videoProgress=_currentTime;
-        params.type='VIDEO_PROGRESS';
+        params.type=_type;
         params.session='555bf15a173cd50300413841';
-        params.referrer="http://videocheckout.com/demovideos/grillbot/";
-        params.host="http://videocheckout.com/demovideos/grillbot/";
+        params.referrer=_hostname;
+        params.host=_hostname;
         params.user=_video.user;
         params.cid="c16";
 
 
-        /*service.Post(params,function(response:Object):void{
-            Alert.show(response.toString());
-        });*/
+        service.Post(params,function(response:Object):void{
+            //Alert.show(response.toString());
+        });
         return true;
+    }
+
+    public function get video():Video {
+        return _video;
+    }
+
+    public function set video(value:Video):void {
+        _video = value;
     }
 }
 

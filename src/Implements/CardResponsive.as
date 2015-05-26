@@ -8,6 +8,8 @@ import Interfaces.iCard;
 
 import models.Card;
 
+import mx.formatters.CurrencyFormatter;
+
 import spark.effects.Fade;
 
 public class CardResponsive implements iCard{
@@ -15,8 +17,13 @@ public class CardResponsive implements iCard{
     private var _fadeShow:Fade;
     private var _fadeHide:Fade;
     private var _isVisible:Boolean;
-
+    private var _currency:CurrencyFormatter;
     public function CardResponsive(cardCmp:components.CardResponsive) {
+        _currency=new CurrencyFormatter();
+        _currency.precision=2;
+        _currency.currencySymbol="$";
+        _currency.thousandsSeparatorTo=",";
+        _currency.decimalSeparatorTo=".";
         _cardComponent = cardCmp;
         _isVisible = false;
         InitFade();
@@ -52,9 +59,9 @@ public class CardResponsive implements iCard{
     }
 
     public function RenderCard(card:models.Card):void{
-        _cardComponent.titleLabel.text = card.title;
+        _cardComponent.titleLabel.text = card.product.name;
         _cardComponent.image.source = card.image;
-        _cardComponent.pricelLabel.text ='$' +  card.price;
+        _cardComponent.pricelLabel.text =_currency.format(card.price);
         _cardComponent.button.label = card.buttonText;
         _cardComponent.button.setStyle('color',card.buttonColor);
 

@@ -7,6 +7,7 @@ import Implements.CardDefault;
 import components.CardDefault;
 
 import components.Cart;
+import components.CheckoutDefaultBox;
 
 import flash.events.Event;
 import flash.events.MouseEvent;
@@ -25,11 +26,16 @@ import mx.collections.ArrayCollection;
 import mx.controls.Alert;
 import mx.events.CollectionEvent;
 import mx.events.CollectionEventKind;
+import mx.formatters.CurrencyFormatter;
 
 import spark.components.Button;
+import spark.components.Image;
+import spark.components.List;
 import spark.effects.Fade;
 import spark.effects.Move;
 import spark.effects.easing.Elastic;
+
+import util.ParamsUrl;
 
 public class TransitionCards {
     private var _cards:ArrayCollection;
@@ -41,37 +47,50 @@ public class TransitionCards {
     private var _cart:models.Cart;
     private var _cartBox:components.Cart;
     private var _numberItemsLabel:Button;
+    private var _itemsInYourCartImage:Image;
+    private var _actionsList:List;
 
-
+    private var _currency:CurrencyFormatter;
     private var _elastic:Elastic;
     private var _moveCount:Move;
     private var _totalItems:Number;
     private var _totalPrice:Number;
-    private var _eventAddToCart:iEvent;
-    private var _eventRemoveFromCart:iEvent;
-    private var _eventUpdateCart:iEvent;
+    private var _eventAddToCart:EventAction;
+    private var _eventRemoveFromCart:EventAction;
+    private var _eventUpdateCart:EventAction;
     private var _video:Video;
+    private var _checkoutBox:CheckoutDefaultBox;
+    private var _app:Object;
 
 
+    public function TransitionCards(app:Object,video:Video,cardCmp:iCard) {
 
-    public function TransitionCards(cards:ArrayCollection,cardCmp:iCard,cartBox:components.Cart,numberItems:Button,video:Video) {
+        _app=app;
         _video=video;
         _totalItems=0;
         _totalPrice=0;
-        _cards = cards;
+        _cards = _video.actions;
         _cardComponent = cardCmp;
-        _cartBox = cartBox;
-        _numberItemsLabel=numberItems;
-        _eventAddToCart=new EventAction('ADD_TO_CART',_video);
-        _eventRemoveFromCart=new EventAction('REMOVE_FROM_CART',_video);
-        _eventUpdateCart=new EventAction('UPDATE_FROM_CART',_video);
+        _cartBox = _app.CartBox;
+        _numberItemsLabel=_app.countButton;
+        _checkoutBox=_app.checkoutBox;
+        _itemsInYourCartImage=_app.itemsInYourCartImage;
+        _actionsList = _app.actionsList;
+        var host:String=ParamsUrl.GetHost();
+        _eventAddToCart=new EventAction('ADD_TO_CART',_video,host);
+        _eventRemoveFromCart=new EventAction('REMOVE_FROM_CART',_video,host);
+        _eventUpdateCart=new EventAction('UPDATE_FROM_CART',_video,host);
         _cartBox.items.dataProvider=new ArrayCollection();
         _cart=new models.Cart();
-        if(_currentCardIndex<=cards.length-1)
+        if(_currentCardIndex<=_video.actions.length-1)
             _currentCard = _cards[_currentCardIndex];
         _cardComponent.getComponent().button.addEventListener(MouseEvent.CLICK,AddToCart);
         _cartBox.items.dataProvider.addEventListener(CollectionEvent.COLLECTION_CHANGE, items_collectionChange);
-
+        _currency=new CurrencyFormatter();
+        _currency.precision=2;
+        _currency.currencySymbol="$";
+        _currency.thousandsSeparatorTo=",";
+        _currency.decimalSeparatorTo=".";
         //InitFade();
     }
     private function items_collectionChange(evt:CollectionEvent):void{
@@ -79,14 +98,14 @@ public class TransitionCards {
         trace(evt.items);
         switch(evt.kind){
             case CollectionEventKind.ADD:
-                _eventAddToCart.RegisterEvent(evt.items[0].card);
+                _eventAddToCart.RegisterEventUpdateCart(_cart,_cartBox.items.dataProvider as ArrayCollection);
                 break;
             case CollectionEventKind.REMOVE:
-                _eventRemoveFromCart.RegisterEvent(evt.items[0].card);
+                _eventAddToCart.RegisterEventUpdateCart(_cart,_cartBox.items.dataProvider as ArrayCollection);
                 break;
             case CollectionEventKind.UPDATE:
             case CollectionEventKind.REPLACE:
-                _eventUpdateCart.RegisterEvent(_cartBox.items.dataProvider.getItemAt(evt.location).card);
+                _eventAddToCart.RegisterEventUpdateCart(_cart,_cartBox.items.dataProvider as ArrayCollection);
                 break;
         }
         CalculateTotals()
@@ -149,8 +168,24 @@ public class TransitionCards {
         MoveCount();
 
     }
+    public function AddCardToCart(card:Card):void{
+        var index:int= this.FindCardInCart(card);
+        var cartItem:models.CartItem;
+        if (index != -1) {
+            var amount:int =_cartBox.items.dataProvider.getItemAt(index).amount + 1;
+            cartItem = new models.CartItem(card, amount);
+            _cartBox.items.dataProvider.setItemAt(cartItem,index);
+        } else {
+            cartItem = new models.CartItem(card, 1);
+            _cartBox.items.dataProvider.addItem(cartItem);
 
-    private function MoveCount():void{
+        }
+        _cardComponent.getComponent().button.label="In Cart";
+
+        MoveCount();
+
+    }
+    public function MoveCount():void{
         _currentCard = null;
         _currentCard = _cards[_currentCardIndex];
         _moveCount=new Move();
@@ -175,11 +210,15 @@ public class TransitionCards {
         }
 
         _numberItemsLabel.visible=(_totalItems>0);
+        _cartBox.emptyLabel.visible=(_totalItems==0);
+        _itemsInYourCartImage.visible=(_totalItems>0);
+        _cartBox.footBox.visible=(_totalItems>0);
         _numberItemsLabel.label = _totalItems.toString();
-        _cartBox.TotalLabel.text = '$'+_totalPrice.toString();
+        _cartBox.TotalLabel.text = _currency.format(_totalPrice);
+        _checkoutBox.TotalLabel.text = _currency.format(_totalPrice);
     }
 
-    private function FindCardInCart(card:models.Card):int{
+    public function FindCardInCart(card:models.Card):int{
         var total:int =  _cartBox.items.dataProvider.length;
         var index:int=-1;
         for(var i:int=0;i<total;i++){

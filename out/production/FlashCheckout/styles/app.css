@@ -1,0 +1,19 @@
+@namespace s "library://ns.adobe.com/flex/spark";
+.placeholder{
+    color: #666666;
+}
+.InputTextDefault{
+    backgroundColor:#ffffff;
+    fontSize: 14px;
+}
+s|TextInput{
+    showPromptWhenFocused: true;
+}
+
+
+.btnCheckout{
+    skin:	ClassReference(null);
+    fillAlphas: 1, 1, 1, 1;
+    fillColors: #fda731, #fda731, #fda731, #fda731;
+    baseColor: #fda731;
+}

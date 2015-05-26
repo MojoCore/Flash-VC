@@ -2,10 +2,14 @@
  * Created by nodejs01 on 5/19/15.
  */
 package models {
+import mx.collections.ArrayCollection;
+
 public class Video {
     private var _id:String;
     private var _user:String;
+    private var _actions:ArrayCollection;
     public function Video() {
+        _actions=new ArrayCollection();
     }
 
     public function get id():String {
@@ -22,6 +26,14 @@ public class Video {
 
     public function set user(value:String):void {
         _user = value;
+    }
+
+    public function get actions():ArrayCollection {
+        return _actions;
+    }
+
+    public function set actions(value:ArrayCollection):void {
+        _actions = value;
     }
 }
 }

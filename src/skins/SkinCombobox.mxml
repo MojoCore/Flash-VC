@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ADOBE SYSTEMS INCORPORATED
+Copyright 2008 Adobe Systems Incorporated
+All Rights Reserved.
+NOTICE: Adobe permits you to use, modify, and distribute this file
+in accordance with the terms of the license agreement accompanying it.
+-->
+<!--- The default skin class for the Spark ComboBox component.
+ The skin for the anchor button for a ComboBox component
+ is defined by the ComboBoxButtonSkin class.  The skin for the text input
+ is defined by the ComboBoxTextInputSkin class.
+ @see spark.components.ComboBox
+ @see spark.skins.spark.ComboBoxButtonSkin
+ @langversion 3.0
+ @playerversion Flash 10
+ @playerversion AIR 1.5
+ @productversion Flex 4
+-->
+<s:SparkSkin
+
+        xmlns:fx="http://ns.adobe.com/mxml/2009"
+        xmlns:s="library://ns.adobe.com/flex/spark"
+        xmlns:fb="http://ns.adobe.com/flashbuilder/2009"
+        alpha.disabled=".5"
+        >
+
+  <!-- host component -->
+  <fx:Metadata>
+        <![CDATA[
+    /**
+     * @copy spark.skins.spark.ApplicationSkin#hostComponent
+     */
+    [HostComponent("spark.components.ComboBox")]
+    ]]>
+    </fx:Metadata>
+
+  <fx:Script>
+		<![CDATA[
+    import mx.events.FlexEvent;
+    import mx.events.StateChangeEvent;
+
+    [Bindable]
+    protected var popupStartPosition:Number;
+    [Bindable]
+    protected var popupHeight:Number;
+
+    protected var isDataGroupCreated:Boolean;
+    //----------------------------------------------------------------------------
+
+    static private const exclusions:Array = ["popUp"];
+
+    /**
+     * @private
+     */
+    override public function get colorizeExclusions():Array {return exclusions;}
+
+    //----------------------------------------------------------------------------
+    override protected function initializationComplete():void
+    {
+      useChromeColor = true;
+
+      super.initializationComplete();
+    }
+
+    //----------------------------------------------------------------------------
+    protected function stateChangeHandler(event:StateChangeEvent):void
+    {
+      if(event.newState == "open")
+      {
+        popUp.displayPopUp = true;
+
+        if(scroller && isDataGroupCreated) openPop.play();
+      }
+      else if(scroller && event.newState == "normal" && isDataGroupCreated)
+      {
+        closePop.play();
+      }
+    }
+    //-----------------------------------------------------------------------------
+    protected function dataGroup_creationCompleteHandler(event:FlexEvent):void
+    {
+      popupStartPosition = scroller.y;
+      popupHeight = scroller.height;
+
+      isDataGroupCreated = true;
+
+      if(currentState == "open") openPop.play();
+    }
+
+    ]]>
+	</fx:Script>
+
+  <s:states>
+    <s:State name="normal" />
+    <s:State name="open" />
+    <s:State name="disabled" />
+  </s:states>
+
+  <fx:Declarations>
+
+    <s:Power id="powerEaser" />
+
+    <s:Move
+
+            id="openPop"
+            target="{scroller}"
+            easer="{powerEaser}"
+            duration="300"
+            yFrom="{popupStartPosition-popupHeight}"
+            yTo="{popupStartPosition}"
+            />
+
+    <s:Move
+
+            id="closePop"
+            target="{scroller}"
+            easer="{powerEaser}"
+            duration="300"
+            effectEnd="{popUp.displayPopUp = false}"
+            yFrom="{popupStartPosition}"
+            yTo="{popupStartPosition-popupHeight}"
+            />
+
+  </fx:Declarations>
+
+  <s:PopUpAnchor
+
+          id="popUp"
+          displayPopUp.normal="false"
+          displayPopUp.open="true"
+          left="0" right="0" top="0" bottom="0"
+          popUpPosition="below"
+          popUpWidthMatchesAnchorWidth="true"
+          >
+
+    <s:Group
+
+            id="dropDown"
+            clipAndEnableScrolling="true"
+            >
+
+      <s:Scroller
+
+              id="scroller"
+              left="0" top="0" right="0" bottom="0"
+              hasFocusableChildren="false"
+              >
+        <s:DataGroup
+
+                id="dataGroup"
+
+                >
+          <s:layout>
+            <s:VerticalLayout gap="0" horizontalAlign="contentJustify"/>
+          </s:layout>
+        </s:DataGroup>
+      </s:Scroller>
+
+    </s:Group>
+  </s:PopUpAnchor>
+
+  <s:Button
+
+          id="openButton"
+          width="20"
+          height="20"
+          right="0"
+          top="0"
+          bottom="0"
+          focusEnabled="false"
+
+          />
+
+  <s:TextInput
+
+          id="textInput"
+          text="Choose ..."
+          height="20"
+          left="0"
+          right="20"
+          top="0"
+          bottom="0"
+          focusEnabled="false"
+
+          />
+
+</s:SparkSkin>

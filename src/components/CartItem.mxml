@@ -27,14 +27,22 @@
 
       private function init():void {
           button.setStyle('padding', 5);
+          amount.addEventListener(MouseEvent.CLICK,updateItem );
           //_eventRemoveFromCart =
       }
-
 
       public function deleteItem():void {
           var parentList:List = owner as List;
           parentList.dataProvider.removeItemAt(parentList.dataProvider.getItemIndex(data))
 
+      }
+
+      public function updateItem(event:MouseEvent):void {
+          var localAmount:int = amount.value;
+          var parentList:List = owner as List;
+          var cartItem:models.CartItem = data as models.CartItem;
+          cartItem.amount=localAmount;
+          parentList.dataProvider.setItemAt(cartItem, parentList.dataProvider.getItemIndex(cartItem));
       }
       ]]>
     </fx:Script>
@@ -64,6 +72,7 @@
               right="10"
               useHandCursor="true"
               buttonMode="true"
+
 
             />
     <mx:Box direction="vertical" width="100%" paddingTop="20">
