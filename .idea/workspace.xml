@@ -2,24 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fe6276c7-78f5-4897-ad4d-8222c99566e4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/CartItemResponsive.mxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/CartResponsive.mxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/CheckoutCompletedResponsiveBox.mxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/CheckoutResponsiveBox.mxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/skins/SkinTextInputResponsive.mxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/FlashCheckout/Main.swf" afterPath="$PROJECT_DIR$/out/production/FlashCheckout/Main.swf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.as" afterPath="$PROJECT_DIR$/src/App.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/CardResponsive.mxml" afterPath="$PROJECT_DIR$/src/components/CardResponsive.mxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/Cart.as" afterPath="$PROJECT_DIR$/src/models/Cart.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Cart.mxml" afterPath="$PROJECT_DIR$/src/components/Cart.mxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/CartItem.as" afterPath="$PROJECT_DIR$/src/models/CartItem.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/CheckoutDefaultBox.mxml" afterPath="$PROJECT_DIR$/src/components/CheckoutDefaultBox.mxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.mxml" afterPath="$PROJECT_DIR$/src/Main.mxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/ParamsUrl.as" afterPath="$PROJECT_DIR$/src/util/ParamsUrl.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skins/SkinSolidButton.mxml" afterPath="$PROJECT_DIR$/src/skins/SkinSolidButton.mxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/services/TransitionCards.as" afterPath="$PROJECT_DIR$/src/services/TransitionCards.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="D:\proyectos\git\Flash-VC\out\production\FlashCheckout\testfb.html" afterPath="$PROJECT_DIR$/out/production/FlashCheckout/testfb2.html" />
     </list>
     <ignored path="Flash-VC.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -141,21 +124,21 @@
       <file leaf-file-name="Main.mxml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.mxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.23407917">
-              <caret line="199" column="87" selection-start-line="199" selection-start-column="87" selection-end-line="199" selection-end-column="87" />
+            <state vertical-scroll-proportion="0.7607573">
+              <caret line="217" column="0" selection-start-line="217" selection-start-column="0" selection-end-line="217" selection-end-column="0" />
               <folding>
-                <marker date="1432763007341" expanded="false" signature="405:714" placeholder="..." />
-                <marker date="1432763007341" expanded="true" signature="405:752" placeholder="..." />
-                <marker date="1432763007341" expanded="true" signature="921:1046" placeholder="{...}" />
-                <marker date="1432763007341" expanded="true" signature="1084:1329" placeholder="{...}" />
-                <marker date="1432763007341" expanded="true" signature="1200:1319" placeholder="//..." />
-                <marker date="1432763007341" expanded="true" signature="1386:1503" placeholder="{...}" />
-                <marker date="1432763007341" expanded="true" signature="1400:1493" placeholder="//..." />
-                <marker date="1432763007341" expanded="true" signature="1540:1711" placeholder="{...}" />
-                <marker date="1432763007341" expanded="true" signature="1554:1627" placeholder="//..." />
-                <marker date="1432763007341" expanded="true" signature="1773:1987" placeholder="{...}" />
-                <marker date="1432763007341" expanded="true" signature="1866:1921" placeholder="{...}" />
-                <marker date="1432763007341" expanded="true" signature="1925:1977" placeholder="{...}" />
+                <marker date="1432848074801" expanded="false" signature="405:714" placeholder="..." />
+                <marker date="1432848074801" expanded="true" signature="405:752" placeholder="..." />
+                <marker date="1432848074801" expanded="true" signature="921:1046" placeholder="{...}" />
+                <marker date="1432848074801" expanded="true" signature="1084:1329" placeholder="{...}" />
+                <marker date="1432848074801" expanded="true" signature="1200:1319" placeholder="//..." />
+                <marker date="1432848074801" expanded="true" signature="1386:1503" placeholder="{...}" />
+                <marker date="1432848074801" expanded="true" signature="1400:1493" placeholder="//..." />
+                <marker date="1432848074801" expanded="true" signature="1540:1711" placeholder="{...}" />
+                <marker date="1432848074801" expanded="true" signature="1554:1627" placeholder="//..." />
+                <marker date="1432848074801" expanded="true" signature="1773:1987" placeholder="{...}" />
+                <marker date="1432848074801" expanded="true" signature="1866:1921" placeholder="{...}" />
+                <marker date="1432848074801" expanded="true" signature="1925:1977" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -242,10 +225,10 @@
         <option value="$PROJECT_DIR$/out/production/FlashCheckout/testfb.html" />
         <option value="$PROJECT_DIR$/src/App.as" />
         <option value="$PROJECT_DIR$/src/skins/SkinTextInputResponsive.mxml" />
-        <option value="$PROJECT_DIR$/src/Main.mxml" />
         <option value="$PROJECT_DIR$/src/components/CheckoutCompletedResponsiveBox.mxml" />
         <option value="$PROJECT_DIR$/src/services/TransitionCards.as" />
         <option value="$PROJECT_DIR$/src/components/CheckoutResponsiveBox.mxml" />
+        <option value="$PROJECT_DIR$/src/Main.mxml" />
       </list>
     </option>
   </component>
@@ -731,12 +714,12 @@
       <workItem from="1432648938416" duration="25650000" />
       <workItem from="1432737246224" duration="3727000" />
       <workItem from="1432741042043" duration="18152000" />
-      <workItem from="1432823451501" duration="3225000" />
+      <workItem from="1432823451501" duration="3827000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="147529000" />
+    <option name="totallyTimeSpent" value="148131000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -836,18 +819,18 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
           <folding>
-            <marker date="1432763007341" expanded="false" signature="405:714" placeholder="..." />
-            <marker date="1432763007341" expanded="true" signature="405:752" placeholder="..." />
-            <marker date="1432763007341" expanded="true" signature="921:1046" placeholder="{...}" />
-            <marker date="1432763007341" expanded="true" signature="1084:1329" placeholder="{...}" />
-            <marker date="1432763007341" expanded="true" signature="1200:1319" placeholder="//..." />
-            <marker date="1432763007341" expanded="true" signature="1386:1503" placeholder="{...}" />
-            <marker date="1432763007341" expanded="true" signature="1400:1493" placeholder="//..." />
-            <marker date="1432763007341" expanded="true" signature="1540:1711" placeholder="{...}" />
-            <marker date="1432763007341" expanded="true" signature="1554:1627" placeholder="//..." />
-            <marker date="1432763007341" expanded="true" signature="1773:1987" placeholder="{...}" />
-            <marker date="1432763007341" expanded="true" signature="1866:1921" placeholder="{...}" />
-            <marker date="1432763007341" expanded="true" signature="1925:1977" placeholder="{...}" />
+            <marker date="1432848074801" expanded="false" signature="405:714" placeholder="..." />
+            <marker date="1432848074801" expanded="true" signature="405:752" placeholder="..." />
+            <marker date="1432848074801" expanded="true" signature="921:1046" placeholder="{...}" />
+            <marker date="1432848074801" expanded="true" signature="1084:1329" placeholder="{...}" />
+            <marker date="1432848074801" expanded="true" signature="1200:1319" placeholder="//..." />
+            <marker date="1432848074801" expanded="true" signature="1386:1503" placeholder="{...}" />
+            <marker date="1432848074801" expanded="true" signature="1400:1493" placeholder="//..." />
+            <marker date="1432848074801" expanded="true" signature="1540:1711" placeholder="{...}" />
+            <marker date="1432848074801" expanded="true" signature="1554:1627" placeholder="//..." />
+            <marker date="1432848074801" expanded="true" signature="1773:1987" placeholder="{...}" />
+            <marker date="1432848074801" expanded="true" signature="1866:1921" placeholder="{...}" />
+            <marker date="1432848074801" expanded="true" signature="1925:1977" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -1233,21 +1216,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.mxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23407917">
-          <caret line="199" column="87" selection-start-line="199" selection-start-column="87" selection-end-line="199" selection-end-column="87" />
+        <state vertical-scroll-proportion="0.7607573">
+          <caret line="217" column="0" selection-start-line="217" selection-start-column="0" selection-end-line="217" selection-end-column="0" />
           <folding>
-            <marker date="1432763007341" expanded="false" signature="405:714" placeholder="..." />
-            <marker date="1432763007341" expanded="true" signature="405:752" placeholder="..." />
-            <marker date="1432763007341" expanded="true" signature="921:1046" placeholder="{...}" />
-            <marker date="1432763007341" expanded="true" signature="1084:1329" placeholder="{...}" />
-            <marker date="1432763007341" expanded="true" signature="1200:1319" placeholder="//..." />
-            <marker date="1432763007341" expanded="true" signature="1386:1503" placeholder="{...}" />
-            <marker date="1432763007341" expanded="true" signature="1400:1493" placeholder="//..." />
-            <marker date="1432763007341" expanded="true" signature="1540:1711" placeholder="{...}" />
-            <marker date="1432763007341" expanded="true" signature="1554:1627" placeholder="//..." />
-            <marker date="1432763007341" expanded="true" signature="1773:1987" placeholder="{...}" />
-            <marker date="1432763007341" expanded="true" signature="1866:1921" placeholder="{...}" />
-            <marker date="1432763007341" expanded="true" signature="1925:1977" placeholder="{...}" />
+            <marker date="1432848074801" expanded="false" signature="405:714" placeholder="..." />
+            <marker date="1432848074801" expanded="true" signature="405:752" placeholder="..." />
+            <marker date="1432848074801" expanded="true" signature="921:1046" placeholder="{...}" />
+            <marker date="1432848074801" expanded="true" signature="1084:1329" placeholder="{...}" />
+            <marker date="1432848074801" expanded="true" signature="1200:1319" placeholder="//..." />
+            <marker date="1432848074801" expanded="true" signature="1386:1503" placeholder="{...}" />
+            <marker date="1432848074801" expanded="true" signature="1400:1493" placeholder="//..." />
+            <marker date="1432848074801" expanded="true" signature="1540:1711" placeholder="{...}" />
+            <marker date="1432848074801" expanded="true" signature="1554:1627" placeholder="//..." />
+            <marker date="1432848074801" expanded="true" signature="1773:1987" placeholder="{...}" />
+            <marker date="1432848074801" expanded="true" signature="1866:1921" placeholder="{...}" />
+            <marker date="1432848074801" expanded="true" signature="1925:1977" placeholder="{...}" />
           </folding>
         </state>
       </provider>
