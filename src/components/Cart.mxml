@@ -43,7 +43,7 @@
 
                text="Your cart is empty!" includeInLayout="false" ></s:Label>
     <s:List id="items"
-            dataProvider="{dataCart}"
+
             itemRenderer="components.CartItem"
             width="100%"
             height="100%"

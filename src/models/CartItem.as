@@ -5,10 +5,11 @@ package models {
 public class CartItem {
     private var _card:Card;
     private var _amount:Number=1;
-    private var _jsonObject:Object
+    private var _jsonObject:Object;
     public function CartItem(card:Card,amount:Number) {
         _card = card;
         _amount = amount;
+        _jsonObject=new Object();
     }
 
     public function get amount():Number {

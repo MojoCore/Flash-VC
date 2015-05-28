@@ -17,17 +17,22 @@
 
         import util.swfSelfResize;
         import mx.utils.MediaQueryParser;
+        import flash.system.Security;
         private var widthWatch:ChangeWatcher;
         public var app:App = new App();
         private var resize:swfSelfResize;
         private function InitApp():void {
             app.InitializeComponents(this,systemManager.stage.stageWidth);
-
+            Security.allowDomain("*");
         }
         private function init2():void{
 
             app.Init();
             widthWatch = ChangeWatcher.watch(this,'width',onSizeChange);
+
+
+
+
             //this.loaderInfo.addEventListener(Event.COMPLETE, loaderComplete);
             //Alert.show(this.loaderInfo.loaderURL)
         }
@@ -36,6 +41,13 @@
         {
             //var myQueryStrings=this.loaderInfo.parameters;
             //Alert.show(myQueryStrings.id);
+        }
+
+        public function resizeApp(){
+            //resize=new swfSelfResize();
+            //this.resize.addHeight( 100 );
+            footer.includeInLayout=true;
+            footer.visible=true;
         }
 
 
@@ -47,7 +59,7 @@
             if(stage.stageWidth<640){
                 app.ChangeResponsive();
             }else{
-                app.ChangeDefault(stage.stageWidth,stage.stageHeight);
+                app.ChangeDefault();
             }
         }
 
@@ -56,13 +68,49 @@
 
         ]]></fx:Script>
 
-
+<mx:Box direction="vertical" width="100%" height="100%">
+    <s:Group width="100%" height="100%">
     <s:VideoPlayer id="videoPlayer"
                    skinClass="skins.SkinVideo"
                    width="100%"
                    height="100%" />
+    <custom:CardResponsive id="cardR"
+                           bottom="26"
+                           left="0"
+                           width="100%"
+                           height="45"
+                           textAlign="center"
+                           visible="false"/>
+    </s:Group>
+    <mx:Box id="footer" width="100%" height="200" direction="vertical">
+
+        <mx:ViewStack id="CheckoutViewStackResponsive" width="100%" height="100%">
+
+            <s:NavigatorContent id="formCheckoutContentResponsive"  width="100%" height="100%" >
+                <s:Scroller width="100%" height="100%">
+                    <s:VGroup width="100%">
+                        <custom:CartResponsive id="cartBoxResponsive" width="100%">
+
+                        </custom:CartResponsive>
+
+                        <custom:CheckoutResponsiveBox width="100%" id="checkoutBoxResponsive" paddingLeft="0" paddingRight="0" >
+
+                        </custom:CheckoutResponsiveBox>
+                    </s:VGroup>
+
+                </s:Scroller>
+            </s:NavigatorContent>
+            <s:NavigatorContent id="FinishCheckoutContentResponsive"  width="100%" height="100%" >
+                <custom:CheckoutCompletedResponsiveBox width="100%">
+
+                </custom:CheckoutCompletedResponsiveBox>
+            </s:NavigatorContent>
+        </mx:ViewStack>
 
 
+    </mx:Box>
+
+</mx:Box>
     <custom:CardDefault id="card"
                  bottom="50"
                  left="20"
@@ -71,13 +119,7 @@
                  textAlign="center"
                  visible="false"/>
 
-    <custom:CardResponsive id="cardR"
-                        bottom="25"
-                        left="0"
-                        width="100%"
-                        height="65"
-                        textAlign="center"
-                        visible="false"/>
+
         <mx:HDividedBox width="100%" height="100%" top="0" bottom="25" left="0" horizontalGap="0" verticalScrollPolicy="off" horizontalScrollPolicy="off">
         <custom:Cart id="CartBox"
                      horizontalScrollPolicy="off"
@@ -134,7 +176,7 @@
               skinClass="skins.SkinCircleButton"
               useHandCursor="true"
               buttonMode="true"  />
-    <s:Button id="countButton"
+    <s:Button id="countButton" click="resizeApp()"
               skinClass="skins.SkinCircleButtonText"
               top="10"
               right="11"

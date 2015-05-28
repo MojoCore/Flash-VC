@@ -27,7 +27,7 @@ public class ParamsUrl {
         var obj:Object;
         //var pageURL:String = ExternalInterface.call("window.location.href.toString");
         var pageURL:String = url;
-        Alert.show(pageURL);
+        //Alert.show(pageURL);
         var params:Array = pageURL.split("?");
         if(params.length>1){
             var paramPairs:Array = pageURL.split("?")[1].split("&");

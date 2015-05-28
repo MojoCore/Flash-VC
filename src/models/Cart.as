@@ -12,6 +12,7 @@ public class Cart {
     private var _accessToken:String;
     private var _user:String;
     private var _v:Number;
+    [Bindable]
     private var _items:ArrayCollection;
     public function Cart() {
         _items= new ArrayCollection();
@@ -19,7 +20,7 @@ public class Cart {
     public function Add(item:CartItem):void{
         _items.addItem(item);
     }
-
+    [Bindable]
     public function get items():ArrayCollection {
         return _items;
     }

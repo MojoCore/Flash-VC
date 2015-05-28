@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+<!--
+  Created by EDINSON on 25/05/2015.
+-->
+<mx:Box xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:mx="library://ns.adobe.com/flex/mx"
+        xmlns:s="library://ns.adobe.com/flex/spark"
+        xmlns:custom="components.*"
+        paddingTop="5"
+        paddingLeft="0"
+        paddingRight="0"
+        paddingBottom="5"
+        width="100%"
+        height="100%" backgroundColor="#ebf2f2" >
+
+  <mx:Box width="100%" paddingLeft="10" paddingRight="10">
+    <s:HGroup width="100%">
+      <s:TextInput id="nameInput" width="50%" skinClass="skins.SkinTextInputResponsive" prompt="Name (as it appears on the card)"/>
+      <s:TextInput id="emailInput" width="50%" skinClass="skins.SkinTextInputResponsive" prompt="Email"/>
+
+    </s:HGroup>
+    <s:HGroup width="100%">
+      <s:TextInput id="addressInput" width="50%" skinClass="skins.SkinTextInputResponsive" prompt="Address"/>
+      <s:TextInput id="phoneInput" width="50%" skinClass="skins.SkinTextInputResponsive" prompt="Phone Number"/>
+    </s:HGroup>
+    <s:HGroup  width="100%">
+      <s:TextInput id="cityInput" width="50%" skinClass="skins.SkinTextInputResponsive" prompt="City"/>
+      <!--s:TextInput id="stateInput" width="25%" skinClass="skins.SkinTextInput" prompt="State"/-->
+      <s:ComboBox id="stateInput" prompt="State"  contentBackgroundColor="white" height="30" width="29%">
+        <s:dataProvider>
+          <s:ArrayList>
+            <fx:Object label="Alabama" data="AL"/>
+            <fx:Object label="Alaska" data="AK"/>
+            <fx:Object label="Arizona" data="AZ"/>
+            <fx:Object label="Arkanas" data="AR"/>
+            <fx:Object label="California" data="CA"/>
+            <fx:Object label="COLORADO" data="CO"/>
+
+            <fx:Object label="Connecticut" data="CT"/>
+            <fx:Object label="Delaware" data="DE"/>
+            <fx:Object label="Florida" data="FL"/>
+            <fx:Object label="Georgia" data="GA"/>
+            <fx:Object label="Hawaii" data="HI"/>
+            <fx:Object label="Idaho" data="ID"/>
+
+            <fx:Object label="Illinois" data="IL"/>
+            <fx:Object label="Indiana" data="IN"/>
+            <fx:Object label="Idaho" data="ID"/>
+            <fx:Object label="Iowa" data="IA"/>
+            <fx:Object label="Kansas" data="KS"/>
+            <fx:Object label="Kentucky" data="KY"/>
+            <fx:Object label="Louisiana" data="LA"/>
+            <fx:Object label="Maine" data="ME"/>
+
+            <fx:Object label="Maryland" data="MD"/>
+            <fx:Object label="Massachusetts" data="MA"/>
+            <fx:Object label="Michigan" data="MI"/>
+            <fx:Object label="Minnesota" data="MN"/>
+            <fx:Object label="Mississippi" data="MS"/>
+            <fx:Object label="Missouri" data="MO"/>
+            <fx:Object label="Montana" data="MT"/>
+            <fx:Object label="Nebraska" data="NE"/>
+            <fx:Object label="New Hampshire" data="NH"/>
+            <fx:Object label="New Jersey" data="NJ"/>
+            <fx:Object label="New Mexico" data="NM"/>
+            <fx:Object label="New York" data="NY"/>
+
+
+            <fx:Object label="North Carolina" data="NC"/>
+            <fx:Object label="North Dakota" data="ND"/>
+            <fx:Object label="Ohio" data="OH"/>
+            <fx:Object label="Oklahoma" data="OK"/>
+            <fx:Object label="Oregon" data="OR"/>
+            <fx:Object label="Pennsylvania" data="PA"/>
+            <fx:Object label="Rhode Island" data="RI"/>
+            <fx:Object label="South Carolina" data="SC"/>
+            <fx:Object label="South Dakota" data="SD"/>
+            <fx:Object label="Tennessee" data="TN"/>
+
+            <fx:Object label="Texas" data="TX"/>
+            <fx:Object label="Utah" data="UT"/>
+            <fx:Object label="Vermont" data="VT"/>
+            <fx:Object label="Virginia" data="VA"/>
+            <fx:Object label="Washington" data="WA"/>
+            <fx:Object label="West Virginia" data="WV"/>
+
+            <fx:Object label="Wisconsin" data="WI"/>
+            <fx:Object label="Wyoming" data="WY"/>
+
+
+
+          </s:ArrayList>
+        </s:dataProvider>
+      </s:ComboBox>
+      <s:TextInput id="zipInput" width="20%" skinClass="skins.SkinTextInputResponsive" prompt="ZIP"/>
+    </s:HGroup>
+    <s:HGroup  width="100%">
+      <s:VGroup  width="50%">
+        <s:Label text="Credit Card / Debit Card"></s:Label>
+      <s:HGroup  width="100%">
+        <s:TextInput id="cardnumberInput" width="70%" skinClass="skins.SkinTextInputResponsive" prompt="Card Number"/>
+        <s:TextInput id="cvvInput" width="30%" skinClass="skins.SkinTextInputResponsive" prompt="CVV"/>
+        </s:HGroup>
+      </s:VGroup>
+      <s:VGroup  width="50%">
+      <s:Label text="Expiration"></s:Label>
+      <s:HGroup  width="100%">
+      <s:ComboBox id="monthInput" prompt="Month"  contentBackgroundColor="white" height="30" width="70%">
+        <s:dataProvider>
+          <s:ArrayList>
+            <fx:Object label="JANUARY" data="01"/>
+            <fx:Object label="FEBRUARY" data="02"/>
+            <fx:Object label="MARCH" data="03"/>
+            <fx:Object label="APRIL" data="04"/>
+            <fx:Object label="MAY" data="05"/>
+            <fx:Object label="JUNE" data="06"/>
+            <fx:Object label="JULY" data="07"/>
+            <fx:Object label="AUGUST" data="08"/>
+            <fx:Object label="SEPTEMBER" data="09"/>
+            <fx:Object label="OCTOBER" data="10"/>
+            <fx:Object label="NOVEMBER" data="11"/>
+            <fx:Object label="DECEMBER" data="12"/>
+
+
+          </s:ArrayList>
+        </s:dataProvider>
+      </s:ComboBox>
+      <s:TextInput id="yearInput" width="30%" skinClass="skins.SkinTextInputResponsive" prompt="Year"/>
+        </s:HGroup>
+      </s:VGroup>
+
+    </s:HGroup>
+    <s:HGroup width="100%">
+      <s:Label color="black" text="Total " fontSize="18" width="40%"></s:Label>
+      <s:Label id="TotalLabel" color="black" text="$0.00" fontSize="18" textAlign="left" width="60%" verticalAlign="middle"></s:Label>
+    </s:HGroup>
+    <s:Button id="CheckOutButton" horizontalCenter="0" verticalCenter="0"
+              label="CHECKOUT"
+              skinClass="skins.SkinSolidButton"
+              color="0xfda731"
+              width="100%"
+              height="40"
+              fontSize="20"
+              useHandCursor="true"
+              click="this.parentApplication.app.CheckoutHandler(event)"
+              buttonMode="true"></s:Button>
+</mx:Box>
+</mx:Box>

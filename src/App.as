@@ -6,6 +6,7 @@ import Implements.CardDefault;
 import Implements.CardResponsive;
 import Implements.EventAction;
 import components.CheckoutDefaultBox;
+import components.CheckoutResponsiveBox;
 
 
 import flash.display.Sprite;
@@ -55,6 +56,7 @@ import util.ParamsUrl;
 import util.RestService;
 
 public class App extends Sprite{
+    private var _isResponsive:Boolean;
     private var showCartBox:Boolean = false;
     private var JsonData:Object;
     private var _transitionCards:TransitionCards;
@@ -70,6 +72,7 @@ public class App extends Sprite{
     private var _moveCheckoutTop:Move;
     private var _actionsList:List;
     private var _checkoutBox:CheckoutDefaultBox;
+    private var _checkoutBoxResponsive:CheckoutResponsiveBox;
 
 
     private var _app:Object;
@@ -100,10 +103,18 @@ public class App extends Sprite{
         _cartBox = _app.CartBox;
         _actionsList = _app.actionsList;
         _checkoutBox=_app.checkoutBox;
-        if(width<=500)
-            _card = new Implements.CardResponsive(_app.cardR);
-        else
-            _card = new Implements.CardDefault(_app.card);
+        _checkoutBoxResponsive=_app.checkoutBoxResponsive;
+        if(width<=500){
+            ChangeResponsive();
+            //_card = new Implements.CardResponsive(_app.cardR);
+            //_isResponsive=true;
+        }
+        else{
+            ChangeDefault();
+            //_card = new Implements.CardDefault(_app.card);
+            //_isResponsive=false;
+        }
+
 
         //
         _checkoutBox.backButton.setStyle('padding',8);
@@ -153,6 +164,7 @@ public class App extends Sprite{
         _cartBox.CheckOutButton.addEventListener(MouseEvent.CLICK,ShowBoxCheckOut);
         _checkoutBox.backButton.addEventListener(MouseEvent.CLICK, HideBoxCheckOut);
         _checkoutBox.CheckOutButton.addEventListener(MouseEvent.CLICK, CheckoutHandler);
+
     }
 
 
@@ -270,7 +282,7 @@ public class App extends Sprite{
         _transitionCards.EvalCardsInTime(event.time);
     }
     private function VideoCompleteHandler(event:TimeEvent):void {
-        _app.panelCard.visible=true;
+        _app.panelCard.visible=(true&&!_isResponsive);
         _transitionCards.ResetTransitions();
         _eventTime100.RegisterEvent(event.time);
     }
@@ -337,16 +349,26 @@ public class App extends Sprite{
     }
 
     public function ChangeResponsive():void{
+        _isResponsive=true;
         _card=new CardResponsive(_app.cardR);
-        _transitionCards.ChangeResponsive(_card);
+        if(_transitionCards)
+            _transitionCards.ChangeResponsive(_card);
         _app.card.visible=false;
         _cartBox.percentHeight=100;
+        _app.footer.visible=true;
+        _app.footer.includeInLayout=true;
+
     }
-    public function ChangeDefault(w:int,h:int):void{
+    public function ChangeDefault():void{
+        _isResponsive=false;
         _card=new CardDefault(_app.card);
-        _transitionCards.ChangeDefault(_card);
+        if(_transitionCards)
+            _transitionCards.ChangeDefault(_card);
         _app.cardR.visible=false;
         _cartBox.percentHeight=100;
+        _app.footer.visible=false;
+        _app.footer.includeInLayout=false;
+
     }
 
     public function ShowBoxCheckOut(evt:MouseEvent):void{
@@ -368,7 +390,7 @@ public class App extends Sprite{
         _moveCheckoutTop.play();
     }
 
-    private function CheckoutHandler(event:MouseEvent):void {
+    public function CheckoutHandler(event:MouseEvent):void {
         var service:RestService=new RestService('carts');
         var cartItems:ArrayCollection=_cartBox.items.dataProvider as ArrayCollection;
         var params:Object=new Object();
@@ -400,8 +422,7 @@ public class App extends Sprite{
         params.cc_number= _checkoutBox.cardnumberInput.text;
         params.createdAt= _cart.createAt;
         params.email= _checkoutBox.emailInput.text;
-        var vs:ViewStack=_app.CheckoutViewStack;
-        vs.selectedIndex=1;
+
         //(_app.watchVideoButton as Button).setStyle('padding',12);
         service.Put(_cart.id,params,function(response:Event):void{
             var result:Object;
@@ -423,6 +444,11 @@ public class App extends Sprite{
             var loader:URLLoader = URLLoader(response.target);
             result = JSON.parse(loader.data);
             trace(result);
+            var vs:ViewStack=_app.CheckoutViewStack;
+            vs.selectedIndex=1;
+
+            var vsr:ViewStack=_app.CheckoutViewStackResponsive;
+            vsr.selectedIndex=1;
         });
     }
 

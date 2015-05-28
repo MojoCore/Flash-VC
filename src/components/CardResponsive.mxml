@@ -6,10 +6,10 @@
         xmlns:s="library://ns.adobe.com/flex/spark" creationComplete="init()"
         width="100%" backgroundColor="0x000"
          backgroundAlpha=".8"
-         paddingRight="10"
+         paddingRight="5"
          paddingBottom="5"
-        paddingLeft="10"
-        paddingTop="10">
+        paddingLeft="5"
+        paddingTop="5">
     <fx:Script><![CDATA[
         private function init():void{
             button.setStyle('padding',10);

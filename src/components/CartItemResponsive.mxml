@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- http://blog.flexexamples.com/2010/04/15/creating-an-item-renderer-with-a-corner-radius-on-a-spark-list-control-in-flex-4/ -->
+<s:ItemRenderer name="CustomCornerRadiusItemRenderer"
+                xmlns:fx="http://ns.adobe.com/mxml/2009"
+                xmlns:s="library://ns.adobe.com/flex/spark"
+                xmlns:mx="library://ns.adobe.com/flex/mx"
+                autoDrawBackground="false" width="100%" creationComplete="init()">
+  <!-- states -->
+  <s:states>
+    <s:State name="normal" />
+    <s:State name="hovered" />
+    <s:State name="selected" />
+  </s:states>
+
+  <fx:Script>
+        <![CDATA[
+      import Interfaces.iEvent;
+
+      import models.Video;
+
+      import mx.formatters.CurrencyFormatter;
+
+      import spark.components.List;
+
+      [Bindable]
+      private var color1:uint = 0x6ABDC0;
+      private var _eventRemoveFromCart:iEvent;
+      public var video:models.Video;
+      private var _currency:mx.formatters.CurrencyFormatter;
+
+      private function ConfigureCurrency():CurrencyFormatter {
+          _currency = new CurrencyFormatter();
+          _currency.precision = 2;
+          _currency.currencySymbol = "$";
+          _currency.thousandsSeparatorTo = ",";
+          _currency.decimalSeparatorTo = ".";
+          return _currency;
+      }
+
+
+      private function init():void {
+          button.setStyle('padding', 5);
+          amount.addEventListener(MouseEvent.CLICK, updateItem);
+          ConfigureCurrency()
+          priceLabel.text=_currency.format(data.card.price);
+      }
+
+      public function deleteItem():void {
+          var parentList:List = owner as List;
+          parentList.dataProvider.removeItemAt(parentList.dataProvider.getItemIndex(data))
+
+      }
+
+      public function updateItem(event:MouseEvent):void {
+          var localAmount:int = amount.value;
+          var parentList:List = owner as List;
+          var cartItem:models.CartItem = data as models.CartItem;
+          cartItem.amount = localAmount;
+          parentList.dataProvider.setItemAt(cartItem, parentList.dataProvider.getItemIndex(cartItem));
+      }
+      ]]>
+    </fx:Script>
+
+  <s:Rect id="bgFill"
+          radiusX="0"
+          includeIn="hovered,selected"
+          left="0" right="0" top="0" bottom="0" width="100%" >
+    <s:fill>
+      <s:SolidColor color="0xffffff"
+                    alpha="0" />
+    </s:fill>
+
+  </s:Rect>
+
+
+
+  <mx:Box direction="vertical" width="100%" paddingTop="10">
+    <mx:Box direction="horizontal" width="100%">
+      <s:Image id="image" width="32"  height="32" source="{data.card.image}" />
+      <s:Label  id="titleLabel" text="{data.card.title}" fontSize="14" paddingTop="5"/>
+        <s:NumericStepper id="amount" width="55" value="{data.amount}" stepSize="1" maximum="1000"/>
+      <s:Label color="{color1}" text="@ " fontSize="14" paddingTop="5"></s:Label>
+      <s:Label id="priceLabel" color="{color1}" text="{_currency.format(data.card.price)}" fontSize="14" paddingTop="5" width="100%"></s:Label>
+      <s:Button id="button"
+                label="&#xea0f;"
+                width="20"
+                height="20"
+                color="0x6ABDC0"
+                fontSize="10"
+                skinClass="skins.SkinSolidButton"
+                fontFamily="CustomIcons"
+                click="deleteItem()"
+                top="0"
+                right="10"
+                useHandCursor="true"
+                buttonMode="true"
+
+
+              />
+    </mx:Box>
+
+  </mx:Box>
+<mx:HRule width="100%"></mx:HRule>
+  <fx:Script><![CDATA[
+    import mx.controls.Alert;
+    ]]></fx:Script>
+
+
+
+</s:ItemRenderer>
