@@ -13,11 +13,14 @@ import flash.display.Sprite;
 
 import flash.events.Event;
 import flash.events.IOErrorEvent;
+import flash.events.KeyboardEvent;
 import flash.events.MouseEvent;
 import flash.net.URLLoader;
 
 import Interfaces.iCard;
 import Interfaces.iEvent;
+
+import flash.utils.setTimeout;
 
 import models.Card;
 import Implements.EventViewVideo;
@@ -50,6 +53,7 @@ import spark.components.List;
 import spark.components.VideoPlayer;
 import spark.effects.Move;
 import spark.effects.Resize;
+import spark.events.IndexChangeEvent;
 
 import util.ParamsUrl;
 
@@ -67,7 +71,7 @@ public class App extends Sprite{
     private var _card:iCard;
     private var _moveCartBoxRight:Resize;
     private var _moveCartBoxLeft:Resize;
-
+    private var _showActions=false;
     private var _moveCheckoutBottom:Move;
     private var _moveCheckoutTop:Move;
     private var _actionsList:List;
@@ -119,6 +123,7 @@ public class App extends Sprite{
         //
         _checkoutBox.backButton.setStyle('padding',8);
         _checkoutBox.CheckOutButton.setStyle('padding',8);
+        InitializeForm();
 
 
     }
@@ -283,7 +288,8 @@ public class App extends Sprite{
     }
     private function VideoCompleteHandler(event:TimeEvent):void {
         _app.panelCard.visible=(true&&!_isResponsive);
-        _transitionCards.ResetTransitions();
+        _showActions=true&&!_isResponsive;
+        //_transitionCards.ResetTransitions();
         _eventTime100.RegisterEvent(event.time);
     }
     protected function VideoMediaPlayerStateChangeHandler(event:MediaPlayerStateChangeEvent):void {
@@ -292,6 +298,7 @@ public class App extends Sprite{
         if (event.state == MediaPlayerState.PLAYING){
             _app.panelCard.visible=false;
             _transitionCards.ResetTransitions();
+            _showActions=false;
             trace("playing ...");
         }
 
@@ -357,6 +364,12 @@ public class App extends Sprite{
         _cartBox.percentHeight=100;
         _app.footer.visible=true;
         _app.footer.includeInLayout=true;
+        _app.CheckoutViewStackResponsive.visible=true;
+        _app.CheckoutViewStack.visible=false;
+        _buttonCart.visible=false;
+        _actionsList.visible=false;
+        _cartBox.visible=false;
+        _app.panelCard.visible=(_showActions&&!_isResponsive);
 
     }
     public function ChangeDefault():void{
@@ -368,6 +381,12 @@ public class App extends Sprite{
         _cartBox.percentHeight=100;
         _app.footer.visible=false;
         _app.footer.includeInLayout=false;
+        _app.CheckoutViewStackResponsive.visible=false;
+        _app.CheckoutViewStack.visible=true;
+        _buttonCart.visible=true;
+        _app.panelCard.visible=(_showActions&&!_isResponsive);
+        _cartBox.visible=true;
+
 
     }
 
@@ -411,17 +430,24 @@ public class App extends Sprite{
             delete  params.items[i]['product'];
 
         }
-        params.billing_address1=_checkoutBox.addressInput.text;
-        params.billing_city= _checkoutBox.cityInput.text;
-        params.billing_firstName= _checkoutBox.nameInput.text;
-        params.billing_state= _checkoutBox.stateInput.selectedItem;
-        params.billing_zip= _checkoutBox.zipInput.text;
-        params.cc_cvv= _checkoutBox.cvvInput.text;
-        params.cc_expMonth=_checkoutBox.monthInput.selectedItem;
-        params.cc_expYear= _checkoutBox.yearInput.text;
-        params.cc_number= _checkoutBox.cardnumberInput.text;
-        params.createdAt= _cart.createAt;
-        params.email= _checkoutBox.emailInput.text;
+
+            params.billing_address1=_cart.billing_address1;
+            params.billing_city=_cart.billing_city;
+            params.billing_firstName="";
+            params.billing_lastName="";
+            if(_cart.billing_firstName.length>0) {
+                params.billing_firstName = _cart.billing_firstName.split(' ')[0];
+                if(_cart.billing_firstName.split(' ').length>1)
+                    params.billing_lastName=_cart.billing_firstName.split(' ')[1];
+            }
+            params.billing_state=_cart.billing_state||'';
+            params.billing_zip= _cart.billing_zip;
+            params.cc_cvv= _cart.cc_cvv;
+            params.cc_expMonth=_cart.cc_expMonth||'';
+            params.cc_expYear= _cart.cc_expYear;
+            params.cc_number= _cart.cc_number;
+            params.createdAt= _cart.createAt;
+            params.email= _cart.email;
 
         //(_app.watchVideoButton as Button).setStyle('padding',12);
         service.Put(_cart.id,params,function(response:Event):void{
@@ -440,15 +466,57 @@ public class App extends Sprite{
         var params:Object=new Object();
         params.cartId=_cart.id;
         service.Post(params,function(response:Event):void{
-            var result:Object;
-            var loader:URLLoader = URLLoader(response.target);
-            result = JSON.parse(loader.data);
-            trace(result);
-            var vs:ViewStack=_app.CheckoutViewStack;
-            vs.selectedIndex=1;
+            try{
+                var result:Object;
+                var loader:URLLoader = URLLoader(response.target);
+                result = JSON.parse(loader.data);
+                //trace(result);
+                if(result.hasOwnProperty("_id")){
+                    var vs:ViewStack=_app.CheckoutViewStack;
+                    vs.selectedIndex=1;
 
-            var vsr:ViewStack=_app.CheckoutViewStackResponsive;
-            vsr.selectedIndex=1;
+                    var vsr:ViewStack=_app.CheckoutViewStackResponsive;
+                    vsr.selectedIndex=1;
+                }else{
+
+                }
+            }catch(e:Error){
+
+            }
+
+
+        },function(response){
+            setTimeout(function(response):void{
+                var result:Object;
+                var loader:URLLoader = URLLoader(response.target);
+                //Alert.show(loader.data);
+                var data=loader.data;
+                try{
+                    result = JSON.parse(data);
+                }catch(e:Error){
+                    //Alert.show(data);
+                    result=new Object();
+                }
+
+                trace("error por aqui");
+                var message:String="";
+                if(result.hasOwnProperty("errors")) {
+                    for (var i:int = 0; i < result.errors.length; i++) {
+                        if (result.errors[i].hasOwnProperty("name")) {
+                            message += (result.errors[i].message as String).replace("{_FIELD_}", result.errors[i].name) + '\n';
+
+                        } else {
+                            message += result.errors[i].message + "\n";
+                        }
+
+                    }
+
+                }else{
+                    message="Data is empty";
+                }
+                Alert.show(message);
+            },500,response)
+
         });
     }
 
@@ -458,6 +526,110 @@ public class App extends Sprite{
 
     public function set transitionCards(value:TransitionCards):void {
         _transitionCards = value;
+    }
+    
+    private function InitializeForm():void{
+        _checkoutBoxResponsive.nameInput.addEventListener(KeyboardEvent.KEY_DOWN,changeResponsiveHandler);
+        _checkoutBoxResponsive.nameInput.addEventListener(KeyboardEvent.KEY_UP,changeResponsiveHandler);
+        _checkoutBoxResponsive.emailInput.addEventListener(KeyboardEvent.KEY_DOWN,changeResponsiveHandler);
+        _checkoutBoxResponsive.emailInput.addEventListener(KeyboardEvent.KEY_UP,changeResponsiveHandler);
+        _checkoutBoxResponsive.addressInput.addEventListener(KeyboardEvent.KEY_DOWN,changeResponsiveHandler);
+        _checkoutBoxResponsive.addressInput.addEventListener(KeyboardEvent.KEY_UP,changeResponsiveHandler);
+        _checkoutBoxResponsive.phoneInput.addEventListener(KeyboardEvent.KEY_DOWN,changeResponsiveHandler);
+        _checkoutBoxResponsive.phoneInput.addEventListener(KeyboardEvent.KEY_UP,changeResponsiveHandler);
+        _checkoutBoxResponsive.cityInput.addEventListener(KeyboardEvent.KEY_DOWN,changeResponsiveHandler);
+        _checkoutBoxResponsive.cityInput.addEventListener(KeyboardEvent.KEY_UP,changeResponsiveHandler);
+        _checkoutBoxResponsive.stateInput.addEventListener(IndexChangeEvent.CHANGE,changeResponsiveHandler);
+
+        _checkoutBoxResponsive.zipInput.addEventListener(KeyboardEvent.KEY_DOWN,changeResponsiveHandler);
+        _checkoutBoxResponsive.zipInput.addEventListener(KeyboardEvent.KEY_UP,changeResponsiveHandler);
+        _checkoutBoxResponsive.cardnumberInput.addEventListener(KeyboardEvent.KEY_DOWN,changeResponsiveHandler);
+        _checkoutBoxResponsive.cardnumberInput.addEventListener(KeyboardEvent.KEY_UP,changeResponsiveHandler);
+
+        _checkoutBoxResponsive.cvvInput.addEventListener(KeyboardEvent.KEY_DOWN,changeResponsiveHandler);
+        _checkoutBoxResponsive.cvvInput.addEventListener(KeyboardEvent.KEY_UP,changeResponsiveHandler);
+        _checkoutBoxResponsive.monthInput.addEventListener(IndexChangeEvent.CHANGE,changeResponsiveHandler);
+        _checkoutBoxResponsive.yearInput.addEventListener(KeyboardEvent.KEY_DOWN,changeResponsiveHandler);
+        _checkoutBoxResponsive.yearInput.addEventListener(KeyboardEvent.KEY_UP,changeResponsiveHandler);
+
+        _checkoutBox.nameInputD.addEventListener(KeyboardEvent.KEY_DOWN, changeDefaultHandler);
+        _checkoutBox.nameInputD.addEventListener(KeyboardEvent.KEY_UP, changeDefaultHandler);
+
+        _checkoutBox.emailInputD.addEventListener(KeyboardEvent.KEY_DOWN,changeDefaultHandler);
+        _checkoutBox.emailInputD.addEventListener(KeyboardEvent.KEY_UP,changeDefaultHandler);
+        _checkoutBox.addressInput.addEventListener(KeyboardEvent.KEY_DOWN,changeDefaultHandler);
+        _checkoutBox.addressInput.addEventListener(KeyboardEvent.KEY_UP,changeDefaultHandler);
+        _checkoutBox.phoneInput.addEventListener(KeyboardEvent.KEY_DOWN,changeDefaultHandler);
+        _checkoutBox.phoneInput.addEventListener(KeyboardEvent.KEY_UP,changeDefaultHandler);
+        _checkoutBox.cityInput.addEventListener(KeyboardEvent.KEY_DOWN,changeDefaultHandler);
+        _checkoutBox.cityInput.addEventListener(KeyboardEvent.KEY_UP,changeDefaultHandler);
+        _checkoutBox.stateInput.addEventListener(IndexChangeEvent.CHANGE,changeDefaultHandler);
+
+        _checkoutBox.zipInput.addEventListener(KeyboardEvent.KEY_DOWN,changeDefaultHandler);
+        _checkoutBox.zipInput.addEventListener(KeyboardEvent.KEY_UP,changeDefaultHandler);
+        _checkoutBox.cardnumberInput.addEventListener(KeyboardEvent.KEY_DOWN,changeDefaultHandler);
+        _checkoutBox.cardnumberInput.addEventListener(KeyboardEvent.KEY_UP,changeDefaultHandler);
+        _checkoutBox.cvvInput.addEventListener(KeyboardEvent.KEY_DOWN,changeDefaultHandler);
+        _checkoutBox.cvvInput.addEventListener(KeyboardEvent.KEY_UP,changeDefaultHandler);
+        _checkoutBox.monthInput.addEventListener(IndexChangeEvent.CHANGE, changeDefaultHandler);
+
+        _checkoutBox.yearInput.addEventListener(KeyboardEvent.KEY_DOWN,changeDefaultHandler);
+        _checkoutBox.yearInput.addEventListener(KeyboardEvent.KEY_UP,changeDefaultHandler);
+    }
+
+    private function changeDefaultHandler(event:Object):void {
+        _cart.billing_firstName=_checkoutBox.nameInputD.text;
+        _cart.email = _checkoutBox.emailInputD.text
+        _cart.billing_address1=_checkoutBox.addressInput.text
+        _cart.phonenumber=_checkoutBox.phoneInput.text;
+        _cart.billing_city=_checkoutBox.cityInput.text;
+        if(_checkoutBox.stateInput.selectedIndex>=0)
+            _cart.billing_state=_checkoutBox.stateInput.selectedItem.data;
+        _cart.billing_zip=_checkoutBox.zipInput.text;
+        _cart.cc_number=_checkoutBox.cardnumberInput.text;
+        _cart.cc_cvv=_checkoutBox.cvvInput.text;
+        if(_checkoutBox.monthInput.selectedIndex>=0)
+            _cart.cc_expMonth=_checkoutBox.monthInput.selectedItem.data;
+        _cart.cc_expYear=_checkoutBox.yearInput.text;
+        _checkoutBoxResponsive.nameInput.text =  _cart.billing_firstName;
+        _checkoutBoxResponsive.emailInput.text =  _cart.email;
+        _checkoutBoxResponsive.addressInput.text = _cart.billing_address1;
+        _checkoutBoxResponsive.phoneInput.text = _cart.phonenumber;
+        _checkoutBoxResponsive.cityInput.text = _cart.billing_city;
+        _checkoutBoxResponsive.stateInput.selectedIndex = _checkoutBox.stateInput.selectedIndex;
+        _checkoutBoxResponsive.zipInput.text = _cart.billing_zip;
+        _checkoutBoxResponsive.cardnumberInput.text = _cart.cc_number;
+        _checkoutBoxResponsive.cvvInput.text = _cart.cc_cvv;
+        _checkoutBoxResponsive.monthInput.selectedIndex = _checkoutBox.monthInput.selectedIndex;
+        _checkoutBoxResponsive.yearInput.text = _cart.cc_expYear;
+    }
+
+    private function changeResponsiveHandler(event:Object):void {
+
+        _cart.billing_firstName=_checkoutBoxResponsive.nameInput.text;
+        _cart.email = _checkoutBoxResponsive.emailInput.text
+        _cart.billing_address1=_checkoutBoxResponsive.addressInput.text
+        _cart.phonenumber=_checkoutBoxResponsive.phoneInput.text;
+        _cart.billing_city=_checkoutBoxResponsive.cityInput.text;
+        if(_checkoutBoxResponsive.stateInput.selectedIndex>=0)
+            _cart.billing_state=_checkoutBoxResponsive.stateInput.selectedItem.data;
+        _cart.billing_zip=_checkoutBoxResponsive.zipInput.text;
+        _cart.cc_number=_checkoutBoxResponsive.cardnumberInput.text;
+        _cart.cc_cvv=_checkoutBoxResponsive.cvvInput.text;
+        if(_checkoutBoxResponsive.monthInput.selectedIndex>=0)
+            _cart.cc_expMonth=_checkoutBoxResponsive.monthInput.selectedItem.data;
+        _cart.cc_expYear=_checkoutBoxResponsive.yearInput.text;
+        _checkoutBox.nameInputD.text =  _cart.billing_firstName;
+        _checkoutBox.emailInputD.text =  _cart.email;
+        _checkoutBox.addressInput.text = _cart.billing_address1;
+        _checkoutBox.phoneInput.text = _cart.phonenumber;
+        _checkoutBox.cityInput.text = _cart.billing_city;
+        _checkoutBox.stateInput.selectedIndex = _checkoutBoxResponsive.stateInput.selectedIndex;
+        _checkoutBox.zipInput.text = _cart.billing_zip;
+        _checkoutBox.cardnumberInput.text = _cart.cc_number;
+        _checkoutBox.cvvInput.text = _cart.cc_cvv;
+        _checkoutBox.monthInput.selectedIndex = _checkoutBoxResponsive.monthInput.selectedIndex;
+        _checkoutBox.yearInput.text = _cart.cc_expYear;
     }
 }
 }

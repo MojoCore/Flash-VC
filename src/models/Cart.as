@@ -12,6 +12,18 @@ public class Cart {
     private var _accessToken:String;
     private var _user:String;
     private var _v:Number;
+    private var _billing_firstName:String="";
+    private var _billing_lastName:String="";
+    private var _billing_address1:String="";
+    private var _billing_city:String="";
+    private var _billing_state:String="";
+    private var _billing_zip:String="";
+    private var _cc_cvv:String="";
+    private var _cc_expMonth:String="";
+    private var _cc_expYear:String="";
+    private var _cc_number:String="";
+    private var _email:String="";
+    private var _phonenumber:String="";
     [Bindable]
     private var _items:ArrayCollection;
     public function Cart() {
@@ -83,6 +95,102 @@ public class Cart {
 
     public function set v(value:Number):void {
         _v = value;
+    }
+
+    public function get billing_firstName():String {
+        return _billing_firstName;
+    }
+
+    public function set billing_firstName(value:String):void {
+        _billing_firstName = value;
+    }
+
+    public function get billing_address1():String {
+        return _billing_address1;
+    }
+
+    public function set billing_address1(value:String):void {
+        _billing_address1 = value;
+    }
+
+    public function get billing_city():String {
+        return _billing_city;
+    }
+
+    public function set billing_city(value:String):void {
+        _billing_city = value;
+    }
+
+    public function get billing_state():String {
+        return _billing_state;
+    }
+
+    public function set billing_state(value:String):void {
+        _billing_state = value;
+    }
+
+    public function get billing_zip():String {
+        return _billing_zip;
+    }
+
+    public function set billing_zip(value:String):void {
+        _billing_zip = value;
+    }
+
+    public function get cc_cvv():String {
+        return _cc_cvv;
+    }
+
+    public function set cc_cvv(value:String):void {
+        _cc_cvv = value;
+    }
+
+    public function get cc_expMonth():String {
+        return _cc_expMonth;
+    }
+
+    public function set cc_expMonth(value:String):void {
+        _cc_expMonth = value;
+    }
+
+    public function get cc_expYear():String {
+        return _cc_expYear;
+    }
+
+    public function set cc_expYear(value:String):void {
+        _cc_expYear = value;
+    }
+
+    public function get cc_number():String {
+        return _cc_number;
+    }
+
+    public function set cc_number(value:String):void {
+        _cc_number = value;
+    }
+
+    public function get email():String {
+        return _email;
+    }
+
+    public function set email(value:String):void {
+        _email = value;
+    }
+
+    public function get phonenumber():String {
+        return _phonenumber;
+    }
+
+    public function set phonenumber(value:String):void {
+        _phonenumber = value;
+    }
+
+    public function get billing_lastName():String {
+        return _billing_lastName;
+    }
+
+    public function set billing_lastName(value:String):void {
+        _billing_lastName = value;
     }
 }
 }

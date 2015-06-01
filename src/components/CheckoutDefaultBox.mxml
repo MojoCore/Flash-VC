@@ -26,8 +26,8 @@
         <s:layout>
           <s:HorizontalLayout/>
         </s:layout>
-        <s:TextInput id="nameInput" width="50%" skinClass="skins.SkinTextInput" prompt="Name (as it appears on the card)"/>
-        <s:TextInput id="emailInput" width="50%" skinClass="skins.SkinTextInput" prompt="Email"/>
+        <s:TextInput id="nameInputD" width="50%" skinClass="skins.SkinTextInput" prompt="Name (as it appears on the card)"/>
+        <s:TextInput id="emailInputD" width="50%" skinClass="skins.SkinTextInput" prompt="Email"/>
 
       </s:FormItem>
       <s:FormItem label="" textAlign="left" color="white" width="100%">

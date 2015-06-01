@@ -54,7 +54,7 @@ public class RestService {
         loader.addEventListener(Event.COMPLETE, response);
         loader.load(request);
     }
-    public function Post(params:Object,response:Function):void{
+    public function Post(params:Object,response:Function,error:Function=null):void{
         var loader:URLLoader = new URLLoader();
         var request:URLRequest = new URLRequest();
         request.contentType='application/json';
@@ -63,9 +63,14 @@ public class RestService {
         request.url = RestService.GetConfigServer()+this.urlService;
         loader.addEventListener(Event.COMPLETE, response);
         loader.addEventListener(AsyncErrorEvent.ASYNC_ERROR, errorHandlerAsyncErrorEvent);
-        loader.addEventListener(IOErrorEvent.IO_ERROR, errorHandlerIOErrorEvent);
+        //loader.addEventListener(IOErrorEvent.IO_ERROR, errorHandlerIOErrorEvent);
         loader.addEventListener(SecurityErrorEvent.SECURITY_ERROR, errorHandlerSecurityErrorEvent);
         loader.addEventListener(Event.INIT, initHandler);
+
+        if(error!=null)
+            loader.addEventListener(IOErrorEvent.IO_ERROR, error);
+        else
+            loader.addEventListener(IOErrorEvent.IO_ERROR, errorHandlerIOErrorEvent);
         loader.load(request);
     }
     private function initHandler(event:IOErrorEvent):void {
@@ -99,9 +104,12 @@ public class RestService {
         loader.addEventListener(AsyncErrorEvent.ASYNC_ERROR, errorHandlerAsyncErrorEvent);
         loader.addEventListener(IOErrorEvent.IO_ERROR, errorHandlerIOErrorEvent);
         loader.addEventListener(SecurityErrorEvent.SECURITY_ERROR, errorHandlerSecurityErrorEvent);
+
         loader.addEventListener(Event.INIT, initHandler);
         loader.load(request);
     }
+
+    
     public function Delete(id:String,response:Function):void{
         var loader:URLLoader = new URLLoader();
         var request:URLRequest = new URLRequest();
