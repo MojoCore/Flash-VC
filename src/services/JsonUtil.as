@@ -52,6 +52,7 @@ public class JsonUtil {
         var video:Video=new Video();
         video.id = json._id;
         video.user = json.user;
+        video.actions = JsonUtil.ConvertToCards(json.actions);
         return video;
 
     }

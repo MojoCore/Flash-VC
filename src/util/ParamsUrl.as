@@ -6,6 +6,7 @@ import flash.external.ExternalInterface;
 
 import mx.collections.ArrayCollection;
 import mx.controls.Alert;
+import mx.core.FlexGlobals;
 
 public class ParamsUrl {
     private static var _params:ArrayCollection;
@@ -13,14 +14,26 @@ public class ParamsUrl {
     public function ParamsUrl() {
     }
     public static function GetHost():String {
-        var obj:Object;
-        var pageURL:String = 'http://localhost';//ExternalInterface.call("window.location.href.toString");
-        var params:Array = pageURL.split("?");
-        if(params.length>0) {
-            return params[0];
-        }else{
-            return 'http://localhost';
+        var g_BaseURL = FlexGlobals.topLevelApplication.url;
+        var pattern1:RegExp = new RegExp("http://[^/]*/");
+        if (pattern1.test(g_BaseURL) == true) {
+            var g_HostString = pattern1.exec(g_BaseURL).toString();
+        } else{
+            var g_HostString = "http://localhost/"
         }
+
+        return g_HostString;
+    }
+    public static function GetHostName():String {
+        var g_BaseURL = FlexGlobals.topLevelApplication.url;
+        var pattern1:RegExp = new RegExp("http://[^/]*/");
+        if (pattern1.test(g_BaseURL) == true) {
+            var g_HostString = pattern1.exec(g_BaseURL).toString();
+        } else{
+            var g_HostString = "http://localhost/"
+        }
+
+        return g_HostString;
     }
     public static function ReadParamsFromUrl(url):void {
         _params = new ArrayCollection();

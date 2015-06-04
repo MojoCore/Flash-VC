@@ -7,6 +7,7 @@ import mx.collections.ArrayCollection;
 public class Video {
     private var _id:String;
     private var _user:String;
+    private var _duration:Number;
     private var _actions:ArrayCollection;
     public function Video() {
         _actions=new ArrayCollection();
@@ -34,6 +35,14 @@ public class Video {
 
     public function set actions(value:ArrayCollection):void {
         _actions = value;
+    }
+
+    public function get duration():Number {
+        return _duration;
+    }
+
+    public function set duration(value:Number):void {
+        _duration = value;
     }
 }
 }

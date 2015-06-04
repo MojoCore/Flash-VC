@@ -14,13 +14,10 @@ import flash.events.Event;
 import flash.events.MouseEvent;
 
 import Interfaces.iCard;
-import Interfaces.iEvent;
-
 import models.Card;
 import models.Cart;
 import models.CartItem;
-import Implements.EventAction;
-import Implements.EventViewVideo;
+import models.EventTime;
 import models.Video;
 
 import mx.collections.ArrayCollection;
@@ -29,9 +26,17 @@ import mx.events.CollectionEvent;
 import mx.events.CollectionEventKind;
 import mx.formatters.CurrencyFormatter;
 
+import org.osmf.events.MediaPlayerStateChangeEvent;
+
+import org.osmf.events.TimeEvent;
+import org.osmf.media.MediaPlayerState;
+
+import services.Cart;
+
 import spark.components.Button;
 import spark.components.Image;
 import spark.components.List;
+import spark.components.VideoPlayer;
 import spark.effects.Fade;
 import spark.effects.Move;
 import spark.effects.easing.Elastic;
@@ -47,7 +52,7 @@ public class TransitionCards {
     private var _fadeShow:Fade;
     private var _fadeHide:Fade;
     [Bindable]
-    private var _cart:models.Cart;
+    //private var _cart:models.Cart;
     private var _cartBox:components.Cart;
     private var _cartBoxResponsive:components.CartResponsive;
     private var _numberItemsLabel:Button;
@@ -59,18 +64,23 @@ public class TransitionCards {
     private var _moveCount:Move;
     private var _totalItems:Number;
     private var _totalPrice:Number;
-    private var _eventAddToCart:EventAction;
-    private var _eventRemoveFromCart:EventAction;
-    private var _eventUpdateCart:EventAction;
     private var _video:Video;
     private var _checkoutBox:CheckoutDefaultBox;
     private var _app:Object;
+    private var _serviceCart:services.Cart;
+    private var _videoPlayer:VideoPlayer;
+    private var _isResponsive=false;
+    private var _visiblePanelActions=false;
 
+    private var _eventsTime:ArrayCollection;
+    private var _analyticsEvent:AnalyticEvent;
+    private var _isFinishedVideo:Boolean=false;
 
     public function TransitionCards(app:Object,video:Video,cardCmp:iCard) {
 
         _app=app;
         _video=video;
+        _videoPlayer = _app.videoPlayer;
         _totalItems=0;
         _totalPrice=0;
         _cards = _video.actions;
@@ -81,23 +91,26 @@ public class TransitionCards {
         _checkoutBox=_app.checkoutBox;
         _itemsInYourCartImage=_app.itemsInYourCartImage;
         _actionsList = _app.actionsList;
-        var host:String=ParamsUrl.GetHost();
-        _eventAddToCart=new EventAction('ADD_TO_CART',_video,host);
-        _eventRemoveFromCart=new EventAction('REMOVE_FROM_CART',_video,host);
-        _eventUpdateCart=new EventAction('UPDATE_FROM_CART',_video,host);
         _cartBox.items.dataProvider=new ArrayCollection();
-        _cart=new models.Cart();
         if(_currentCardIndex<=_video.actions.length-1)
             _currentCard = _cards[_currentCardIndex];
 
         _cardComponent.getComponent().button.addEventListener(MouseEvent.CLICK,AddToCart);
         _cartBox.items.dataProvider.addEventListener(CollectionEvent.COLLECTION_CHANGE, items_collectionChange);
-        //_cart.items.source = _cart.items.source;
         ConfigureCurrency();
 
         _cartBoxResponsive.items.dataProvider = _cartBox.items.dataProvider;
-        //_cartBox.items.validateNow();
-        //InitFade();
+        _serviceCart=new services.Cart(_video);
+        _analyticsEvent=new AnalyticEvent(_app.root.loaderInfo.url);
+
+        AddEventsToComponents();
+
+    }
+    private function InitEventsTime():void{
+        _eventsTime=new ArrayCollection();
+        _eventsTime.addItem(new EventTime(AnalyticEvent.VIDEO_PROGRESS,25));
+        _eventsTime.addItem(new EventTime(AnalyticEvent.VIDEO_PROGRESS,50));
+        _eventsTime.addItem(new EventTime(AnalyticEvent.VIDEO_PROGRESS,75));
     }
     private function ConfigureCurrency():CurrencyFormatter{
         _currency=new CurrencyFormatter();
@@ -112,14 +125,18 @@ public class TransitionCards {
         trace(evt.items);
         switch(evt.kind){
             case CollectionEventKind.ADD:
-                _eventAddToCart.RegisterEventUpdateCart(_cart, _cartBox.items.dataProvider as ArrayCollection);
+                _analyticsEvent.RegisterEventCart((evt.items[0] as models.CartItem).card,AnalyticEvent.ADD_TO_CART);
+                serviceCart.Update( _cartBox.items.dataProvider as ArrayCollection);
                 break;
             case CollectionEventKind.REMOVE:
-                _eventAddToCart.RegisterEventUpdateCart(_cart, _cartBox.items.dataProvider as ArrayCollection);
+                serviceCart.Update( _cartBox.items.dataProvider as ArrayCollection);
+                _analyticsEvent.RegisterEventCart((evt.items[0] as models.CartItem).card,AnalyticEvent.REMOVE_FROM_CART);
                 break;
             case CollectionEventKind.UPDATE:
             case CollectionEventKind.REPLACE:
-                _eventAddToCart.RegisterEventUpdateCart(_cart, _cartBox.items.dataProvider as ArrayCollection);
+                serviceCart.Update( _cartBox.items.dataProvider as ArrayCollection);
+
+                _analyticsEvent.RegisterEventCart(( _cartBox.items.dataProvider.getItemAt(evt.location) as models.CartItem).card,AnalyticEvent.UPDATE_FROM_CART);
                 break;
         }
 
@@ -129,6 +146,7 @@ public class TransitionCards {
 
 
     public function ResetTransitions():void{
+        _isFinishedVideo=false;
         _currentCardIndex = 0;
         if(_currentCardIndex<=_cards.length-1)
             _currentCard = _cards[_currentCardIndex];
@@ -180,13 +198,6 @@ public class TransitionCards {
             _cartBox.items.dataProvider.addItem(cartItem);
 
         }
-        //_cart.items.refresh();
-        //_cartBox.items.validateNow();
-        //_cartBox.items.dataProvider=_cart.items;
-
-
-        //(_cartBox.items.dataProvider as ArrayCollection).refresh();
-
         _cardComponent.getComponent().button.label="In Cart";
 
         MoveCount();
@@ -197,15 +208,11 @@ public class TransitionCards {
         var cartItem:models.CartItem;
         if (index != -1) {
             var amount:int =_cartBox.items.dataProvider.getItemAt(index).amount + 1;
-            //var amount:int =_cart.items.getItemAt(index).amount + 1;
             cartItem = new models.CartItem(card, amount);
-           // _cart.items.setItemAt(cartItem,index);
             _cartBox.items.dataProvider.setItemAt(cartItem,index);
         } else {
             cartItem = new models.CartItem(card, 1);
             _cartBox.items.dataProvider.addItem(cartItem);
-            //_cart.items.addItem(cartItem);
-
         }
         _cardComponent.getComponent().button.label="In Cart";
 
@@ -272,6 +279,7 @@ public class TransitionCards {
                     _cardComponent.SetVisible(true);
                     _cardComponent.Show();
                     _cardComponent.RenderCard(_currentCard);
+                    _analyticsEvent.RegisterEventAction(_currentCard,AnalyticEvent.ACTION_SHOW);
                 }
 
             } else {
@@ -288,13 +296,47 @@ public class TransitionCards {
 
     }
 
-    public function get cart():models.Cart {
-        return _cart;
+    private function AddEventsToComponents():void {
+        _videoPlayer.addEventListener(TimeEvent.CURRENT_TIME_CHANGE, VideoCurrentTimeChangeHandler);
+        _videoPlayer.addEventListener(TimeEvent.COMPLETE, VideoCompleteHandler);
+        _videoPlayer.addEventListener(TimeEvent.DURATION_CHANGE, VideoDurationChangeHandler);
+        _videoPlayer.addEventListener(MediaPlayerStateChangeEvent.MEDIA_PLAYER_STATE_CHANGE, VideoMediaPlayerStateChangeHandler);
+    }
+    private function VideoDurationChangeHandler(event:TimeEvent):void {
+        _video.duration=_videoPlayer.duration;
+        InitEventsTime();
     }
 
-    public function set cart(value:models.Cart):void {
-        _cart = value;
+    private function VideoCurrentTimeChangeHandler(event:TimeEvent):void {
+        var total:uint=_eventsTime.length;
+        for(var i:int=0;i<total;i++){
+            _analyticsEvent.WatchEventTime((_eventsTime.getItemAt(i) as EventTime),event.time);
+        }
+        EvalCardsInTime(event.time);
     }
+    private function VideoCompleteHandler(event:TimeEvent):void {
+        trace("video completed...")
+        _app.panelCard.visible=(true&&!_isResponsive);
+        _visiblePanelActions=true&&!_isResponsive;
+        if(!_isFinishedVideo){
+            _analyticsEvent.RegisterEventVideo(AnalyticEvent.VIDEO_ENDED,0);
+            _isFinishedVideo=true;
+        }
+
+    }
+    protected function VideoMediaPlayerStateChangeHandler(event:MediaPlayerStateChangeEvent):void {
+        if (event.state == MediaPlayerState.LOADING)
+            trace("loading ...");
+        if (event.state == MediaPlayerState.PLAYING){
+            _app.panelCard.visible=false;
+            ResetTransitions();
+            _visiblePanelActions=false;
+            trace("playing ...");
+            _analyticsEvent.RegisterEventVideo(AnalyticEvent.VIDEO_PLAY,(event.target as VideoPlayer).currentTime);
+        }
+
+    }
+
 
     public function get cardComponent():iCard {
         return _cardComponent;
@@ -305,12 +347,30 @@ public class TransitionCards {
     }
 
     public function ChangeResponsive(card:iCard):void{
+        _isResponsive=true;
         _cardComponent=card;
         _cardComponent.getComponent().button.addEventListener(MouseEvent.CLICK,AddToCart);
     }
     public function ChangeDefault(card:iCard):void{
+        _isResponsive=false;
         _cardComponent=card;
         _cardComponent.getComponent().button.addEventListener(MouseEvent.CLICK,AddToCart);
+    }
+
+    public function get serviceCart():services.Cart {
+        return _serviceCart;
+    }
+
+    public function set serviceCart(value:services.Cart):void {
+        _serviceCart = value;
+    }
+
+    public function get analyticsEvent():AnalyticEvent {
+        return _analyticsEvent;
+    }
+
+    public function set analyticsEvent(value:AnalyticEvent):void {
+        _analyticsEvent = value;
     }
 }
 }

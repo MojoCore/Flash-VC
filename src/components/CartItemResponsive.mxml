@@ -14,8 +14,6 @@
 
   <fx:Script>
         <![CDATA[
-      import Interfaces.iEvent;
-
       import models.Video;
 
       import mx.formatters.CurrencyFormatter;
@@ -24,7 +22,6 @@
 
       [Bindable]
       private var color1:uint = 0x6ABDC0;
-      private var _eventRemoveFromCart:iEvent;
       public var video:models.Video;
       private var _currency:mx.formatters.CurrencyFormatter;
 

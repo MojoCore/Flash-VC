@@ -2,14 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fe6276c7-78f5-4897-ad4d-8222c99566e4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/util/FormData.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/as3crypto-1_3_patched.swc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/as3crypto.swc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/as3httpclient.swc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/services/AnalyticEvent.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/services/Cart.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/models/EventTime.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/models/Order.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/services/Order.as" />
+      <change type="DELETED" beforePath="D:\proyectos\git\Flash-VC\src\Implements\EventAction.as" afterPath="" />
+      <change type="DELETED" beforePath="D:\proyectos\git\Flash-VC\src\Implements\EventViewVideo.as" afterPath="" />
+      <change type="DELETED" beforePath="D:\proyectos\git\Flash-VC\src\Interfaces\iEvent.as" afterPath="" />
+      <change type="DELETED" beforePath="D:\proyectos\git\Flash-VC\src\util\FormData.as" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/FlashCheckout/Main.swf" afterPath="$PROJECT_DIR$/out/production/FlashCheckout/Main.swf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.as" afterPath="$PROJECT_DIR$/src/App.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/Cart.as" afterPath="$PROJECT_DIR$/src/models/Cart.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/CheckoutDefaultBox.mxml" afterPath="$PROJECT_DIR$/src/components/CheckoutDefaultBox.mxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/CartItem.mxml" afterPath="$PROJECT_DIR$/src/components/CartItem.mxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/CartItemResponsive.mxml" afterPath="$PROJECT_DIR$/src/components/CartItemResponsive.mxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FlashCheckout.iml" afterPath="$PROJECT_DIR$/FlashCheckout.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/services/JsonUtil.as" afterPath="$PROJECT_DIR$/src/services/JsonUtil.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/FlashCheckout/Main.html" afterPath="$PROJECT_DIR$/out/production/FlashCheckout/Main.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.mxml" afterPath="$PROJECT_DIR$/src/Main.mxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/ParamsUrl.as" afterPath="$PROJECT_DIR$/src/util/ParamsUrl.as" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/RestService.as" afterPath="$PROJECT_DIR$/src/util/RestService.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/services/TransitionCards.as" afterPath="$PROJECT_DIR$/src/services/TransitionCards.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/Video.as" afterPath="$PROJECT_DIR$/src/models/Video.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Interfaces/iCart.as" afterPath="$PROJECT_DIR$/src/Interfaces/iCart.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html-template/index.template.html" afterPath="$PROJECT_DIR$/html-template/index.template.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Flash-VC.iws" />
@@ -32,66 +51,66 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="TransitionCards.as" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/services/TransitionCards.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="252" column="110" selection-start-line="252" selection-start-column="110" selection-end-line="252" selection-end-column="110" />
-              <folding>
-                <element signature="e#62#92#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="App.as" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="517" column="17" selection-start-line="517" selection-start-column="17" selection-end-line="517" selection-end-column="17" />
+            <state vertical-scroll-proportion="-109.62069">
+              <caret line="206" column="41" selection-start-line="206" selection-start-column="41" selection-end-line="206" selection-end-column="41" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="e#53#83#0" expanded="true" />
+                <element signature="e#2935#3609#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FlexEvent.as" pinned="false" current-in-tab="false">
-        <entry file="file://D:/flex_sdk_4.6/frameworks/projects/framework/src/mx/events/FlexEvent.as">
+      <file leaf-file-name="Preloader.as" pinned="false" current-in-tab="false">
+        <entry file="file://D:/flex_sdk_4.6/frameworks/projects/framework/src/mx/preloaders/Preloader.as">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="1449" column="0" selection-start-line="1449" selection-start-column="0" selection-end-line="1449" selection-end-column="0" />
+              <caret line="587" column="0" selection-start-line="587" selection-start-column="0" selection-end-line="587" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SystemManager.as" pinned="false" current-in-tab="false">
-        <entry file="file://D:/flex_sdk_4.6/frameworks/projects/framework/src/mx/managers/SystemManager.as">
+      <file leaf-file-name="CartItem.mxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/CartItem.mxml">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="1721" column="6" selection-start-line="1721" selection-start-column="6" selection-end-line="1721" selection-end-column="6" />
-              <folding />
+              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+              <folding>
+                <marker date="1433369139690" expanded="true" signature="666:716" placeholder="..." />
+                <marker date="1433369139690" expanded="true" signature="850:1000" placeholder="{...}" />
+                <marker date="1433369139690" expanded="true" signature="1042:1190" placeholder="{...}" />
+                <marker date="1433369139690" expanded="true" signature="1248:1558" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="testfb2.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/out/production/FlashCheckout/testfb2.html">
+      <file leaf-file-name="CartItemResponsive.mxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/CartItemResponsive.mxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="26" column="112" selection-start-line="26" selection-start-column="112" selection-end-line="26" selection-end-column="112" />
-              <folding />
+            <state vertical-scroll-proportion="-6.5384617">
+              <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+              <folding>
+                <marker date="1433369147975" expanded="true" signature="666:763" placeholder="..." />
+                <marker date="1433369147975" expanded="true" signature="984:1239" placeholder="{...}" />
+                <marker date="1433369147975" expanded="true" signature="1277:1483" placeholder="{...}" />
+                <marker date="1433369147975" expanded="true" signature="1525:1673" placeholder="{...}" />
+                <marker date="1433369147975" expanded="true" signature="1731:2043" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RestService.as" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/util/RestService.as">
+      <file leaf-file-name="JsonUtil.as" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/services/JsonUtil.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.47894737">
-              <caret line="111" column="4" selection-start-line="111" selection-start-column="4" selection-end-line="111" selection-end-column="4" />
+            <state vertical-scroll-proportion="0.2732342">
+              <caret line="54" column="60" selection-start-line="54" selection-start-column="60" selection-end-line="54" selection-end-column="60" />
               <folding />
             </state>
           </provider>
@@ -101,17 +120,64 @@
         <entry file="file://$PROJECT_DIR$/src/util/ParamsUrl.as">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="43" column="49" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="49" />
+              <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Cart.as" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/Cart.as">
+      <file leaf-file-name="Main.mxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Main.mxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.153846">
+              <caret line="26" column="51" selection-start-line="26" selection-start-column="51" selection-end-line="26" selection-end-column="51" />
+              <folding>
+                <marker date="1433372254914" expanded="true" signature="405:752" placeholder="..." />
+                <marker date="1433372254914" expanded="true" signature="921:1098" placeholder="{...}" />
+                <marker date="1433372254914" expanded="true" signature="1136:1381" placeholder="{...}" />
+                <marker date="1433372254914" expanded="true" signature="1252:1371" placeholder="//..." />
+                <marker date="1433372254914" expanded="true" signature="1438:1555" placeholder="{...}" />
+                <marker date="1433372254914" expanded="true" signature="1452:1545" placeholder="//..." />
+                <marker date="1433372254914" expanded="true" signature="1592:1763" placeholder="{...}" />
+                <marker date="1433372254914" expanded="true" signature="1606:1679" placeholder="//..." />
+                <marker date="1433372254914" expanded="true" signature="1825:2039" placeholder="{...}" />
+                <marker date="1433372254914" expanded="true" signature="1918:1973" placeholder="{...}" />
+                <marker date="1433372254914" expanded="true" signature="1977:2029" placeholder="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TransitionCards.as" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/services/TransitionCards.as">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="23" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
+              <caret line="318" column="52" selection-start-line="318" selection-start-column="39" selection-end-line="318" selection-end-column="52" />
+              <folding>
+                <element signature="e#62#92#0" expanded="true" />
+                <element signature="n#!!block;n#CalculateTotals#0;n#TransitionCards#0;n#services#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AnalyticEvent.as" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/services/AnalyticEvent.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="121" column="33" selection-start-line="121" selection-start-column="33" selection-end-line="121" selection-end-column="33" />
+              <folding>
+                <element signature="e#64#90#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.template.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html-template/index.template.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-14.115385">
+              <caret line="114" column="27" selection-start-line="114" selection-start-column="27" selection-end-line="114" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -125,6 +191,7 @@
         <option value="Html5" />
         <option value="CSS File" />
         <option value="Flex 4 Component" />
+        <option value="Class" />
         <option value="ActionScript Class" />
       </list>
     </option>
@@ -140,11 +207,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/skins/SkinCircleButtonText.mxml" />
-        <option value="$PROJECT_DIR$/src/util/swfSelfResize.as" />
-        <option value="$PROJECT_DIR$/out/production/FlashCheckout/test1.html" />
-        <option value="$PROJECT_DIR$/src/models/EventViewVideo.as" />
-        <option value="$PROJECT_DIR$/src/models/EventAction.as" />
         <option value="$PROJECT_DIR$/out/production/FlashCheckout/crossdomain.xml" />
         <option value="$PROJECT_DIR$/src/locale/FormattingValues.properties" />
         <option value="$PROJECT_DIR$/src/Implements/CardDefault.as" />
@@ -153,35 +215,49 @@
         <option value="$PROJECT_DIR$/src/components/AdvancedTextInput.as" />
         <option value="$PROJECT_DIR$/src/components/InputPlaceholder.mxml" />
         <option value="$PROJECT_DIR$/src/skins/SkinTextInput.mxml" />
-        <option value="$PROJECT_DIR$/src/models/Video.as" />
         <option value="$PROJECT_DIR$/src/components/CardItemDefault.mxml" />
-        <option value="$PROJECT_DIR$/src/Implements/EventViewVideo.as" />
         <option value="$PROJECT_DIR$/src/models/Card.as" />
-        <option value="$PROJECT_DIR$/src/services/JsonUtil.as" />
-        <option value="$PROJECT_DIR$/src/Implements/EventAction.as" />
         <option value="$PROJECT_DIR$/src/skins/SkinCombobox.mxml" />
         <option value="$PROJECT_DIR$/src/styles/app.css" />
         <option value="$PROJECT_DIR$/out/production/FlashCheckout/Main.html" />
         <option value="$PROJECT_DIR$/src/components/Cart.mxml" />
         <option value="$PROJECT_DIR$/src/models/CartItem.as" />
         <option value="$PROJECT_DIR$/src/components/CardResponsive.mxml" />
-        <option value="$PROJECT_DIR$/src/components/CartItem.mxml" />
         <option value="$PROJECT_DIR$/src/skins/SkinSolidButton.mxml" />
-        <option value="$PROJECT_DIR$/src/components/CartItemResponsive.mxml" />
         <option value="$PROJECT_DIR$/src/components/CartResponsive.mxml" />
         <option value="$PROJECT_DIR$/out/production/FlashCheckout/testfb.html" />
         <option value="$PROJECT_DIR$/src/skins/SkinTextInputResponsive.mxml" />
         <option value="$PROJECT_DIR$/src/components/CheckoutCompletedResponsiveBox.mxml" />
-        <option value="$PROJECT_DIR$/src/services/TransitionCards.as" />
         <option value="$PROJECT_DIR$/src/components/CheckoutResponsiveBox.mxml" />
-        <option value="$PROJECT_DIR$/src/Main.mxml" />
-        <option value="$PROJECT_DIR$/src/util/ParamsUrl.as" />
         <option value="$PROJECT_DIR$/src/components/CheckoutDefaultBox.mxml" />
         <option value="$PROJECT_DIR$/out/production/FlashCheckout/testfb2.html" />
         <option value="$PROJECT_DIR$/src/models/Cart.as" />
         <option value="$PROJECT_DIR$/src/util/FormData.as" />
-        <option value="$PROJECT_DIR$/src/App.as" />
+        <option value="$PROJECT_DIR$/src/Implements/EventViewVideo.as" />
+        <option value="$PROJECT_DIR$/src/org/httpclient/HttpRequest.as" />
+        <option value="$PROJECT_DIR$/src/util/Parse.java" />
+        <option value="$PROJECT_DIR$/src/util/CustomURLLoader.as" />
+        <option value="$PROJECT_DIR$/src/models/Order.as" />
+        <option value="$PROJECT_DIR$/src/services/AnalitycEvent.as" />
+        <option value="$PROJECT_DIR$/src/models/AnalitycEvent.as" />
+        <option value="$PROJECT_DIR$/src/Implements/EventAction.as" />
+        <option value="$PROJECT_DIR$/src/services/Cart.as" />
+        <option value="$PROJECT_DIR$/src/org/httpclient/HttpClient.as" />
+        <option value="$PROJECT_DIR$/src/org/httpclient/HttpSocket.as" />
+        <option value="$PROJECT_DIR$/src/services/Order.as" />
+        <option value="$PROJECT_DIR$/src/Interfaces/iCart.as" />
         <option value="$PROJECT_DIR$/src/util/RestService.as" />
+        <option value="$PROJECT_DIR$/src/services/JsonUtil.as" />
+        <option value="$PROJECT_DIR$/src/models/Video.as" />
+        <option value="$PROJECT_DIR$/src/models/EventTime.as" />
+        <option value="$PROJECT_DIR$/src/components/CartItem.mxml" />
+        <option value="$PROJECT_DIR$/src/components/CartItemResponsive.mxml" />
+        <option value="$PROJECT_DIR$/html-template/index.template.html" />
+        <option value="$PROJECT_DIR$/src/Main.mxml" />
+        <option value="$PROJECT_DIR$/src/services/AnalyticEvent.as" />
+        <option value="$PROJECT_DIR$/src/util/ParamsUrl.as" />
+        <option value="$PROJECT_DIR$/src/App.as" />
+        <option value="$PROJECT_DIR$/src/services/TransitionCards.as" />
       </list>
     </option>
   </component>
@@ -189,14 +265,21 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Bundled (Maven 3)" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="NamedScopeManager">
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
+    <option name="x" value="1358" />
     <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -243,6 +326,9 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -289,7 +375,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="util" />
+              <option name="myItemId" value="services" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -303,29 +389,36 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="out" />
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="production" />
+              <option name="myItemId" value="Interfaces" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Flash-VC" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Flash-VC" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="FlashCheckout" />
+              <option name="myItemId" value="html-template" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/libs/as3crypto.swc!/" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -339,6 +432,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\proyectos\git\Flash-VC\libs" />
+      <recent name="D:\proyectos\git\Flash-VC\src" />
       <recent name="D:\proyectos\git\Flash-VC\src\assets" />
       <recent name="D:\proyectos\git\Flash-VC\src\util" />
     </key>
@@ -347,6 +442,8 @@
       <recent name="D:\proyectos\git\Flash-VC\src\Implements" />
     </key>
     <key name="CreateActionScriptClassDialog.DESTINATION_PACKAGE_RECENT_KEY">
+      <recent name="models" />
+      <recent name="services" />
       <recent name="util" />
       <recent name="components" />
       <recent name="skins" />
@@ -725,41 +822,50 @@
       <workItem from="1432823451501" duration="14648000" />
       <workItem from="1432860990920" duration="2277000" />
       <workItem from="1433172593549" duration="4448000" />
-      <workItem from="1433178127499" duration="2463000" />
+      <workItem from="1433178127499" duration="18277000" />
+      <workItem from="1433202595078" duration="209000" />
+      <workItem from="1433202883610" duration="6261000" />
+      <workItem from="1433255529781" duration="6420000" />
+      <workItem from="1433262118143" duration="11645000" />
+      <workItem from="1433279936378" duration="2301000" />
+      <workItem from="1433282280631" duration="6520000" />
+      <workItem from="1433342780332" duration="3029000" />
+      <workItem from="1433348170024" duration="14872000" />
+      <workItem from="1433369896192" duration="4375000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="168140000" />
+    <option name="totallyTimeSpent" value="239586000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="1358" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31968504" sideWeight="0.30763584" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26821542" sideWeight="0.4703125" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31968504" sideWeight="0.69236416" order="11" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.40232313" sideWeight="0.35260418" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31771597" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17135416" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35748032" sideWeight="0.81718063" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.40232313" sideWeight="0.64739585" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32913387" sideWeight="0.4941435" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -803,22 +909,25 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="flex">
-          <url>file://$PROJECT_DIR$/src/App.as</url>
-          <line>505</line>
-          <option name="timeStamp" value="22" />
+          <url>file://$PROJECT_DIR$/src/org/httpclient/HttpSocket.as</url>
+          <line>124</line>
+          <option name="timeStamp" value="74" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="flex">
+          <url>file://$PROJECT_DIR$/src/org/httpclient/HttpClient.as</url>
+          <line>127</line>
+          <option name="timeStamp" value="77" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="flex">
           <url>file://$PROJECT_DIR$/src/App.as</url>
-          <line>508</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="flex">
-          <url>file://$PROJECT_DIR$/src/App.as</url>
-          <line>504</line>
-          <option name="timeStamp" value="25" />
+          <line>94</line>
+          <option name="timeStamp" value="88" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="27" />
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <option name="time" value="91" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -827,141 +936,85 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Implements/EventAction.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="50" column="14" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="14" />
-          <folding>
-            <element signature="e#64#90#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/TransitionCards.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding>
-            <element signature="e#62#92#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Implements/CardDefault.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="66" column="8" selection-start-line="66" selection-start-column="8" selection-end-line="66" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Cart.mxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/CartItem.mxml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="12" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="90" column="8" selection-start-line="90" selection-start-column="8" selection-end-line="90" selection-end-column="8" />
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#53#83#0" expanded="true" />
+            <marker date="1433369139690" expanded="true" signature="666:716" placeholder="..." />
+            <marker date="1433369139690" expanded="true" signature="850:1000" placeholder="{...}" />
+            <marker date="1433369139690" expanded="true" signature="1042:1190" placeholder="{...}" />
+            <marker date="1433369139690" expanded="true" signature="1248:1558" placeholder="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/out/production/FlashCheckout/crossdomain.xml">
+    <entry file="file://$PROJECT_DIR$/src/components/CartItemResponsive.mxml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Implements/EventViewVideo.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="46" column="9" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/skins/SkinCircleButtonText.mxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.6854839">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/swfSelfResize.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="47" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/production/FlashCheckout/test1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="26" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/production/FlashCheckout/crossdomain.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="35" selection-start-line="4" selection-start-column="35" selection-end-line="4" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Implements/CardResponsive.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="41" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Implements/CardDefault.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="41" selection-start-line="21" selection-start-column="7" selection-end-line="25" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/card.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/InputPlaceholder.mxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.9433963">
-          <caret line="62" column="0" selection-start-line="61" selection-start-column="2" selection-end-line="62" selection-end-column="0" />
-          <folding />
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding>
+            <marker date="1433369147975" expanded="true" signature="666:763" placeholder="..." />
+            <marker date="1433369147975" expanded="true" signature="984:1239" placeholder="{...}" />
+            <marker date="1433369147975" expanded="true" signature="1277:1483" placeholder="{...}" />
+            <marker date="1433369147975" expanded="true" signature="1525:1673" placeholder="{...}" />
+            <marker date="1433369147975" expanded="true" signature="1731:2043" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/models/Video.as">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Implements/EventViewVideo.as">
+    <entry file="file://$PROJECT_DIR$/src/services/JsonUtil.as">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+          <caret line="54" column="60" selection-start-line="54" selection-start-column="60" selection-end-line="54" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/ParamsUrl.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/TransitionCards.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#62#92#0" expanded="true" />
+            <element signature="n#!!block;n#CalculateTotals#0;n#TransitionCards#0;n#services#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/AnalyticEvent.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="116" column="12" selection-start-line="116" selection-start-column="12" selection-end-line="116" selection-end-column="12" />
+          <folding>
+            <element signature="e#64#90#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/EventTime.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -969,7 +1022,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8604651">
           <caret line="3315" column="17" selection-start-line="3315" selection-start-column="17" selection-end-line="3315" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -977,13 +1029,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/JsonUtil.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="37" column="52" selection-start-line="37" selection-start-column="52" selection-end-line="37" selection-end-column="52" />
         </state>
       </provider>
     </entry>
@@ -999,16 +1044,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Implements/EventAction.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="147" column="33" selection-start-line="147" selection-start-column="33" selection-end-line="147" selection-end-column="33" />
-          <folding>
-            <element signature="e#64#90#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1051,19 +1086,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/CartItem.mxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.8846154">
-          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/skins/SkinSolidButton.mxml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.7307692">
           <caret line="39" column="9" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1071,15 +1097,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.769231">
           <caret line="177" column="30" selection-start-line="0" selection-start-column="0" selection-end-line="191" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/CartItemResponsive.mxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.846154">
-          <caret line="102" column="22" selection-start-line="102" selection-start-column="22" selection-end-line="102" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1087,7 +1104,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="28" column="94" selection-start-line="28" selection-start-column="94" selection-end-line="28" selection-end-column="94" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1095,7 +1111,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="42" column="53" selection-start-line="40" selection-start-column="2" selection-end-line="42" selection-end-column="53" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1103,7 +1118,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="150" column="24" selection-start-line="150" selection-start-column="24" selection-end-line="150" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1119,7 +1133,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.807693">
           <caret line="15" column="58" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="58" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1131,45 +1144,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.mxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="137" column="29" selection-start-line="137" selection-start-column="20" selection-end-line="137" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/ParamsUrl.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="43" column="49" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/out/production/FlashCheckout/testfb2.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="26" column="112" selection-start-line="26" selection-start-column="112" selection-end-line="26" selection-end-column="112" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/Cart.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="23" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/TransitionCards.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="252" column="110" selection-start-line="252" selection-start-column="110" selection-end-line="252" selection-end-column="110" />
-          <folding>
-            <element signature="e#62#92#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1177,48 +1155,229 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="245" column="29" selection-start-line="245" selection-start-column="29" selection-end-line="245" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/FormData.as">
+    <entry file="jar://$PROJECT_DIR$/libs/as3crypto-1_3_patched.swc!/library.swf">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13421053">
-          <caret line="5" column="40" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
+        <state vertical-scroll-proportion="0.42323652">
+          <caret line="21" column="57" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/libs/as3crypto.swc!/library.swf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33297062">
+          <caret line="207" column="13" selection-start-line="207" selection-start-column="13" selection-end-line="207" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/swfSelfResize.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://D:/flex_sdk_4.6/frameworks/projects/framework/src/mx/events/FlexEvent.as">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="1449" column="0" selection-start-line="1449" selection-start-column="0" selection-end-line="1449" selection-end-column="0" />
-          <folding />
+          <caret line="1448" column="0" selection-start-line="1448" selection-start-column="0" selection-end-line="1448" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/Order.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://D:/flex_sdk_4.6/frameworks/projects/framework/src/mx/managers/SystemManager.as">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="1721" column="6" selection-start-line="1721" selection-start-column="6" selection-end-line="1721" selection-end-column="6" />
+          <caret line="2860" column="0" selection-start-line="2860" selection-start-column="0" selection-end-line="2860" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/Cart.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/production/FlashCheckout/Main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.as">
+    <entry file="file://$PROJECT_DIR$/src/services/Order.as">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="517" column="17" selection-start-line="517" selection-start-column="17" selection-end-line="517" selection-end-column="17" />
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#53#83#0" expanded="true" />
+            <element signature="e#64#90#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Interfaces/iCart.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/util/RestService.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47894737">
-          <caret line="111" column="4" selection-start-line="111" selection-start-column="4" selection-end-line="111" selection-end-column="4" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="75" column="0" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+          <folding>
+            <element signature="e#58#83#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/Video.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/EventTime.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/Cart.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="43" column="40" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="40" />
+          <folding>
+            <element signature="e#64#90#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/CartItem.mxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding>
+            <marker date="1433369139690" expanded="true" signature="666:716" placeholder="..." />
+            <marker date="1433369139690" expanded="true" signature="850:1000" placeholder="{...}" />
+            <marker date="1433369139690" expanded="true" signature="1042:1190" placeholder="{...}" />
+            <marker date="1433369139690" expanded="true" signature="1248:1558" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html-template/index.template.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.115385">
+          <caret line="114" column="27" selection-start-line="114" selection-start-column="27" selection-end-line="114" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.mxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.153846">
+          <caret line="26" column="51" selection-start-line="26" selection-start-column="51" selection-end-line="26" selection-end-column="51" />
+          <folding>
+            <marker date="1433372254914" expanded="true" signature="405:752" placeholder="..." />
+            <marker date="1433372254914" expanded="true" signature="921:1098" placeholder="{...}" />
+            <marker date="1433372254914" expanded="true" signature="1136:1381" placeholder="{...}" />
+            <marker date="1433372254914" expanded="true" signature="1252:1371" placeholder="//..." />
+            <marker date="1433372254914" expanded="true" signature="1438:1555" placeholder="{...}" />
+            <marker date="1433372254914" expanded="true" signature="1452:1545" placeholder="//..." />
+            <marker date="1433372254914" expanded="true" signature="1592:1763" placeholder="{...}" />
+            <marker date="1433372254914" expanded="true" signature="1606:1679" placeholder="//..." />
+            <marker date="1433372254914" expanded="true" signature="1825:2039" placeholder="{...}" />
+            <marker date="1433372254914" expanded="true" signature="1918:1973" placeholder="{...}" />
+            <marker date="1433372254914" expanded="true" signature="1977:2029" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/ParamsUrl.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/flex_sdk_4.6/frameworks/projects/framework/src/mx/preloaders/Preloader.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="587" column="0" selection-start-line="587" selection-start-column="0" selection-end-line="587" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/CartItemResponsive.mxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.5384617">
+          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding>
+            <marker date="1433369147975" expanded="true" signature="666:763" placeholder="..." />
+            <marker date="1433369147975" expanded="true" signature="984:1239" placeholder="{...}" />
+            <marker date="1433369147975" expanded="true" signature="1277:1483" placeholder="{...}" />
+            <marker date="1433369147975" expanded="true" signature="1525:1673" placeholder="{...}" />
+            <marker date="1433369147975" expanded="true" signature="1731:2043" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/TransitionCards.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="318" column="52" selection-start-line="318" selection-start-column="39" selection-end-line="318" selection-end-column="52" />
+          <folding>
+            <element signature="e#62#92#0" expanded="true" />
+            <element signature="n#!!block;n#CalculateTotals#0;n#TransitionCards#0;n#services#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-109.62069">
+          <caret line="206" column="41" selection-start-line="206" selection-start-column="41" selection-end-line="206" selection-end-column="41" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#53#83#0" expanded="true" />
+            <element signature="e#2935#3609#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/AnalyticEvent.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="121" column="33" selection-start-line="121" selection-start-column="33" selection-end-line="121" selection-end-column="33" />
+          <folding>
+            <element signature="e#64#90#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/JsonUtil.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2732342">
+          <caret line="54" column="60" selection-start-line="54" selection-start-column="60" selection-end-line="54" selection-end-column="60" />
           <folding />
         </state>
       </provider>

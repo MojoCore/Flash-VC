@@ -1,34 +1,49 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<!-- saved from url=(0014)about:internet -->
+<!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"> 
-    <!-- 
-    Smart developers always View Source. 
-    
-    This application was built using Adobe Flex, an open source framework
-    for building rich Internet applications that get delivered via the
-    Flash Player or to desktops via Adobe AIR. 
-    
-    Learn more about Flex at http://flex.org 
-    // -->
-    <head>
+
+    <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
         <title>Main</title>
         <meta name="google" value="notranslate" />         
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <!-- Include CSS to eliminate any default margins/padding and set the height of the html element and 
-             the body element to 100%, because Firefox, or any Gecko based browser, interprets percentage as 
-             the percentage of the height of its parent container, which has to be set explicitly.  Fix for
-             Firefox 3.6 focus border issues.  Initially, don't display flashContent div so it won't show 
-             if JavaScript disabled.
-        -->
+
+
+        <meta property="fb:app_id" content="892799914091367">
+        <meta property="og:title" content="flash in feed test..." />
+        <meta property="og:description" content="we're trying to get flash to be playable *in* the feed" />
+        <meta property="og:site_name" content="TotalApps test" />
+        <meta property="og:type" content="video">
+        <meta property="og:image" content="https://s3.amazonaws.com/total-apps-video-checkout-new/flash-vc/assets/still-test.jpg" />
+        <meta property="og:image:width" content="640" />
+        <meta property="og:image:height" content="640" />
+        <meta property="og:url" content="https://s3.amazonaws.com/total-apps-video-checkout-new/flash-vc/testfb3.html?id=556781ea9280b6030082cc02" />
+
+        <meta property="og:video" content="https://s3.amazonaws.com/total-apps-video-checkout-new/flash-vc/Main.swf?id=556781ea9280b6030082cc02" />
+        <meta property="og:video:secure_url" content="https://s3.amazonaws.com/total-apps-video-checkout-new/flash-vc/Main.swf?id=556781ea9280b6030082cc02">
+        <meta property="og:video:type" content="application/x-shockwave-flash" />
+        <meta property="og:video:width" content="486" />
+        <meta property="og:video:height" content="486" />
+        <meta property="video:duration" content="205">
+        <meta property="video:director" content="http://www.dailymotion.com/buzzfeedvideo">
+        <meta property="video:release_date" content="2015-04-23T02:25:29+02:00">
+        <meta property="video:tag" content="baby">
+
+        <meta name="video_height" content="640" />
+        <meta name="video_width" content="360" />
+        <meta name="video_type" content="application/x-shockwave-flash" />
+
+        <meta property="al:web:should_fallback" content="true" />
+
+
+
+
         <style type="text/css" media="screen"> 
             html, body  { height:100%; }
-            body { margin:0; padding:0; overflow:auto; text-align:center; 
-                   background-color: #ffffff; }   
+            body { margin:0; padding:0; overflow:auto; text-align:center; background-color: #ffffff; }   
             object:focus { outline:none; }
             #flashContent { display:none; }
         </style>
-        
-        <!-- Enable Browser History by replacing useBrowserHistory tokens with two hyphens -->
+
         <!-- BEGIN Browser History required section -->
         <link rel="stylesheet" type="text/css" href="history/history.css" />
         <script type="text/javascript" src="history/history.js"></script>
@@ -44,17 +59,13 @@
             var params = {};
             params.quality = "high";
             params.bgcolor = "#ffffff";
-            params.allowscriptaccess = "sameDomain";
+            params.allowscriptaccess = "always";
             params.allowfullscreen = "true";
             var attributes = {};
             attributes.id = "Main";
             attributes.name = "Main";
             attributes.align = "middle";
-            swfobject.embedSWF(
-                "Main.swf", "flashContent", 
-                "100%", "100%", 
-                swfVersionStr, xiSwfUrlStr, 
-                flashvars, params, attributes);
+            swfobject.embedSWF( "Main.swf", "flashContent", "100%", "100%", swfVersionStr, xiSwfUrlStr, flashvars, params, attributes);
             // JavaScript enabled so display the flashContent div in case it is not replaced with a swf object.
             swfobject.createCSS("#flashContent", "display:block;text-align:left;");
         </script>
@@ -87,7 +98,7 @@
                 <object type="application/x-shockwave-flash" data="Main.swf" width="100%" height="100%">
                     <param name="quality" value="high" />
                     <param name="bgcolor" value="#ffffff" />
-                    <param name="allowScriptAccess" value="sameDomain" />
+                    <param name="allowScriptAccess" value="always" />
                     <param name="allowFullScreen" value="true" />
                 <!--<![endif]-->
                 <!--[if gte IE 6]>-->
@@ -103,6 +114,17 @@
                 </object>
                 <!--<![endif]-->
             </object>
-        </noscript>     
+        </noscript>
+
+
+<!-- HTML5 fallback video for devices that doesn't support flash -->
+<video controls="controls" poster="assets/video/posterframe.jpg" width="374" height="202">
+<source src="http://ahrengot.com/playground/circular-scrubbing/assets/video/fallback.mp4" type="video/mp4" />
+</video>
+
+<script>alert('proof that we can run javascript in facebook mobile');</script>
+
+
+
    </body>
 </html>

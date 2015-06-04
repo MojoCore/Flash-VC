@@ -8,6 +8,12 @@
             <entry library-id="212defe4-1df5-48e7-a814-eb0326d049e1">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-id="2948ee56-8ac3-4aca-80bf-68c3459510d2">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-id="93e81776-e003-4ce3-a7c7-e121f9cba6ca">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
           <sdk name="flex_sdk_4.6" />
         </dependencies>
@@ -36,6 +42,26 @@
         <properties id="212defe4-1df5-48e7-a814-eb0326d049e1" />
         <CLASSES>
           <root url="jar://$MODULE_DIR$/libs/as3corelib.swc!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="2948ee56-8ac3-4aca-80bf-68c3459510d2" />
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/libs/as3httpclient.swc!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="93e81776-e003-4ce3-a7c7-e121f9cba6ca" />
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/libs/as3crypto.swc!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

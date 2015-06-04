@@ -24,6 +24,7 @@
         private function InitApp():void {
             app.InitializeComponents(this,systemManager.stage.stageWidth);
             Security.allowDomain("*");
+            flash.system.Security.allowDomain("*");
         }
         private function init2():void{
 

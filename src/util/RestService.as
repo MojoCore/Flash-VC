@@ -2,6 +2,8 @@
  * Created by nodejs01 on 5/11/15.
  */
 package util {
+import com.adobe.net.URI;
+import com.adobe.protocols.dict.events.ErrorEvent;
 import com.adobe.serialization.json.JSON;
 
 import flash.events.AsyncErrorEvent;
@@ -16,8 +18,6 @@ import flash.net.URLRequest;
 import flash.net.URLRequestHeader;
 import flash.net.URLRequestMethod;
 import flash.net.URLVariables;
-
-import mx.controls.Alert;
 
 public class RestService {
     private static var Server:String='';
@@ -60,10 +60,10 @@ public class RestService {
         request.contentType='application/json';
         request.method = URLRequestMethod.POST;
         request.data = com.adobe.serialization.json.JSON.encode(params);
-        request.url = RestService.GetConfigServer()+this.urlService;
+
+        request.url = RestService.GetConfigServer()+this.urlService+"?cachebust=" + Math.floor(100000+900000*Math.random());
         loader.addEventListener(Event.COMPLETE, response);
         loader.addEventListener(AsyncErrorEvent.ASYNC_ERROR, errorHandlerAsyncErrorEvent);
-        //loader.addEventListener(IOErrorEvent.IO_ERROR, errorHandlerIOErrorEvent);
         loader.addEventListener(SecurityErrorEvent.SECURITY_ERROR, errorHandlerSecurityErrorEvent);
         loader.addEventListener(Event.INIT, initHandler);
 
@@ -73,6 +73,7 @@ public class RestService {
             loader.addEventListener(IOErrorEvent.IO_ERROR, errorHandlerIOErrorEvent);
         loader.load(request);
     }
+
     private function initHandler(event:IOErrorEvent):void {
         trace('initHandler');
     }
@@ -89,7 +90,7 @@ public class RestService {
     }
 
     private function loaderIOErrorHandler(event:IOErrorEvent):void {
-        Alert.show('loaderIOErrorHandler');
+        trace('loaderIOErrorHandler');
     }
 
     public function Put(id:String, params:Object,response:Function):void{
@@ -109,7 +110,6 @@ public class RestService {
         loader.load(request);
     }
 
-    
     public function Delete(id:String,response:Function):void{
         var loader:URLLoader = new URLLoader();
         var request:URLRequest = new URLRequest();

@@ -4,13 +4,11 @@
 package {
 import Implements.CardDefault;
 import Implements.CardResponsive;
-import Implements.EventAction;
 import components.CheckoutDefaultBox;
 import components.CheckoutResponsiveBox;
 
 
 import flash.display.Sprite;
-
 import flash.events.Event;
 import flash.events.IOErrorEvent;
 import flash.events.KeyboardEvent;
@@ -18,30 +16,24 @@ import flash.events.MouseEvent;
 import flash.net.URLLoader;
 
 import Interfaces.iCard;
-import Interfaces.iEvent;
-
-import flash.utils.setTimeout;
-
-import models.Card;
-import Implements.EventViewVideo;
+import flash.system.Security;
+import flash.system.System;
 
 import models.Cart;
-import models.CartItem;
+import models.Order;
 import models.Video;
-
-import mx.binding.utils.ChangeWatcher;
-
 import mx.collections.ArrayCollection;
 import mx.containers.ViewStack;
 import mx.controls.Alert;
-import mx.controls.TileList;
-import mx.core.FlexGlobals;
-
 import org.osmf.events.MediaPlayerStateChangeEvent;
 
 
 import org.osmf.events.TimeEvent;
 import org.osmf.media.MediaPlayerState;
+
+import services.Cart;
+
+import services.Order;
 
 import services.TransitionCards;
 
@@ -62,7 +54,6 @@ import util.RestService;
 public class App extends Sprite{
     private var _isResponsive:Boolean;
     private var showCartBox:Boolean = false;
-    private var JsonData:Object;
     private var _transitionCards:TransitionCards;
     private var _videoPlayer:VideoPlayer;
     private var _buttonCart:Button;
@@ -80,23 +71,14 @@ public class App extends Sprite{
 
 
     private var _app:Object;
-    private var _eventTime0:iEvent;
-    private var _eventTime25:iEvent;
-    private var _eventTime50:iEvent;
-    private var _eventTime75:iEvent;
-    private var _eventTime100:iEvent;
-
     private var _video:Video;
-    private var _eventCreateSession:EventAction;
+
     private var _hostname:String;
-    private var _cart:models.Cart;
+    //private var _cart:models.Cart;
 
     function App(){
         trace("start app...");
-
         RestService.SetConfigServer( 'https://video-checkout-staging.herokuapp.com/api/v1/');
-
-
 
     }
     public function InitializeComponents(app:Object,width:int):void{
@@ -108,46 +90,34 @@ public class App extends Sprite{
         _actionsList = _app.actionsList;
         _checkoutBox=_app.checkoutBox;
         _checkoutBoxResponsive=_app.checkoutBoxResponsive;
+        _checkoutBox.backButton.setStyle('padding',8);
+        _checkoutBox.CheckOutButton.setStyle('padding',8);
+        //_hostname=_app.loaderInfo.loaderURL;
         if(width<=500){
             ChangeResponsive();
-            //_card = new Implements.CardResponsive(_app.cardR);
-            //_isResponsive=true;
         }
         else{
             ChangeDefault();
-            //_card = new Implements.CardDefault(_app.card);
-            //_isResponsive=false;
+
         }
-
-
-        //
-        _checkoutBox.backButton.setStyle('padding',8);
-        _checkoutBox.CheckOutButton.setStyle('padding',8);
         InitializeForm();
 
-
     }
-    public  function Init():void{
-
+    public function Init():void{
         InitAnimationCart();
         AddEventsToComponents();
         LoadVideoJson();
-        //LoadVideoLocal();
-
     }
 
     public function InitAnimationCart():void{
         _moveCartBoxRight=new Resize();
         _moveCartBoxRight.target=_cartBox;
         _moveCartBoxRight.widthTo=278;
-
-
         _moveCartBoxRight.duration=100;
         _moveCartBoxLeft=new Resize();
         _moveCartBoxLeft.target=_cartBox;
         _moveCartBoxLeft.widthTo=0;
         _moveCartBoxLeft.duration=100;
-
         _moveCheckoutBottom=new Move();
         _moveCheckoutBottom.target = _app.CheckoutViewStack;
         _moveCheckoutBottom.yTo=0;
@@ -161,10 +131,7 @@ public class App extends Sprite{
     }
 
     private function AddEventsToComponents():void{
-        _videoPlayer.addEventListener(TimeEvent.CURRENT_TIME_CHANGE,VideoCurrentTimeChangeHandler);
-        _videoPlayer.addEventListener(TimeEvent.COMPLETE, VideoCompleteHandler);
-        _videoPlayer.addEventListener(TimeEvent.DURATION_CHANGE, VideoDurationChangeHandler);
-        _videoPlayer.addEventListener(MediaPlayerStateChangeEvent.MEDIA_PLAYER_STATE_CHANGE, VideoMediaPlayerStateChangeHandler);
+
         _buttonCart.addEventListener(MouseEvent.CLICK,ButtonCartCartHandler);
         _cartBox.CheckOutButton.addEventListener(MouseEvent.CLICK,ShowBoxCheckOut);
         _checkoutBox.backButton.addEventListener(MouseEvent.CLICK, HideBoxCheckOut);
@@ -172,137 +139,42 @@ public class App extends Sprite{
 
     }
 
-
-
-    private function VideoDurationChangeHandler(event:TimeEvent):void {
-        _eventTime0=new EventViewVideo(0,_videoPlayer.duration,'VIDEO_PLAY',_hostname,_video);
-        _eventTime25=new EventViewVideo(25,_videoPlayer.duration,'PROGRESS_VIDEO',_hostname,_video);
-        _eventTime50=new EventViewVideo(50,_videoPlayer.duration,'PROGRESS_VIDEO',_hostname,_video);
-        _eventTime75=new EventViewVideo(75,_videoPlayer.duration,'PROGRESS_VIDEO',_hostname,_video);
-        _eventTime100=new EventViewVideo(100,_videoPlayer.duration,'VIDEO_ENDED',_hostname,_video);
-    }
-
-
-    private function LoadVideoLocal():void{
-        var id:String;
-        var mycard:models.Card;
-        id="5515e136be130e0300c83d17";
-        var cards:ArrayCollection=new ArrayCollection();
-        _video=new Video()
-        _video.id="1";
-        _video.user='1111';
-
-
-        mycard=new models.Card();
-        mycard.id = "54bd946d0bbcf90300067cc6";
-        mycard.title ='Rotary International';
-        mycard.image = 'http://res.cloudinary.com/hpsqkcuar/image/upload/v1421710067/oge7mve8wvi8cg8rwnuu.png';
-        mycard.price =  10;
-        mycard.buttonText = "Donate Now";
-        mycard.startTime = 12.48;
-        mycard.endTime = 25;
-        mycard.buttonColor = '0xe7a016';
-        cards.addItem(mycard);
-
-        mycard=new models.Card();
-        mycard.id = "54bd930e4570eb0300b629b0";
-        mycard.title ='Rotary International';
-        mycard.image = 'http://res.cloudinary.com/hpsqkcuar/image/upload/v1421710067/oge7mve8wvi8cg8rwnuu.png';
-        mycard.price =  20;
-        mycard.buttonText = "Donate Now";
-        mycard.startTime = 30;
-        mycard.endTime = 53;
-        mycard.buttonColor = '0xe7a016';
-        cards.addItem(mycard);
-
-        _videoPlayer.source = "http://s3.amazonaws.com/total-apps-video-checkout/uploads/5bd7b500-a018-11e4-8bb3-eb8f66e87af8.mp4";
-        _transitionCards = new TransitionCards(_app,_video,_card);
-
-    }
     private function LoadVideoJson():void{
-        var id:String;
         var service:RestService = new RestService('videos');
         ParamsUrl.ReadParamsFromUrl(_app.loaderInfo.loaderURL);
-        id=ParamsUrl.get('id');
-
-        service.Get(id, function (e:Event):void {
+        service.Get(ParamsUrl.get('id'),function (e:Event):void {
             var loader:URLLoader = URLLoader(e.target);
-            JsonData = JSON.parse(loader.data);
-            InitDataForVideo();
+            var data:Object = JSON.parse(loader.data);
+            InitDataForVideo(data);
         },function(event:IOErrorEvent):void{
-            //LoadVideoLocal();
             Alert.show("url incorrect:"+event.text);
         });
     }
-    private function InitDataForVideo():void {
-
-        var cards:ArrayCollection= services.JsonUtil.ConvertToCards(JsonData.actions);
-
-        _actionsList.dataProvider=cards;
-        _video=services.JsonUtil.ConvertToVideo(JsonData);
-        _video.actions=cards;
-        _videoPlayer.source = JsonData.urls.originalUrl;
+    private function InitDataForVideo(data:Object):void {
+        _video=services.JsonUtil.ConvertToVideo(data);
+        _actionsList.dataProvider=_video.actions;
+        _videoPlayer.source = data.urls.originalUrl;
         _transitionCards = new TransitionCards(_app,_video,_card);
-        trace("Hola");
-        _eventCreateSession=new EventAction('ANALYTICS_SESSION_CREATE',_video,ParamsUrl.GetHost());
-        _eventCreateSession.RegisterEventCreate(function(response:Object):void{
-            var serviceCart:RestService= new RestService('carts');
-            var params:Object=new Object();
-            params.video=_video.id;
-            serviceCart.Post(params,function(e:Event):void{
-                var loader:URLLoader = URLLoader(e.target);
-                var r = JSON.parse(loader.data);
-                _cart=new models.Cart();
-                _cart.id=r._id;
-                _cart.video=r.video;
-                _cart.user=r.user;
-                _cart.createAt=r.createAt;
-                _cart.updatedAt=r.updatedAt;
-                _cart.accessToken=r.accessToken;
-                _transitionCards.cart=_cart;
-                trace("id"+_cart.id);
-            })
+        SessionCreate();
+
+
+    }
+    private function SessionCreate():void{
+        _transitionCards.analyticsEvent.CreateSession(_video,function(data){
+            RegisterCart();
         });
 
     }
-    private function getHostName():String {
-        var g_BaseURL = FlexGlobals.topLevelApplication.url;
-        var pattern1:RegExp = new RegExp("http://[^/]*/");
-        if (pattern1.test(g_BaseURL) == true) {
-            var g_HostString = pattern1.exec(g_BaseURL).toString();
-        } else{
-            var g_HostString = "http://localhost/"
-        }
+    private function RegisterCart():void{
+        _transitionCards.serviceCart.Create(function(cart:models.Cart){
 
-        return g_HostString;
+        });
     }
 
     /*Events components*/
-    private function VideoCurrentTimeChangeHandler(event:TimeEvent):void {
-        _eventTime0.WatchEvent(event.time);
-        _eventTime25.WatchEvent(event.time);
-        _eventTime50.WatchEvent(event.time);
-        _eventTime75.WatchEvent(event.time);
 
-        _transitionCards.EvalCardsInTime(event.time);
-    }
-    private function VideoCompleteHandler(event:TimeEvent):void {
-        _app.panelCard.visible=(true&&!_isResponsive);
-        _showActions=true&&!_isResponsive;
-        //_transitionCards.ResetTransitions();
-        _eventTime100.RegisterEvent(event.time);
-    }
-    protected function VideoMediaPlayerStateChangeHandler(event:MediaPlayerStateChangeEvent):void {
-        if (event.state == MediaPlayerState.LOADING)
-            trace("loading ...");
-        if (event.state == MediaPlayerState.PLAYING){
-            _app.panelCard.visible=false;
-            _transitionCards.ResetTransitions();
-            _showActions=false;
-            trace("playing ...");
-        }
 
-    }
+    /*End events components*/
     private function ButtonCartCartHandler(event:MouseEvent):void{
         showCartBox = !showCartBox;
         if (showCartBox) {
@@ -315,37 +187,6 @@ public class App extends Sprite{
 
 
     /* public attributes*/
-    public function get videoPlayer():VideoPlayer {
-        return _videoPlayer;
-    }
-
-    public function set videoPlayer(value:VideoPlayer):void {
-        _videoPlayer = value;
-    }
-
-    public function get buttonCart():Button {
-        return _buttonCart;
-    }
-
-    public function set buttonCart(value:Button):void {
-        _buttonCart = value;
-    }
-
-    public function get cartBox():components.Cart {
-        return _cartBox;
-    }
-
-    public function set cartBox(value:components.Cart):void {
-        _cartBox = value;
-    }
-
-    public function get buttonCount():Button {
-        return _buttonCount;
-    }
-
-    public function set buttonCount(value:Button):void {
-        _buttonCount = value;
-    }
 
     public function get card():iCard {
         return _card;
@@ -410,124 +251,32 @@ public class App extends Sprite{
     }
 
     public function CheckoutHandler(event:MouseEvent):void {
-        var service:RestService=new RestService('carts');
         var cartItems:ArrayCollection=_cartBox.items.dataProvider as ArrayCollection;
-        var params:Object=new Object();
-        params._id=_cart.id;
-        params.createdAt=_cart.createAt;
-        params.updatedAt=(new Date()).toString();
-        params.video= _video.id;
-        params.accessToken = _cart.accessToken;
-        params.user = _cart.user;
-        params.items=new Array();
-        for(var i:int=0;i<cartItems.length;i++){
-            params.items[i]=(cartItems.getItemAt(i) as CartItem).card.jsonObject;
-            params.items[i].quantity=(cartItems.getItemAt(i) as CartItem).amount;
-            params.items[i].product_id=(cartItems.getItemAt(i) as CartItem).card.product.id;
-            params.items[i].action_id=(cartItems.getItemAt(i) as CartItem).card.id;
-            params.items[i].item_id=(cartItems.getItemAt(i) as CartItem).card.clientUUID;
-            params.items[i]._id=params.items[i].product_id;
-            delete  params.items[i]['product'];
-
-        }
-
-            params.billing_address1=_cart.billing_address1;
-            params.billing_city=_cart.billing_city;
-            params.billing_firstName="";
-            params.billing_lastName="";
-            if(_cart.billing_firstName.length>0) {
-                params.billing_firstName = _cart.billing_firstName.split(' ')[0];
-                if(_cart.billing_firstName.split(' ').length>1)
-                    params.billing_lastName=_cart.billing_firstName.split(' ')[1];
-            }
-            params.billing_state=_cart.billing_state||'';
-            params.billing_zip= _cart.billing_zip;
-            params.cc_cvv= _cart.cc_cvv;
-            params.cc_expMonth=_cart.cc_expMonth||'';
-            params.cc_expYear= _cart.cc_expYear;
-            params.cc_number= _cart.cc_number;
-            params.createdAt= _cart.createAt;
-            params.email= _cart.email;
-
-        //(_app.watchVideoButton as Button).setStyle('padding',12);
-        service.Put(_cart.id,params,function(response:Event):void{
-            var result:Object;
-            var loader:URLLoader = URLLoader(response.target);
-            result = JSON.parse(loader.data);
-            trace(result);
+        _transitionCards.serviceCart.Update(cartItems,true,function(){
             CallOrder();
         });
-
 
     }
 
     public function CallOrder():void{
-        var service:RestService=new RestService('orders');
-        var params:Object=new Object();
-        params.cartId=_cart.id;
-        service.Post(params,function(response:Event):void{
-            try{
-                var result:Object;
-                var loader:URLLoader = URLLoader(response.target);
-                result = JSON.parse(loader.data);
-                //trace(result);
-                if(result.hasOwnProperty("_id")){
-                    var vs:ViewStack=_app.CheckoutViewStack;
-                    vs.selectedIndex=1;
-
-                    var vsr:ViewStack=_app.CheckoutViewStackResponsive;
-                    vsr.selectedIndex=1;
-                }else{
-
-                }
-            }catch(e:Error){
-
-            }
-
-
-        },function(response){
-            setTimeout(function(response):void{
-                var result:Object;
-                var loader:URLLoader = URLLoader(response.target);
-                //Alert.show(loader.data);
-                var data=loader.data;
-                try{
-                    result = JSON.parse(data);
-                }catch(e:Error){
-                    //Alert.show(data);
-                    result=new Object();
-                }
-
-                trace("error por aqui");
-                var message:String="";
-                if(result.hasOwnProperty("errors")) {
-                    for (var i:int = 0; i < result.errors.length; i++) {
-                        if (result.errors[i].hasOwnProperty("name")) {
-                            message += (result.errors[i].message as String).replace("{_FIELD_}", result.errors[i].name) + '\n';
-
-                        } else {
-                            message += result.errors[i].message + "\n";
-                        }
-
+        var orderService:services.Order=new services.Order(new models.Order(_transitionCards.serviceCart.cart));
+        orderService.SendOrder(function(data):void{
+                    if(data as Boolean){
+                        var vs:ViewStack=_app.CheckoutViewStack;
+                        vs.selectedIndex=1;
+                        var vsr:ViewStack=_app.CheckoutViewStackResponsive;
+                        vsr.selectedIndex=1;
                     }
-
-                }else{
-                    message="Data is empty";
-                }
-                Alert.show(message);
-            },500,response)
-
-        });
+        },
+        function(data):void{
+            Alert.show(data);
+        })
     }
 
     public function get transitionCards():TransitionCards {
         return _transitionCards;
     }
 
-    public function set transitionCards(value:TransitionCards):void {
-        _transitionCards = value;
-    }
-    
     private function InitializeForm():void{
         _checkoutBoxResponsive.nameInput.addEventListener(KeyboardEvent.KEY_DOWN,changeResponsiveHandler);
         _checkoutBoxResponsive.nameInput.addEventListener(KeyboardEvent.KEY_UP,changeResponsiveHandler);
@@ -578,58 +327,58 @@ public class App extends Sprite{
     }
 
     private function changeDefaultHandler(event:Object):void {
-        _cart.billing_firstName=_checkoutBox.nameInputD.text;
-        _cart.email = _checkoutBox.emailInputD.text
-        _cart.billing_address1=_checkoutBox.addressInput.text
-        _cart.phonenumber=_checkoutBox.phoneInput.text;
-        _cart.billing_city=_checkoutBox.cityInput.text;
+        _transitionCards.serviceCart.cart.billing_firstName=_checkoutBox.nameInputD.text;
+        _transitionCards.serviceCart.cart.email = _checkoutBox.emailInputD.text
+        _transitionCards.serviceCart.cart.billing_address1=_checkoutBox.addressInput.text
+        _transitionCards.serviceCart.cart.phonenumber=_checkoutBox.phoneInput.text;
+        _transitionCards.serviceCart.cart.billing_city=_checkoutBox.cityInput.text;
         if(_checkoutBox.stateInput.selectedIndex>=0)
-            _cart.billing_state=_checkoutBox.stateInput.selectedItem.data;
-        _cart.billing_zip=_checkoutBox.zipInput.text;
-        _cart.cc_number=_checkoutBox.cardnumberInput.text;
-        _cart.cc_cvv=_checkoutBox.cvvInput.text;
+            _transitionCards.serviceCart.cart.billing_state=_checkoutBox.stateInput.selectedItem.data;
+        _transitionCards.serviceCart.cart.billing_zip=_checkoutBox.zipInput.text;
+        _transitionCards.serviceCart.cart.cc_number=_checkoutBox.cardnumberInput.text;
+        _transitionCards.serviceCart.cart.cc_cvv=_checkoutBox.cvvInput.text;
         if(_checkoutBox.monthInput.selectedIndex>=0)
-            _cart.cc_expMonth=_checkoutBox.monthInput.selectedItem.data;
-        _cart.cc_expYear=_checkoutBox.yearInput.text;
-        _checkoutBoxResponsive.nameInput.text =  _cart.billing_firstName;
-        _checkoutBoxResponsive.emailInput.text =  _cart.email;
-        _checkoutBoxResponsive.addressInput.text = _cart.billing_address1;
-        _checkoutBoxResponsive.phoneInput.text = _cart.phonenumber;
-        _checkoutBoxResponsive.cityInput.text = _cart.billing_city;
+            _transitionCards.serviceCart.cart.cc_expMonth=_checkoutBox.monthInput.selectedItem.data;
+        _transitionCards.serviceCart.cart.cc_expYear=_checkoutBox.yearInput.text;
+        _checkoutBoxResponsive.nameInput.text =  _transitionCards.serviceCart.cart.billing_firstName;
+        _checkoutBoxResponsive.emailInput.text =  _transitionCards.serviceCart.cart.email;
+        _checkoutBoxResponsive.addressInput.text = _transitionCards.serviceCart.cart.billing_address1;
+        _checkoutBoxResponsive.phoneInput.text = _transitionCards.serviceCart.cart.phonenumber;
+        _checkoutBoxResponsive.cityInput.text = _transitionCards.serviceCart.cart.billing_city;
         _checkoutBoxResponsive.stateInput.selectedIndex = _checkoutBox.stateInput.selectedIndex;
-        _checkoutBoxResponsive.zipInput.text = _cart.billing_zip;
-        _checkoutBoxResponsive.cardnumberInput.text = _cart.cc_number;
-        _checkoutBoxResponsive.cvvInput.text = _cart.cc_cvv;
+        _checkoutBoxResponsive.zipInput.text = _transitionCards.serviceCart.cart.billing_zip;
+        _checkoutBoxResponsive.cardnumberInput.text = _transitionCards.serviceCart.cart.cc_number;
+        _checkoutBoxResponsive.cvvInput.text = _transitionCards.serviceCart.cart.cc_cvv;
         _checkoutBoxResponsive.monthInput.selectedIndex = _checkoutBox.monthInput.selectedIndex;
-        _checkoutBoxResponsive.yearInput.text = _cart.cc_expYear;
+        _checkoutBoxResponsive.yearInput.text = _transitionCards.serviceCart.cart.cc_expYear;
     }
 
     private function changeResponsiveHandler(event:Object):void {
 
-        _cart.billing_firstName=_checkoutBoxResponsive.nameInput.text;
-        _cart.email = _checkoutBoxResponsive.emailInput.text
-        _cart.billing_address1=_checkoutBoxResponsive.addressInput.text
-        _cart.phonenumber=_checkoutBoxResponsive.phoneInput.text;
-        _cart.billing_city=_checkoutBoxResponsive.cityInput.text;
+        _transitionCards.serviceCart.cart.billing_firstName=_checkoutBoxResponsive.nameInput.text;
+        _transitionCards.serviceCart.cart.email = _checkoutBoxResponsive.emailInput.text
+        _transitionCards.serviceCart.cart.billing_address1=_checkoutBoxResponsive.addressInput.text
+        _transitionCards.serviceCart.cart.phonenumber=_checkoutBoxResponsive.phoneInput.text;
+        _transitionCards.serviceCart.cart.billing_city=_checkoutBoxResponsive.cityInput.text;
         if(_checkoutBoxResponsive.stateInput.selectedIndex>=0)
-            _cart.billing_state=_checkoutBoxResponsive.stateInput.selectedItem.data;
-        _cart.billing_zip=_checkoutBoxResponsive.zipInput.text;
-        _cart.cc_number=_checkoutBoxResponsive.cardnumberInput.text;
-        _cart.cc_cvv=_checkoutBoxResponsive.cvvInput.text;
+            _transitionCards.serviceCart.cart.billing_state=_checkoutBoxResponsive.stateInput.selectedItem.data;
+        _transitionCards.serviceCart.cart.billing_zip=_checkoutBoxResponsive.zipInput.text;
+        _transitionCards.serviceCart.cart.cc_number=_checkoutBoxResponsive.cardnumberInput.text;
+        _transitionCards.serviceCart.cart.cc_cvv=_checkoutBoxResponsive.cvvInput.text;
         if(_checkoutBoxResponsive.monthInput.selectedIndex>=0)
-            _cart.cc_expMonth=_checkoutBoxResponsive.monthInput.selectedItem.data;
-        _cart.cc_expYear=_checkoutBoxResponsive.yearInput.text;
-        _checkoutBox.nameInputD.text =  _cart.billing_firstName;
-        _checkoutBox.emailInputD.text =  _cart.email;
-        _checkoutBox.addressInput.text = _cart.billing_address1;
-        _checkoutBox.phoneInput.text = _cart.phonenumber;
-        _checkoutBox.cityInput.text = _cart.billing_city;
+            _transitionCards.serviceCart.cart.cc_expMonth=_checkoutBoxResponsive.monthInput.selectedItem.data;
+        _transitionCards.serviceCart.cart.cc_expYear=_checkoutBoxResponsive.yearInput.text;
+        _checkoutBox.nameInputD.text =  _transitionCards.serviceCart.cart.billing_firstName;
+        _checkoutBox.emailInputD.text =  _transitionCards.serviceCart.cart.email;
+        _checkoutBox.addressInput.text = _transitionCards.serviceCart.cart.billing_address1;
+        _checkoutBox.phoneInput.text = _transitionCards.serviceCart.cart.phonenumber;
+        _checkoutBox.cityInput.text = _transitionCards.serviceCart.cart.billing_city;
         _checkoutBox.stateInput.selectedIndex = _checkoutBoxResponsive.stateInput.selectedIndex;
-        _checkoutBox.zipInput.text = _cart.billing_zip;
-        _checkoutBox.cardnumberInput.text = _cart.cc_number;
-        _checkoutBox.cvvInput.text = _cart.cc_cvv;
+        _checkoutBox.zipInput.text = _transitionCards.serviceCart.cart.billing_zip;
+        _checkoutBox.cardnumberInput.text = _transitionCards.serviceCart.cart.cc_number;
+        _checkoutBox.cvvInput.text = _transitionCards.serviceCart.cart.cc_cvv;
         _checkoutBox.monthInput.selectedIndex = _checkoutBoxResponsive.monthInput.selectedIndex;
-        _checkoutBox.yearInput.text = _cart.cc_expYear;
+        _checkoutBox.yearInput.text = _transitionCards.serviceCart.cart.cc_expYear;
     }
 }
 }

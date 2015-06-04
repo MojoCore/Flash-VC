@@ -14,15 +14,12 @@
 
   <fx:Script>
         <![CDATA[
-      import Interfaces.iEvent;
-
       import models.Video;
 
       import spark.components.List;
 
       [Bindable]
       private var color1:uint = 0x6ABDC0;
-      private var _eventRemoveFromCart:iEvent;
       public var video:models.Video;
 
       private function init():void {
