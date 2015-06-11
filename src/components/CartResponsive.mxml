@@ -27,7 +27,7 @@
   <mx:Box direction="vertical" width="100%" height="100%" paddingRight="0" paddingLeft="0" paddingBottom="0" paddingTop="0" minHeight="50">
 
       <mx:Box direction="horizontal" paddingLeft="10" id="emptyLabel" includeInLayout="false"  >
-          <s:Label fontFamily="CustomIcons" text="&#xe600;"  horizontalCenter="0" verticalCenter="0" fontSize="24" paddingTop="10"/>
+          <s:Label fontFamily="CustomIcons" text="&#xe604;"  horizontalCenter="0" verticalCenter="0" fontSize="24" paddingTop="10"/>
           <s:Label width="100%" paddingTop="15" textAlign="center" color="0x000000"
                    fontSize="18"
                    horizontalCenter="0"

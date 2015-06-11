@@ -6,10 +6,14 @@
                xmlns:custom="components.*" xmlns:mx="library://ns.adobe.com/flex/mx" applicationComplete="init2()">
 
     <fx:Script><![CDATA[
+        import myLib.styles.StyleManager;
+
         import mx.binding.utils.ChangeWatcher;
         import mx.controls.Alert;
         import mx.controls.Alert;
         import mx.controls.Alert;
+        import mx.managers.BrowserManager;
+        import mx.managers.IBrowserManager;
 
         import org.osmf.events.MediaPlayerStateChangeEvent;
         import mx.core.FlexGlobals;
@@ -25,6 +29,15 @@
             app.InitializeComponents(this,systemManager.stage.stageWidth);
             Security.allowDomain("*");
             flash.system.Security.allowDomain("*");
+            btnTabCart.ActiveTab();
+            /*var browser:IBrowserManager = BrowserManager.getInstance();
+            browser.init();
+            var browserUrl:String = browser.url; // full url in the browser
+            Alert.show(browserUrl);
+            var urlname:LocalConnection = new LocalConnection();
+            Alert.show(urlname.domain);
+Security*/
+            //Alert.show(Security.pageDomain);
         }
         private function init2():void{
 
@@ -68,7 +81,7 @@
 
 
         ]]></fx:Script>
-
+<fx:Style source="styles/app.css"/>
 <mx:Box direction="vertical" width="100%" height="100%">
     <s:Group width="100%" height="100%">
     <s:VideoPlayer id="videoPlayer"
@@ -85,28 +98,43 @@
     </s:Group>
     <mx:Box id="footer" width="100%" height="200" direction="vertical">
 
-        <mx:ViewStack id="CheckoutViewStackResponsive" width="100%" height="100%">
+        <s:HGroup gap="0" width="100%">
+            <custom:CustomTabButton id="btnTabCart" otherTabButton="{btnTabCheckout}" width="110" title="MY CART" subtitle="$20.00 4 items" viewStack="{ViewStackContentResponsive}" activeTab="0"></custom:CustomTabButton>
+            <custom:CustomTabButton id="btnTabCheckout" otherTabButton="{btnTabCart}" width="110" title="CHECKOUT" subtitle="" viewStack="{ViewStackContentResponsive}" activeTab="1"></custom:CustomTabButton>
+            <s:Button width="100%" height="100%" skinClass="skins.SkinTabTabHeader"></s:Button>
 
-            <s:NavigatorContent id="formCheckoutContentResponsive"  width="100%" height="100%" >
-                <s:Scroller width="100%" height="100%">
-                    <s:VGroup width="100%">
-                        <custom:CartResponsive id="cartBoxResponsive" width="100%">
+        </s:HGroup>
 
-                        </custom:CartResponsive>
+        <mx:ViewStack id="ViewStackContentResponsive" width="100%" height="100%" creationPolicy="all">
+            <s:NavigatorContent id="contentCartResponsive" label="MY CART" width="100%" height="100%">
+                <custom:CartResponsive id="cartBoxResponsive" width="100%">
 
-                        <custom:CheckoutResponsiveBox width="100%" id="checkoutBoxResponsive" paddingLeft="0" paddingRight="0" >
-
-                        </custom:CheckoutResponsiveBox>
-                    </s:VGroup>
-
-                </s:Scroller>
+                </custom:CartResponsive>
             </s:NavigatorContent>
-            <s:NavigatorContent id="FinishCheckoutContentResponsive"  width="100%" height="100%" >
-                <custom:CheckoutCompletedResponsiveBox width="100%">
+            <s:NavigatorContent id="contentFormResponsive" label="CHECKOUT" width="100%" height="100%">
+                <mx:ViewStack id="CheckoutViewStackResponsive" width="100%" height="100%" creationPolicy="all">
 
-                </custom:CheckoutCompletedResponsiveBox>
+                    <s:NavigatorContent id="formCheckoutContentResponsive"  width="100%" height="100%" >
+                        <s:Scroller width="100%" height="100%">
+                            <s:VGroup width="100%">
+
+
+                                <custom:CheckoutResponsiveBox width="100%" id="checkoutBoxResponsive" paddingLeft="0" paddingRight="0" >
+
+                                </custom:CheckoutResponsiveBox>
+                            </s:VGroup>
+
+                        </s:Scroller>
+                    </s:NavigatorContent>
+                    <s:NavigatorContent id="FinishCheckoutContentResponsive"  width="100%" height="100%" >
+                        <custom:CheckoutCompletedResponsiveBox width="100%">
+
+                        </custom:CheckoutCompletedResponsiveBox>
+                    </s:NavigatorContent>
+                </mx:ViewStack>
             </s:NavigatorContent>
         </mx:ViewStack>
+
 
 
     </mx:Box>
@@ -168,7 +196,7 @@
 
 
     <s:Button id="cartButton"
-              label="&#xe600;"
+              label="&#xe604;"
               fontSize="30"
               color="white"
               top="20"
@@ -184,36 +212,16 @@
               color="white"
               visible="false" />
 
-    <mx:ViewStack id="CheckoutViewStack" borderStyle="solid"  horizontalCenter="0" y="-450" maxWidth="900" width="900" backgroundColor="0x000" backgroundAlpha="0.8" height="450">
-            <s:NavigatorContent id="formCheckoutContent"  width="100%" height="100%" >
-                <custom:CheckoutDefaultBox id="checkoutBox"   visible="true">
+    <mx:ViewStack id="CheckoutViewStack" borderStyle="solid"  horizontalCenter="0" y="{-checkoutBox.height}" height="450" minHeight="450" maxWidth="900" width="100%"  backgroundColor="0x000" backgroundAlpha="0.8">
+            <s:NavigatorContent id="formCheckoutContent"  width="100%" height="100%">
+                <custom:CheckoutDefaultBox id="checkoutBox"   visible="true" minHeight="450" width="100%" height="100%">
 
                 </custom:CheckoutDefaultBox>
             </s:NavigatorContent>
         <s:NavigatorContent id="FinishCheckoutContent"  width="100%" height="100%" horizontalCenter="0" includeInLayout="true">
-            <mx:Box direction="vertical" width="100%" paddingLeft="20" paddingRight="20" paddingTop="20">
-            <mx:Box direction="horizontal" width="100%" >
-                <s:Image source="@Embed('assets/smile.png')" width="32" height="32"/>
-                <s:Label width="100%" paddingTop="20" textAlign="left"  fontSize="16" horizontalCenter="0" color="white"
-                         text="Thank You."></s:Label>
-            </mx:Box>
-            <s:Label width="100%" paddingTop="20" paddingBottom="20" textAlign="center"  fontSize="18" horizontalCenter="0" color="white"
-                     text="Your payment has been processed and you will receive a confirmation email shortly."></s:Label>
-            <mx:Box direction="vertical" width="100%" horizontalCenter="0" horizontalAlign="center">
-                <s:Button id="watchVideoButton" horizontalCenter="0" verticalCenter="0"
-                          label="GO BACK TO THE VIDEO"
-                          skinClass="skins.SkinSolidButton"
-                          color="0xfda731"
-                            click="app.HideBoxCheckOut(event);"
-                          fontSize="20"
-                          useHandCursor="true"
-                          buttonMode="true"></s:Button>
-                </mx:Box>
+            <custom:CheckoutCompletedBox id="CheckoutCompletedBox" width="100%" height="100%">
 
-                <s:Label width="100%" paddingTop="20" paddingBottom="20" textAlign="center"  fontSize="18" horizontalCenter="0" color="white"
-                         text="Share this video with friends and family!"></s:Label>
-                <s:Image source="@Embed('assets/twitter.png')" width="100%" height="32"/>
-            </mx:Box>
+            </custom:CheckoutCompletedBox>
         </s:NavigatorContent>
     </mx:ViewStack>
 

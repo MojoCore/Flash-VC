@@ -17,25 +17,29 @@
         CheckOutButton.setStyle('padding',10);
     }
     ]]></fx:Script>
+    <s:HGroup width="100%">
+        <s:Image source="@Embed('../assets/card.png')"></s:Image>
+        <s:Image source="@Embed('../assets/security_payment_white.png')" horizontalAlign="right" width="100%"></s:Image>
+    </s:HGroup>
     <mx:Box width="100%">
-    <s:Image source="@Embed('../assets/card.png')"></s:Image>
+
     <s:Scroller width="100%" height="100%">
     <s:Group width="100%">
-    <s:Form width="100%">
+    <s:Form width="100%" id="CheckOutForm">
       <s:FormItem label="" textAlign="left" color="white" width="100%">
         <s:layout>
           <s:HorizontalLayout/>
         </s:layout>
-        <s:TextInput id="nameInputD" width="50%" skinClass="skins.SkinTextInput" prompt="Name (as it appears on the card)"/>
-        <s:TextInput id="emailInputD" width="50%" skinClass="skins.SkinTextInput" prompt="Email"/>
+        <s:TextInput id="nameInput" width="50%" skinClass="skins.SkinTextInput" prompt="Name (as it appears on the card)"/>
+        <s:TextInput id="emailInput" width="50%" skinClass="skins.SkinTextInput" prompt="Email"/>
 
       </s:FormItem>
-      <s:FormItem label="" textAlign="left" color="white" width="100%">
+      <s:FormItem label="" textAlign="left" color="white" width="100%" id="finishStaticFieldItems">
         <s:layout>
           <s:HorizontalLayout/>
         </s:layout>
         <s:TextInput id="addressInput" width="50%" skinClass="skins.SkinTextInput" prompt="Address"/>
-        <s:TextInput id="phoneInput" width="50%" skinClass="skins.SkinTextInput" prompt="Phone Number"/>
+        <!--<s:TextInput id="phoneInput" width="50%" skinClass="skins.SkinTextInput" prompt="Phone Number"/>-->
 
       </s:FormItem>
 

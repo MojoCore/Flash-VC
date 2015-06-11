@@ -3,10 +3,13 @@
  */
 package util {
 import flash.external.ExternalInterface;
+import flash.system.Security;
 
 import mx.collections.ArrayCollection;
 import mx.controls.Alert;
 import mx.core.FlexGlobals;
+import mx.managers.BrowserManager;
+import mx.managers.IBrowserManager;
 
 public class ParamsUrl {
     private static var _params:ArrayCollection;
@@ -14,15 +17,11 @@ public class ParamsUrl {
     public function ParamsUrl() {
     }
     public static function GetHost():String {
-        var g_BaseURL = FlexGlobals.topLevelApplication.url;
-        var pattern1:RegExp = new RegExp("http://[^/]*/");
-        if (pattern1.test(g_BaseURL) == true) {
-            var g_HostString = pattern1.exec(g_BaseURL).toString();
-        } else{
-            var g_HostString = "http://localhost/"
-        }
-
-        return g_HostString;
+        /*var browser:IBrowserManager = BrowserManager.getInstance();
+        browser.init();
+        var browserUrl:String = browser.url; // full url in the browser
+        return browserUrl;*/
+        return Security.pageDomain;
     }
     public static function GetHostName():String {
         var g_BaseURL = FlexGlobals.topLevelApplication.url;

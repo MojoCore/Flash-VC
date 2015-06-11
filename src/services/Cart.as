@@ -49,7 +49,7 @@ public class Cart {
         params.video= _video.id;
         params.accessToken = _cart.accessToken;
         params.user = _cart.user;
-        params.items=actions;
+        _cart.items=actions;
         params.items=new Array();
         for(var i:int=0;i<actions.length;i++){
             params.items[i]=(actions.getItemAt(i) as CartItem).card.jsonObject;
@@ -68,9 +68,16 @@ public class Cart {
             params.billing_lastName="";
             if(_cart.billing_firstName.length>0) {
                 params.billing_firstName = _cart.billing_firstName.split(' ')[0];
-                if(_cart.billing_firstName.split(' ').length>1)
-                    params.billing_lastName=_cart.billing_firstName.split(' ')[1];
+                if(_cart.billing_firstName.split(' ').length>1) {
+                    params.billing_lastName = _cart.billing_firstName.split(' ')[1];
+                    _cart.billing_lastName=params.billing_lastName;
+                }
+
             }
+            params.phonenumber=_cart.phonenumber;
+            params.corporation=_cart.corporation;
+            params.employer=_cart.employer;
+            params.occupation=_cart.occupation;
             params.billing_state=_cart.billing_state||'';
             params.billing_zip= _cart.billing_zip||'';
             params.cc_cvv= _cart.cc_cvv||'';
@@ -96,5 +103,7 @@ public class Cart {
     public function set cart(value:models.Cart):void {
         _cart = value;
     }
+
+
 }
 }

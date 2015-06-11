@@ -25,6 +25,7 @@ public class AnalyticEvent {
     public static const  VIDEO_PROGRESS='VIDEO_PROGRESS';
     public static const  VIDEO_ENDED='VIDEO_ENDED';
     public static const ACTION_SHOW='ACTION_SHOW';
+    public static const ORDER_SAVED='ORDER_SAVED';
     private var _isRegister=false;
     private var _v:String;
     private var _id:String;
@@ -36,7 +37,7 @@ public class AnalyticEvent {
 
     public function AnalyticEvent(host:String) {
         _service=new RestService(SERVICE_NAME);
-        _host=host;
+        _host=ParamsUrl.GetHost();
         _countId=0;
         trace(_host);
     }
@@ -105,9 +106,9 @@ public class AnalyticEvent {
                 fnCompleted(data);
         });
     }
-    public function RegisterEventVideo(type:String,time:Number,fnCompleted:Function=null):void{
+    public function RegisterEventTime(type:String,time:Number,fnCompleted:Function=null):void{
         var params:Object=new Object();
-        params.cid='c'+IncrementCountId()
+        params.cid='c'+IncrementCountId();
         params.host=_host;
         params.referrer=_host;
         params.session=_session;
@@ -124,12 +125,32 @@ public class AnalyticEvent {
         });
     }
 
+    public function RegisterOrder(orderId:String,fnCompleted:Function=null):void{
+        var params:Object=new Object();
+        params.cid='c'+IncrementCountId();
+        params.host=_host;
+        params.order=orderId;
+        params.referrer=_host;
+        params.session=_session;
+        params.type=ORDER_SAVED;
+        params.user=_video.user;
+        params.video=_video.id;
+        _service.Post(params,function(event:Event):void{
+            var loader:URLLoader = URLLoader(event.target);
+            var data:Object = JSON.parse(loader.data);
+            if(fnCompleted!=null)
+                fnCompleted(data);
+        });
+
+
+    }
+
     public function WatchEventTime(eventTime:EventTime,time:Number):void{
         var time_for_register:Number=0;
         if(!eventTime.executed){
             time_for_register=eventTime.percentage*_video.duration/100;
             if(time>time_for_register){
-                RegisterEventVideo(eventTime.type,time);
+                RegisterEventTime(eventTime.type,time);
                 eventTime.executed=true;
                 trace('avance:'+eventTime.percentage,time);
             }

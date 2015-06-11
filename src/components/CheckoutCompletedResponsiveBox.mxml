@@ -3,16 +3,16 @@
   Created by EDINSON on 27/05/2015.
 -->
 <mx:Box xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:mx="library://ns.adobe.com/flex/mx" xmlns:s="library://ns.adobe.com/flex/spark">
-  <mx:Box direction="horizontal" width="100%" >
-    <s:Image source="@Embed('../assets/smile.png')" width="32" height="32"/>
+  <mx:Box direction="horizontal" width="100%" paddingLeft="10" paddingRight="10" >
+    <s:Label paddingTop="10" fontFamily="CustomIcons" text="&#xe9df;" fontSize="24"></s:Label>
     <s:Label width="100%" paddingTop="20" textAlign="left"  fontSize="16" horizontalCenter="0" color="black"
              text="Thank You."></s:Label>
   </mx:Box>
   <s:Label width="100%" paddingTop="20" paddingBottom="20" textAlign="center"  fontSize="18" horizontalCenter="0" color="black"
-           text="Your payment has been processed and you will receive a confirmation email shortly."></s:Label>
+           text="Your payment has been processed and you will receive a confirmation email shortly." paddingLeft="10" paddingRight="10"></s:Label>
 
 
   <s:Label width="100%" paddingTop="10" paddingBottom="20" textAlign="center"  fontSize="14" horizontalCenter="0" color="black"
            text="Share this video with friends and family!"></s:Label>
-  <s:Image source="@Embed('../assets/twitter.png')" width="100%" height="32"/>
+  <s:Label width="100%" textAlign="center" horizontalCenter="0" fontFamily="CustomIcons" text="&#xea93;" color="#619dab" fontSize="32"></s:Label>
 </mx:Box>

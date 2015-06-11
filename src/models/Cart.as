@@ -24,6 +24,9 @@ public class Cart {
     private var _cc_number:String="";
     private var _email:String="";
     private var _phonenumber:String="";
+    private var _corporation:String='';
+    private var _occupation:String;
+    private var _employer:String;
     [Bindable]
     private var _items:ArrayCollection;
     public function Cart() {
@@ -191,6 +194,30 @@ public class Cart {
 
     public function set billing_lastName(value:String):void {
         _billing_lastName = value;
+    }
+
+    public function get corporation():String {
+        return _corporation;
+    }
+
+    public function set corporation(value:String):void {
+        _corporation = value;
+    }
+
+    public function get occupation():String {
+        return _occupation;
+    }
+
+    public function set occupation(value:String):void {
+        _occupation = value;
+    }
+
+    public function get employer():String {
+        return _employer;
+    }
+
+    public function set employer(value:String):void {
+        _employer = value;
     }
 }
 }

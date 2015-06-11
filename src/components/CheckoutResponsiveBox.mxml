@@ -10,17 +10,28 @@
         paddingRight="0"
         paddingBottom="5"
         width="100%"
-        height="100%" backgroundColor="#ebf2f2" >
+        height="100%" backgroundColor="white" >
 
-  <mx:Box width="100%" paddingLeft="10" paddingRight="10">
+  <fx:Style source="styles/app.css"/>
+
+  <s:HGroup width="100%" paddingLeft="10" gap="0">
+    <s:Label  fontFamily="CustomIcons"  text="&#xe607;" fontSize="18" paddingRight="3"/>
+    <s:Label  fontFamily="CustomIcons"  text="&#xe606;" fontSize="18" paddingRight="3"/>
+    <s:Label  fontFamily="CustomIcons"  text="&#xe608;" fontSize="18" paddingRight="3"/>
+    <s:Label paddingTop="2" paddingRight="3">Secure payments by</s:Label>
+    <s:Label fontStyle="italic" fontWeight="bold" paddingTop="2" paddingRight="0">Mojo</s:Label>
+    <s:Label fontStyle="italic" paddingTop="2">Pays</s:Label>
+  </s:HGroup>
+  <mx:Box width="100%" paddingLeft="10" paddingRight="10" id="CheckOutForm">
+
     <s:HGroup width="100%">
       <s:TextInput id="nameInput" width="50%" skinClass="skins.SkinTextInputResponsive" prompt="Name (as it appears on the card)"/>
       <s:TextInput id="emailInput" width="50%" skinClass="skins.SkinTextInputResponsive" prompt="Email"/>
 
     </s:HGroup>
-    <s:HGroup width="100%">
+    <s:HGroup width="100%" id="finishStaticFieldItems">
       <s:TextInput id="addressInput" width="50%" skinClass="skins.SkinTextInputResponsive" prompt="Address"/>
-      <s:TextInput id="phoneInput" width="50%" skinClass="skins.SkinTextInputResponsive" prompt="Phone Number"/>
+      <!--<s:TextInput id="phoneInput" width="50%" skinClass="skins.SkinTextInputResponsive" prompt="Phone Number"/>-->
     </s:HGroup>
     <s:HGroup  width="100%">
       <s:TextInput id="cityInput" width="50%" skinClass="skins.SkinTextInputResponsive" prompt="City"/>

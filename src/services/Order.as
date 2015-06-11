@@ -7,6 +7,8 @@ import flash.net.URLLoader;
 
 import models.Order;
 
+import mx.collections.ArrayCollection;
+
 import util.RestService;
 
 public class Order{
@@ -31,13 +33,9 @@ public class Order{
             var data:Boolean=false;
             var loader:URLLoader = URLLoader(event.target);
             result = JSON.parse(loader.data);
-            if(result.hasOwnProperty("_id")){
-                data=true;
-            }else{
-                data=false;
-            }
+
             if(_fnCompleted!=null){
-                _fnCompleted(data);
+                _fnCompleted(result);
             }
         }catch(e:Error){
 
@@ -52,8 +50,10 @@ public class Order{
             result = JSON.parse(data);
         }catch(e:Error){
             result=new Object();
+            result.errors=ValidationForm();
         }
         var message:String="";
+
         if(result.hasOwnProperty("errors")) {
             for (var i:int = 0; i < result.errors.length; i++) {
                 if (result.errors[i].hasOwnProperty("name")) {
@@ -69,6 +69,74 @@ public class Order{
         //Alert.show(message);
     }
 
+    public function ValidationForm():ArrayCollection{
+        var _cart:models.Cart=_order.cart;
+        var errors:ArrayCollection=new ArrayCollection();
+        var error_missing_field:String='Missing field {_FIELD_}'
+        var ObjError:Object=new Object();
+        var status:Boolean=true;
+        if(_cart.items.length==0){
+            errors.addItem({message:'Cart contains no items'});
+            return errors;
+        }
+        if(_cart.billing_firstName==''){
+            errors.addItem({message:error_missing_field,name:'billing_firstName'});
+        }
+        if(_cart.billing_lastName==''){
+            errors.addItem({message:error_missing_field,name:'billing_lastName'});
+        }
+        if(_cart.email==''){
+            errors.addItem({message:error_missing_field,name:'email'});
+        }else{
+            if(!isValidEmail(_cart.email))
+                errors.addItem({message:'billing_email must be a valid email',name:'email'});
+        }
+        if(_cart.billing_address1==''){
+            errors.addItem({message:error_missing_field,name:'billing_address1'});
+        }
+        if(_cart.billing_city==''){
+            errors.addItem({message:error_missing_field,name:'billing_city'});
+        }
+        if(_cart.billing_state==''){
+            errors.addItem({message:error_missing_field,name:'billing_state'});
+        }
+        if(_cart.billing_zip==''){
+            errors.addItem({message:error_missing_field,name:'billing_zip'});
+        }
+        if(_cart.cc_number==''){
+            errors.addItem({message:error_missing_field,name:'cc_number'});
+        }else{
+            if(_cart.cc_number.length!=16){
+                errors.addItem({message:'{_FIELD_} must match "16 digits"',name:'cc_number'});
+            }else{
+                if(_cart.cc_number!='4111111111111111'){
+                    errors.addItem({message:'Invalid CreditCard Number"'});
+                }
+            }
+        }
+        if(_cart.cc_cvv==''){
+            errors.addItem({message:error_missing_field,name:'cc_cvv'});
+        }
+        if(_cart.cc_expMonth==''){
+            errors.addItem({message:error_missing_field,name:'cc_expMonth'});
+        }
+        if(_cart.cc_expYear==''){
+            errors.addItem({message:error_missing_field,name:'cc_expYear'});
+        }
+        return errors;
+    }
+    private function isValidEmail(email:String):Boolean {
+        var emailExpression:RegExp = /([a-z0-9._-]+?)@([a-z0-9.-]+)\.([a-z]{2,4})/;
+        return emailExpression.test(email);
+    }
 
+
+    public function get order():models.Order {
+        return _order;
+    }
+
+    public function set order(value:models.Order):void {
+        _order = value;
+    }
 }
 }

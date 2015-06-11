@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!--
+  Created by EDINSON on 04/06/2015.
+-->
+<mx:Box xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:mx="library://ns.adobe.com/flex/mx"  xmlns:s="library://ns.adobe.com/flex/spark"  direction="vertical" width="100%" paddingLeft="20" paddingRight="20" paddingTop="20" creationComplete="init()">
+    <fx:Script><![CDATA[
+        private function init():void{
+            watchVideoButton.setStyle('padding',10);
+        }
+        ]]></fx:Script>
+    <mx:Box direction="horizontal" width="100%" >
+      <s:Label paddingTop="10" fontFamily="CustomIcons" text="&#xe9df;" fontSize="24" color="white"></s:Label>
+    <s:Label width="100%" paddingTop="20" textAlign="left"  fontSize="16" horizontalCenter="0" color="white"
+             text="Thank You."></s:Label>
+  </mx:Box>
+  <s:Label width="100%" paddingTop="20" paddingBottom="20" textAlign="center"  fontSize="18" horizontalCenter="0" color="white"
+           text="Your payment has been processed and you will receive a confirmation email shortly."></s:Label>
+  <mx:Box direction="vertical" width="100%" horizontalCenter="0" horizontalAlign="center">
+    <s:Button id="watchVideoButton" horizontalCenter="0" verticalCenter="0"
+              label="GO BACK TO THE VIDEO"
+              skinClass="skins.SkinSolidButton"
+              color="0xfda731"
+              click="this.parentApplication.app.HideBoxCheckOut(event);"
+              fontSize="20"
+              useHandCursor="true"
+              buttonMode="true"></s:Button>
+  </mx:Box>
+
+  <s:Label width="100%" paddingTop="20" paddingBottom="20" textAlign="center"  fontSize="18" horizontalCenter="0" color="white"
+           text="Share this video with friends and family!"></s:Label>
+    <s:Label width="100%" textAlign="center" horizontalCenter="0" fontFamily="CustomIcons" text="&#xea93;" color="#619dab" fontSize="32"></s:Label>
+</mx:Box>

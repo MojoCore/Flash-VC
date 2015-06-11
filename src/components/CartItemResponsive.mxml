@@ -79,7 +79,7 @@
       <s:Label color="{color1}" text="@ " fontSize="14" paddingTop="5"></s:Label>
       <s:Label id="priceLabel" color="{color1}" text="{_currency.format(data.card.price)}" fontSize="14" paddingTop="5" width="100%"></s:Label>
       <s:Button id="button"
-                label="&#xea0f;"
+                label="&#xe601;"
                 width="20"
                 height="20"
                 color="0x6ABDC0"

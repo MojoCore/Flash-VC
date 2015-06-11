@@ -2,9 +2,6 @@
  * Created by nodejs01 on 5/11/15.
  */
 package services {
-import Implements.CardDefault;
-
-import components.CardDefault;
 
 import components.Cart;
 import components.CheckoutDefaultBox;
@@ -15,13 +12,11 @@ import flash.events.MouseEvent;
 
 import Interfaces.iCard;
 import models.Card;
-import models.Cart;
 import models.CartItem;
 import models.EventTime;
 import models.Video;
 
 import mx.collections.ArrayCollection;
-import mx.controls.Alert;
 import mx.events.CollectionEvent;
 import mx.events.CollectionEventKind;
 import mx.formatters.CurrencyFormatter;
@@ -319,7 +314,7 @@ public class TransitionCards {
         _app.panelCard.visible=(true&&!_isResponsive);
         _visiblePanelActions=true&&!_isResponsive;
         if(!_isFinishedVideo){
-            _analyticsEvent.RegisterEventVideo(AnalyticEvent.VIDEO_ENDED,0);
+            _analyticsEvent.RegisterEventTime(AnalyticEvent.VIDEO_ENDED,0);
             _isFinishedVideo=true;
         }
 
@@ -332,7 +327,7 @@ public class TransitionCards {
             ResetTransitions();
             _visiblePanelActions=false;
             trace("playing ...");
-            _analyticsEvent.RegisterEventVideo(AnalyticEvent.VIDEO_PLAY,(event.target as VideoPlayer).currentTime);
+            _analyticsEvent.RegisterEventTime(AnalyticEvent.VIDEO_PLAY,(event.target as VideoPlayer).currentTime);
         }
 
     }
@@ -350,11 +345,16 @@ public class TransitionCards {
         _isResponsive=true;
         _cardComponent=card;
         _cardComponent.getComponent().button.addEventListener(MouseEvent.CLICK,AddToCart);
+        _app.panelCard.visible=false;
     }
     public function ChangeDefault(card:iCard):void{
         _isResponsive=false;
         _cardComponent=card;
         _cardComponent.getComponent().button.addEventListener(MouseEvent.CLICK,AddToCart);
+        if(_isFinishedVideo){
+            _app.panelCard.visible=true;
+            _visiblePanelActions=true;
+        }
     }
 
     public function get serviceCart():services.Cart {
@@ -371,6 +371,14 @@ public class TransitionCards {
 
     public function set analyticsEvent(value:AnalyticEvent):void {
         _analyticsEvent = value;
+    }
+
+    public function get isResponsive():* {
+        return _isResponsive;
+    }
+
+    public function set isResponsive(value):void {
+        _isResponsive = value;
     }
 }
 }

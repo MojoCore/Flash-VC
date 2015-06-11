@@ -1,4 +1,5 @@
 @namespace s "library://ns.adobe.com/flex/spark";
+@namespace mx "library://ns.adobe.com/flex/mx";
 .placeholder{
     color: #666666;
 }
@@ -16,4 +17,19 @@ s|TextInput{
     fillAlphas: 1, 1, 1, 1;
     fillColors: #fda731, #fda731, #fda731, #fda731;
     baseColor: #fda731;
+}
+mx|LinkBar {
+    linkButtonStyleName: regularFontWeight;
+}
+mx|ToggleButtonBar{
+    buttonStyleName: regularFontWeight;
+}
+
+.regularFontWeight {
+    fontWeight: bold;
+
+}
+
+.icons{
+    fontFamily: "../iconmoon.ttf";
 }
