@@ -45,7 +45,7 @@ public class Order{
         trace("call error");
         var result:Object;
         var loader:URLLoader = URLLoader(event.target);
-        var data=loader.data;
+        var data:String=loader.data;
         try{
             result = JSON.parse(data);
         }catch(e:Error){

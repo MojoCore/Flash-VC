@@ -25,6 +25,7 @@
       private function init():void {
           button.setStyle('padding', 5);
           amount.addEventListener(MouseEvent.CLICK,updateItem );
+          amount.textDisplay.editable = false;
           //_eventRemoveFromCart =
       }
 

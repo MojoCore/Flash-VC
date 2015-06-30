@@ -30,25 +30,14 @@
             Security.allowDomain("*");
             flash.system.Security.allowDomain("*");
             btnTabCart.ActiveTab();
-            /*var browser:IBrowserManager = BrowserManager.getInstance();
-            browser.init();
-            var browserUrl:String = browser.url; // full url in the browser
-            Alert.show(browserUrl);
-            var urlname:LocalConnection = new LocalConnection();
-            Alert.show(urlname.domain);
-Security*/
-            //Alert.show(Security.pageDomain);
+            btnTabCart.subtitleLabel.text=''
+            formResponsiveScroller.viewport.verticalScrollPosition=50;
+
         }
         private function init2():void{
 
             app.Init();
             widthWatch = ChangeWatcher.watch(this,'width',onSizeChange);
-
-
-
-
-            //this.loaderInfo.addEventListener(Event.COMPLETE, loaderComplete);
-            //Alert.show(this.loaderInfo.loaderURL)
         }
 
         function loaderComplete(myEvent:Event)
@@ -95,17 +84,19 @@ Security*/
                            height="45"
                            textAlign="center"
                            visible="false"/>
+        <custom:InCaseYouMissedResponsive width="100%" height="100%" id="inCaseYouMissedResponsive" bottom="26" visible="false">
+
+        </custom:InCaseYouMissedResponsive>
     </s:Group>
-    <mx:Box id="footer" width="100%" height="200" direction="vertical">
+    <mx:Box id="footer" width="100%" height="200" direction="vertical"  backgroundColor="0xf5f5f7" backgroundAlpha="1">
 
-        <s:HGroup gap="0" width="100%">
-            <custom:CustomTabButton id="btnTabCart" otherTabButton="{btnTabCheckout}" width="110" title="MY CART" subtitle="$20.00 4 items" viewStack="{ViewStackContentResponsive}" activeTab="0"></custom:CustomTabButton>
-            <custom:CustomTabButton id="btnTabCheckout" otherTabButton="{btnTabCart}" width="110" title="CHECKOUT" subtitle="" viewStack="{ViewStackContentResponsive}" activeTab="1"></custom:CustomTabButton>
-            <s:Button width="100%" height="100%" skinClass="skins.SkinTabTabHeader"></s:Button>
-
+        <s:HGroup gap="1" width="100%" paddingLeft="2" paddingRight="2">
+            <custom:CustomTabCart iconFont="&#xe612;" id="btnTabCart" otherTabButton="{btnTabCheckout}" width="150" title="MY CART" subtitle="10" viewStack="{ViewStackContentResponsive}" activeTab="0"></custom:CustomTabCart>
+            <custom:CustomTabCheckout iconFont="&#xe611;" id="btnTabCheckout" otherTabButton="{btnTabCart}" width="100%" title="CHECKOUT" viewStack="{ViewStackContentResponsive}" activeTab="1"></custom:CustomTabCheckout>
+            <!--s:Button width="100%" height="100%" skinClass="skins.SkinTabTabHeader"></s:Button-->
         </s:HGroup>
 
-        <mx:ViewStack id="ViewStackContentResponsive" width="100%" height="100%" creationPolicy="all">
+        <mx:ViewStack id="ViewStackContentResponsive" width="100%" height="100%" creationPolicy="all" backgroundColor="0xf5f5f7">
             <s:NavigatorContent id="contentCartResponsive" label="MY CART" width="100%" height="100%">
                 <custom:CartResponsive id="cartBoxResponsive" width="100%">
 
@@ -113,17 +104,12 @@ Security*/
             </s:NavigatorContent>
             <s:NavigatorContent id="contentFormResponsive" label="CHECKOUT" width="100%" height="100%">
                 <mx:ViewStack id="CheckoutViewStackResponsive" width="100%" height="100%" creationPolicy="all">
-
                     <s:NavigatorContent id="formCheckoutContentResponsive"  width="100%" height="100%" >
-                        <s:Scroller width="100%" height="100%">
-                            <s:VGroup width="100%">
+                        <s:Scroller width="100%" height="100%" id="formResponsiveScroller" skinClass="skins.SkinScroller">
 
-
-                                <custom:CheckoutResponsiveBox width="100%" id="checkoutBoxResponsive" paddingLeft="0" paddingRight="0" >
-
-                                </custom:CheckoutResponsiveBox>
+                            <s:VGroup width="100%" clipAndEnableScrolling="true">
+                                <custom:CheckoutResponsiveBox width="100%" id="checkoutBoxResponsive" paddingLeft="0" paddingRight="0" />
                             </s:VGroup>
-
                         </s:Scroller>
                     </s:NavigatorContent>
                     <s:NavigatorContent id="FinishCheckoutContentResponsive"  width="100%" height="100%" >
@@ -182,8 +168,8 @@ Security*/
                             horizontalCenter="0"
                             verticalCenter="0">
                         <s:layout>
-                            <s:TileLayout requestedColumnCount="3" paddingLeft="20" paddingRight="20" paddingTop="20" paddingBottom="20"
-                                          requestedRowCount="2"
+                            <s:TileLayout paddingLeft="10" paddingRight="10" paddingTop="10" paddingBottom="10"
+                                          columnWidth="150"
                                           horizontalGap="10"
                                           verticalGap="10" />
                         </s:layout>

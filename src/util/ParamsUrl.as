@@ -21,20 +21,12 @@ public class ParamsUrl {
         browser.init();
         var browserUrl:String = browser.url; // full url in the browser
         return browserUrl;*/
+        if(Security.pageDomain=='https://attachment.fbsbx.com/')
+            return "https://www.facebook.com/"
         return Security.pageDomain;
     }
-    public static function GetHostName():String {
-        var g_BaseURL = FlexGlobals.topLevelApplication.url;
-        var pattern1:RegExp = new RegExp("http://[^/]*/");
-        if (pattern1.test(g_BaseURL) == true) {
-            var g_HostString = pattern1.exec(g_BaseURL).toString();
-        } else{
-            var g_HostString = "http://localhost/"
-        }
 
-        return g_HostString;
-    }
-    public static function ReadParamsFromUrl(url):void {
+    public static function ReadParamsFromUrl(url:String):void {
         _params = new ArrayCollection();
         var obj:Object;
         //var pageURL:String = ExternalInterface.call("window.location.href.toString");

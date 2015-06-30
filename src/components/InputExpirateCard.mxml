@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!--
+  Created by EDINSON on 25/06/2015.
+-->
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark" xmlns:mx="library://ns.adobe.com/flex/mx" height="30"
+        creationComplete="init()" width="100%">
+    <fx:Script><![CDATA[
+        private var _month:String = "";
+        private var _year:String = "";
+        private var now:Date;
+        private var initYear:String;
+
+        private function init():void {
+            now = new Date();
+            initYear = now.getFullYear().toString().substr(0, now.getFullYear().toString().length - 2);
+        }
+
+        public function get year():String {
+            _year = '';
+
+                if (expiryInput.text.length == 5) {
+                    _year = initYear + expiryInput.text.substr(3, 2);
+                }
+
+            return _year;
+        }
+
+        public function get month():String {
+            _month = '';
+
+                if (expiryInput.text.length >= 2) {
+                    var number:int=Number(expiryInput.text.substr(0, 2));
+                    _month=(number<10)?'0'+number.toString():number.toString();
+                }
+
+            return _month;
+        }
+        ]]></fx:Script>
+
+    <fx:Declarations>
+        <mx:DateValidator id="stringDateV"
+                          source="{expiryInput}" property="text"
+                          trigger="{expiryInput}"
+                          triggerEvent="focusOut"
+                          inputFormat="mm/yy"
+                          allowedFormatChars="#/"/>
+    </fx:Declarations>
+    <s:TextInput skinClass="skins.SkinTextInputResponsive" prompt="mm/yy" textAlign="center" width="100%" id="expiryInput" height="30"></s:TextInput>
+</s:Group>

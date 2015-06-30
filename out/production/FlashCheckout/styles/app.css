@@ -33,3 +33,17 @@ mx|ToggleButtonBar{
 .icons{
     fontFamily: "../iconmoon.ttf";
 }
+
+s|List s|Scroller {
+    skinClass: ClassReference("skins.SkinScroller");
+}
+
+.no-border
+{
+    backgroundColor: #FFFFFF;
+    backgroundDisabledColor: #DDDDDD;
+    borderSkin: ClassReference("skins.SkinTextInputResponsive");
+    paddingTop: 2;
+    paddingLeft: 2;
+    paddingRight: 2;
+}

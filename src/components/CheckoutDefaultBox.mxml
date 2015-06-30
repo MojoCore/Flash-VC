@@ -25,7 +25,7 @@
 
     <s:Scroller width="100%" height="100%">
     <s:Group width="100%">
-    <s:Form width="100%" id="CheckOutForm">
+    <s:Form width="100%" id="CheckOutForm" listAutoPadding="0">
       <s:FormItem label="" textAlign="left" color="white" width="100%">
         <s:layout>
           <s:HorizontalLayout/>
@@ -39,8 +39,6 @@
           <s:HorizontalLayout/>
         </s:layout>
         <s:TextInput id="addressInput" width="50%" skinClass="skins.SkinTextInput" prompt="Address"/>
-        <!--<s:TextInput id="phoneInput" width="50%" skinClass="skins.SkinTextInput" prompt="Phone Number"/>-->
-
       </s:FormItem>
 
       <s:FormItem label="" textAlign="left" color="white" width="100%">
@@ -49,72 +47,7 @@
         </s:layout>
         <s:TextInput id="cityInput" width="50%" skinClass="skins.SkinTextInput" prompt="City"/>
         <!--s:TextInput id="stateInput" width="25%" skinClass="skins.SkinTextInput" prompt="State"/-->
-          <s:ComboBox id="stateInput" prompt="State"  contentBackgroundColor="#6ABDC0" height="30" width="25%">
-              <s:dataProvider>
-                  <s:ArrayList>
-                      <fx:Object label="Alabama" data="AL"/>
-                      <fx:Object label="Alaska" data="AK"/>
-                      <fx:Object label="Arizona" data="AZ"/>
-                      <fx:Object label="Arkanas" data="AR"/>
-                      <fx:Object label="California" data="CA"/>
-                      <fx:Object label="COLORADO" data="CO"/>
-
-                      <fx:Object label="Connecticut" data="CT"/>
-                      <fx:Object label="Delaware" data="DE"/>
-                      <fx:Object label="Florida" data="FL"/>
-                      <fx:Object label="Georgia" data="GA"/>
-                      <fx:Object label="Hawaii" data="HI"/>
-                      <fx:Object label="Idaho" data="ID"/>
-
-                      <fx:Object label="Illinois" data="IL"/>
-                      <fx:Object label="Indiana" data="IN"/>
-                      <fx:Object label="Idaho" data="ID"/>
-                      <fx:Object label="Iowa" data="IA"/>
-                      <fx:Object label="Kansas" data="KS"/>
-                      <fx:Object label="Kentucky" data="KY"/>
-                      <fx:Object label="Louisiana" data="LA"/>
-                      <fx:Object label="Maine" data="ME"/>
-
-                      <fx:Object label="Maryland" data="MD"/>
-                      <fx:Object label="Massachusetts" data="MA"/>
-                      <fx:Object label="Michigan" data="MI"/>
-                      <fx:Object label="Minnesota" data="MN"/>
-                      <fx:Object label="Mississippi" data="MS"/>
-                      <fx:Object label="Missouri" data="MO"/>
-                      <fx:Object label="Montana" data="MT"/>
-                      <fx:Object label="Nebraska" data="NE"/>
-                      <fx:Object label="New Hampshire" data="NH"/>
-                      <fx:Object label="New Jersey" data="NJ"/>
-                      <fx:Object label="New Mexico" data="NM"/>
-                      <fx:Object label="New York" data="NY"/>
-
-
-                      <fx:Object label="North Carolina" data="NC"/>
-                      <fx:Object label="North Dakota" data="ND"/>
-                      <fx:Object label="Ohio" data="OH"/>
-                      <fx:Object label="Oklahoma" data="OK"/>
-                      <fx:Object label="Oregon" data="OR"/>
-                      <fx:Object label="Pennsylvania" data="PA"/>
-                      <fx:Object label="Rhode Island" data="RI"/>
-                      <fx:Object label="South Carolina" data="SC"/>
-                      <fx:Object label="South Dakota" data="SD"/>
-                      <fx:Object label="Tennessee" data="TN"/>
-
-                      <fx:Object label="Texas" data="TX"/>
-                      <fx:Object label="Utah" data="UT"/>
-                      <fx:Object label="Vermont" data="VT"/>
-                      <fx:Object label="Virginia" data="VA"/>
-                      <fx:Object label="Washington" data="WA"/>
-                      <fx:Object label="West Virginia" data="WV"/>
-
-                      <fx:Object label="Wisconsin" data="WI"/>
-                      <fx:Object label="Wyoming" data="WY"/>
-
-
-
-                  </s:ArrayList>
-              </s:dataProvider>
-          </s:ComboBox>
+          <s:ComboBox id="stateInput" prompt="State"  contentBackgroundColor="#6ABDC0" height="30" width="25%"/>
         <s:TextInput id="zipInput" width="25%" skinClass="skins.SkinTextInput" prompt="ZIP"/>
 
       </s:FormItem>
@@ -132,30 +65,35 @@
         </s:layout>
         <s:Label text="Expiration" width="50%" color="white" fontSize="18"></s:Label>
         <!--<s:TextInput id="monthInput" width="25%" skinClass="skins.SkinTextInput" prompt="Month"/>-->
-          <s:ComboBox id="monthInput" prompt="Month"  contentBackgroundColor="#6ABDC0" height="30" width="25%">
-              <s:dataProvider>
-                  <s:ArrayList>
-                      <fx:Object label="JANUARY" data="01"/>
-                      <fx:Object label="FEBRUARY" data="02"/>
-                      <fx:Object label="MARCH" data="03"/>
-                      <fx:Object label="APRIL" data="04"/>
-                      <fx:Object label="MAY" data="05"/>
-                      <fx:Object label="JUNE" data="06"/>
-                      <fx:Object label="JULY" data="07"/>
-                      <fx:Object label="AUGUST" data="08"/>
-                      <fx:Object label="SEPTEMBER" data="09"/>
-                      <fx:Object label="OCTOBER" data="10"/>
-                      <fx:Object label="NOVEMBER" data="11"/>
-                      <fx:Object label="DECEMBER" data="12"/>
-
-
-                  </s:ArrayList>
-              </s:dataProvider>
-          </s:ComboBox>
-        <s:TextInput id="yearInput" width="25%" skinClass="skins.SkinTextInput" prompt="Year"/>
-
+          <s:ComboBox id="monthInput" prompt="Month"  contentBackgroundColor="#6ABDC0" height="30" width="25%"/>
+          <s:ComboBox id="yearInput" prompt="Year"  contentBackgroundColor="#6ABDC0" height="30" width="25%"/>
       </s:FormItem>
+        <s:FormItem color="white" width="100%">
+            <s:layout>
+                <s:VerticalLayout/>
+            </s:layout>
+            <s:HGroup width="100%"  id="cs_disclaimer1" visible="false">
+                <s:CheckBox width="100%" skinClass="skins.SkinCheckBox" id="csDisclamer1CheckBox"
+                            fontSize="12"
+                            label="By checking this box, I certify that I am a US citizen over the age of 18, and that this contribution is from my own personal funds and not from a corporation or  a political action committee.">
 
+                </s:CheckBox>
+            </s:HGroup>
+            <s:HGroup width="100%" id="cs_disclaimer2" visible="false">
+                <s:CheckBox width="100%" skinClass="skins.SkinCheckBox" id="csDisclaimer2CheckBox"
+                            fontSize="12"
+                            label="I am a U.S. citizen or lawfully admitted permanent U.S. resident. This contribution is made by me individually or from the general treasury of a U.S. corporation and is not made from the funds of a federal contractor. (For corporate contributions, please enter the name of corporation in the field provided above)">
+
+                </s:CheckBox>
+            </s:HGroup>
+            <s:HGroup width="100%" id="cs_customDisclaimer" visible="false">
+                <s:CheckBox width="100%" skinClass="skins.SkinCheckBox" id="customDisclaimerCheckBox"
+                            fontSize="12"
+                            label="">
+
+                </s:CheckBox>
+            </s:HGroup>
+        </s:FormItem>
       <s:FormItem label="" textAlign="left" color="white" width="100%">
         <s:layout>
           <s:HorizontalLayout/>

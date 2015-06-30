@@ -40,6 +40,8 @@
           amount.addEventListener(MouseEvent.CLICK, updateItem);
           ConfigureCurrency()
           priceLabel.text=_currency.format(data.card.price);
+          amount.textDisplay.editable = false;
+
       }
 
       public function deleteItem():void {
@@ -68,36 +70,36 @@
     </s:fill>
 
   </s:Rect>
+    <s:VGroup width="100%">
+<s:HGroup width="100%">
+    <s:HGroup width="40%">
+        <s:Image id="image" width="32"  height="32" source="{data.card.image}" />
+        <s:Label  id="titleLabel" text="{data.card.title}" fontSize="14" paddingTop="5"/>
+    </s:HGroup>
+
+    <s:Label textAlign="center" id="priceLabel" text="{_currency.format(data.card.price)}" fontSize="14" paddingTop="5" width="20%"></s:Label>
+    <s:HGroup width="30%" horizontalAlign="center">
+        <s:NumericStepper id="amount" value="{data.amount}" stepSize="1" maximum="1000" maxWidth="55" minimum="1"/>
+    </s:HGroup>
+    <s:Button id="button"
+              label="&#xe601;"
+              width="20"
+              height="20"
+              color="0x6ABDC0"
+              fontSize="10"
+              skinClass="skins.SkinSolidButton"
+              fontFamily="CustomIcons"
+              click="deleteItem()"
+              top="0"
+              right="10"
+              useHandCursor="true"
+              buttonMode="true"
 
 
-
-  <mx:Box direction="vertical" width="100%" paddingTop="10">
-    <mx:Box direction="horizontal" width="100%">
-      <s:Image id="image" width="32"  height="32" source="{data.card.image}" />
-      <s:Label  id="titleLabel" text="{data.card.title}" fontSize="14" paddingTop="5"/>
-        <s:NumericStepper id="amount" width="55" value="{data.amount}" stepSize="1" maximum="1000"/>
-      <s:Label color="{color1}" text="@ " fontSize="14" paddingTop="5"></s:Label>
-      <s:Label id="priceLabel" color="{color1}" text="{_currency.format(data.card.price)}" fontSize="14" paddingTop="5" width="100%"></s:Label>
-      <s:Button id="button"
-                label="&#xe601;"
-                width="20"
-                height="20"
-                color="0x6ABDC0"
-                fontSize="10"
-                skinClass="skins.SkinSolidButton"
-                fontFamily="CustomIcons"
-                click="deleteItem()"
-                top="0"
-                right="10"
-                useHandCursor="true"
-                buttonMode="true"
-
-
-              />
-    </mx:Box>
-
-  </mx:Box>
-<mx:HRule width="100%"></mx:HRule>
+            />
+</s:HGroup>
+<mx:HRule width="100%" strokeColor="#ababab"></mx:HRule>
+    </s:VGroup>
   <fx:Script><![CDATA[
     import mx.controls.Alert;
     ]]></fx:Script>

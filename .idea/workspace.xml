@@ -2,41 +2,46 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fe6276c7-78f5-4897-ad4d-8222c99566e4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/myLib_0.7.8.swc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/security_payment_black.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/security_payment_white.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/CheckoutCompletedBox.mxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/services/ConfigurationForm.as" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/CustomTabButton.mxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/skins/SkinTabButton.mxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/skins/SkinTabTabHeader.mxml" />
-      <change type="DELETED" beforePath="D:\proyectos\git\Flash-VC\out\production\FlashCheckout\assets\smile.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\proyectos\git\Flash-VC\out\production\FlashCheckout\assets\twitter.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\proyectos\git\Flash-VC\src\assets\smile.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\proyectos\git\Flash-VC\src\assets\twitter.png" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/MojoPay.499x128.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/cards.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/mojopay.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/scrollbar_blank.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/scrollbar_thumb.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/CardItemResponsive.mxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/CustomTabCart.mxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/CustomTabCheckout.mxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/InCaseYouMissedResponsive.mxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/InputExpirateCard.mxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/skins/SkinCheckBox.mxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/skins/SkinScroller.mxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/skins/SkinTextInputExpirateCard.mxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/skins/SlimHScrollBarSkin.mxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/skins/SlimVScrollBarSkin.mxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/skins/SlimVScrollBarThumbSkin.mxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/skins/SlimVScrollBarTrackSkin.mxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/mojopay.svg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/FlashCheckout/Main.swf" afterPath="$PROJECT_DIR$/out/production/FlashCheckout/Main.swf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/FlashCheckout/assets/icomoon.ttf" afterPath="$PROJECT_DIR$/out/production/FlashCheckout/assets/icomoon.ttf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/assets/icomoon.ttf" afterPath="$PROJECT_DIR$/src/assets/icomoon.ttf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/services/AnalyticEvent.as" afterPath="$PROJECT_DIR$/src/services/AnalyticEvent.as" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.as" afterPath="$PROJECT_DIR$/src/App.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/Cart.as" afterPath="$PROJECT_DIR$/src/models/Cart.as" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/services/Cart.as" afterPath="$PROJECT_DIR$/src/services/Cart.as" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/CartItem.mxml" afterPath="$PROJECT_DIR$/src/components/CartItem.mxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/CartItemResponsive.mxml" afterPath="$PROJECT_DIR$/src/components/CartItemResponsive.mxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/CartResponsive.mxml" afterPath="$PROJECT_DIR$/src/components/CartResponsive.mxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/CheckoutCompletedResponsiveBox.mxml" afterPath="$PROJECT_DIR$/src/components/CheckoutCompletedResponsiveBox.mxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/CheckoutDefaultBox.mxml" afterPath="$PROJECT_DIR$/src/components/CheckoutDefaultBox.mxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/CheckoutResponsiveBox.mxml" afterPath="$PROJECT_DIR$/src/components/CheckoutResponsiveBox.mxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FlashCheckout.iml" afterPath="$PROJECT_DIR$/FlashCheckout.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/FlashCheckout/Main.html" afterPath="$PROJECT_DIR$/out/production/FlashCheckout/Main.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/services/ConfigurationForm.as" afterPath="$PROJECT_DIR$/src/services/ConfigurationForm.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/CustomTabButton.mxml" afterPath="$PROJECT_DIR$/src/components/CustomTabButton.mxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.mxml" afterPath="$PROJECT_DIR$/src/Main.mxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/services/Order.as" afterPath="$PROJECT_DIR$/src/services/Order.as" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/ParamsUrl.as" afterPath="$PROJECT_DIR$/src/util/ParamsUrl.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skins/SkinCombobox.mxml" afterPath="$PROJECT_DIR$/src/skins/SkinCombobox.mxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skins/SkinTabButton.mxml" afterPath="$PROJECT_DIR$/src/skins/SkinTabButton.mxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skins/SkinTextInputResponsive.mxml" afterPath="$PROJECT_DIR$/src/skins/SkinTextInputResponsive.mxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/services/TransitionCards.as" afterPath="$PROJECT_DIR$/src/services/TransitionCards.as" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/FlashCheckout/styles/app.css" afterPath="$PROJECT_DIR$/out/production/FlashCheckout/styles/app.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/app.css" afterPath="$PROJECT_DIR$/src/styles/app.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html-template/index.template.html" afterPath="$PROJECT_DIR$/html-template/index.template.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Flash-VC.iws" />
@@ -59,123 +64,73 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Main.mxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Main.mxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.65384614">
-              <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-              <folding>
-                <marker date="1434050017514" expanded="true" signature="405:882" placeholder="..." />
-                <marker date="1434050017514" expanded="false" signature="448:882" placeholder="..." />
-                <marker date="1434050017514" expanded="true" signature="1051:1641" placeholder="{...}" />
-                <marker date="1434050017514" expanded="true" signature="1267:1584" placeholder="/*...*/" />
-                <marker date="1434050017514" expanded="true" signature="1679:1924" placeholder="{...}" />
-                <marker date="1434050017514" expanded="true" signature="1795:1914" placeholder="//..." />
-                <marker date="1434050017514" expanded="true" signature="1981:2098" placeholder="{...}" />
-                <marker date="1434050017514" expanded="true" signature="1995:2088" placeholder="//..." />
-                <marker date="1434050017514" expanded="true" signature="2135:2306" placeholder="{...}" />
-                <marker date="1434050017514" expanded="true" signature="2149:2222" placeholder="//..." />
-                <marker date="1434050017514" expanded="true" signature="2368:2582" placeholder="{...}" />
-                <marker date="1434050017514" expanded="true" signature="2461:2516" placeholder="{...}" />
-                <marker date="1434050017514" expanded="true" signature="2520:2572" placeholder="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SkinTabTabHeader.mxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/skins/SkinTabTabHeader.mxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.807693">
-              <caret line="35" column="14" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SkinTabButton.mxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/skins/SkinTabButton.mxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.769231">
-              <caret line="64" column="46" selection-start-line="64" selection-start-column="46" selection-end-line="64" selection-end-column="46" />
-              <folding>
-                <marker date="1434049904157" expanded="true" signature="458:484" placeholder="{...}" />
-                <marker date="1434049904157" expanded="true" signature="550:591" placeholder="{...}" />
-                <marker date="1434049904157" expanded="true" signature="642:683" placeholder="{...}" />
-                <marker date="1434049904157" expanded="true" signature="749:894" placeholder="{...}" />
-                <marker date="1434049904157" expanded="true" signature="944:1075" placeholder="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SkinSolidButton.mxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/skins/SkinSolidButton.mxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.807693">
-              <caret line="53" column="12" selection-start-line="0" selection-start-column="0" selection-end-line="63" selection-end-column="9" />
-              <folding>
-                <marker date="1432758061546" expanded="true" signature="450:478" placeholder="{...}" />
-                <marker date="1432758061546" expanded="true" signature="544:587" placeholder="{...}" />
-                <marker date="1432758061546" expanded="true" signature="638:681" placeholder="{...}" />
-                <marker date="1432758061546" expanded="true" signature="747:900" placeholder="{...}" />
-                <marker date="1432758061546" expanded="true" signature="956:1115" placeholder="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CartResponsive.mxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/CartResponsive.mxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.65384614">
-              <caret line="29" column="58" selection-start-line="29" selection-start-column="50" selection-end-line="29" selection-end-column="58" />
-              <folding>
-                <marker date="1433783703180" expanded="false" signature="338:503" placeholder="..." />
-                <marker date="1433783703180" expanded="true" signature="617:760" placeholder="{...}" />
-                <marker date="1433783703180" expanded="true" signature="625:754" placeholder="//..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CustomTabButton.mxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/CustomTabButton.mxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.7735848">
-              <caret line="34" column="27" selection-start-line="34" selection-start-column="27" selection-end-line="34" selection-end-column="27" />
-              <folding>
-                <marker date="1434049975591" expanded="true" signature="444:452" placeholder="{...}" />
-                <marker date="1434049975591" expanded="true" signature="496:553" placeholder="{...}" />
-                <marker date="1434049975591" expanded="true" signature="600:667" placeholder="{...}" />
-                <marker date="1434049975591" expanded="true" signature="712:743" placeholder="{...}" />
-                <marker date="1434049975591" expanded="true" signature="794:825" placeholder="{...}" />
-                <marker date="1434049975591" expanded="true" signature="887:923" placeholder="{...}" />
-                <marker date="1434049975591" expanded="true" signature="961:1085" placeholder="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="CheckoutResponsiveBox.mxml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/CheckoutResponsiveBox.mxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.32162163">
-              <caret line="16" column="50" selection-start-line="16" selection-start-column="50" selection-end-line="16" selection-end-column="50" />
-              <folding />
+            <state vertical-scroll-proportion="0.43404254">
+              <caret line="56" column="28" selection-start-line="56" selection-start-column="28" selection-end-line="56" selection-end-column="28" />
+              <folding>
+                <element signature="e#741#1661#0" expanded="false" />
+                <marker date="1435704102213" expanded="true" signature="480:488" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Cart.mxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/Cart.mxml">
+      <file leaf-file-name="Main.mxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Main.mxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-41.192307">
-              <caret line="68" column="36" selection-start-line="68" selection-start-column="36" selection-end-line="68" selection-end-column="36" />
+            <state vertical-scroll-proportion="17.153847">
+              <caret line="89" column="14" selection-start-line="89" selection-start-column="14" selection-end-line="89" selection-end-column="14" />
               <folding>
-                <marker date="1432681245329" expanded="false" signature="305:470" placeholder="..." />
-                <marker date="1432681245329" expanded="true" signature="584:729" placeholder="{...}" />
+                <element signature="n#mx:Box#0;n#mx:Box#0;n#s:Application#0;n#!!top" expanded="false" />
+                <marker date="1435699998482" expanded="false" signature="405:882" placeholder="..." />
+                <marker date="1435699998482" expanded="true" signature="1051:1381" placeholder="{...}" />
+                <marker date="1435699998482" expanded="true" signature="1419:1528" placeholder="{...}" />
+                <marker date="1435699998482" expanded="true" signature="1585:1702" placeholder="{...}" />
+                <marker date="1435699998482" expanded="true" signature="1599:1692" placeholder="//..." />
+                <marker date="1435699998482" expanded="true" signature="1739:1910" placeholder="{...}" />
+                <marker date="1435699998482" expanded="true" signature="1753:1826" placeholder="//..." />
+                <marker date="1435699998482" expanded="true" signature="1972:2186" placeholder="{...}" />
+                <marker date="1435699998482" expanded="true" signature="2065:2120" placeholder="{...}" />
+                <marker date="1435699998482" expanded="true" signature="2124:2176" placeholder="{...}" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CardItemResponsive.mxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/CardItemResponsive.mxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.2692308">
+              <caret line="5" column="169" selection-start-line="5" selection-start-column="169" selection-end-line="5" selection-end-column="169" />
+              <folding>
+                <marker date="1435698371622" expanded="true" signature="446:491" placeholder="{...}" />
+                <marker date="1435698371622" expanded="true" signature="529:639" placeholder="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CardItemDefault.mxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/CardItemDefault.mxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.2692308">
+              <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="51" />
+              <folding>
+                <marker date="1432593307966" expanded="true" signature="454:499" placeholder="{...}" />
+                <marker date="1432593307966" expanded="true" signature="539:659" placeholder="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InCaseYouMissedResponsive.mxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/InCaseYouMissedResponsive.mxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-2.8867924">
+              <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -184,7 +139,37 @@
         <entry file="file://$PROJECT_DIR$/src/styles/app.css">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
+              <caret line="36" column="6" selection-start-line="36" selection-start-column="6" selection-end-line="36" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Order.as" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/services/Order.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="44" column="22" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TransitionCards.as" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/services/TransitionCards.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.3448277">
+              <caret line="89" column="36" selection-start-line="89" selection-start-column="28" selection-end-line="89" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="App.as" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/App.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.172414">
+              <caret line="160" column="44" selection-start-line="160" selection-start-column="44" selection-end-line="160" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -214,24 +199,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/models/Card.as" />
-        <option value="$PROJECT_DIR$/src/skins/SkinCombobox.mxml" />
-        <option value="$PROJECT_DIR$/out/production/FlashCheckout/Main.html" />
-        <option value="$PROJECT_DIR$/src/components/Cart.mxml" />
-        <option value="$PROJECT_DIR$/src/models/CartItem.as" />
-        <option value="$PROJECT_DIR$/src/components/CardResponsive.mxml" />
-        <option value="$PROJECT_DIR$/src/skins/SkinSolidButton.mxml" />
-        <option value="$PROJECT_DIR$/out/production/FlashCheckout/testfb.html" />
-        <option value="$PROJECT_DIR$/src/skins/SkinTextInputResponsive.mxml" />
-        <option value="$PROJECT_DIR$/out/production/FlashCheckout/testfb2.html" />
-        <option value="$PROJECT_DIR$/src/util/FormData.as" />
-        <option value="$PROJECT_DIR$/src/Implements/EventViewVideo.as" />
-        <option value="$PROJECT_DIR$/src/org/httpclient/HttpRequest.as" />
-        <option value="$PROJECT_DIR$/src/util/Parse.java" />
-        <option value="$PROJECT_DIR$/src/util/CustomURLLoader.as" />
-        <option value="$PROJECT_DIR$/src/models/Order.as" />
-        <option value="$PROJECT_DIR$/src/services/AnalitycEvent.as" />
-        <option value="$PROJECT_DIR$/src/models/AnalitycEvent.as" />
         <option value="$PROJECT_DIR$/src/Implements/EventAction.as" />
         <option value="$PROJECT_DIR$/src/org/httpclient/HttpClient.as" />
         <option value="$PROJECT_DIR$/src/org/httpclient/HttpSocket.as" />
@@ -242,28 +209,46 @@
         <option value="$PROJECT_DIR$/src/models/EventTime.as" />
         <option value="$PROJECT_DIR$/src/services/FormCheckOut.as" />
         <option value="$PROJECT_DIR$/src/services/FormConfig.as" />
-        <option value="$PROJECT_DIR$/src/services/Order.as" />
-        <option value="$PROJECT_DIR$/src/components/CartItem.mxml" />
-        <option value="$PROJECT_DIR$/src/components/CartItemResponsive.mxml" />
         <option value="$PROJECT_DIR$/src/components/CheckoutCompletedResponsiveBox.mxml" />
         <option value="$PROJECT_DIR$/src/components/CheckoutCompletedBox.mxml" />
-        <option value="$PROJECT_DIR$/src/components/CartResponsive.mxml" />
-        <option value="$PROJECT_DIR$/src/services/TransitionCards.as" />
-        <option value="$PROJECT_DIR$/src/App.as" />
         <option value="$PROJECT_DIR$/src/models/Cart.as" />
-        <option value="$PROJECT_DIR$/src/services/Cart.as" />
-        <option value="$PROJECT_DIR$/src/services/ConfigurationForm.as" />
-        <option value="$PROJECT_DIR$/src/components/CheckoutDefaultBox.mxml" />
-        <option value="$PROJECT_DIR$/src/services/AnalyticEvent.as" />
-        <option value="$PROJECT_DIR$/src/util/ParamsUrl.as" />
         <option value="$PROJECT_DIR$/html-template/index.template.html" />
         <option value="$PROJECT_DIR$/src/skins/SkinTabButtonSelected.mxml" />
         <option value="$PROJECT_DIR$/src/skins/SkinTabLine.mxml" />
-        <option value="$PROJECT_DIR$/src/skins/SkinTabTabHeader.mxml" />
-        <option value="$PROJECT_DIR$/src/skins/SkinTabButton.mxml" />
+        <option value="$PROJECT_DIR$/src/services/AnalyticEvent.as" />
+        <option value="$PROJECT_DIR$/src/services/Order.as" />
+        <option value="$PROJECT_DIR$/src/services/Cart.as" />
         <option value="$PROJECT_DIR$/src/components/CustomTabButton.mxml" />
+        <option value="$PROJECT_DIR$/src/components/CartItem.mxml" />
+        <option value="$PROJECT_DIR$/src/skins/SkinCheckBox.mxml" />
+        <option value="$PROJECT_DIR$/src/util/ParamsUrl.as" />
+        <option value="$PROJECT_DIR$/src/components/CheckoutDefaultBox.mxml" />
+        <option value="$PROJECT_DIR$/src/skins/SkinScrollerTrack.mxml" />
+        <option value="$PROJECT_DIR$/src/skins/SkinScrollerThumb.mxml" />
+        <option value="$PROJECT_DIR$/src/skins/SkinScrollerDecrementButton.mxml" />
+        <option value="$PROJECT_DIR$/src/skins/SkinScrollerIncrementButton.mxml" />
+        <option value="$PROJECT_DIR$/src/skins/SkinScroller.mxml" />
+        <option value="$PROJECT_DIR$/src/skins/SlimVScrollBarSkin.mxml" />
+        <option value="$PROJECT_DIR$/src/skins/SlimHScrollBarSkin.mxml" />
+        <option value="$PROJECT_DIR$/src/skins/SkinTabTabHeader.mxml" />
+        <option value="$PROJECT_DIR$/src/components/CartResponsive.mxml" />
+        <option value="$PROJECT_DIR$/src/components/CartItemResponsive.mxml" />
+        <option value="$PROJECT_DIR$/src/components/CustomTabCart.mxml" />
+        <option value="$PROJECT_DIR$/src/components/CustomTabCheckout.mxml" />
+        <option value="$PROJECT_DIR$/src/skins/SkinTabButton.mxml" />
+        <option value="$PROJECT_DIR$/src/skins/SlimVScrollBarTrackSkin.mxml" />
+        <option value="$PROJECT_DIR$/src/skins/SlimVScrollBarThumbSkin.mxml" />
+        <option value="$PROJECT_DIR$/src/skins/SkinCombobox.mxml" />
+        <option value="$PROJECT_DIR$/src/skins/SkinTextInputExpirateCard.mxml" />
+        <option value="$PROJECT_DIR$/src/skins/SkinTextInputResponsive.mxml" />
+        <option value="$PROJECT_DIR$/src/services/ConfigurationForm.as" />
+        <option value="$PROJECT_DIR$/src/components/InputExpirateCard.mxml" />
+        <option value="$PROJECT_DIR$/src/services/TransitionCards.as" />
+        <option value="$PROJECT_DIR$/src/App.as" />
+        <option value="$PROJECT_DIR$/src/components/CardItemResponsive.mxml" />
         <option value="$PROJECT_DIR$/src/Main.mxml" />
         <option value="$PROJECT_DIR$/src/styles/app.css" />
+        <option value="$PROJECT_DIR$/src/components/InCaseYouMissedResponsive.mxml" />
         <option value="$PROJECT_DIR$/src/components/CheckoutResponsiveBox.mxml" />
       </list>
     </option>
@@ -334,6 +319,8 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -412,18 +399,12 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
+              <option name="myItemId" value="html-template" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -443,18 +424,28 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\proyectos\git\Flash-VC\src\skins" />
       <recent name="D:\proyectos\git\Flash-VC\src\assets" />
       <recent name="D:\proyectos\git\Flash-VC\libs" />
       <recent name="D:\proyectos\git\Flash-VC\src" />
       <recent name="D:\proyectos\git\Flash-VC\src\util" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\proyectos\git\Flash-VC\src\assets" />
       <recent name="D:\proyectos\git\Flash-VC\src\locale\en_US" />
       <recent name="D:\proyectos\git\Flash-VC\src\Implements" />
     </key>
-    <key name="CreateActionScriptClassDialog.DESTINATION_PACKAGE_RECENT_KEY">
+    <key name="CreateFlexSkinDialog.HOST_COMPONENT_RECENT_KEY">
+      <recent name="spark.components.HScrollBar" />
+      <recent name="spark.components.Button" />
+      <recent name="spark.components.VScrollBar" />
+    </key>
+    <key name="CreateFlexSkinDialog.DESTINATION_PACKAGE_RECENT_KEY">
       <recent name="skins" />
+    </key>
+    <key name="CreateActionScriptClassDialog.DESTINATION_PACKAGE_RECENT_KEY">
       <recent name="components" />
+      <recent name="skins" />
       <recent name="services" />
       <recent name="models" />
       <recent name="util" />
@@ -848,12 +839,20 @@
       <workItem from="1433530221863" duration="6635000" />
       <workItem from="1433773696277" duration="12479000" />
       <workItem from="1433876491502" duration="21492000" />
-      <workItem from="1434029655000" duration="18264000" />
+      <workItem from="1434029655000" duration="22376000" />
+      <workItem from="1434142286042" duration="7016000" />
+      <workItem from="1434207713418" duration="7090000" />
+      <workItem from="1434378260218" duration="14579000" />
+      <workItem from="1434633809200" duration="7250000" />
+      <workItem from="1434925606502" duration="13299000" />
+      <workItem from="1435096771222" duration="2053000" />
+      <workItem from="1435169559208" duration="42024000" />
+      <workItem from="1435689673750" duration="11725000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="320724000" />
+    <option name="totallyTimeSpent" value="429872000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -861,27 +860,28 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28976378" sideWeight="0.26207906" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17480315" sideWeight="0.5424597" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28976378" sideWeight="0.73792094" order="11" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17480315" sideWeight="0.45754027" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19472913" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19692533" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5102362" sideWeight="0.5549048" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4435058" sideWeight="0.50677085" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32913387" sideWeight="0.49707174" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32913387" sideWeight="0.4941435" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -937,19 +937,34 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="flex">
           <url>file://$PROJECT_DIR$/src/services/ConfigurationForm.as</url>
-          <line>131</line>
+          <line>268</line>
           <option name="timeStamp" value="93" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="flex">
+          <url>file://$PROJECT_DIR$/src/components/InputExpirateCard.mxml</url>
+          <line>35</line>
+          <option name="timeStamp" value="113" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="flex">
+          <url>file://$PROJECT_DIR$/src/components/InputExpirateCard.mxml</url>
+          <line>21</line>
+          <option name="timeStamp" value="118" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="flex">
           <url>file://$PROJECT_DIR$/src/services/ConfigurationForm.as</url>
-          <line>318</line>
-          <option name="timeStamp" value="102" />
+          <line>528</line>
+          <option name="timeStamp" value="119" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="flex">
+          <url>file://$PROJECT_DIR$/src/services/ConfigurationForm.as</url>
+          <line>529</line>
+          <option name="timeStamp" value="120" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="106" />
+      <option name="time" value="121" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -958,146 +973,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/models/EventTime.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/flex_sdk_4.6/frameworks/libs/player/11.1/playerglobal.swc!/library.swf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8604651">
-          <caret line="3315" column="17" selection-start-line="3315" selection-start-column="17" selection-end-line="3315" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/Card.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/skins/SkinCombobox.mxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-98.73077">
-          <caret line="151" column="0" selection-start-line="151" selection-start-column="0" selection-end-line="151" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/CartItem.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/CardResponsive.mxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="4.423077">
-          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/CardDefault.mxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.038462">
-          <caret line="23" column="46" selection-start-line="23" selection-start-column="46" selection-end-line="23" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/CardItemDefault.mxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.730769">
-          <caret line="21" column="39" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/skins/SkinTextInput.mxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.769231">
-          <caret line="177" column="30" selection-start-line="0" selection-start-column="0" selection-end-line="191" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/skins/SkinTextInputResponsive.mxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="150" column="24" selection-start-line="150" selection-start-column="24" selection-end-line="150" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/production/FlashCheckout/testfb2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="112" selection-start-line="26" selection-start-column="112" selection-end-line="26" selection-end-column="112" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/flex_sdk_4.6/frameworks/projects/framework/src/mx/managers/SystemManagerProxy.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="245" column="29" selection-start-line="245" selection-start-column="29" selection-end-line="245" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/libs/as3crypto-1_3_patched.swc!/library.swf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42323652">
-          <caret line="21" column="57" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/libs/as3crypto.swc!/library.swf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33297062">
-          <caret line="207" column="13" selection-start-line="207" selection-start-column="13" selection-end-line="207" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/swfSelfResize.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/flex_sdk_4.6/frameworks/projects/framework/src/mx/events/FlexEvent.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1448" column="0" selection-start-line="1448" selection-start-column="0" selection-end-line="1448" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/production/FlashCheckout/Main.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Interfaces/iCart.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/RestService.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="75" column="0" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
-          <folding>
-            <element signature="e#58#83#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/models/Video.as">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1116,15 +991,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33715597">
           <caret line="54" column="60" selection-start-line="54" selection-start-column="60" selection-end-line="54" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/skins/SkinVideo.mxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.502439">
-          <caret line="45" column="4" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="67" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1132,7 +998,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.884615">
           <caret line="42" column="53" selection-start-line="40" selection-start-column="2" selection-end-line="42" selection-end-column="53" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1143,47 +1008,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/Order.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="111" column="39" selection-start-line="111" selection-start-column="39" selection-end-line="111" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/CartItem.mxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="65" column="38" selection-start-line="65" selection-start-column="14" selection-end-line="65" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/CartItemResponsive.mxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="81" column="26" selection-start-line="81" selection-start-column="23" selection-end-line="81" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/models/Order.as">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4220963">
           <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/flex_sdk_4.6/frameworks/projects/framework/src/mx/managers/SystemManager.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2860" column="0" selection-start-line="2860" selection-start-column="0" selection-end-line="2860" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/Cart.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="217" column="0" selection-start-line="217" selection-start-column="0" selection-end-line="217" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1195,94 +1023,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/CheckoutDefaultBox.mxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5566751">
-          <caret line="22" column="15" selection-start-line="19" selection-start-column="3" selection-end-line="22" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/AnalyticEvent.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47754136">
-          <caret line="35" column="32" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/ParamsUrl.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.08037825">
-          <caret line="23" column="35" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html-template/index.template.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44332492">
-          <caret line="124" column="0" selection-start-line="124" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/ConfigurationForm.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43735224">
-          <caret line="300" column="26" selection-start-line="300" selection-start-column="26" selection-end-line="300" selection-end-column="26" />
-          <folding>
-            <element signature="e#64#101#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/Cart.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.5224586">
-          <caret line="77" column="48" selection-start-line="77" selection-start-column="48" selection-end-line="77" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/TransitionCards.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="7.8368793">
-          <caret line="313" column="0" selection-start-line="313" selection-start-column="0" selection-end-line="313" selection-end-column="0" />
-          <folding>
-            <element signature="e#63#86#0" expanded="false" />
-            <element signature="n#!!block;n#CalculateTotals#0;n#TransitionCards#0;n#services#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/flex_sdk_4.6/frameworks/projects/framework/src/mx/core/UIComponent.as">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="2834" column="33" selection-start-line="2834" selection-start-column="33" selection-end-line="2834" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="270" column="21" selection-start-line="270" selection-start-column="21" selection-end-line="270" selection-end-column="21" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#53#83#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/CartResponsive.mxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.65384614">
-          <caret line="29" column="58" selection-start-line="29" selection-start-column="50" selection-end-line="29" selection-end-column="58" />
-          <folding>
-            <marker date="1433783703180" expanded="false" signature="338:503" placeholder="..." />
-            <marker date="1433783703180" expanded="true" signature="617:760" placeholder="{...}" />
-            <marker date="1433783703180" expanded="true" signature="625:754" placeholder="//..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1290,80 +1034,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.807693">
           <caret line="53" column="12" selection-start-line="0" selection-start-column="0" selection-end-line="63" selection-end-column="9" />
-          <folding>
-            <marker date="1432758061546" expanded="true" signature="450:478" placeholder="{...}" />
-            <marker date="1432758061546" expanded="true" signature="544:587" placeholder="{...}" />
-            <marker date="1432758061546" expanded="true" signature="638:681" placeholder="{...}" />
-            <marker date="1432758061546" expanded="true" signature="747:900" placeholder="{...}" />
-            <marker date="1432758061546" expanded="true" signature="956:1115" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/skins/SkinTabTabHeader.mxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.807693">
-          <caret line="35" column="14" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/skins/SkinTabButton.mxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.769231">
-          <caret line="64" column="46" selection-start-line="64" selection-start-column="46" selection-end-line="64" selection-end-column="46" />
-          <folding>
-            <marker date="1434049904157" expanded="true" signature="458:484" placeholder="{...}" />
-            <marker date="1434049904157" expanded="true" signature="550:591" placeholder="{...}" />
-            <marker date="1434049904157" expanded="true" signature="642:683" placeholder="{...}" />
-            <marker date="1434049904157" expanded="true" signature="749:894" placeholder="{...}" />
-            <marker date="1434049904157" expanded="true" signature="944:1075" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/CustomTabButton.mxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.7735848">
-          <caret line="34" column="27" selection-start-line="34" selection-start-column="27" selection-end-line="34" selection-end-column="27" />
-          <folding>
-            <marker date="1434049975591" expanded="true" signature="444:452" placeholder="{...}" />
-            <marker date="1434049975591" expanded="true" signature="496:553" placeholder="{...}" />
-            <marker date="1434049975591" expanded="true" signature="600:667" placeholder="{...}" />
-            <marker date="1434049975591" expanded="true" signature="712:743" placeholder="{...}" />
-            <marker date="1434049975591" expanded="true" signature="794:825" placeholder="{...}" />
-            <marker date="1434049975591" expanded="true" signature="887:923" placeholder="{...}" />
-            <marker date="1434049975591" expanded="true" signature="961:1085" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.mxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.65384614">
-          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding>
-            <marker date="1434050017514" expanded="true" signature="405:882" placeholder="..." />
-            <marker date="1434050017514" expanded="false" signature="448:882" placeholder="..." />
-            <marker date="1434050017514" expanded="true" signature="1051:1641" placeholder="{...}" />
-            <marker date="1434050017514" expanded="true" signature="1267:1584" placeholder="/*...*/" />
-            <marker date="1434050017514" expanded="true" signature="1679:1924" placeholder="{...}" />
-            <marker date="1434050017514" expanded="true" signature="1795:1914" placeholder="//..." />
-            <marker date="1434050017514" expanded="true" signature="1981:2098" placeholder="{...}" />
-            <marker date="1434050017514" expanded="true" signature="1995:2088" placeholder="//..." />
-            <marker date="1434050017514" expanded="true" signature="2135:2306" placeholder="{...}" />
-            <marker date="1434050017514" expanded="true" signature="2149:2222" placeholder="//..." />
-            <marker date="1434050017514" expanded="true" signature="2368:2582" placeholder="{...}" />
-            <marker date="1434050017514" expanded="true" signature="2461:2516" placeholder="{...}" />
-            <marker date="1434050017514" expanded="true" signature="2520:2572" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/styles/app.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
           <folding />
         </state>
       </provider>
@@ -1378,20 +1048,366 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Cart.mxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-41.192307">
+        <state vertical-scroll-proportion="0.0">
           <caret line="68" column="36" selection-start-line="68" selection-start-column="36" selection-end-line="68" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/AnalyticEvent.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="35" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/CartItem.mxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="46" selection-start-line="27" selection-start-column="46" selection-end-line="27" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/flex_sdk_4.6/frameworks/projects/framework/src/mx/managers/SystemManager.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2893" column="0" selection-start-line="2893" selection-start-column="0" selection-end-line="2893" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html-template/index.template.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-27.192308">
+          <caret line="124" column="0" selection-start-line="124" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/production/FlashCheckout/Main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="53.884617">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/ParamsUrl.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="49" column="9" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skins/SkinCheckBox.mxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5267666">
+          <caret line="189" column="45" selection-start-line="189" selection-start-column="45" selection-end-line="189" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skins/SlimHScrollBarSkin.mxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.6538463">
+          <caret line="78" column="57" selection-start-line="78" selection-start-column="57" selection-end-line="78" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skins/SkinScroller.mxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.3076925">
+          <caret line="84" column="19" selection-start-line="84" selection-start-column="19" selection-end-line="84" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skins/SlimVScrollBarSkin.mxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.153846">
+          <caret line="87" column="42" selection-start-line="87" selection-start-column="42" selection-end-line="88" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skins/SkinTabTabHeader.mxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="81" selection-start-line="24" selection-start-column="81" selection-end-line="24" selection-end-column="82" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/CartItemResponsive.mxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="79" column="48" selection-start-line="79" selection-start-column="48" selection-end-line="79" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/MojoPay.499x128.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/mojopay.svg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/CartResponsive.mxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.6923075">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skins/SkinTabButton.mxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.7692308">
+          <caret line="57" column="70" selection-start-line="57" selection-start-column="70" selection-end-line="57" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skins/SlimVScrollBarTrackSkin.mxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-31.5">
+          <caret line="80" column="41" selection-start-line="80" selection-start-column="41" selection-end-line="80" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skins/SlimVScrollBarThumbSkin.mxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="79" column="41" selection-start-line="79" selection-start-column="41" selection-end-line="79" selection-end-column="41" />
           <folding>
-            <marker date="1432681245329" expanded="false" signature="305:470" placeholder="..." />
-            <marker date="1432681245329" expanded="true" signature="584:729" placeholder="{...}" />
+            <marker date="1435292354909" expanded="true" signature="-1:-1" placeholder="/**@see spark.components.VScrollBar ...*/" />
+            <marker date="1435292354909" expanded="true" signature="-1:-1" placeholder="/** @copy spark.skins.spark.ApplicationSkin#hostComponent ...*/" />
+            <marker date="1435292354909" expanded="true" signature="-1:-1" placeholder="/** @private ...*/" />
+            <marker date="1435292354909" expanded="true" signature="-1:-1" placeholder="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skins/SkinVideo.mxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2943723">
+          <caret line="50" column="35" selection-start-line="50" selection-start-column="35" selection-end-line="50" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/CustomTabCheckout.mxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.9622642">
+          <caret line="3" column="97" selection-start-line="3" selection-start-column="97" selection-end-line="3" selection-end-column="97" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/CustomTabCart.mxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.65384614">
+          <caret line="1" column="49" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/CheckoutDefaultBox.mxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="17.0">
+          <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skins/SkinCombobox.mxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.4230769">
+          <caret line="271" column="0" selection-start-line="271" selection-start-column="0" selection-end-line="271" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skins/SkinTextInputExpirateCard.mxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="56" column="34" selection-start-line="0" selection-start-column="0" selection-end-line="62" selection-end-column="14" />
+          <folding>
+            <marker date="1435345318594" expanded="true" signature="-1:-1" placeholder="/*...*/" />
+            <marker date="1435345318594" expanded="true" signature="-1:-1" placeholder="/*...*/" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skins/SkinTextInput.mxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="176" column="0" selection-start-line="176" selection-start-column="0" selection-end-line="180" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skins/SkinTextInputResponsive.mxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="46" column="13" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
+          <folding>
+            <marker date="1435374890596" expanded="true" signature="-1:-1" placeholder="/*...*/" />
+            <marker date="1435374890596" expanded="true" signature="-1:-1" placeholder="/*...*/" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/Cart.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="31" column="24" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/Cart.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="8.262791">
+          <caret line="217" column="0" selection-start-line="217" selection-start-column="0" selection-end-line="217" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/ConfigurationForm.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="278" column="38" selection-start-line="278" selection-start-column="24" selection-end-line="278" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/CustomTabButton.mxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="64" selection-start-line="1" selection-start-column="64" selection-end-line="1" selection-end-column="64" />
+          <folding>
+            <marker date="1434384443383" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1434384443383" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1434384443383" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1434384443383" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1434384443383" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1434384443383" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1434384443383" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1434384443383" expanded="true" signature="-1:-1" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/InputExpirateCard.mxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.423077">
+          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding>
+            <marker date="1435693781990" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1435693781990" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1435693781990" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1435693781990" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1435693781990" expanded="true" signature="-1:-1" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/Order.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="44" column="22" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/CardItemDefault.mxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.2692308">
+          <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="51" />
+          <folding>
+            <marker date="1432593307966" expanded="true" signature="454:499" placeholder="{...}" />
+            <marker date="1432593307966" expanded="true" signature="539:659" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/TransitionCards.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.3448277">
+          <caret line="89" column="36" selection-start-line="89" selection-start-column="28" selection-end-line="89" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.172414">
+          <caret line="160" column="44" selection-start-line="160" selection-start-column="44" selection-end-line="160" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/CardItemResponsive.mxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.2692308">
+          <caret line="5" column="169" selection-start-line="5" selection-start-column="169" selection-end-line="5" selection-end-column="169" />
+          <folding>
+            <marker date="1435698371622" expanded="true" signature="446:491" placeholder="{...}" />
+            <marker date="1435698371622" expanded="true" signature="529:639" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.mxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="17.153847">
+          <caret line="89" column="14" selection-start-line="89" selection-start-column="14" selection-end-line="89" selection-end-column="14" />
+          <folding>
+            <element signature="n#mx:Box#0;n#mx:Box#0;n#s:Application#0;n#!!top" expanded="false" />
+            <marker date="1435699998482" expanded="false" signature="405:882" placeholder="..." />
+            <marker date="1435699998482" expanded="true" signature="1051:1381" placeholder="{...}" />
+            <marker date="1435699998482" expanded="true" signature="1419:1528" placeholder="{...}" />
+            <marker date="1435699998482" expanded="true" signature="1585:1702" placeholder="{...}" />
+            <marker date="1435699998482" expanded="true" signature="1599:1692" placeholder="//..." />
+            <marker date="1435699998482" expanded="true" signature="1739:1910" placeholder="{...}" />
+            <marker date="1435699998482" expanded="true" signature="1753:1826" placeholder="//..." />
+            <marker date="1435699998482" expanded="true" signature="1972:2186" placeholder="{...}" />
+            <marker date="1435699998482" expanded="true" signature="2065:2120" placeholder="{...}" />
+            <marker date="1435699998482" expanded="true" signature="2124:2176" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/app.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="36" column="6" selection-start-line="36" selection-start-column="6" selection-end-line="36" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/InCaseYouMissedResponsive.mxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.8867924">
+          <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/CheckoutResponsiveBox.mxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32162163">
-          <caret line="16" column="50" selection-start-line="16" selection-start-column="50" selection-end-line="16" selection-end-column="50" />
-          <folding />
+        <state vertical-scroll-proportion="0.43404254">
+          <caret line="56" column="28" selection-start-line="56" selection-start-column="28" selection-end-line="56" selection-end-column="28" />
+          <folding>
+            <element signature="e#741#1661#0" expanded="false" />
+            <marker date="1435704102213" expanded="true" signature="480:488" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>

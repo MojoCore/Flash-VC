@@ -17,6 +17,7 @@ import models.EventTime;
 import models.Video;
 
 import mx.collections.ArrayCollection;
+import mx.controls.Label;
 import mx.events.CollectionEvent;
 import mx.events.CollectionEventKind;
 import mx.formatters.CurrencyFormatter;
@@ -70,6 +71,7 @@ public class TransitionCards {
     private var _eventsTime:ArrayCollection;
     private var _analyticsEvent:AnalyticEvent;
     private var _isFinishedVideo:Boolean=false;
+    private var _titleButton:String;
 
     public function TransitionCards(app:Object,video:Video,cardCmp:iCard) {
 
@@ -99,6 +101,7 @@ public class TransitionCards {
         _analyticsEvent=new AnalyticEvent(_app.root.loaderInfo.url);
 
         AddEventsToComponents();
+        CalculateTotals()
 
     }
     private function InitEventsTime():void{
@@ -239,20 +242,24 @@ public class TransitionCards {
             _totalPrice += item.card.price* item.amount;
         }
 
-        _numberItemsLabel.visible=(_totalItems>0);
+        _numberItemsLabel.visible=(_totalItems>0&& !_isResponsive);
         _itemsInYourCartImage.visible=(_totalItems>0);
 
         _cartBox.emptyLabel.visible=(_totalItems==0);
-        _cartBoxResponsive.emptyLabel.visible=(_totalItems==0);
+
 
         _cartBox.footBox.visible=(_totalItems>0);
-        _cartBoxResponsive.height=55*total;
+        //_cartBoxResponsive.height=55*total;
         //_cartBoxResponsive.footBox.visible=(_totalItems>0);
 
         _numberItemsLabel.label = _totalItems.toString();
         _cartBox.TotalLabel.text = _currency.format(_totalPrice);
-        _checkoutBox.TotalLabel.text = _currency.format(_totalPrice);
-        (_app.checkoutBoxResponsive as CheckoutResponsiveBox).TotalLabel.text = _currency.format(_totalPrice);
+        //_checkoutBox.TotalLabel.text = _currency.format(_totalPrice);
+        //(_app.checkoutBoxResponsive as CheckoutResponsiveBox).TotalLabel.text = _currency.format(_totalPrice);
+        //_app.btnTabCart.title=_currency.format(_totalPrice);
+        _app.btnTabCart.subtitle=_totalItems.toString();
+        _app.checkoutBoxResponsive.CheckOutButton.label=_titleButton+' '+_currency.format(_totalPrice);
+        _app.btnTabCart.title=(_totalItems>0)?_currency.format(_totalPrice):"MY CART";
     }
 
     public function FindCardInCart(card:models.Card):int{
@@ -313,6 +320,7 @@ public class TransitionCards {
         trace("video completed...")
         _app.panelCard.visible=(true&&!_isResponsive);
         _visiblePanelActions=true&&!_isResponsive;
+        _app.inCaseYouMissedResponsive.visible=true&&_isResponsive;
         if(!_isFinishedVideo){
             _analyticsEvent.RegisterEventTime(AnalyticEvent.VIDEO_ENDED,0);
             _isFinishedVideo=true;
@@ -324,6 +332,7 @@ public class TransitionCards {
             trace("loading ...");
         if (event.state == MediaPlayerState.PLAYING){
             _app.panelCard.visible=false;
+            _app.inCaseYouMissedResponsive.visible=false;
             ResetTransitions();
             _visiblePanelActions=false;
             trace("playing ...");
@@ -346,14 +355,20 @@ public class TransitionCards {
         _cardComponent=card;
         _cardComponent.getComponent().button.addEventListener(MouseEvent.CLICK,AddToCart);
         _app.panelCard.visible=false;
+        _numberItemsLabel.visible=(_totalItems>0&& !_isResponsive);
+        if(_isFinishedVideo){
+            _app.inCaseYouMissedResponsive.visible=true;
+        }
     }
     public function ChangeDefault(card:iCard):void{
         _isResponsive=false;
         _cardComponent=card;
         _cardComponent.getComponent().button.addEventListener(MouseEvent.CLICK,AddToCart);
+        _numberItemsLabel.visible=(_totalItems>0&& !_isResponsive);
         if(_isFinishedVideo){
             _app.panelCard.visible=true;
             _visiblePanelActions=true;
+
         }
     }
 
@@ -379,6 +394,14 @@ public class TransitionCards {
 
     public function set isResponsive(value):void {
         _isResponsive = value;
+    }
+
+    public function get titleButton():String {
+        return _titleButton;
+    }
+
+    public function set titleButton(value:String):void {
+        _titleButton = value;
     }
 }
 }

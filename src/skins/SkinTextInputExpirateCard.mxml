@@ -5,7 +5,7 @@
     Version 0.1
 -->
 <s:SparkSkin xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark"
-             alpha.disabled="0.5" maxHeight="30" height="30">
+             alpha.disabled="0.5">
 
   <fx:Metadata>
     [HostComponent("spark.components.TextInput")]
@@ -46,17 +46,18 @@
       <s:SolidColor id="bgFill" color="0xffffff" color.focused="0xffffff"  />
     </s:fill>
     <s:stroke>
-      <s:SolidColorStroke id="stroke" color="0xcccccd" color.focused="0xcccccd"  weight="1" />
+      <s:SolidColorStroke id="stroke" color="0xffffff" color.focused="0xffffff"  weight="1" />
     </s:stroke>
   </s:Rect>
 
-
-  <s:RichEditableText id="textDisplay" color.focused="0x303030" color.invalid="0xff0000" verticalAlign="middle"
+  <!-- text. To do: Get Properties from Component
+  <s:RichEditableText id="textView" color.focused="0x303030" color.invalid="0xff0000" verticalAlign="middle"
                       left="1" right="1" top="1" bottom="1"
                       paddingLeft="3" paddingTop="5"
-                      paddingRight="3" paddingBottom="3"/>
-  <s:Label id="promptDisplay" maxDisplayedLines="1" color="gray" paddingTop="10" paddingLeft="10" textAlign="left" paddingRight="10"
-           verticalAlign="middle"
-           mouseEnabled="false" mouseChildren="false"
-           includeIn="normalWithPrompt,disabledWithPrompt"/>
+                      paddingRight="3" paddingBottom="3"/>-->
+  <s:RichEditableText id="textDisplay" backgroundColor="0xffffff"
+                      verticalAlign="middle" color.normalWithPrompt="0x666666"
+                      widthInChars="10"
+                      left="1" right="1" top="1" bottom="1" />
+
 </s:SparkSkin>

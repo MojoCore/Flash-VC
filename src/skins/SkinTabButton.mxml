@@ -53,23 +53,24 @@
   </s:states>
 
   <!-- layer 2: fill -->
-  <s:Rect left="1" right="1" top="1" bottom="1" radiusX="2" radiusY="2">
+  <s:Rect left="1" right="1" top="1" bottom="1">
     <s:fill>
-      <s:LinearGradient rotation="90">
-        <s:GradientEntry color="0xc1c1c1"
+        <s:SolidColor color="0xf5f5f7" color.up="0xd5d5d7" alpha.up="1"></s:SolidColor>
+      <!--s:LinearGradient rotation="90">
+        <s:GradientEntry color="0xf5f5f7"
                          color.over="0xBBBDBD"
-                         color.down="0xAAAAAA"
-                         alpha="0.85" />
-        <s:GradientEntry color="0xD8D8D8"
+                         color.down="0xAAAAAA" color.upAndSelected="0xf5f5f7" color.downAndSelected="0xf5f5f7"
+                         alpha="1" />
+        <s:GradientEntry color="0xf5f5f7"
                          color.over="0x9FA0A1"
-                         color.down="0x929496"
-                         alpha="0.85" />
-      </s:LinearGradient>
+                         color.down="0x929496" color.upAndSelected="0xf5f5f7" color.downAndSelected="0xf5f5f7"
+                         alpha="1" />
+      </s:LinearGradient-->
     </s:fill>
   </s:Rect>
 
   <!-- layer 2: border -->
-  <s:Rect left="0" right="0" top="0" bottom="0" width="69" height="20" radiusX="0" radiusY="0">
+  <s:Rect left="0" right="0" top="0" bottom="0" width="69" height="20" radiusX="4" radiusY="4" bottomRightRadiusX="0" bottomRightRadiusY="0" bottomLeftRadiusY="0" bottomLeftRadiusX="0">
     <s:stroke>
 
       <s:LinearGradientStroke rotation="90" weight="1">
@@ -80,9 +81,15 @@
         <s:GradientEntry color="0x000000"
                          alpha="0.9"
                          alpha.down="0.9" />
+          <s:GradientEntry color="0x000000"
+                           alpha="0.9"
+                           alpha.down="0.9" />
+          <s:GradientEntry color="0x000000"
+                           alpha="0.9"
+                           alpha.down="0.9" />
         <s:GradientEntry color="0x000000"
                          alpha="1"
-                         alpha.down="1" alpha.disabled="1" alpha.over="1"
+                         alpha.down="1" alpha.disabled="1" alpha.over="1" alpha.overAndSelected="0"
                          alpha.upAndSelected="0" alpha.downAndSelected="0" alpha.disabledAndSelected="0"  />
       </s:LinearGradientStroke>
     </s:stroke>

@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!--
+  Created by nodejs01 on 5/11/15.
+-->
+<mx:Box xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:mx="library://ns.adobe.com/flex/mx" width="160" backgroundColor="0xefefef"
+        xmlns:s="library://ns.adobe.com/flex/spark" creationComplete="init()" verticalScrollPolicy="off" paddingLeft="5" paddingRight="5" paddingBottom="5" paddingTop="5">
+  <fx:Script><![CDATA[
+    import models.Card;
+    private function init():void{
+      button.setStyle('padding',10);
+
+    }
+    private function AddToCart():void{
+      var app:App = this.parentApplication.app;
+      app.transitionCards.AddCardToCart(data as Card);
+    }
+
+
+    ]]></fx:Script>
+  <fx:Declarations>
+    <mx:CurrencyFormatter id="currencyFormatter"
+                          precision="2"
+                          currencySymbol="$"
+                          thousandsSeparatorTo=","
+                          decimalSeparatorTo="."/>
+  </fx:Declarations>
+
+  <s:Image id="image" width="100%"  height="100" horizontalAlign="center" source="{data.image}" >
+
+  </s:Image>
+  <s:Label  id="titleLabel" text="{data.title}" fontSize="14" color="black" textAlign="center" width="100%" height="20"></s:Label>
+  <s:Label  id="pricelLabel" text="{currencyFormatter.format(data.price)}" fontSize="18" color="black" textAlign="right" width="100%"></s:Label>
+  <s:Button id="button"
+            label="{data.buttonText}"
+            color="{data.buttonColor}"
+            useHandCursor="true"
+            buttonMode="true"
+            skinClass="skins.SkinSolidButton" width="100%" click="AddToCart()">
+
+  </s:Button>
+
+  <fx:Script><![CDATA[
+    import mx.controls.Alert;
+    ]]></fx:Script>
+</mx:Box>

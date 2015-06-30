@@ -9,6 +9,7 @@ import components.CheckoutResponsiveBox;
 
 
 import flash.display.Sprite;
+import flash.display.StageDisplayState;
 import flash.events.Event;
 import flash.events.IOErrorEvent;
 import flash.events.KeyboardEvent;
@@ -63,7 +64,7 @@ public class App extends Sprite{
     private var _card:iCard;
     private var _moveCartBoxRight:Resize;
     private var _moveCartBoxLeft:Resize;
-    private var _showActions=false;
+    private var _showActions:Boolean=false;
     private var _moveCheckoutBottom:Move;
     private var _moveCheckoutTop:Move;
     private var _actionsList:List;
@@ -157,6 +158,7 @@ public class App extends Sprite{
     private function InitDataForVideo(data:Object):void {
         _video=services.JsonUtil.ConvertToVideo(data);
         _actionsList.dataProvider=_video.actions;
+        _app.inCaseYouMissedResponsive.list.dataProvider=_video.actions;
         _videoPlayer.source = data.urls.originalUrl;
         _transitionCards = new TransitionCards(_app,_video,_card);
         _transitionCards.isResponsive=_isResponsive;
@@ -166,7 +168,7 @@ public class App extends Sprite{
 
     }
     private function SessionCreate():void{
-        _transitionCards.analyticsEvent.CreateSession(_video,function(data){
+        _transitionCards.analyticsEvent.CreateSession(_video,function(data):void{
             RegisterCart();
         });
 
@@ -174,7 +176,9 @@ public class App extends Sprite{
     private function RegisterCart():void{
         _transitionCards.serviceCart.Create(function(cart:models.Cart){
             _configurationForm=new ConfigurationForm(_app,_video.user, _transitionCards.serviceCart.cart,_checkoutBox,_checkoutBoxResponsive);
-            _configurationForm.Configure();
+            _configurationForm.Configure(function():void{
+                _transitionCards.titleButton=_configurationForm.titleButton;
+            });
         });
     }
 
@@ -211,6 +215,7 @@ public class App extends Sprite{
         _app.CheckoutViewStackResponsive.visible=true;
         _app.CheckoutViewStack.visible=false;
         _buttonCart.visible=false;
+        
         _actionsList.visible=false;
         _cartBox.visible=false;
         //_app.panelCard.visible=(_showActions&&!_isResponsive);
@@ -243,6 +248,8 @@ public class App extends Sprite{
         var vs:ViewStack=_app.CheckoutViewStack;
         vs.selectedIndex=0;
         _configurationForm.ShowDefault();
+        _app.stage.displayState = StageDisplayState.NORMAL;
+        _app.btnTabCart.ActiveTab();
         //_moveCheckoutBottom.play();
 
 

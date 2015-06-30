@@ -29,7 +29,7 @@ public class Cart {
         params.video=_video.id;
         _service.Post(params,function(e:Event):void{
             var loader:URLLoader = URLLoader(e.target);
-            var r = JSON.parse(loader.data);
+            var r:Object = JSON.parse(loader.data);
             _cart=new models.Cart();
             _cart.id=r._id;
             _cart.video=r.video;
