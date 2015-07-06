@@ -61,7 +61,7 @@
       </s:HGroup>
     <s:HGroup width="100%">
       <s:VGroup width="50%">
-        <s:Label text="First Name" width="100%" fontSize="13" fontFamily="Arial"/>
+        <s:Label text="Full Name" width="100%" fontSize="13" fontFamily="Arial"/>
         <s:TextInput id="nameInput" width="100%" skinClass="skins.SkinTextInputResponsive"/>
       </s:VGroup>
       <s:VGroup width="50%">
@@ -82,11 +82,11 @@
         <s:TextInput id="cityInput" width="100%" skinClass="skins.SkinTextInputResponsive"/>
       </s:VGroup>
       <s:VGroup width="30%">
-        <s:Label text="State" width="100%" fontSize="11" fontWeight="bold"/>
+        <s:Label text="State" width="100%" fontSize="13" fontFamily="Arial"/>
         <s:ComboBox id="stateInput" contentBackgroundColor="white" height="30" width="100%"/>
       </s:VGroup>
       <s:VGroup width="20%">
-        <s:Label text="Zip" width="100%" fontSize="11" fontWeight="bold"/>
+        <s:Label text="Zip" width="100%" fontSize="13" fontFamily="Arial"/>
         <s:TextInput id="zipInput" width="100%" skinClass="skins.SkinTextInputResponsive"/>
       </s:VGroup>
     </s:HGroup>
@@ -98,6 +98,8 @@
               label="CHECKOUT"
               skinClass="skins.SkinSolidButton"
               color="0xfda731"
+              accentColor="#ffffff"
+
               width="100%"
               height="40"
               fontSize="20"
@@ -112,26 +114,10 @@
             <s:Image source="@Embed('../assets/mojopay.png')" width="100%"></s:Image>
           </s:VGroup>
       </s:HGroup>
-      <s:HGroup width="100%"  id="cs_disclaimer1" visible="false">
-          <s:CheckBox width="100%" skinClass="skins.SkinCheckBox" id="csDisclamer1CheckBox"
-                      fontSize="12"
-                      label="By checking this box, I certify that I am a US citizen over the age of 18, and that this contribution is from my own personal funds and not from a corporation or  a political action committee.">
+      <s:VGroup width="100%" id="ContainerDisclaimers">
+          <mx:HRule width="100%"></mx:HRule>
 
-          </s:CheckBox>
-      </s:HGroup>
-      <s:HGroup width="100%" id="cs_disclaimer2" visible="false">
-          <s:CheckBox width="100%" skinClass="skins.SkinCheckBox" id="csDisclaimer2CheckBox"
-                      fontSize="12"
-                      label="I am a U.S. citizen or lawfully admitted permanent U.S. resident. This contribution is made by me individually or from the general treasury of a U.S. corporation and is not made from the funds of a federal contractor. (For corporate contributions, please enter the name of corporation in the field provided above)">
+      </s:VGroup>
 
-          </s:CheckBox>
-      </s:HGroup>
-      <s:HGroup width="100%" id="cs_customDisclaimer" visible="false">
-          <s:CheckBox width="100%" skinClass="skins.SkinCheckBox" id="customDisclaimerCheckBox"
-                      fontSize="12"
-                      label="">
-
-          </s:CheckBox>
-      </s:HGroup>
 </mx:Box>
 </mx:Box>

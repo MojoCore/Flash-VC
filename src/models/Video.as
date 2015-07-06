@@ -9,6 +9,7 @@ public class Video {
     private var _user:String;
     private var _duration:Number;
     private var _actions:ArrayCollection;
+    private var _formConfig:Object;
     public function Video() {
         _actions=new ArrayCollection();
     }
@@ -43,6 +44,14 @@ public class Video {
 
     public function set duration(value:Number):void {
         _duration = value;
+    }
+
+    public function get formConfig():Object {
+        return _formConfig;
+    }
+
+    public function set formConfig(value:Object):void {
+        _formConfig = value;
     }
 }
 }

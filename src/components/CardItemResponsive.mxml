@@ -33,6 +33,7 @@
   <s:Button id="button"
             label="{data.buttonText}"
             color="{data.buttonColor}"
+            accentColor="#ffffff"
             useHandCursor="true"
             buttonMode="true"
             skinClass="skins.SkinSolidButton" width="100%" click="AddToCart()">

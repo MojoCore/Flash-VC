@@ -14,6 +14,7 @@ import flash.events.MouseEvent;
 import flash.net.URLLoader;
 
 import models.Cart;
+import models.Video;
 
 import mx.collections.ArrayCollection;
 
@@ -28,6 +29,7 @@ import spark.components.CheckBox;
 
 import spark.components.FormItem;
 import spark.components.HGroup;
+import spark.components.Label;
 import spark.components.Label;
 import spark.components.TextInput;
 import spark.components.TextInput;
@@ -56,9 +58,12 @@ public class ConfigurationForm extends Sprite{
     private var _years:ArrayCollection;
     private var _months:ArrayCollection;
     private var _titleButton:String;
-    public function ConfigurationForm(app:Object,user:String,cart:models.Cart,formDefault:CheckoutDefaultBox=null,formResponsive:CheckoutResponsiveBox=null) {
+    private var _video:models.Video;
+    private var _language:String="en"
+    public function ConfigurationForm(app:Object,video:Video,cart:models.Cart,formDefault:CheckoutDefaultBox=null,formResponsive:CheckoutResponsiveBox=null) {
         _app=app;
-        _user=user;
+        _video=video;
+        _user=video.user;
         _cart=cart;
         _formDefault=formDefault;
         _formResponsive=formResponsive
@@ -152,6 +157,54 @@ public class ConfigurationForm extends Sprite{
         _months.addItem({label:"NOVEMBER",data:"11"});
         _months.addItem({label:"DECEMBER",data:"12"});
     }
+    private function initNewDataConfig(){
+        var obj:Object=new Object();
+        obj={
+                properties:{
+                    phone_number:{
+                        label:{
+                            en:'Phone Number',
+                            es:'Teléfono'
+                        },
+                        priority:1
+                    },
+                    employer:{
+                        label:{
+                            en:'Employer',
+                            es:'Empleador'
+                        },
+                        priority:2
+                    },
+                    occupation:{
+                        label:{
+                            en:'Occupation',
+                            es:'Ocupación'
+                        },
+                        priority:3
+                    }
+                },
+            button:{
+                text:"Contribute",
+                bgcolor:"#327832",
+                color:"white"
+            },
+            disclaimers:{
+                0:{
+                    label:{
+                        en:'By checking this box, I certify that I am a US citizen over the age of 18, and that this contribution is from my own personal funds and not from a corporation or a political action committee.'
+                    }
+                },
+                1:{
+                    label:{
+                        en:'By checking this box, I certify that I am a US citizen over the age of 18, and that this contribution is from my own personal funds and not from a corporation or a political action committee.'
+                    }
+                }
+            }
+
+        }
+        _video.formConfig=obj;
+        _dataConfig= _video.formConfig;
+    }
     public function Configure(fn:Function=null):void{
         LoadConfiguration(fn);
     }
@@ -165,116 +218,127 @@ public class ConfigurationForm extends Sprite{
         _service.Get(_user+'?getSettings=1',function(event:Event):void{
             var loader:URLLoader=URLLoader(event.target);
             _dataConfig=JSON.parse(loader.data);
-            ConfigureForm();
+            //ConfigureForm();
+            initNewDataConfig();
+            NewConfigureForm();
             if(fn!=null){
                 fn();
             }
         });
 
     }
-    public function ConfigureForm():void{
+
+    public function NewConfigureForm():void{
         ConfigAnimation();
         AddListeners();
-        _titleButton=_dataConfig.cs_buttonText;
-        _formResponsive.CheckOutButton.label=_dataConfig.cs_buttonText;
-        _formDefault.CheckOutButton.label=_dataConfig.cs_buttonText;
+        ConfigButton();
+        ConfigProperties();
+        ConfigDisclaimers();
 
-        _app.btnTabCheckout.title=_dataConfig.cs_buttonText;
-        var countFields=0;
+    }
+    private function ConfigButton():void{
+        _titleButton=_dataConfig.button.text;
+        _formResponsive.CheckOutButton.label=_dataConfig.button.text;
+        _formDefault.CheckOutButton.label=_dataConfig.button.text;
+
+        _formResponsive.CheckOutButton.setStyle("color",_dataConfig.button.bgcolor);
+        _formResponsive.CheckOutButton.setStyle("accentColor",_dataConfig.button.color);
+
+        _formDefault.CheckOutButton.setStyle("color",_dataConfig.button.bgcolor);
+        _formDefault.CheckOutButton.setStyle("accentColor",_dataConfig.button.color);
+
+
+        _app.btnTabCheckout.title=_dataConfig.button.text;
+
+    }
+    private function ConfigProperties():void{
+        var countFields:int=1;//custom fields init after address
         var _existFormItem:Boolean=true;
         var formItem:FormItem;
         var formItemResponsive:HGroup;
+        var key:String;
         var total:int=0;
         var i:int=0;
         var positionForm:int=2;
         var addHeight:int=0;
-        for (var id:String in _dataConfig) total++;
+        var heightRowProperties:int=30;
+        var properties:ArrayCollection=new ArrayCollection();
+        for (var id:String in _dataConfig.properties){
+            total++;
+            properties.addItem({key:id,order: _dataConfig.properties[id].priority});
+        }
+        JsonUtil.arrayCollectionSort(properties,'order',true);
+
         formItem = _formDefault.finishStaticFieldItems;
         formItemResponsive=_formResponsive.finishStaticFieldItems;
-        countFields=1;
-        for(var id:String in _dataConfig){
-            i++;
-            if(FindExludeItem(id)==-1){
-                if(_dataConfig[id].hasOwnProperty("present")) {
-                    if(_dataConfig[id].present) {
-                        addHeight += 30;
-                        countFields++;
-                        if(!_existFormItem) {
-                            formItem = NewFormItem();
-                            formItemResponsive = NewFormItemResponsive();
-                            _existFormItem = true;
-                        }
-                        var field:Object=GetField(id);
-                        var textInput:TextInput = NewField(field.id, field.name);
-                        var textInputR:Object = NewFieldResponsive(field.id, field.name);
-                        textInput.addEventListener(KeyboardEvent.KEY_DOWN,changeDynamicDefaultHandler);
-                        textInput.addEventListener(KeyboardEvent.KEY_UP,changeDynamicDefaultHandler);
-                        textInputR.textInput.addEventListener(KeyboardEvent.KEY_DOWN,changeDynamicResponsiveHandler);
-                        textInputR.textInput.addEventListener(KeyboardEvent.KEY_UP,changeDynamicResponsiveHandler);
-                        textInputR.textInput.addEventListener(FocusEvent.FOCUS_IN, MoveScrollHandler);
-                        field.input=textInput;
-                        field.inputResponsive=textInputR.textInput;
-                        formItem.addElement(textInput);
-                        formItemResponsive.addElement(textInputR.groupItem);
-                        if (countFields == 2 || i == total) {
-                            _formDefault.CheckOutForm.addElementAt(formItem, positionForm);
-                            _formResponsive.CheckOutForm.addElementAt(formItemResponsive, positionForm);
-                            positionForm++
-                            _existFormItem = false;
-                            countFields = 0;
-                        }
-                    }
+        if(_dataConfig.hasOwnProperty("properties")){
+            for(var index:int=0;index<total;index++){
+                key=properties.getItemAt(index).key;
+                i++;
+                addHeight += heightRowProperties;
+                countFields++;
+                if(!_existFormItem) {
+                    formItem = NewFormItem();
+                    formItemResponsive = NewFormItemResponsive();
+                    _existFormItem = true;
                 }
-            }else{
-                if(id=='cs_disclaimer1'){
-                    _formDefault.cs_disclaimer1.addEventListener(MouseEvent.CLICK, activeCheckBoxHandler);
-                    _formDefault.cs_disclaimer1.visible=_dataConfig[id];
-                    _formDefault.cs_disclaimer1.includeInLayout=_dataConfig[id];
+                var textInput:TextInput = NewField(key,_dataConfig.properties[key].label[_language]);
+                var textInputR:Object = NewFieldResponsive(key,_dataConfig.properties[key].label[_language]);
+                textInput.addEventListener(KeyboardEvent.KEY_DOWN,changeDynamicDefaultHandler);
+                textInput.addEventListener(KeyboardEvent.KEY_UP,changeDynamicDefaultHandler);
+                textInputR.textInput.addEventListener(KeyboardEvent.KEY_DOWN,changeDynamicResponsiveHandler);
+                textInputR.textInput.addEventListener(KeyboardEvent.KEY_UP,changeDynamicResponsiveHandler);
+                textInputR.textInput.addEventListener(FocusEvent.FOCUS_IN, MoveScrollHandler);
+                _dataConfig.properties[key].field={
+                    input:textInput,
+                    inputResponsive:textInputR.textInput
+                };
 
-                    _formResponsive.cs_disclaimer1.addEventListener(MouseEvent.CLICK, activeCheckBoxHandler);
-                    _formResponsive.cs_disclaimer1.visible=_dataConfig[id];
-                    _formResponsive.cs_disclaimer1.includeInLayout=_dataConfig[id];
+                formItem.addElement(textInput);
+                formItemResponsive.addElement(textInputR.groupItem);
+                if (countFields == 2 || i == total) {
+                    _formDefault.CheckOutForm.addElementAt(formItem, positionForm);
+                    _formResponsive.CheckOutForm.addElementAt(formItemResponsive, positionForm);
+                    positionForm++
+                    _existFormItem = false;
+                    countFields = 0;
                 }
-                if(id=='cs_disclaimer2'){
-                    _formDefault.cs_disclaimer2.addEventListener(MouseEvent.CLICK, activeCheckBoxHandler);
-                    _formDefault.cs_disclaimer2.visible=_dataConfig[id];
-                    _formDefault.cs_disclaimer2.includeInLayout=_dataConfig[id];
 
-                    _formResponsive.cs_disclaimer2.addEventListener(MouseEvent.CLICK, activeCheckBoxHandler);
-                    _formResponsive.cs_disclaimer2.visible=_dataConfig[id];
-                    _formResponsive.cs_disclaimer2.includeInLayout=_dataConfig[id];
-                }
-                if(id=='cs_customDisclaimer'){
-                    _formDefault.cs_customDisclaimer.visible=_dataConfig[id].present;
-                    _formDefault.cs_customDisclaimer.addEventListener(MouseEvent.CLICK, activeCheckBoxHandler);
-                    _formDefault.cs_customDisclaimer.includeInLayout=_dataConfig[id].present;
-                    _formDefault.customDisclaimerCheckBox.label=_dataConfig[id].value;
-
-                    _formResponsive.cs_customDisclaimer.visible=_dataConfig[id].present;
-                    _formResponsive.cs_customDisclaimer.addEventListener(MouseEvent.CLICK, activeCheckBoxHandler);
-                    _formResponsive.cs_customDisclaimer.includeInLayout=_dataConfig[id].present;
-                    _formResponsive.customDisclaimerCheckBox.label=_dataConfig[id].value;
-
-                }
             }
-        }
-        if (countFields >0) {
-            _formDefault.CheckOutForm.addElementAt(formItem, positionForm);
-            _formResponsive.CheckOutForm.addElementAt(formItemResponsive, positionForm);
+            if (countFields >0) {
+                _formDefault.CheckOutForm.addElementAt(formItem, positionForm);
+                _formResponsive.CheckOutForm.addElementAt(formItemResponsive, positionForm);
+
+            }
+            (_app.CheckoutViewStack as ViewStack).height=_formDefault.height+addHeight;
+            (_app.CheckoutViewStack as ViewStack).y=-(_formDefault.height+addHeight);
 
         }
-        (_app.CheckoutViewStack as ViewStack).height=_formDefault.height+addHeight;
-        (_app.CheckoutViewStack as ViewStack).y=-(_formDefault.height+addHeight);
-        /*if(_app.stage.stageHeight<=450){
-            (_app.CheckoutViewStack as ViewStack).height=_app.stage.stageHeight-50;
-        }*/
-
-        _moveCheckoutTop.yTo=-(_formDefault.height+addHeight);
-        //_formDefault.parent.re
 
 
     }
 
+    private function ConfigDisclaimers():void{
+        var total:int=0;
+        var key:String;
+        var container:VGroup=_formResponsive.ContainerDisclaimers;
+
+        var disclaimers:ArrayCollection=new ArrayCollection();
+        for (var id:String in _dataConfig.disclaimers){
+            total++;
+            disclaimers.addItem({key:id,order: Number(id)});
+        }
+        JsonUtil.arrayCollectionSort(disclaimers,'order',true);
+
+        if(_dataConfig.hasOwnProperty("disclaimers")){
+            key=disclaimers.getItemAt(index).key;
+            for(var index:int=0;index<total;index++) {
+
+                var disclaimer:Label=NewDisclaimer(_dataConfig.disclaimers[key].label[_language]);
+                container.addElement(disclaimer);
+            }
+        }
+    }
     private function activeCheckBoxHandler(event:MouseEvent):void {
         _formResponsive.CheckOutButton.enabled= (event.currentTarget as CheckBox).selected
     }
@@ -350,8 +414,7 @@ public class ConfigurationForm extends Sprite{
         var lblInput:Label=new Label();
         lblInput.text=name;
         lblInput.percentWidth=100;
-        lblInput.setStyle('fontSize','11');
-        lblInput.setStyle('fontWeight','bold');
+        lblInput.setStyle('fontSize','13');
 
         var textInput:TextInput=new TextInput();
         textInput.id=id;
@@ -360,6 +423,17 @@ public class ConfigurationForm extends Sprite{
         vGroup.addElement(lblInput);
         vGroup.addElement(textInput);
         return {groupItem:vGroup,textInput:textInput};
+    }
+
+    private function NewDisclaimer(description:String){
+        var disclaimer:Label=new Label();
+        disclaimer.percentWidth=100;
+        disclaimer.setStyle('fontSize','10');
+        disclaimer.setStyle('paddingTop','5');
+        disclaimer.setStyle('color','#666666');
+        disclaimer.setStyle('textAlign','justify');
+        disclaimer.text=description;
+        return disclaimer;
     }
     private function AddListeners():void{
         //var components:ArrayList=new ArrayList(_formResponsive.nameInput,_formResponsive.emailInput)
@@ -549,6 +623,14 @@ public class ConfigurationForm extends Sprite{
 
     public function set titleButton(value:String):void {
         _titleButton = value;
+    }
+
+    public function get language():String {
+        return _language;
+    }
+
+    public function set language(value:String):void {
+        _language = value;
     }
 }
 }

@@ -62,6 +62,7 @@
               width="20"
               height="20"
               color="0x6ABDC0"
+              accentColor="white"
               fontSize="10"
               skinClass="skins.SkinSolidButton"
               fontFamily="CustomIcons"

@@ -53,7 +53,7 @@ public class TransitionCards {
     private var _cartBoxResponsive:components.CartResponsive;
     private var _numberItemsLabel:Button;
     private var _itemsInYourCartImage:Image;
-    private var _actionsList:List;
+    //private var _actionsList:List;
 
     private var _currency:CurrencyFormatter;
     private var _elastic:Elastic;
@@ -86,8 +86,8 @@ public class TransitionCards {
         _cartBoxResponsive = _app.cartBoxResponsive;
         _numberItemsLabel=_app.countButton;
         _checkoutBox=_app.checkoutBox;
-        _itemsInYourCartImage=_app.itemsInYourCartImage;
-        _actionsList = _app.actionsList;
+        _itemsInYourCartImage=_app.inCaseYouMissedDefault.itemsInYourCartImage;
+        //_actionsList = _app.actionsList;
         _cartBox.items.dataProvider=new ArrayCollection();
         if(_currentCardIndex<=_video.actions.length-1)
             _currentCard = _cards[_currentCardIndex];
@@ -318,8 +318,7 @@ public class TransitionCards {
     }
     private function VideoCompleteHandler(event:TimeEvent):void {
         trace("video completed...")
-        _app.panelCard.visible=(true&&!_isResponsive);
-        _visiblePanelActions=true&&!_isResponsive;
+        _app.inCaseYouMissedDefault.visible=(true&&!_isResponsive);
         _app.inCaseYouMissedResponsive.visible=true&&_isResponsive;
         if(!_isFinishedVideo){
             _analyticsEvent.RegisterEventTime(AnalyticEvent.VIDEO_ENDED,0);
@@ -331,7 +330,7 @@ public class TransitionCards {
         if (event.state == MediaPlayerState.LOADING)
             trace("loading ...");
         if (event.state == MediaPlayerState.PLAYING){
-            _app.panelCard.visible=false;
+            _app.inCaseYouMissedDefault.visible=false;
             _app.inCaseYouMissedResponsive.visible=false;
             ResetTransitions();
             _visiblePanelActions=false;
@@ -354,10 +353,10 @@ public class TransitionCards {
         _isResponsive=true;
         _cardComponent=card;
         _cardComponent.getComponent().button.addEventListener(MouseEvent.CLICK,AddToCart);
-        _app.panelCard.visible=false;
         _numberItemsLabel.visible=(_totalItems>0&& !_isResponsive);
         if(_isFinishedVideo){
             _app.inCaseYouMissedResponsive.visible=true;
+            _app.inCaseYouMissedDefault.visible=false;
         }
     }
     public function ChangeDefault(card:iCard):void{
@@ -366,7 +365,8 @@ public class TransitionCards {
         _cardComponent.getComponent().button.addEventListener(MouseEvent.CLICK,AddToCart);
         _numberItemsLabel.visible=(_totalItems>0&& !_isResponsive);
         if(_isFinishedVideo){
-            _app.panelCard.visible=true;
+            _app.inCaseYouMissedResponsive.visible=false;
+            _app.inCaseYouMissedDefault.visible=true;
             _visiblePanelActions=true;
 
         }

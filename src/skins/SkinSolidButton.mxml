@@ -49,14 +49,14 @@
   </s:states>
 
   <!-- background -->
-  <s:Rect left="0" right="0" top="0" bottom="0" >
+  <s:Rect left="0" right="0" top="0" bottom="0" radiusX="4" radiusY="4">
 
     <s:fill>
-      <s:SolidColor id="bg" color="{getStyle('color')}" />
+      <s:SolidColor id="bg" color="{getStyle('color')}" alpha="1" alpha.over="0.8"/>
     </s:fill>
   </s:Rect>
 
-  <s:Label id="labelDisplay" color="white" width="100%" height="100%"
+  <s:Label id="labelDisplay" color="{getStyle('accentColor')}" width="100%" height="100%"
            horizontalCenter="0" verticalCenter="0" textAlign="center"  verticalAlign="middle"
            left="{getStyle('padding')}" right="{getStyle('padding')}" top="{getStyle('padding')}" bottom="{getStyle('padding')}">
   </s:Label>

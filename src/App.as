@@ -67,7 +67,7 @@ public class App extends Sprite{
     private var _showActions:Boolean=false;
     private var _moveCheckoutBottom:Move;
     private var _moveCheckoutTop:Move;
-    private var _actionsList:List;
+    //private var _actionsList:List;
     private var _checkoutBox:CheckoutDefaultBox;
     private var _checkoutBoxResponsive:CheckoutResponsiveBox;
 
@@ -89,7 +89,7 @@ public class App extends Sprite{
         _buttonCart = _app.cartButton;
         _buttonCount = _app.countButton;
         _cartBox = _app.CartBox;
-        _actionsList = _app.actionsList;
+        //_actionsList = _app.actionsList;
         _checkoutBox=_app.checkoutBox;
         _checkoutBoxResponsive=_app.checkoutBoxResponsive;
         _checkoutBox.backButton.setStyle('padding',8);
@@ -157,8 +157,9 @@ public class App extends Sprite{
     }
     private function InitDataForVideo(data:Object):void {
         _video=services.JsonUtil.ConvertToVideo(data);
-        _actionsList.dataProvider=_video.actions;
+        //_actionsList.dataProvider=_video.actions;
         _app.inCaseYouMissedResponsive.list.dataProvider=_video.actions;
+        _app.inCaseYouMissedDefault.list.dataProvider=_video.actions;
         _videoPlayer.source = data.urls.originalUrl;
         _transitionCards = new TransitionCards(_app,_video,_card);
         _transitionCards.isResponsive=_isResponsive;
@@ -175,7 +176,7 @@ public class App extends Sprite{
     }
     private function RegisterCart():void{
         _transitionCards.serviceCart.Create(function(cart:models.Cart){
-            _configurationForm=new ConfigurationForm(_app,_video.user, _transitionCards.serviceCart.cart,_checkoutBox,_checkoutBoxResponsive);
+            _configurationForm=new ConfigurationForm(_app,_video, _transitionCards.serviceCart.cart,_checkoutBox,_checkoutBoxResponsive);
             _configurationForm.Configure(function():void{
                 _transitionCards.titleButton=_configurationForm.titleButton;
             });
@@ -216,7 +217,7 @@ public class App extends Sprite{
         _app.CheckoutViewStack.visible=false;
         _buttonCart.visible=false;
         
-        _actionsList.visible=false;
+        //_actionsList.visible=false;
         _cartBox.visible=false;
         //_app.panelCard.visible=(_showActions&&!_isResponsive);
 
@@ -233,7 +234,7 @@ public class App extends Sprite{
         _app.CheckoutViewStackResponsive.visible=false;
         _app.CheckoutViewStack.visible=true;
         _buttonCart.visible=true;
-        _actionsList.visible=true;
+        //_actionsList.visible=true;
        // _app.panelCard.visible=(_showActions&&!_isResponsive);
         _cartBox.visible=true;
 

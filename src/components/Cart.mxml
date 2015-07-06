@@ -64,6 +64,7 @@
                 label="CHECKOUT"
                 skinClass="skins.SkinSolidButton"
                 color="0xfda731"
+                accentColor="white"
 
                 fontSize="20"
                 useHandCursor="true"
