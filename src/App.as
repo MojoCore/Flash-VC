@@ -80,7 +80,7 @@ public class App extends Sprite{
 
     function App(){
         trace("start app...");
-        RestService.SetConfigServer( 'https://video-checkout-staging.herokuapp.com/api/v1/');
+        RestService.SetConfigServer( ParamsUrl.GetLocalHost()+'api/v1/');
 
     }
     public function InitializeComponents(app:Object,width:int):void{
@@ -147,17 +147,21 @@ public class App extends Sprite{
     private function LoadVideoJson():void{
         var service:RestService = new RestService('videos');
         ParamsUrl.ReadParamsFromUrl(_app.loaderInfo.loaderURL);
-        service.Get(ParamsUrl.get('id'),function (e:Event):void {
+        service.GetCustom(ParamsUrl.GetLocalHost()+'api/v2/',ParamsUrl.get('id'),function (e:Event):void {
             var loader:URLLoader = URLLoader(e.target);
-            var data:Object = JSON.parse(loader.data);
-            InitDataForVideo(data);
+            try{
+                var data:Object = JSON.parse(loader.data);
+                InitDataForVideo(data);
+            }catch(e:Error){
+                Alert.show("No data json found!")
+            }
+
         },function(event:IOErrorEvent):void{
             Alert.show("url incorrect:"+event.text);
         });
     }
     private function InitDataForVideo(data:Object):void {
         _video=services.JsonUtil.ConvertToVideo(data);
-        //_actionsList.dataProvider=_video.actions;
         _app.inCaseYouMissedResponsive.list.dataProvider=_video.actions;
         _app.inCaseYouMissedDefault.list.dataProvider=_video.actions;
         _videoPlayer.source = data.urls.originalUrl;

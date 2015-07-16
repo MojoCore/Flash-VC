@@ -51,11 +51,11 @@
               <s:TextInput id="cardnumberInput" width="100%" skinClass="skins.SkinTextInputResponsive" height="30"/>
           </s:VGroup>
           <s:VGroup width="25%">
-              <s:Label text="CVV" width="100%" fontSize="13" fontFamily="Arial"/>
+              <s:Label text="CVC" width="100%" fontSize="13" fontFamily="Arial"/>
               <s:TextInput id="cvvInput" width="100%" skinClass="skins.SkinTextInputResponsive"/>
           </s:VGroup>
           <s:VGroup width="25%">
-              <s:Label text="" width="100%" fontSize="13" fontFamily="Arial"/>
+              <s:Label text="MM/YY" width="100%" fontSize="13" fontFamily="Arial"/>
               <custom:InputExpirateCard width="100%" id="expiryInput"></custom:InputExpirateCard>
           </s:VGroup>
       </s:HGroup>
@@ -69,30 +69,32 @@
         <s:TextInput id="emailInput" width="100%" skinClass="skins.SkinTextInputResponsive"/>
       </s:VGroup>
     </s:HGroup>
-
+      <s:HGroup width="100%" >
+          <s:VGroup width="50%">
+              <s:Label text="Address" width="100%"  fontSize="13" fontFamily="Arial"/>
+              <s:TextInput id="addressInput" width="100%" skinClass="skins.SkinTextInputResponsive"/>
+          </s:VGroup>
+          <s:VGroup width="50%">
+              <s:Label text="City" width="100%" fontSize="13" fontFamily="Arial"/>
+              <s:TextInput id="cityInput" width="100%" skinClass="skins.SkinTextInputResponsive"/>
+          </s:VGroup>
+      </s:HGroup>
     <s:HGroup width="100%" id="finishStaticFieldItems">
-      <s:VGroup width="50%">
-        <s:Label text="Address" width="100%"  fontSize="13" fontFamily="Arial"/>
-        <s:TextInput id="addressInput" width="100%" skinClass="skins.SkinTextInputResponsive"/>
-      </s:VGroup>
-    </s:HGroup>
-    <s:HGroup  width="100%">
-      <s:VGroup width="50%">
-        <s:Label text="City" width="100%" fontSize="13" fontFamily="Arial"/>
-        <s:TextInput id="cityInput" width="100%" skinClass="skins.SkinTextInputResponsive"/>
-      </s:VGroup>
-      <s:VGroup width="30%">
-        <s:Label text="State" width="100%" fontSize="13" fontFamily="Arial"/>
-        <s:ComboBox id="stateInput" contentBackgroundColor="white" height="30" width="100%"/>
-      </s:VGroup>
-      <s:VGroup width="20%">
-        <s:Label text="Zip" width="100%" fontSize="13" fontFamily="Arial"/>
-        <s:TextInput id="zipInput" width="100%" skinClass="skins.SkinTextInputResponsive"/>
-      </s:VGroup>
+        <s:VGroup width="30%">
+            <s:Label text="State" width="100%" fontSize="13" fontFamily="Arial"/>
+            <s:ComboBox id="stateInput" contentBackgroundColor="white" height="30" width="100%" skinClass="skins.SkinCombobox"/>
+        </s:VGroup>
+        <s:VGroup width="20%">
+            <s:Label text="Zip" width="100%" fontSize="13" fontFamily="Arial"/>
+            <s:TextInput id="zipInput" width="100%" skinClass="skins.SkinTextInputResponsive"/>
+        </s:VGroup>
     </s:HGroup>
 
+      <s:VGroup width="100%" id="ContainerTerms">
+
+      </s:VGroup>
       <s:HGroup width="100%" gap="6">
-          <s:VGroup width="65%" paddingTop="10" >
+          <s:VGroup width="100%" paddingTop="10" >
 
     <s:Button id="CheckOutButton" horizontalCenter="0" verticalCenter="0" enabled="true"
               label="CHECKOUT"
@@ -108,11 +110,11 @@
               buttonMode="true"></s:Button>
 
           </s:VGroup>
-          <s:VGroup width="35%">
+          <!--<s:VGroup width="35%">
               <s:Label width="100%" textAlign="center">Secure payments by</s:Label>
 
             <s:Image source="@Embed('../assets/mojopay.png')" width="100%"></s:Image>
-          </s:VGroup>
+          </s:VGroup>-->
       </s:HGroup>
       <s:VGroup width="100%" id="ContainerDisclaimers">
           <mx:HRule width="100%"></mx:HRule>

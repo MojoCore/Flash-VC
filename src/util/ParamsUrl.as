@@ -25,6 +25,9 @@ public class ParamsUrl {
             return "https://www.facebook.com/"
         return Security.pageDomain;
     }
+    public static function GetLocalHost():String {
+        return flash.system.Security.pageDomain;
+    }
 
     public static function ReadParamsFromUrl(url:String):void {
         _params = new ArrayCollection();

@@ -38,6 +38,13 @@
             fontStyle: normal;
 
         }
+        @font-face {
+            src: url("../assets/fontawesome.ttf");
+            fontFamily: 'AwesomeIcons';
+            embedAsCFF: true;
+            fontStyle: normal;
+
+        }
 
     </fx:Style>
   <!-- Specify one state for each SkinState metadata in the host component's class -->

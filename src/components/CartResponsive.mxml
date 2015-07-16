@@ -26,9 +26,9 @@
     ]]></fx:Script>
     <s:Label width="100%" height="40" paddingTop="15" textAlign="left" color="0x555555"
              fontSize="11" textJustify="distribute" textAlignLast="justify"
-             horizontalCenter="0"
+             horizontalCenter="0" fontFamily="Arial"
 
-             text="Instructions: To add items to cart, simply watch the video and click items as they appears" ></s:Label>
+             text="Instructions: To add items to cart, simply watch the video and click items as they appear" ></s:Label>
 
     <s:List id="items" borderColor="black" borderVisible="true"
             dataProvider="{dataCart}"

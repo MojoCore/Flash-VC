@@ -44,6 +44,17 @@ public class RestService {
             loader.addEventListener(IOErrorEvent.IO_ERROR, errorHandlerIOErrorEvent);
         loader.load(request);
     }
+    public function GetCustom(server:String,id:String,response:Function,error:Function=null):void{
+        var loader:URLLoader = new URLLoader();
+        var request:URLRequest = new URLRequest();
+        request.url = server+this.urlService+'/'+id;
+        loader.addEventListener(Event.COMPLETE, response);
+        if(error!=null)
+            loader.addEventListener(IOErrorEvent.IO_ERROR, error);
+        else
+            loader.addEventListener(IOErrorEvent.IO_ERROR, errorHandlerIOErrorEvent);
+        loader.load(request);
+    }
     public function All(params:URLVariables,response:Function):void{
         var loader:URLLoader = new URLLoader();
         var request:URLRequest = new URLRequest();

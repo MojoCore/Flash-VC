@@ -74,10 +74,7 @@ public class Cart {
                 }
 
             }
-            params.phonenumber=_cart.phonenumber;
-            params.corporation=_cart.corporation;
-            params.employer=_cart.employer;
-            params.occupation=_cart.occupation;
+
             params.billing_state=_cart.billing_state||'';
             params.billing_zip= _cart.billing_zip||'';
             params.cc_cvv= _cart.cc_cvv||'';
@@ -86,6 +83,11 @@ public class Cart {
             params.cc_number= _cart.cc_number;
             params.createdAt= _cart.createAt;
             params.email= _cart.email;
+
+            for (var id:String in _video.formConfig.properties){
+                //In this line add method for validate properties
+                params[id]=_cart.customProperties[id];
+            }
         }
         _service.Put(_cart.id,params,function(response:Event):void{
             var loader:URLLoader = URLLoader(response.target);

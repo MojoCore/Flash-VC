@@ -18,7 +18,10 @@ import models.Video;
 
 import mx.collections.ArrayCollection;
 
+import mx.collections.ArrayCollection;
+
 import mx.containers.ViewStack;
+import mx.validators.StringValidator;
 
 import myLib.controls.ScrollBar;
 
@@ -52,6 +55,8 @@ public class ConfigurationForm extends Sprite{
     private var _moveCheckoutTop:Move;
     private var _moveCheckoutBottom:Move;
     static private const CONFIG_SERVICE_NAME='users'
+    static private const UITYPE_PROPERTY_TEXT="text";
+    static private const UITYPE_PROPERTY_TERM="term";
     static private const  exclusionsForm:Array  = ["cs_buttonText",'cs_includeIcon','cs_customDisclaimer','cs_disclaimer2','cs_disclaimer1','cs_business_type'];
     private var fields:ArrayCollection;
     private var _states:ArrayCollection;
@@ -159,9 +164,11 @@ public class ConfigurationForm extends Sprite{
     }
     private function initNewDataConfig(){
         var obj:Object=new Object();
-        obj={
+        /*obj={
+                required:['phonenumber','employer','occupation'],
                 properties:{
-                    phone_number:{
+                    phonenumber:{
+                        uitype:'text',
                         label:{
                             en:'Phone Number',
                             es:'Teléfono'
@@ -169,29 +176,55 @@ public class ConfigurationForm extends Sprite{
                         priority:1
                     },
                     employer:{
+                        uitype:'text',
                         label:{
                             en:'Employer',
                             es:'Empleador'
                         },
                         priority:2
                     },
+                    corporation:{
+                        uitype:'text',
+                        label:{
+                            en:'Corporation',
+                            es:'Empresa'
+                        },
+                        priority:3
+                    },
                     occupation:{
+                        uitype:'text',
                         label:{
                             en:'Occupation',
                             es:'Ocupación'
                         },
-                        priority:3
+                        priority:4
+                    },
+                    disclaimer1:{
+                        uitype:'term',
+                        label:{
+                            en:'By checking this box, I certify that I am a US citizen over the age of 18, and that this contribution is from my own personal funds and not from a corporation or a political action committee.',
+                            es:'Termino de Aceptación 1'
+                        },
+                        priority:1
+                    },
+                    disclaimer2:{
+                        uitype:'term',
+                        label:{
+                            en:'Term 2',
+                            es:'Termino de Aceptación 2'
+                        },
+                        priority:2
                     }
                 },
             button:{
                 text:"Contribute",
-                bgcolor:"#327832",
+                bgcolor:"#41abe7",
                 color:"white"
             },
             disclaimers:{
                 0:{
                     label:{
-                        en:'By checking this box, I certify that I am a US citizen over the age of 18, and that this contribution is from my own personal funds and not from a corporation or a political action committee.'
+                        en:'Press {{button_text}} for replace in {{user_company}} and press other {{button_text}}. By checking this box, I certify that I am a US citizen over the age of 18, and that this contribution is from my own personal funds and not from a corporation or a political action committee.'
                     }
                 },
                 1:{
@@ -202,7 +235,7 @@ public class ConfigurationForm extends Sprite{
             }
 
         }
-        _video.formConfig=obj;
+        _video.formConfig=obj;*/
         _dataConfig= _video.formConfig;
     }
     public function Configure(fn:Function=null):void{
@@ -210,8 +243,6 @@ public class ConfigurationForm extends Sprite{
     }
     public function LoadConfiguration(fn:Function=null){
         _formResponsive.stateInput.dataProvider=_states;
-        //_formResponsive.monthInput.dataProvider=_months;
-        //_formResponsive.yearInput.dataProvider=_years;
         _formDefault.stateInput.dataProvider=_states;
         _formDefault.monthInput.dataProvider=_months;
         _formDefault.yearInput.dataProvider=_years;
@@ -233,22 +264,30 @@ public class ConfigurationForm extends Sprite{
         AddListeners();
         ConfigButton();
         ConfigProperties();
+        ConfigTerms();
         ConfigDisclaimers();
 
     }
     private function ConfigButton():void{
-        _titleButton=_dataConfig.button.text;
-        _formResponsive.CheckOutButton.label=_dataConfig.button.text;
-        _formDefault.CheckOutButton.label=_dataConfig.button.text;
+        if(_dataConfig.button){
+            _titleButton=_dataConfig.button.text;
+            _formResponsive.CheckOutButton.label=_dataConfig.button.text;
+            _formDefault.CheckOutButton.label=_dataConfig.button.text;
 
-        _formResponsive.CheckOutButton.setStyle("color",_dataConfig.button.bgcolor);
-        _formResponsive.CheckOutButton.setStyle("accentColor",_dataConfig.button.color);
+            _formResponsive.CheckOutButton.setStyle("color",_dataConfig.button.bgcolor);
+            _formResponsive.CheckOutButton.setStyle("accentColor",_dataConfig.button.color);
 
-        _formDefault.CheckOutButton.setStyle("color",_dataConfig.button.bgcolor);
-        _formDefault.CheckOutButton.setStyle("accentColor",_dataConfig.button.color);
+            _formDefault.CheckOutButton.setStyle("color",_dataConfig.button.bgcolor);
+            _formDefault.CheckOutButton.setStyle("accentColor",_dataConfig.button.color);
 
-
-        _app.btnTabCheckout.title=_dataConfig.button.text;
+            var nameTab:String=''
+            if(_video.formConfig.campaign_type=='product'){
+                nameTab='CHECKOUT';
+            }else{
+                nameTab='CONTRIBUTE';
+            }
+            _app.btnTabCheckout.title=nameTab;
+        }
 
     }
     private function ConfigProperties():void{
@@ -259,13 +298,18 @@ public class ConfigurationForm extends Sprite{
         var key:String;
         var total:int=0;
         var i:int=0;
-        var positionForm:int=2;
+        var positionForm:int=3;
         var addHeight:int=0;
         var heightRowProperties:int=30;
         var properties:ArrayCollection=new ArrayCollection();
+
         for (var id:String in _dataConfig.properties){
-            total++;
-            properties.addItem({key:id,order: _dataConfig.properties[id].priority});
+
+            if(_dataConfig.properties[id].uitype==UITYPE_PROPERTY_TEXT){
+                properties.addItem({key:id,order: _dataConfig.properties[id].priority});
+                total++;
+            }
+
         }
         JsonUtil.arrayCollectionSort(properties,'order',true);
 
@@ -284,6 +328,8 @@ public class ConfigurationForm extends Sprite{
                 }
                 var textInput:TextInput = NewField(key,_dataConfig.properties[key].label[_language]);
                 var textInputR:Object = NewFieldResponsive(key,_dataConfig.properties[key].label[_language]);
+
+
                 textInput.addEventListener(KeyboardEvent.KEY_DOWN,changeDynamicDefaultHandler);
                 textInput.addEventListener(KeyboardEvent.KEY_UP,changeDynamicDefaultHandler);
                 textInputR.textInput.addEventListener(KeyboardEvent.KEY_DOWN,changeDynamicResponsiveHandler);
@@ -317,7 +363,28 @@ public class ConfigurationForm extends Sprite{
 
 
     }
+    private function ConfigTerms():void{
+        var key:String;
+        var total:int=0;
+        var terms:ArrayCollection=new ArrayCollection();
+        var container:VGroup=_formResponsive.ContainerTerms;
+        for (var id:String in _dataConfig.properties){
 
+            if(_dataConfig.properties[id].uitype==UITYPE_PROPERTY_TERM){
+                terms.addItem({key:id,order: _dataConfig.properties[id].priority});
+                total++;
+            }
+
+        }
+        JsonUtil.arrayCollectionSort(terms,'order',true);
+        if(_dataConfig.hasOwnProperty("properties")) {
+            for (var index:int = 0; index < total; index++) {
+                key=terms.getItemAt(index).key;
+                var termCompomnent:HGroup=NewTerm(key,_dataConfig.properties[key].label[_language]);
+                container.addElement(termCompomnent);
+            }
+        }
+    }
     private function ConfigDisclaimers():void{
         var total:int=0;
         var key:String;
@@ -333,12 +400,55 @@ public class ConfigurationForm extends Sprite{
         if(_dataConfig.hasOwnProperty("disclaimers")){
             key=disclaimers.getItemAt(index).key;
             for(var index:int=0;index<total;index++) {
-
-                var disclaimer:Label=NewDisclaimer(_dataConfig.disclaimers[key].label[_language]);
+                var text:String=_dataConfig.disclaimers[key].label[_language];
+                var disclaimer:Label=NewDisclaimer(text);
                 container.addElement(disclaimer);
-            }
+        }
         }
     }
+    private function ReplaceAllExpressions(text:String):String {
+        var expressions:Array=['user_company','button_text'];
+        var obj:Object={
+            user_company:'My Company',
+            button_text: 'ButtonName'
+        };
+
+        for(var i:int=0;i<expressions.length;i++){
+            text=ReplaceText(expressions[i],text,obj[expressions[i]]);
+        }
+        return text;
+    }
+
+    private function ReplaceText(tagName:String,text:String,value:String):String{
+        //var rxStr:String = '/\{\{"+tagName+"\}\}/g';
+        var start:RegExp=/{{/
+        var end:RegExp=/}}/
+        var regex:RegExp = new RegExp(start.source+tagName+end.source,"g");
+        trace(regex.toString());
+        text = text.replace(regex,value);
+        return text;
+    }
+
+    private var validators:ArrayCollection=new ArrayCollection();
+    private function ConfigValidation(id:String,name:String,input:TextInput):void{
+        var validator:StringValidator;
+        var disclaimers:ArrayCollection=new ArrayCollection();
+        for (var i:int=0;i<_dataConfig.required.length;i++){
+            if(id==_dataConfig.required[i]){
+                validator=new StringValidator();
+                validator.requiredFieldError=name+" is required!";
+                validator.required=true;
+                validator.property='text';
+                validator.triggerEvent="focusOut";
+                validator.source=input;
+                validators.addItem(validator);
+
+            }
+
+        }
+        JsonUtil.arrayCollectionSort(disclaimers,'order',true);
+    }
+
     private function activeCheckBoxHandler(event:MouseEvent):void {
         _formResponsive.CheckOutButton.enabled= (event.currentTarget as CheckBox).selected
     }
@@ -422,10 +532,11 @@ public class ConfigurationForm extends Sprite{
         textInput.setStyle('skinClass',skins.SkinTextInputResponsive);
         vGroup.addElement(lblInput);
         vGroup.addElement(textInput);
+
+        ConfigValidation(id,name,textInput);
         return {groupItem:vGroup,textInput:textInput};
     }
-
-    private function NewDisclaimer(description:String){
+    private function NewDisclaimer(description:String):Label{
         var disclaimer:Label=new Label();
         disclaimer.percentWidth=100;
         disclaimer.setStyle('fontSize','10');
@@ -434,6 +545,31 @@ public class ConfigurationForm extends Sprite{
         disclaimer.setStyle('textAlign','justify');
         disclaimer.text=description;
         return disclaimer;
+    }
+    private function NewTerm(id:String,description:String):HGroup{
+        var group:HGroup=new HGroup();
+        var check:CheckBox=new CheckBox();
+        var label:Label=new Label();
+
+        group.percentWidth=100;
+        check.id=id;
+        check.selected=false;
+        label.text=description;
+        label.percentWidth=100;
+        label.setStyle('fontSize','10');
+        label.setStyle('paddingTop','5');
+        label.setStyle('color','#666666');
+        label.setStyle('textAlign','justify');
+        group.addElement(check);
+        group.addElement(label);
+        check.addEventListener(Event.CHANGE,changeDynamicTermResponsiveHandler )
+       return group;
+
+    }
+
+    private function changeDynamicTermResponsiveHandler(event:Event):void {
+        var input:CheckBox=(event.currentTarget as CheckBox);
+        _cart.customProperties[input.id]=input.selected;
     }
     private function AddListeners():void{
         //var components:ArrayList=new ArrayList(_formResponsive.nameInput,_formResponsive.emailInput)
@@ -493,18 +629,16 @@ public class ConfigurationForm extends Sprite{
         _formDefault.yearInput.addEventListener(IndexChangeEvent.CHANGE,changeDefaultHandler);
        // _formResponsive.yearInput.addEventListener(IndexChangeEvent.CHANGE,changeResponsiveHandler);
     }
-
     private function MoveScrollHandler(event:FocusEvent):void {
         trace(event.currentTarget);
         var hgroup:HGroup=((event.currentTarget as TextInput).owner as VGroup).owner as HGroup;
         var index:int=hgroup.owner.getChildIndex(hgroup);
         trace(index)
-        _app.formResponsiveScroller.viewport.verticalScrollPosition=index*30;
+        _app.formResponsiveScroller.viewport.verticalScrollPosition=index*50;
     }
-
     private function changeDynamicDefaultHandler(event:KeyboardEvent):void{
 
-        var input:TextInput=(event.currentTarget as TextInput);
+        /*var input:TextInput=(event.currentTarget as TextInput);
         var index=-1;
         for(var i:int=0;i<fields.length;i++){
             if(fields[i].id==input.id){
@@ -531,39 +665,14 @@ public class ConfigurationForm extends Sprite{
                     fields[index].inputResponsive.text=_cart.employer;
                     break;
             }
-        }
+        }*/
     }
     private function changeDynamicResponsiveHandler(event:KeyboardEvent):void{
         var input:TextInput=(event.currentTarget as TextInput);
-        var index=-1;
-        for(var i:int=0;i<fields.length;i++){
-            if(fields[i].id==input.id){
-                index=i;
-            }
-
-        }
-        if(index>=0){
-            switch(input.id){
-                case "phonenumber":
-                    _cart.phonenumber=input.text;
-                    fields[index].input.text=_cart.phonenumber;
-                    break;
-                case "occupation":
-                    _cart.occupation=input.text;
-                    fields[index].input.text=_cart.occupation;
-                    break;
-                case "corporation":
-                    _cart.corporation=input.text;
-                    fields[index].input.text=_cart.corporation;
-                    break;
-                case "employer":
-                    _cart.employer=input.text;
-                    fields[index].input.text=_cart.employer;
-                    break;
-            }
-        }
+        _cart.customProperties[input.id]=input.text;
 
     }
+
     private function UpdateCart(form):void{
         _cart.billing_firstName=form.nameInput.text;
         _cart.email = form.emailInput.text

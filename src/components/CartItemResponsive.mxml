@@ -71,30 +71,31 @@
 
   </s:Rect>
     <s:VGroup width="100%">
-<s:HGroup width="100%">
-    <s:HGroup width="40%">
+<s:HGroup width="100%" verticalAlign="middle">
+    <s:HGroup width="40%" verticalAlign="middle" height="100%">
         <s:Image id="image" width="32"  height="32" source="{data.card.image}" />
-        <s:Label  id="titleLabel" text="{data.card.title}" fontSize="14" paddingTop="5"/>
+        <s:Label  id="titleLabel" text="{data.card.title}" fontSize="14"/>
     </s:HGroup>
 
-    <s:Label textAlign="center" id="priceLabel" text="{_currency.format(data.card.price)}" fontSize="14" paddingTop="5" width="20%"></s:Label>
-    <s:HGroup width="30%" horizontalAlign="center">
+    <s:Label verticalAlign="middle" textAlign="center" id="priceLabel" text="{_currency.format(data.card.price)}" fontSize="14" width="20%" height="100%"></s:Label>
+    <s:HGroup width="30%" horizontalAlign="center" verticalAlign="middle" height="100%">
         <s:NumericStepper id="amount" value="{data.amount}" stepSize="1" maximum="1000" maxWidth="55" minimum="1"/>
     </s:HGroup>
     <s:Button id="button"
               label="&#xe601;"
               width="20"
               height="20"
-              color="0x6ABDC0"
-              accentColor="#FFFFFF"
+              color="0xf5f5f7"
+              accentColor="gray"
               fontSize="10"
               skinClass="skins.SkinSolidButton"
               fontFamily="CustomIcons"
               click="deleteItem()"
-              top="0"
+
               right="10"
               useHandCursor="true"
               buttonMode="true"
+
 
 
             />

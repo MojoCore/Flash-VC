@@ -23,6 +23,7 @@ public class Order{
     public function SendOrder(fnCompleted:Function=null,fnError:Function=null):void{
         var params:Object=new Object();
         params.cartId=_order.cart.id;
+        params.customErrorStatus=200;
         _fnCompleted=fnCompleted;
         _fnError=fnError;
         _service.Post(params,this.SendOrderCompleted,this.SendOrderError);
@@ -33,10 +34,14 @@ public class Order{
             var data:Boolean=false;
             var loader:URLLoader = URLLoader(event.target);
             result = JSON.parse(loader.data);
-
-            if(_fnCompleted!=null){
-                _fnCompleted(result);
+            if(result.hasOwnProperty('errors')){
+                SendOrderError(event);
+            }else{
+                if(_fnCompleted!=null){
+                    _fnCompleted(result);
+                }
             }
+
         }catch(e:Error){
 
         }

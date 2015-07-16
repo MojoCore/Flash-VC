@@ -45,8 +45,8 @@
   <s:VGroup width="100%" top="0" left="0" contentBackgroundAlpha="1" contentBackgroundColor="0xf5f5f7" opaqueBackground="0xf5f5f7">
     <s:HGroup width="100%" useHandCursor="true" paddingLeft="10" paddingRight="10" paddingTop="10">
       <s:Label id="icon" textAlign="center" horizontalCenter="0" fontFamily="CustomIcons" text="&#xe604;" color="black" fontSize="20" backgroundAlpha="0"></s:Label>
-      <s:Label id="titleLabel" text="{_title}" paddingTop="5" fontSize="15" fontWeight="bold" backgroundAlpha="0"></s:Label>
-      <s:Image source="@Embed('../assets/cards.png')"/>
+      <s:Label id="titleLabel" text="{_title}" paddingTop="5" fontSize="15" fontWeight="bold" backgroundAlpha="0" width="100%"></s:Label>
+      <s:Image source="@Embed('../assets/cards.png')" horizontalAlign="right"/>
     </s:HGroup>
   </s:VGroup>
   <s:ToggleButton id="button" width="100%" height="100%" left="0" top="0" click="ActiveTab()" alpha="0.3" skinClass="skins.SkinTabButton"></s:ToggleButton>

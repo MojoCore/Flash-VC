@@ -53,6 +53,78 @@ public class JsonUtil {
         video.id = json._id;
         video.user = json.user;
         video.actions = JsonUtil.ConvertToCards(json.actions);
+        var obj:Object={
+            required:['phonenumber','employer','occupation'],
+            properties:{
+                phonenumber:{
+                    uitype:'text',
+                    label:{
+                        en:'Phone Number',
+                        es:'Teléfono'
+                    },
+                    priority:1
+                },
+                employer:{
+                    uitype:'text',
+                    label:{
+                        en:'Employer',
+                        es:'Empleador'
+                    },
+                    priority:2
+                },
+                corporation:{
+                    uitype:'text',
+                    label:{
+                        en:'Corporation',
+                        es:'Empresa'
+                    },
+                    priority:3
+                },
+                occupation:{
+                    uitype:'text',
+                    label:{
+                        en:'Occupation',
+                        es:'Ocupación'
+                    },
+                    priority:4
+                },
+                disclaimer1:{
+                    uitype:'term',
+                    label:{
+                        en:'By checking this box, I certify that I am a US citizen over the age of 18, and that this contribution is from my own personal funds and not from a corporation or a political action committee.',
+                        es:'Termino de Aceptación 1'
+                    },
+                    priority:1
+                },
+                disclaimer2:{
+                    uitype:'term',
+                    label:{
+                        en:'Term 2',
+                        es:'Termino de Aceptación 2'
+                    },
+                    priority:2
+                }
+            },
+            button:{
+                text:"Contribute",
+                bgcolor:"#41abe7",
+                color:"white"
+            },
+            disclaimers:{
+                0:{
+                    label:{
+                        en:'Press {{button_text}} for replace in {{user_company}} and press other {{button_text}}. By checking this box, I certify that I am a US citizen over the age of 18, and that this contribution is from my own personal funds and not from a corporation or a political action committee.'
+                    }
+                },
+                1:{
+                    label:{
+                        en:'By checking this box, I certify that I am a US citizen over the age of 18, and that this contribution is from my own personal funds and not from a corporation or a political action committee.'
+                    }
+                }
+            }
+
+        }
+        video.formConfig=json.formConfig||new Object();
         return video;
 
     }

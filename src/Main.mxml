@@ -3,71 +3,39 @@
 <s:Application name="Spark_VideoPlayer_skinClass_scrubBar_test"
                xmlns:fx="http://ns.adobe.com/mxml/2009"
                xmlns:s="library://ns.adobe.com/flex/spark" creationComplete="InitApp()"
-               xmlns:custom="components.*" xmlns:mx="library://ns.adobe.com/flex/mx" applicationComplete="init2()">
+               xmlns:custom="components.*" xmlns:mx="library://ns.adobe.com/flex/mx" applicationComplete="initAppComplete()">
 
     <fx:Script><![CDATA[
-        import myLib.styles.StyleManager;
 
         import mx.binding.utils.ChangeWatcher;
-        import mx.controls.Alert;
-        import mx.controls.Alert;
-        import mx.controls.Alert;
-        import mx.managers.BrowserManager;
-        import mx.managers.IBrowserManager;
-
-        import org.osmf.events.MediaPlayerStateChangeEvent;
-        import mx.core.FlexGlobals;
-
-
         import util.swfSelfResize;
-        import mx.utils.MediaQueryParser;
-        import flash.system.Security;
+
         private var widthWatch:ChangeWatcher;
         public var app:App = new App();
         private var resize:swfSelfResize;
+
         private function InitApp():void {
-            app.InitializeComponents(this,systemManager.stage.stageWidth);
+            app.InitializeComponents(this, systemManager.stage.stageWidth);
             Security.allowDomain("*");
             flash.system.Security.allowDomain("*");
             btnTabCart.ActiveTab();
-            btnTabCart.subtitleLabel.text=''
-            formResponsiveScroller.viewport.verticalScrollPosition=50;
+            btnTabCart.subtitleLabel.text = '';
+            formResponsiveScroller.viewport.verticalScrollPosition = 50;
 
         }
-        private function init2():void{
 
+        private function initAppComplete():void {
             app.Init();
-            widthWatch = ChangeWatcher.watch(this,'width',onSizeChange);
+            widthWatch = ChangeWatcher.watch(this, 'width', onSizeChange);
         }
-
-        function loaderComplete(myEvent:Event)
-        {
-            //var myQueryStrings=this.loaderInfo.parameters;
-            //Alert.show(myQueryStrings.id);
-        }
-
-        public function resizeApp(){
-            //resize=new swfSelfResize();
-            //this.resize.addHeight( 100 );
-            footer.includeInLayout=true;
-            footer.visible=true;
-        }
-
-
-
-
 
         private function onSizeChange(event:Event):void {
-            //Alert.show(stage.stageWidth.toString());
-            if(stage.stageWidth<640){
+            if (stage.stageWidth < 640) {
                 app.ChangeResponsive();
-            }else{
+            } else {
                 app.ChangeDefault();
             }
         }
-
-
-
 
         ]]></fx:Script>
 <fx:Style source="styles/app.css"/>
@@ -164,7 +132,7 @@
               skinClass="skins.SkinCircleButton"
               useHandCursor="true"
               buttonMode="true"  />
-    <s:Button id="countButton" click="resizeApp()"
+    <s:Button id="countButton"
               skinClass="skins.SkinCircleButtonText"
               top="10"
               right="11"
