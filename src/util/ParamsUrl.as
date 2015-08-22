@@ -2,18 +2,16 @@
  * Created by nodejs01 on 5/11/15.
  */
 package util {
-import flash.external.ExternalInterface;
 import flash.system.Security;
 
 import mx.collections.ArrayCollection;
 import mx.controls.Alert;
-import mx.core.FlexGlobals;
-import mx.managers.BrowserManager;
-import mx.managers.IBrowserManager;
+
+import spark.components.Application;
 
 public class ParamsUrl {
     private static var _params:ArrayCollection;
-
+    private static var _localhost:String
     public function ParamsUrl() {
     }
     public static function GetHost():String {
@@ -25,8 +23,12 @@ public class ParamsUrl {
             return "https://www.facebook.com/"
         return Security.pageDomain;
     }
+    public static function SetLocalhost(url):void{
+        _localhost=url;
+    }
     public static function GetLocalHost():String {
-        return flash.system.Security.pageDomain;
+        //return 'https://app.videocheckout.com/';
+        return _localhost;
     }
 
     public static function ReadParamsFromUrl(url:String):void {
@@ -48,7 +50,7 @@ public class ParamsUrl {
         }else{
             obj = new Object();
             obj.key = 'id';
-            obj.value = '556781ea9280b6030082cc02';
+            obj.value = '55ad2cc75151fc03009b20e8';
             _params.addItem(obj);
         }
 

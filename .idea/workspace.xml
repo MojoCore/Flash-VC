@@ -2,23 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fe6276c7-78f5-4897-ad4d-8222c99566e4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/fontawesome.ttf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/FlashCheckout/Main.swf" afterPath="$PROJECT_DIR$/out/production/FlashCheckout/Main.swf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.as" afterPath="$PROJECT_DIR$/src/App.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/Cart.as" afterPath="$PROJECT_DIR$/src/models/Cart.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/CardItemResponsive.mxml" afterPath="$PROJECT_DIR$/src/components/CardItemResponsive.mxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/services/Cart.as" afterPath="$PROJECT_DIR$/src/services/Cart.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/CartItemResponsive.mxml" afterPath="$PROJECT_DIR$/src/components/CartItemResponsive.mxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/CartResponsive.mxml" afterPath="$PROJECT_DIR$/src/components/CartResponsive.mxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/CheckoutResponsiveBox.mxml" afterPath="$PROJECT_DIR$/src/components/CheckoutResponsiveBox.mxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/services/ConfigurationForm.as" afterPath="$PROJECT_DIR$/src/services/ConfigurationForm.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/CustomTabCheckout.mxml" afterPath="$PROJECT_DIR$/src/components/CustomTabCheckout.mxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FlashCheckout.iml" afterPath="$PROJECT_DIR$/FlashCheckout.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/services/JsonUtil.as" afterPath="$PROJECT_DIR$/src/services/JsonUtil.as" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.mxml" afterPath="$PROJECT_DIR$/src/Main.mxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/services/Order.as" afterPath="$PROJECT_DIR$/src/services/Order.as" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/ParamsUrl.as" afterPath="$PROJECT_DIR$/src/util/ParamsUrl.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/RestService.as" afterPath="$PROJECT_DIR$/src/util/RestService.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skins/SkinCombobox.mxml" afterPath="$PROJECT_DIR$/src/skins/SkinCombobox.mxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skins/SkinSolidButton.mxml" afterPath="$PROJECT_DIR$/src/skins/SkinSolidButton.mxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/Video.as" afterPath="$PROJECT_DIR$/src/models/Video.as" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Flash-VC.iws" />
@@ -41,142 +35,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="CheckoutResponsiveBox.mxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/CheckoutResponsiveBox.mxml">
+      <file leaf-file-name="new-flex-config.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/new-flex-config.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="69" column="17" selection-start-line="69" selection-start-column="17" selection-end-line="69" selection-end-column="17" />
-              <folding>
-                <element signature="e#741#1661#0" expanded="false" />
-                <marker date="1436885978947" expanded="true" signature="480:488" placeholder="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.mxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Main.mxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.461538">
-              <caret line="22" column="72" selection-start-line="22" selection-start-column="72" selection-end-line="22" selection-end-column="72" />
-              <folding>
-                <marker date="1437089105072" expanded="true" signature="416:482" placeholder="..." />
-                <marker date="1437089105072" expanded="true" signature="653:989" placeholder="{...}" />
-                <marker date="1437089105072" expanded="true" signature="1039:1149" placeholder="{...}" />
-                <marker date="1437089105072" expanded="true" signature="1207:1372" placeholder="{...}" />
-                <marker date="1437089105072" expanded="true" signature="1249:1304" placeholder="{...}" />
-                <marker date="1437089105072" expanded="true" signature="1310:1362" placeholder="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="App.as" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/App.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.55458516">
-              <caret line="152" column="56" selection-start-line="152" selection-start-column="56" selection-end-line="152" selection-end-column="56" />
+            <state vertical-scroll-proportion="0.37171718">
+              <caret line="610" column="6" selection-start-line="610" selection-start-column="6" selection-end-line="610" selection-end-column="6" />
               <folding />
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ParamsUrl.as" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/util/ParamsUrl.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="28" column="48" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RestService.as" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/util/RestService.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="46" column="29" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CustomTabCheckout.mxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/CustomTabCheckout.mxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="48" column="76" selection-start-line="48" selection-start-column="76" selection-end-line="48" selection-end-column="76" />
-              <folding>
-                <marker date="1436387314771" expanded="true" signature="586:594" placeholder="{...}" />
-                <marker date="1436387314771" expanded="true" signature="638:695" placeholder="{...}" />
-                <marker date="1436387314771" expanded="true" signature="741:772" placeholder="{...}" />
-                <marker date="1436387314771" expanded="true" signature="823:854" placeholder="{...}" />
-                <marker date="1436387314771" expanded="true" signature="914:950" placeholder="{...}" />
-                <marker date="1436387314771" expanded="true" signature="997:1047" placeholder="{...}" />
-                <marker date="1436387314771" expanded="true" signature="1085:1209" placeholder="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ConfigurationForm.as" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/services/ConfigurationForm.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="282" column="33" selection-start-line="282" selection-start-column="33" selection-end-line="282" selection-end-column="33" />
-              <folding>
-                <element signature="n#!!block;n#ConfigurationForm#0;n#ConfigurationForm#0;n#services#0" expanded="false" />
-                <element signature="n#!!block;n#InitYears#0;n#ConfigurationForm#0;n#services#0" expanded="false" />
-                <element signature="n#!!block;n#InitStates#0;n#ConfigurationForm#0;n#services#0" expanded="false" />
-                <element signature="n#!!block;n#InitMonths#0;n#ConfigurationForm#0;n#services#0" expanded="false" />
-                <element signature="n#!!block;n#Configure#0;n#ConfigurationForm#0;n#services#0" expanded="false" />
-                <element signature="n#!!block;n#LoadConfiguration#0;n#ConfigurationForm#0;n#services#0" expanded="false" />
-                <element signature="n#!!block;n#ConfigProperties#0;n#ConfigurationForm#0;n#services#0" expanded="false" />
-                <element signature="n#!!block;n#ConfigTerms#0;n#ConfigurationForm#0;n#services#0" expanded="false" />
-                <element signature="n#!!block;n#activeCheckBoxHandler#0;n#ConfigurationForm#0;n#services#0" expanded="false" />
-                <element signature="n#!!block;n#GetField#0;n#ConfigurationForm#0;n#services#0" expanded="false" />
-                <element signature="n#!!block;n#ConfigAnimation#0;n#ConfigurationForm#0;n#services#0" expanded="false" />
-                <element signature="n#!!block;n#ShowDefault#0;n#ConfigurationForm#0;n#services#0" expanded="false" />
-                <element signature="n#!!block;n#HideDefault#0;n#ConfigurationForm#0;n#services#0" expanded="false" />
-                <element signature="n#!!block;n#FindExludeItem#0;n#ConfigurationForm#0;n#services#0" expanded="false" />
-                <element signature="n#!!block;n#NewFormItem#0;n#ConfigurationForm#0;n#services#0" expanded="false" />
-                <element signature="n#!!block;n#NewFormItemResponsive#0;n#ConfigurationForm#0;n#services#0" expanded="false" />
-                <element signature="n#!!block;n#NewField#0;n#ConfigurationForm#0;n#services#0" expanded="false" />
-                <element signature="n#!!block;n#NewDisclaimer#0;n#ConfigurationForm#0;n#services#0" expanded="false" />
-                <element signature="n#!!block;n#NewTerm#0;n#ConfigurationForm#0;n#services#0" expanded="false" />
-                <element signature="n#!!block;n#AddListeners#0;n#ConfigurationForm#0;n#services#0" expanded="false" />
-                <element signature="n#!!block;n#changeDynamicDefaultHandler#0;n#ConfigurationForm#0;n#services#0" expanded="false" />
-                <element signature="n#!!block;n#UpdateCart#0;n#ConfigurationForm#0;n#services#0" expanded="false" />
-                <element signature="n#!!block;n#changeDefaultHandler#0;n#ConfigurationForm#0;n#services#0" expanded="false" />
-                <element signature="n#!!block;n#titleButton#0;n#ConfigurationForm#0;n#services#0" expanded="false" />
-                <element signature="n#!!block;n#titleButton#1;n#ConfigurationForm#0;n#services#0" expanded="false" />
-                <element signature="n#!!block;n#language#0;n#ConfigurationForm#0;n#services#0" expanded="false" />
-                <element signature="n#!!block;n#language#1;n#ConfigurationForm#0;n#services#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CartItemResponsive.mxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/CartItemResponsive.mxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="81" column="113" selection-start-line="81" selection-start-column="113" selection-end-line="81" selection-end-column="113" />
-              <folding>
-                <marker date="1436388322694" expanded="false" signature="666:763" placeholder="..." />
-                <marker date="1436388322694" expanded="true" signature="984:1239" placeholder="{...}" />
-                <marker date="1436388322694" expanded="true" signature="1277:1531" placeholder="{...}" />
-                <marker date="1436388322694" expanded="true" signature="1573:1721" placeholder="{...}" />
-                <marker date="1436388322694" expanded="true" signature="1779:2091" placeholder="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cards.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/assets/cards.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
           </provider>
         </entry>
       </file>
@@ -204,12 +69,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/services/FormConfig.as" />
-        <option value="$PROJECT_DIR$/src/components/CheckoutCompletedResponsiveBox.mxml" />
-        <option value="$PROJECT_DIR$/src/components/CheckoutCompletedBox.mxml" />
-        <option value="$PROJECT_DIR$/html-template/index.template.html" />
-        <option value="$PROJECT_DIR$/src/skins/SkinTabButtonSelected.mxml" />
-        <option value="$PROJECT_DIR$/src/skins/SkinTabLine.mxml" />
         <option value="$PROJECT_DIR$/src/services/AnalyticEvent.as" />
         <option value="$PROJECT_DIR$/src/components/CustomTabButton.mxml" />
         <option value="$PROJECT_DIR$/src/skins/SkinCheckBox.mxml" />
@@ -232,14 +91,11 @@
         <option value="$PROJECT_DIR$/src/components/InCaseYouMissedDefault.mxml" />
         <option value="$PROJECT_DIR$/src/services/TransitionCards.as" />
         <option value="$PROJECT_DIR$/src/components/InCaseYouMissedResponsive.mxml" />
-        <option value="$PROJECT_DIR$/src/models/Video.as" />
-        <option value="$PROJECT_DIR$/src/components/CardItemResponsive.mxml" />
         <option value="$PROJECT_DIR$/src/components/CardItemDefault.mxml" />
         <option value="$PROJECT_DIR$/src/components/CardDefault.mxml" />
         <option value="$PROJECT_DIR$/src/components/CardResponsive.mxml" />
         <option value="$PROJECT_DIR$/src/components/CartItem.mxml" />
         <option value="$PROJECT_DIR$/src/components/Cart.mxml" />
-        <option value="$PROJECT_DIR$/src/services/Cart.as" />
         <option value="$PROJECT_DIR$/src/models/Cart.as" />
         <option value="$PROJECT_DIR$/src/services/Order.as" />
         <option value="$PROJECT_DIR$/src/components/CustomTabCart.mxml" />
@@ -248,13 +104,22 @@
         <option value="$PROJECT_DIR$/src/components/CartResponsive.mxml" />
         <option value="$PROJECT_DIR$/src/components/CustomTabCheckout.mxml" />
         <option value="$PROJECT_DIR$/src/components/CartItemResponsive.mxml" />
-        <option value="$PROJECT_DIR$/src/components/CheckoutResponsiveBox.mxml" />
-        <option value="$PROJECT_DIR$/src/services/JsonUtil.as" />
         <option value="$PROJECT_DIR$/src/util/RestService.as" />
+        <option value="$PROJECT_DIR$/src/skins/SkinDisclaimerBoxed.mxml" />
+        <option value="$PROJECT_DIR$/src/components/DisclaimerBoxed.mxml" />
+        <option value="$PROJECT_DIR$/src/components/CardItemResponsive.mxml" />
+        <option value="$PROJECT_DIR$/src/models/Video.as" />
+        <option value="$PROJECT_DIR$/src/services/JsonUtil.as" />
+        <option value="$PROJECT_DIR$/src/components/CheckoutResponsiveBox.mxml" />
         <option value="$PROJECT_DIR$/src/services/ConfigurationForm.as" />
+        <option value="$PROJECT_DIR$/out/production/FlashCheckout/testok2046.html" />
+        <option value="$PROJECT_DIR$/out/production/FlashCheckout/test2046.html" />
+        <option value="$PROJECT_DIR$/src/App.as" />
+        <option value="$PROJECT_DIR$/src/services/Cart.as" />
+        <option value="$PROJECT_DIR$/src/skins/SkinVideo.mxml" />
         <option value="$PROJECT_DIR$/src/util/ParamsUrl.as" />
         <option value="$PROJECT_DIR$/src/Main.mxml" />
-        <option value="$PROJECT_DIR$/src/App.as" />
+        <option value="$PROJECT_DIR$/new-flex-config.xml" />
       </list>
     </option>
   </component>
@@ -273,10 +138,10 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="x" value="28" />
+    <option name="y" value="-750" />
+    <option name="width" value="1310" />
+    <option name="height" value="715" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -323,8 +188,8 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -367,35 +232,13 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="util" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Flash-VC" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Flash-VC" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="services" />
+              <option name="myItemId" value="out" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -847,41 +690,55 @@
       <workItem from="1436884786857" duration="9584000" />
       <workItem from="1437061004821" duration="1368000" />
       <workItem from="1437083693600" duration="5183000" />
+      <workItem from="1438361729755" duration="3175000" />
+      <workItem from="1438365401778" duration="1728000" />
+      <workItem from="1438612001486" duration="21210000" />
+      <workItem from="1438697474029" duration="5054000" />
+      <workItem from="1438891560864" duration="1125000" />
+      <workItem from="1438962359711" duration="2886000" />
+      <workItem from="1438980730002" duration="4089000" />
+      <workItem from="1439215771202" duration="7514000" />
+      <workItem from="1439302161236" duration="2856000" />
+      <workItem from="1439823718425" duration="1002000" />
+      <workItem from="1439848537688" duration="2423000" />
+      <workItem from="1439908801993" duration="3517000" />
+      <workItem from="1440174728410" duration="902000" />
+      <workItem from="1440196623503" duration="3079000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="499211000" />
+    <option name="totallyTimeSpent" value="559771000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <frame x="28" y="-750" width="1310" height="715" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23464566" sideWeight="0.29648608" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23464566" sideWeight="0.4742647" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23464566" sideWeight="0.7035139" order="11" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.089108914" sideWeight="0.5257353" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22401172" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16615146" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44094488" sideWeight="0.50130206" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2629921" sideWeight="0.4897511" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32913387" sideWeight="0.49707174" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32913387" sideWeight="0.48243046" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32913387" sideWeight="0.4795022" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -935,35 +792,30 @@
           <option name="timeStamp" value="77" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="flex">
-          <url>file://$PROJECT_DIR$/src/components/InputExpirateCard.mxml</url>
-          <line>35</line>
-          <option name="timeStamp" value="113" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="flex">
-          <url>file://$PROJECT_DIR$/src/components/InputExpirateCard.mxml</url>
-          <line>21</line>
-          <option name="timeStamp" value="118" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="flex">
           <url>file://$PROJECT_DIR$/src/services/ConfigurationForm.as</url>
-          <line>425</line>
+          <line>443</line>
           <option name="timeStamp" value="141" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="flex">
           <url>file://$PROJECT_DIR$/src/services/ConfigurationForm.as</url>
-          <line>427</line>
+          <line>445</line>
           <option name="timeStamp" value="142" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="flex">
           <url>file://$PROJECT_DIR$/src/services/ConfigurationForm.as</url>
-          <line>428</line>
+          <line>446</line>
           <option name="timeStamp" value="143" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="flex">
+          <url>file://$PROJECT_DIR$/src/util/ParamsUrl.as</url>
+          <line>24</line>
+          <option name="timeStamp" value="144" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="144" />
+      <option name="time" value="147" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -972,46 +824,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://D:/flex_sdk_4.6/frameworks/projects/framework/src/mx/managers/SystemManager.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2893" column="0" selection-start-line="2893" selection-start-column="0" selection-end-line="2893" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html-template/index.template.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-27.192308">
-          <caret line="124" column="0" selection-start-line="124" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/production/FlashCheckout/Main.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="53.884617">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/skins/SkinCheckBox.mxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5267666">
-          <caret line="189" column="45" selection-start-line="189" selection-start-column="45" selection-end-line="189" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/skins/SlimHScrollBarSkin.mxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.6538463">
-          <caret line="78" column="57" selection-start-line="78" selection-start-column="57" selection-end-line="78" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/skins/SkinScroller.mxml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.3076925">
           <caret line="84" column="19" selection-start-line="84" selection-start-column="19" selection-end-line="84" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1080,7 +896,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="12" column="39" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1091,33 +906,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/Video.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37701613">
-          <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/InCaseYouMissedResponsive.mxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.9230769">
-          <caret line="6" column="78" selection-start-line="6" selection-start-column="78" selection-end-line="6" selection-end-column="78" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/CardItemResponsive.mxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.423077">
-          <caret line="35" column="33" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/CardResponsive.mxml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.31276596">
           <caret line="32" column="35" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1125,36 +917,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.7692307">
           <caret line="100" column="9" selection-start-line="100" selection-start-column="9" selection-end-line="100" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/Cart.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/Cart.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="95" column="27" selection-start-line="95" selection-start-column="27" selection-end-line="95" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/Order.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.1247265">
-          <caret line="93" column="40" selection-start-line="93" selection-start-column="40" selection-end-line="93" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/InputExpirateCard.mxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.69906545">
-          <caret line="43" column="49" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="49" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1162,14 +924,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.8846154">
           <caret line="43" column="2" selection-start-line="43" selection-start-column="2" selection-end-line="50" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/skins/SkinVideo.mxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.65384614">
-          <caret line="45" column="4" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="67" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1184,7 +938,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-36.615383">
           <caret line="61" column="52" selection-start-line="61" selection-start-column="52" selection-end-line="61" selection-end-column="52" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1192,7 +945,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.1923075">
           <caret line="35" column="33" selection-start-line="35" selection-start-column="33" selection-end-line="35" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1207,7 +959,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.769231">
           <caret line="67" column="26" selection-start-line="67" selection-start-column="26" selection-end-line="67" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1215,7 +966,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.076923">
           <caret line="22" column="25" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1223,7 +973,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6532258">
           <caret line="42" column="37" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1231,7 +980,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.41129032">
           <caret line="48" column="88" selection-start-line="48" selection-start-column="77" selection-end-line="48" selection-end-column="88" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1239,7 +987,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-13.730769">
           <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1247,19 +994,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="172" column="30" selection-start-line="172" selection-start-column="30" selection-end-line="172" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/CartResponsive.mxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="51" selection-start-line="28" selection-start-column="51" selection-end-line="28" selection-end-column="51" />
-          <folding>
-            <marker date="1436385791392" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1436385791392" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1436385791392" expanded="true" signature="-1:-1" placeholder="//..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1267,15 +1001,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="48" column="76" selection-start-line="48" selection-start-column="76" selection-end-line="48" selection-end-column="76" />
-          <folding>
-            <marker date="1436387314771" expanded="true" signature="586:594" placeholder="{...}" />
-            <marker date="1436387314771" expanded="true" signature="638:695" placeholder="{...}" />
-            <marker date="1436387314771" expanded="true" signature="741:772" placeholder="{...}" />
-            <marker date="1436387314771" expanded="true" signature="823:854" placeholder="{...}" />
-            <marker date="1436387314771" expanded="true" signature="914:950" placeholder="{...}" />
-            <marker date="1436387314771" expanded="true" signature="997:1047" placeholder="{...}" />
-            <marker date="1436387314771" expanded="true" signature="1085:1209" placeholder="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1293,13 +1018,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="81" column="113" selection-start-line="81" selection-start-column="113" selection-end-line="81" selection-end-column="113" />
-          <folding>
-            <marker date="1436388322694" expanded="false" signature="666:763" placeholder="..." />
-            <marker date="1436388322694" expanded="true" signature="984:1239" placeholder="{...}" />
-            <marker date="1436388322694" expanded="true" signature="1277:1531" placeholder="{...}" />
-            <marker date="1436388322694" expanded="true" signature="1573:1721" placeholder="{...}" />
-            <marker date="1436388322694" expanded="true" signature="1779:2091" placeholder="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1308,13 +1026,47 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/RestService.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="51" column="8" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/CartResponsive.mxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="51" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/InCaseYouMissedResponsive.mxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="78" selection-start-line="6" selection-start-column="78" selection-end-line="6" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/CardItemResponsive.mxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="31" column="87" selection-start-line="31" selection-start-column="87" selection-end-line="31" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/Video.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/CheckoutResponsiveBox.mxml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="69" column="17" selection-start-line="69" selection-start-column="17" selection-end-line="69" selection-end-column="17" />
+          <caret line="123" column="44" selection-start-line="123" selection-start-column="22" selection-end-line="123" selection-end-column="44" />
           <folding>
             <element signature="e#741#1661#0" expanded="false" />
-            <marker date="1436885978947" expanded="true" signature="480:488" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -1322,15 +1074,15 @@
     <entry file="file://$PROJECT_DIR$/src/services/ConfigurationForm.as">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="282" column="33" selection-start-line="282" selection-start-column="33" selection-end-line="282" selection-end-column="33" />
+          <caret line="416" column="22" selection-start-line="416" selection-start-column="22" selection-end-line="416" selection-end-column="22" />
           <folding>
+            <element signature="e#64#101#0" expanded="false" />
             <element signature="n#!!block;n#ConfigurationForm#0;n#ConfigurationForm#0;n#services#0" expanded="false" />
             <element signature="n#!!block;n#InitYears#0;n#ConfigurationForm#0;n#services#0" expanded="false" />
             <element signature="n#!!block;n#InitStates#0;n#ConfigurationForm#0;n#services#0" expanded="false" />
             <element signature="n#!!block;n#InitMonths#0;n#ConfigurationForm#0;n#services#0" expanded="false" />
             <element signature="n#!!block;n#Configure#0;n#ConfigurationForm#0;n#services#0" expanded="false" />
             <element signature="n#!!block;n#LoadConfiguration#0;n#ConfigurationForm#0;n#services#0" expanded="false" />
-            <element signature="n#!!block;n#ConfigProperties#0;n#ConfigurationForm#0;n#services#0" expanded="false" />
             <element signature="n#!!block;n#ConfigTerms#0;n#ConfigurationForm#0;n#services#0" expanded="false" />
             <element signature="n#!!block;n#activeCheckBoxHandler#0;n#ConfigurationForm#0;n#services#0" expanded="false" />
             <element signature="n#!!block;n#GetField#0;n#ConfigurationForm#0;n#services#0" expanded="false" />
@@ -1341,7 +1093,7 @@
             <element signature="n#!!block;n#NewFormItem#0;n#ConfigurationForm#0;n#services#0" expanded="false" />
             <element signature="n#!!block;n#NewFormItemResponsive#0;n#ConfigurationForm#0;n#services#0" expanded="false" />
             <element signature="n#!!block;n#NewField#0;n#ConfigurationForm#0;n#services#0" expanded="false" />
-            <element signature="n#!!block;n#NewDisclaimer#0;n#ConfigurationForm#0;n#services#0" expanded="false" />
+            <element signature="n#!!block;n#NewFieldResponsive#0;n#ConfigurationForm#0;n#services#0" expanded="false" />
             <element signature="n#!!block;n#NewTerm#0;n#ConfigurationForm#0;n#services#0" expanded="false" />
             <element signature="n#!!block;n#AddListeners#0;n#ConfigurationForm#0;n#services#0" expanded="false" />
             <element signature="n#!!block;n#changeDynamicDefaultHandler#0;n#ConfigurationForm#0;n#services#0" expanded="false" />
@@ -1355,49 +1107,153 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/JsonUtil.as">
+    <entry file="file://$PROJECT_DIR$/out/production/FlashCheckout/test2046.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.5283842">
-          <caret line="27" column="39" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="93" column="28" selection-start-line="93" selection-start-column="28" selection-end-line="93" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/production/FlashCheckout/testok2046.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="71" selection-start-line="7" selection-start-column="71" selection-end-line="7" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/Order.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="28" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/production/FlashCheckout/Main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="61" selection-start-line="10" selection-start-column="61" selection-end-line="10" selection-end-column="61" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/RestService.as">
+    <entry file="file://$PROJECT_DIR$/src/App.as">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="46" column="29" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="29" />
+          <caret line="167" column="46" selection-start-line="167" selection-start-column="46" selection-end-line="167" selection-end-column="46" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/Cart.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="33" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/JsonUtil.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36899564">
+          <caret line="133" column="5" selection-start-line="133" selection-start-column="5" selection-end-line="133" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/InputExpirateCard.mxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding>
+            <marker date="1435693781990" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1435693781990" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1435693781990" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1435693781990" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1435693781990" expanded="true" signature="-1:-1" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/flex_sdk_4.6/frameworks/projects/framework/src/mx/managers/FocusManager.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="709" column="0" selection-start-line="709" selection-start-column="0" selection-end-line="709" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/Cart.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="90" column="38" selection-start-line="90" selection-start-column="38" selection-end-line="90" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skins/SkinVideo.mxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="150" column="66" selection-start-line="150" selection-start-column="66" selection-end-line="150" selection-end-column="66" />
+          <folding>
+            <marker date="1439911555544" expanded="true" signature="-1:-1" placeholder="/**@see spark.components.VideoPlayer ...*/" />
+            <marker date="1439911555544" expanded="true" signature="-1:-1" placeholder="/** @copy spark.skins.spark.ApplicationSkin#hostComponent ...*/" />
+            <marker date="1439911555544" expanded="true" signature="-1:-1" placeholder="/*...*/" />
+            <marker date="1439911555544" expanded="true" signature="-1:-1" placeholder="/*...*/" />
+            <marker date="1439911555544" expanded="true" signature="-1:-1" placeholder="/** @private ...*/" />
+            <marker date="1439911555544" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1439911555544" expanded="true" signature="-1:-1" placeholder="/** @private ...*/" />
+            <marker date="1439911555544" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1439911555544" expanded="true" signature="-1:-1" placeholder="/** @private ...*/" />
+            <marker date="1439911555544" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1439911555544" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1439911555544" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1439911555544" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1439911555544" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1439911555544" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1439911555544" expanded="true" signature="-1:-1" placeholder="/**...*/" />
+            <marker date="1439911555544" expanded="true" signature="-1:-1" placeholder="/**component, but the drop shadow above is not clipped and sizes to the component. ...*/" />
+            <marker date="1439911555544" expanded="true" signature="-1:-1" placeholder="/**...*/" />
+            <marker date="1439911555544" expanded="true" signature="-1:-1" placeholder="/**...*/" />
+            <marker date="1439911555544" expanded="true" signature="-1:-1" placeholder="/**...*/" />
+            <marker date="1439911555544" expanded="true" signature="-1:-1" placeholder="/**...*/" />
+            <marker date="1439911555544" expanded="true" signature="-1:-1" placeholder="/**...*/" />
+            <marker date="1439911555544" expanded="true" signature="-1:-1" placeholder="/**...*/" />
+            <marker date="1439911555544" expanded="true" signature="-1:-1" placeholder="/**...*/" />
+            <marker date="1439911555544" expanded="true" signature="-1:-1" placeholder="/**...*/" />
+            <marker date="1439911555544" expanded="true" signature="-1:-1" placeholder="/**...*/" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/util/ParamsUrl.as">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="48" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="48" />
-          <folding />
+          <caret line="33" column="13" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
+          <folding>
+            <element signature="e#58#87#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.mxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.461538">
-          <caret line="22" column="72" selection-start-line="22" selection-start-column="72" selection-end-line="22" selection-end-column="72" />
+        <state vertical-scroll-proportion="0.9050926">
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding>
-            <marker date="1437089105072" expanded="true" signature="416:482" placeholder="..." />
-            <marker date="1437089105072" expanded="true" signature="653:989" placeholder="{...}" />
-            <marker date="1437089105072" expanded="true" signature="1039:1149" placeholder="{...}" />
-            <marker date="1437089105072" expanded="true" signature="1207:1372" placeholder="{...}" />
-            <marker date="1437089105072" expanded="true" signature="1249:1304" placeholder="{...}" />
-            <marker date="1437089105072" expanded="true" signature="1310:1362" placeholder="{...}" />
+            <marker date="1440174833686" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1440174833686" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1440174833686" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1440174833686" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1440174833686" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1440174833686" expanded="true" signature="-1:-1" placeholder="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.as">
+    <entry file="file://$PROJECT_DIR$/new-flex-config.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.55458516">
-          <caret line="152" column="56" selection-start-line="152" selection-start-column="56" selection-end-line="152" selection-end-column="56" />
+        <state vertical-scroll-proportion="0.37171718">
+          <caret line="610" column="6" selection-start-line="610" selection-start-column="6" selection-end-line="610" selection-end-column="6" />
           <folding />
         </state>
       </provider>

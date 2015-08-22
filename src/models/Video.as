@@ -10,6 +10,7 @@ public class Video {
     private var _duration:Number;
     private var _actions:ArrayCollection;
     private var _formConfig:Object;
+    private var _campaign_type:String;
     public function Video() {
         _actions=new ArrayCollection();
     }
@@ -52,6 +53,14 @@ public class Video {
 
     public function set formConfig(value:Object):void {
         _formConfig = value;
+    }
+
+    public function get campaign_type():String {
+        return _campaign_type;
+    }
+
+    public function set campaign_type(value:String):void {
+        _campaign_type = value;
     }
 }
 }

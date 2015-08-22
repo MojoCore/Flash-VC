@@ -120,6 +120,15 @@
           <mx:HRule width="100%"></mx:HRule>
 
       </s:VGroup>
+      <s:VGroup width="100%">
+          <mx:Box id="containerBoxDisclaimer" borderColor="#666666" borderStyle="solid" borderAlpha="1" borderVisible="true"
+                  paddingRight="5" paddingLeft="5" paddingBottom="5" paddingTop="5" width="100%" visible="false">
+          <mx:Text id="DisclaimerBoxed" fontSize="10" color="#666666" width="100%" textAlign="center" >
+
+          </mx:Text>
+
+          </mx:Box>
+      </s:VGroup>
 
 </mx:Box>
 </mx:Box>

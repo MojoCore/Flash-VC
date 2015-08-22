@@ -21,9 +21,10 @@ import mx.collections.ArrayCollection;
 import mx.collections.ArrayCollection;
 
 import mx.containers.ViewStack;
+import mx.controls.Alert;
+import mx.controls.Text;
 import mx.validators.StringValidator;
 
-import myLib.controls.ScrollBar;
 
 import skins.SkinTextInput;
 
@@ -270,18 +271,28 @@ public class ConfigurationForm extends Sprite{
     }
     private function ConfigButton():void{
         if(_dataConfig.button){
+            var bgColor:String=_dataConfig.button.bgcolor;
+            //Alert.show(_dataConfig.button.bgcolor)
+            if(_dataConfig.button.bgcolor=="orange"){
+                bgColor='#ffa100';
+            }
+            if(_dataConfig.button.bgcolor=="blue"){
+                bgColor='#3da8ee';
+            }
+
             _titleButton=_dataConfig.button.text;
             _formResponsive.CheckOutButton.label=_dataConfig.button.text;
             _formDefault.CheckOutButton.label=_dataConfig.button.text;
 
-            _formResponsive.CheckOutButton.setStyle("color",_dataConfig.button.bgcolor);
+            _formResponsive.CheckOutButton.setStyle("color",bgColor);
             _formResponsive.CheckOutButton.setStyle("accentColor",_dataConfig.button.color);
 
-            _formDefault.CheckOutButton.setStyle("color",_dataConfig.button.bgcolor);
+            _formDefault.CheckOutButton.setStyle("color",bgColor);
             _formDefault.CheckOutButton.setStyle("accentColor",_dataConfig.button.color);
 
             var nameTab:String=''
-            if(_video.formConfig.campaign_type=='product'){
+
+            if(_video.campaign_type=="product"){
                 nameTab='CHECKOUT';
             }else{
                 nameTab='CONTRIBUTE';
@@ -305,7 +316,7 @@ public class ConfigurationForm extends Sprite{
 
         for (var id:String in _dataConfig.properties){
 
-            if(_dataConfig.properties[id].uitype==UITYPE_PROPERTY_TEXT){
+            if(_dataConfig.properties[id].uitype!=UITYPE_PROPERTY_TERM){
                 properties.addItem({key:id,order: _dataConfig.properties[id].priority});
                 total++;
             }
@@ -398,11 +409,18 @@ public class ConfigurationForm extends Sprite{
         JsonUtil.arrayCollectionSort(disclaimers,'order',true);
 
         if(_dataConfig.hasOwnProperty("disclaimers")){
-            key=disclaimers.getItemAt(index).key;
-            for(var index:int=0;index<total;index++) {
-                var text:String=_dataConfig.disclaimers[key].label[_language];
-                var disclaimer:Label=NewDisclaimer(text);
-                container.addElement(disclaimer);
+            for (var id:String in _dataConfig.disclaimers){
+                var text:String=_dataConfig.disclaimers[id].label[_language];
+                if(_dataConfig.disclaimers[id].boxed){
+                    _formResponsive.DisclaimerBoxed.htmlText=text;
+                    _formResponsive.containerBoxDisclaimer.visible=true;
+                }else{
+                    var disclaimer=NewDisclaimer(text);
+                    container.addElement(disclaimer);
+
+                }
+
+
         }
         }
     }
@@ -536,16 +554,17 @@ public class ConfigurationForm extends Sprite{
         ConfigValidation(id,name,textInput);
         return {groupItem:vGroup,textInput:textInput};
     }
-    private function NewDisclaimer(description:String):Label{
-        var disclaimer:Label=new Label();
+    private function NewDisclaimer(description:String):Text{
+        var disclaimer:Text=new Text();
         disclaimer.percentWidth=100;
         disclaimer.setStyle('fontSize','10');
         disclaimer.setStyle('paddingTop','5');
         disclaimer.setStyle('color','#666666');
         disclaimer.setStyle('textAlign','justify');
-        disclaimer.text=description;
+        disclaimer.htmlText=description;
         return disclaimer;
     }
+
     private function NewTerm(id:String,description:String):HGroup{
         var group:HGroup=new HGroup();
         var check:CheckBox=new CheckBox();

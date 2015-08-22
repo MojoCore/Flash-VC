@@ -6,8 +6,15 @@
                xmlns:custom="components.*" xmlns:mx="library://ns.adobe.com/flex/mx" applicationComplete="initAppComplete()">
 
     <fx:Script><![CDATA[
-
         import mx.binding.utils.ChangeWatcher;
+        import mx.controls.Alert;
+        import mx.controls.Alert;
+        import mx.core.Application;
+        import mx.core.FlexGlobals;
+        import mx.managers.BrowserManager;
+
+        import util.ParamsUrl;
+
         import util.swfSelfResize;
 
         private var widthWatch:ChangeWatcher;
@@ -21,12 +28,22 @@
             btnTabCart.ActiveTab();
             btnTabCart.subtitleLabel.text = '';
             formResponsiveScroller.viewport.verticalScrollPosition = 50;
-
         }
 
+
         private function initAppComplete():void {
+            var pathArray = url.split('/');
+            var protocol = pathArray[0];
+            var host = pathArray[2];
+            var newurl = protocol + '//' + host+'/';
+            //Alert.show(newurl)
+            ParamsUrl.SetLocalhost(newurl);
             app.Init();
+            //Alert.show(newurl);
             widthWatch = ChangeWatcher.watch(this, 'width', onSizeChange);
+
+
+
         }
 
         private function onSizeChange(event:Event):void {
@@ -36,7 +53,6 @@
                 app.ChangeDefault();
             }
         }
-
         ]]></fx:Script>
 <fx:Style source="styles/app.css"/>
 <mx:Box direction="vertical" width="100%" height="100%">

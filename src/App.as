@@ -80,7 +80,7 @@ public class App extends Sprite{
 
     function App(){
         trace("start app...");
-        RestService.SetConfigServer( ParamsUrl.GetLocalHost()+'api/v1/');
+
 
     }
     public function InitializeComponents(app:Object,width:int):void{
@@ -145,6 +145,7 @@ public class App extends Sprite{
     }
 
     private function LoadVideoJson():void{
+        RestService.SetConfigServer( ParamsUrl.GetLocalHost()+'api/v1/');
         var service:RestService = new RestService('videos');
         ParamsUrl.ReadParamsFromUrl(_app.loaderInfo.loaderURL);
         service.GetCustom(ParamsUrl.GetLocalHost()+'api/v2/',ParamsUrl.get('id'),function (e:Event):void {
@@ -164,7 +165,7 @@ public class App extends Sprite{
         _video=services.JsonUtil.ConvertToVideo(data);
         _app.inCaseYouMissedResponsive.list.dataProvider=_video.actions;
         _app.inCaseYouMissedDefault.list.dataProvider=_video.actions;
-        _videoPlayer.source = data.urls.originalUrl;
+        _videoPlayer.source = data.urls.mp4Url;
         _transitionCards = new TransitionCards(_app,_video,_card);
         _transitionCards.isResponsive=_isResponsive;
         SessionCreate();

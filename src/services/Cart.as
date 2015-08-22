@@ -83,10 +83,22 @@ public class Cart {
             params.cc_number= _cart.cc_number;
             params.createdAt= _cart.createAt;
             params.email= _cart.email;
+            params.customFields={};
 
             for (var id:String in _video.formConfig.properties){
                 //In this line add method for validate properties
-                params[id]=_cart.customProperties[id];
+                switch(id){
+                    case 'occupation':
+                    case 'employer':
+                    case 'corporation':
+                    case 'phonenumber':
+                        params[id]=_cart.customProperties[id];
+                        break;
+                    default:
+                        params.customFields[id]=_cart.customProperties[id];
+
+                }
+                //params[id]=_cart.customProperties[id];
             }
         }
         _service.Put(_cart.id,params,function(response:Event):void{
