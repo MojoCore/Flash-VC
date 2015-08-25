@@ -16,9 +16,9 @@
         </dependencies>
         <compiler-options>
           <map>
-            <entry key="compiler.debug.swf" value="false" />
+            <entry key="compiler.debug.swf" value="true" />
           </map>
-          <option name="additionalOptions" value="-load-config=${PROJECT_DIR}/new-flex-config.xml" />
+          <option name="additionalOptions" value="-load-config=${PROJECT_DIR}/new-flex-config.xml -static-link-runtime-shared-libraries=true" />
         </compiler-options>
         <packaging-air-desktop />
         <packaging-android />

@@ -490,9 +490,9 @@
    <raw-metadata>text</raw-metadata>
    -->
    <!-- remove-unused-rsls: remove RSLs that are not being used by the application-->
-   <!-- remove-unused-rsls usage:
-   <remove-unused-rsls>boolean</remove-unused-rsls>
-   -->
+   <!-- remove-unused-rsls usage:-->
+   <remove-unused-rsls>true</remove-unused-rsls>
+
    <!-- resource-bundle-list: prints a list of resource bundles to a file for input to the compc compiler to create a resource bundle SWC file. -->
    <!-- resource-bundle-list usage:
    <resource-bundle-list>filename</resource-bundle-list>

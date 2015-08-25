@@ -145,16 +145,19 @@ public class AnalyticEvent {
 
     }
 
-    public function WatchEventTime(eventTime:EventTime,time:Number):void{
+    public function WatchEventTime(eventTime:EventTime,time:Number):EventTime{
         var time_for_register:Number=0;
         if(!eventTime.executed){
+
             time_for_register=eventTime.percentage*_video.duration/100;
             if(time>time_for_register){
+
                 RegisterEventTime(eventTime.type,time);
                 eventTime.executed=true;
                 trace('avance:'+eventTime.percentage,time);
             }
         }
+        return eventTime;
     }
 
 }

@@ -11,12 +11,16 @@ import flash.events.Event;
 import flash.events.MouseEvent;
 
 import Interfaces.iCard;
+
+import flash.utils.setTimeout;
+
 import models.Card;
 import models.CartItem;
 import models.EventTime;
 import models.Video;
 
 import mx.collections.ArrayCollection;
+import mx.controls.Alert;
 import mx.controls.Label;
 import mx.events.CollectionEvent;
 import mx.events.CollectionEventKind;
@@ -72,6 +76,7 @@ public class TransitionCards {
     private var _analyticsEvent:AnalyticEvent;
     private var _isFinishedVideo:Boolean=false;
     private var _titleButton:String;
+    private var _previewStateVideo:String;
 
     public function TransitionCards(app:Object,video:Video,cardCmp:iCard) {
 
@@ -327,15 +332,15 @@ public class TransitionCards {
 
     }
     protected function VideoMediaPlayerStateChangeHandler(event:MediaPlayerStateChangeEvent):void {
-        if (event.state == MediaPlayerState.LOADING)
-            trace("loading ...");
-        if (event.state == MediaPlayerState.PLAYING){
+        if (event.state == MediaPlayerState.PLAYING&&_previewStateVideo!=MediaPlayerState.BUFFERING){
             _app.inCaseYouMissedDefault.visible=false;
             _app.inCaseYouMissedResponsive.visible=false;
             ResetTransitions();
             _visiblePanelActions=false;
             trace("playing ...");
             _analyticsEvent.RegisterEventTime(AnalyticEvent.VIDEO_PLAY,(event.target as VideoPlayer).currentTime);
+        }else{
+            _previewStateVideo=event.state;
         }
 
     }

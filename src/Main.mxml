@@ -76,7 +76,7 @@
 
         <s:HGroup gap="1" width="100%" paddingLeft="2" paddingRight="2">
             <custom:CustomTabCart iconFont="&#xe612;" id="btnTabCart" otherTabButton="{btnTabCheckout}" width="150" title="MY CART" subtitle="10" viewStack="{ViewStackContentResponsive}" activeTab="0"></custom:CustomTabCart>
-            <custom:CustomTabCheckout iconFont="&#xe611;" id="btnTabCheckout" otherTabButton="{btnTabCart}" width="100%" title="CHECKOUT" viewStack="{ViewStackContentResponsive}" activeTab="1"></custom:CustomTabCheckout>
+            <custom:CustomTabCheckout iconFont="&#xe611;" id="btnTabCheckout" otherTabButton="{btnTabCart}" width="100%" title="" viewStack="{ViewStackContentResponsive}" activeTab="1"></custom:CustomTabCheckout>
             <!--s:Button width="100%" height="100%" skinClass="skins.SkinTabTabHeader"></s:Button-->
         </s:HGroup>
 
@@ -113,7 +113,7 @@
     <custom:CardDefault id="card"
                  bottom="50"
                  left="20"
-                 width="200"
+
                  height="231"
                  textAlign="center"
                  visible="false"/>
