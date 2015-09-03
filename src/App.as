@@ -165,7 +165,12 @@ public class App extends Sprite{
         _video=services.JsonUtil.ConvertToVideo(data);
         _app.inCaseYouMissedResponsive.list.dataProvider=_video.actions;
         _app.inCaseYouMissedDefault.list.dataProvider=_video.actions;
-        _videoPlayer.source = data.urls.mp4Url;
+        if(data.hasOwnProperty("encodedFiles")){
+            _videoPlayer.source = data.baseUrl+_video.user+'/'+_video.id+'/'+data.encodedFiles.mp4Files[1];
+        }else{
+            _videoPlayer.source = data.urls.mp4Url;
+        }
+
         _transitionCards = new TransitionCards(_app,_video,_card);
         _transitionCards.isResponsive=_isResponsive;
         SessionCreate();

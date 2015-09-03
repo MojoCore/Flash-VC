@@ -11,6 +11,7 @@ public class Video {
     private var _actions:ArrayCollection;
     private var _formConfig:Object;
     private var _campaign_type:String;
+    private var _encodedFiles:Object;
     public function Video() {
         _actions=new ArrayCollection();
     }
@@ -61,6 +62,14 @@ public class Video {
 
     public function set campaign_type(value:String):void {
         _campaign_type = value;
+    }
+
+    public function get encodedFiles():Object {
+        return _encodedFiles;
+    }
+
+    public function set encodedFiles(value:Object):void {
+        _encodedFiles = value;
     }
 }
 }
