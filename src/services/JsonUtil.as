@@ -125,6 +125,7 @@ public class JsonUtil {
 
         }
         video.formConfig=json.formConfig||new Object();
+        video.encodedFiles=json.formConfig||new Object();
         video.campaign_type=json.campaign_type
         return video;
 
