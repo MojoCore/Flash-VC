@@ -15,19 +15,26 @@ public class ParamsUrl {
     public function ParamsUrl() {
     }
     public static function GetHost():String {
-        /*var browser:IBrowserManager = BrowserManager.getInstance();
-        browser.init();
-        var browserUrl:String = browser.url; // full url in the browser
-        return browserUrl;*/
-        if(Security.pageDomain=='https://attachment.fbsbx.com/')
-            return "https://www.facebook.com/"
-        return Security.pageDomain;
+        var host:String;
+        switch(Security.pageDomain){
+            case null:
+                host='http://localhost/';
+                break;
+            case 'https://attachment.fbsbx.com/':
+                host="https://www.facebook.com/" ;
+                break;
+            default:
+                host=Security.pageDomain;
+        }
+        return host;
     }
     public static function SetLocalhost(url):void{
-        _localhost=url;
+        if(url=="file:///")
+            _localhost="http://localhost:9000/";
+        else
+            _localhost=url;
     }
     public static function GetLocalHost():String {
-        //return 'https://app.videocheckout.com/';
         return _localhost;
     }
 
@@ -50,7 +57,7 @@ public class ParamsUrl {
         }else{
             obj = new Object();
             obj.key = 'id';
-            obj.value = '54bd58f887e5c10300888748';
+            obj.value = '559f196807e7c1553c9e123a';
             _params.addItem(obj);
         }
 

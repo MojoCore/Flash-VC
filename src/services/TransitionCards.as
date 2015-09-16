@@ -111,9 +111,17 @@ public class TransitionCards {
     }
     private function InitEventsTime():void{
         _eventsTime=new ArrayCollection();
+        _eventsTime.addItem(new EventTime(AnalyticEvent.VIDEO_PROGRESS,10));
+        _eventsTime.addItem(new EventTime(AnalyticEvent.VIDEO_PROGRESS,20));
         _eventsTime.addItem(new EventTime(AnalyticEvent.VIDEO_PROGRESS,25));
+        _eventsTime.addItem(new EventTime(AnalyticEvent.VIDEO_PROGRESS,30));
+        _eventsTime.addItem(new EventTime(AnalyticEvent.VIDEO_PROGRESS,40));
         _eventsTime.addItem(new EventTime(AnalyticEvent.VIDEO_PROGRESS,50));
+        _eventsTime.addItem(new EventTime(AnalyticEvent.VIDEO_PROGRESS,60));
+        _eventsTime.addItem(new EventTime(AnalyticEvent.VIDEO_PROGRESS,70));
         _eventsTime.addItem(new EventTime(AnalyticEvent.VIDEO_PROGRESS,75));
+        _eventsTime.addItem(new EventTime(AnalyticEvent.VIDEO_PROGRESS,80));
+        _eventsTime.addItem(new EventTime(AnalyticEvent.VIDEO_PROGRESS,90));
     }
     private function ConfigureCurrency():CurrencyFormatter{
         _currency=new CurrencyFormatter();
@@ -326,7 +334,7 @@ public class TransitionCards {
         _app.inCaseYouMissedDefault.visible=(true&&!_isResponsive);
         _app.inCaseYouMissedResponsive.visible=true&&_isResponsive;
         if(!_isFinishedVideo){
-            _analyticsEvent.RegisterEventTime(AnalyticEvent.VIDEO_ENDED,0);
+            _analyticsEvent.RegisterEventTime(AnalyticEvent.VIDEO_ENDED,0,100);
             _isFinishedVideo=true;
         }
 
@@ -338,7 +346,7 @@ public class TransitionCards {
             ResetTransitions();
             _visiblePanelActions=false;
             trace("playing ...");
-            _analyticsEvent.RegisterEventTime(AnalyticEvent.VIDEO_PLAY,(event.target as VideoPlayer).currentTime);
+            _analyticsEvent.RegisterEventTime(AnalyticEvent.VIDEO_PLAY,(event.target as VideoPlayer).currentTime,0);
         }else{
             _previewStateVideo=event.state;
         }

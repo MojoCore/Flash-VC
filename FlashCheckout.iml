@@ -2,7 +2,7 @@
 <module type="Flex" version="4">
   <component name="FlexBuildConfigurationManager" active="FlashCheckout">
     <configurations>
-      <configuration name="FlashCheckout" main-class="Main" output-file="Main.swf" output-folder="$MODULE_DIR$/out/production/FlashCheckout" use-html-wrapper="true" wrapper-template-path="$MODULE_DIR$/html-template">
+      <configuration name="FlashCheckout" main-class="Main" output-file="main.swf" output-folder="$MODULE_DIR$/out/production/FlashCheckout" use-html-wrapper="true" wrapper-template-path="$MODULE_DIR$/html-template">
         <dependencies target-player="11.1">
           <entries>
             <entry library-id="212defe4-1df5-48e7-a814-eb0326d049e1">
@@ -16,9 +16,8 @@
         </dependencies>
         <compiler-options>
           <map>
-            <entry key="compiler.debug.swf" value="true" />
+            <entry key="compiler.debug.swf" value="false" />
           </map>
-          <option name="additionalOptions" value="-load-config=${PROJECT_DIR}/new-flex-config.xml -static-link-runtime-shared-libraries=true" />
         </compiler-options>
         <packaging-air-desktop />
         <packaging-android />

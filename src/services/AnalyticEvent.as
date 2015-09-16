@@ -106,7 +106,7 @@ public class AnalyticEvent {
                 fnCompleted(data);
         });
     }
-    public function RegisterEventTime(type:String,time:Number,fnCompleted:Function=null):void{
+    public function RegisterEventTime(type:String,time:Number,percentage:Number,fnCompleted:Function=null):void{
         var params:Object=new Object();
         params.cid='c'+IncrementCountId();
         params.host=_host;
@@ -116,7 +116,7 @@ public class AnalyticEvent {
         params.user = _video.user;
         params.video=_video.id;
         if(type!=AnalyticEvent.VIDEO_ENDED)
-            params.videoProgress=time;
+            params.videoProgress=percentage;
         _service.Post(params,function(event:Event):void{
             var loader:URLLoader = URLLoader(event.target);
             var data:Object = JSON.parse(loader.data);
@@ -147,12 +147,13 @@ public class AnalyticEvent {
 
     public function WatchEventTime(eventTime:EventTime,time:Number):EventTime{
         var time_for_register:Number=0;
+        var real_percentage:Number=0;
         if(!eventTime.executed){
 
             time_for_register=eventTime.percentage*_video.duration/100;
             if(time>time_for_register){
-
-                RegisterEventTime(eventTime.type,time);
+                real_percentage = time*100/_video.duration;
+                RegisterEventTime(eventTime.type,time,real_percentage);
                 eventTime.executed=true;
                 trace('avance:'+eventTime.percentage,time);
             }

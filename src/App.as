@@ -166,7 +166,7 @@ public class App extends Sprite{
         _app.inCaseYouMissedResponsive.list.dataProvider=_video.actions;
         _app.inCaseYouMissedDefault.list.dataProvider=_video.actions;
         if(data.hasOwnProperty("encodedFiles")){
-            _videoPlayer.source = data.baseUrl+_video.user+'/'+_video.id+'/'+data.encodedFiles.mp4Files[1];
+            _videoPlayer.source = data.baseUrl+data.encodedFiles.mp4Files.medium;
         }else{
             _videoPlayer.source = data.urls.mp4Url;
         }
