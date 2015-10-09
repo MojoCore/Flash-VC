@@ -276,7 +276,10 @@ public class App extends Sprite{
     public function CheckoutHandler(event:MouseEvent):void {
         var cartItems:ArrayCollection=_cartBox.items.dataProvider as ArrayCollection;
         _transitionCards.serviceCart.Update(cartItems,true,function(){
-            CallOrder();
+            if(_configurationForm.validateForm()){
+                CallOrder();
+            }
+
         });
 
     }

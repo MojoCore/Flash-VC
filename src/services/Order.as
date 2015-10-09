@@ -62,7 +62,7 @@ public class Order{
         if(result.hasOwnProperty("errors")) {
             for (var i:int = 0; i < result.errors.length; i++) {
                 if (result.errors[i].hasOwnProperty("name")) {
-                    message += (result.errors[i].message as String).replace("{_FIELD_}", result.errors[i].name) + '\n';
+                    message += result.errors[i].name+": "+(result.errors[i].message as String) + '\n';
                 } else {
                     message += result.errors[i].message + "\n";
                 }

@@ -23,7 +23,9 @@ import mx.collections.ArrayCollection;
 import mx.containers.ViewStack;
 import mx.controls.Alert;
 import mx.controls.Text;
+import mx.events.ValidationResultEvent;
 import mx.validators.StringValidator;
+import mx.validators.Validator;
 
 
 import skins.SkinTextInput;
@@ -66,6 +68,7 @@ public class ConfigurationForm extends Sprite{
     private var _titleButton:String;
     private var _video:models.Video;
     private var _language:String="en"
+    private var _validatorArr:Array;
     public function ConfigurationForm(app:Object,video:Video,cart:models.Cart,formDefault:CheckoutDefaultBox=null,formResponsive:CheckoutResponsiveBox=null) {
         _app=app;
         _video=video;
@@ -82,6 +85,7 @@ public class ConfigurationForm extends Sprite{
         InitYears();
         InitStates();
         InitMonths();
+        _validatorArr=new Array();
 
     }
     private function InitYears():void{
@@ -242,6 +246,26 @@ public class ConfigurationForm extends Sprite{
     public function Configure(fn:Function=null):void{
         LoadConfiguration(fn);
     }
+    private function AddStaticInputValidation():void{
+        _dataConfig.required.push("cc_number");
+        _dataConfig.required.push("cc_cvv");
+        _dataConfig.required.push("cc_expiry");
+        _dataConfig.required.push("cc_name");
+        _dataConfig.required.push("cc_email");
+        _dataConfig.required.push("cc_address");
+        _dataConfig.required.push("cc_city");
+        _dataConfig.required.push("cc_state");
+        _dataConfig.required.push("cc_zip");
+        ConfigValidation("cc_number","Card Number",_formResponsive.cardnumberInput);
+        ConfigValidation("cc_cvv","CVV",_formResponsive.cvvInput);
+        ConfigValidation("cc_expiry","MM/YY",_formResponsive.expiryInput.expiryInput);
+        ConfigValidation("cc_name","Name",_formResponsive.nameInput);
+        ConfigValidation("cc_email","Email",_formResponsive.emailInput);
+        ConfigValidation("cc_address","Address",_formResponsive.addressInput);
+        ConfigValidation("cc_city","City",_formResponsive.cityInput);
+        ConfigValidation("cc_state","State",_formResponsive.stateInput.textInput);
+        ConfigValidation("cc_zip","ZIP",_formResponsive.zipInput);
+    }
     public function LoadConfiguration(fn:Function=null){
         _formResponsive.stateInput.dataProvider=_states;
         _formDefault.stateInput.dataProvider=_states;
@@ -250,9 +274,12 @@ public class ConfigurationForm extends Sprite{
         _service.Get(_user+'?getSettings=1',function(event:Event):void{
             var loader:URLLoader=URLLoader(event.target);
             _dataConfig=JSON.parse(loader.data);
+
             //ConfigureForm();
             initNewDataConfig();
+            AddStaticInputValidation();
             NewConfigureForm();
+
             if(fn!=null){
                 fn();
             }
@@ -464,9 +491,25 @@ public class ConfigurationForm extends Sprite{
             }
 
         }
+        _validatorArr.push(validator);
         JsonUtil.arrayCollectionSort(disclaimers,'order',true);
     }
 
+    public function validateForm():Boolean {
+        var validatorErrorArray:Array = Validator.validateAll(_validatorArr);;
+        var isValidForm:Boolean = validatorErrorArray.length == 0;
+        if (isValidForm) {
+            return true;
+        } else {
+            var err:ValidationResultEvent;
+            var errorMessageArray:Array = [];
+            for each (err in validatorErrorArray) {
+                errorMessageArray.push(err.message);
+            }
+            Alert.show(errorMessageArray.join("\n"), "Invalid form...", Alert.OK);
+        }
+        return false;
+    }
     private function activeCheckBoxHandler(event:MouseEvent):void {
         _formResponsive.CheckOutButton.enabled= (event.currentTarget as CheckBox).selected
     }
